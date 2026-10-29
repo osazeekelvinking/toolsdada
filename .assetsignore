@@ -1,0 +1,15 @@
+node_modules/**
+.git/**
+.github/**
+cms/**
+content/**
+EbookBuddy/**
+*.log
+package.json
+package-lock.json
+bun.lock*
+wrangler.json*
+.assetsignore
+.wranglerignore
+.gitignore
+README.md
