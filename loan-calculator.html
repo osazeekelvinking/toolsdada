@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan & Mortgage Calculator with Amortization Schedule | ToolsBuddy</title>
+  <meta name="description" content="Calculate monthly loan and mortgage payments (EMI), total interest, and payoff schedules with extra payments. Includes a complete interactive amortization schedule.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/loan-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/loan-calculator.html">
+  <meta property="og:title" content="Loan & Mortgage Calculator | ToolsBuddy">
+  <meta property="og:description" content="Free instant mortgage and loan calculator with interactive amortization schedule table.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Loan & Mortgage Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Calculate EMI, interest savings from extra monthly payments, and amortization breakdown.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Loan & Mortgage Calculator",
+        "url": "https://toolsbuddy.pages.dev/loan-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Comprehensive loan and mortgage calculator with fixed-rate amortization schedule, total interest breakdown, and extra payment savings analysis.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How is a monthly mortgage payment (EMI) calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Monthly EMI is calculated using the formula: M = P * [r(1 + r)^n] / [(1 + r)^n - 1], where P is principal loan amount, r is monthly interest rate, and n is the total number of monthly payments."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do extra monthly payments affect my mortgage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Any extra monthly payment goes directly toward reducing the principal balance. This reduces the compounding interest in subsequent periods, potentially cutting years off your repayment term and saving tens of thousands in interest."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is an amortization schedule?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An amortization schedule is an itemized breakdown of every payment throughout the loan's duration, displaying the exact portion dedicated to interest versus principal, and the ending principal balance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are property taxes and home insurance included?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This calculator computes the core Principal & Interest (P&I) component of your loan. Escrow costs like local property taxes and homeowners insurance vary significantly by geographic municipality."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">Tools</a>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="index.html#calculators">Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Loan & Mortgage Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        Finance
+      </span>
+      <h1 class="tb-tool-title">Loan & Mortgage Calculator</h1>
+      <p class="tb-tool-desc">
+        Determine your monthly payments, compare the impact of extra monthly contributions, and inspect your full amortization repayment schedule.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="2001001001"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+        <div class="tb-grid-2">
+          <!-- Inputs Form -->
+          <form class="tb-grid-form" id="loan-form" onsubmit="event.preventDefault();">
+            <div class="tb-field">
+              <label for="loan-amount" class="tb-label">
+                <span>Loan / Principal Amount</span>
+                <span class="tb-label-hint">Currency ($)</span>
+              </label>
+              <div class="tb-input-group">
+                <span class="tb-input-prefix">$</span>
+                <input type="number" id="loan-amount" class="tb-input" min="100" step="100" value="250000" required>
+              </div>
+            </div>
+
+            <div class="tb-field">
+              <label for="interest-rate" class="tb-label">
+                <span>Annual Interest Rate</span>
+                <span class="tb-label-hint">Fixed APR</span>
+              </label>
+              <div class="tb-input-group">
+                <input type="number" id="interest-rate" class="tb-input" min="0.01" max="50" step="0.05" value="6.5" required>
+                <span class="tb-input-suffix">%</span>
+              </div>
+            </div>
+
+            <div class="tb-grid-form cols-2">
+              <div class="tb-field">
+                <label for="loan-term" class="tb-label">Loan Term</label>
+                <input type="number" id="loan-term" class="tb-input" min="1" max="50" value="30" required>
+              </div>
+              <div class="tb-field">
+                <label for="term-unit" class="tb-label">Term Unit</label>
+                <select id="term-unit" class="tb-select">
+                  <option value="years" selected>Years</option>
+                  <option value="months">Months</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="tb-field">
+              <label for="extra-payment" class="tb-label">
+                <span>Extra Monthly Payment</span>
+                <span class="tb-label-hint">Optional</span>
+              </label>
+              <div class="tb-input-group">
+                <span class="tb-input-prefix">$</span>
+                <input type="number" id="extra-payment" class="tb-input" min="0" step="10" value="0">
+              </div>
+            </div>
+
+            <div class="tb-btn-group">
+              <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate-loan">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                Calculate Loan
+              </button>
+              <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset-loan">Reset Defaults</button>
+            </div>
+          </form>
+
+          <!-- Result Overview Card -->
+          <div class="tb-results-card">
+            <div class="tb-result-highlight">
+              <div class="tb-result-label">Estimated Monthly Payment (EMI)</div>
+              <div class="tb-result-value" id="res-monthly-payment">$1,580.17</div>
+              <div class="tb-result-subtext" id="res-extra-subtext">Principal & Interest only</div>
+            </div>
+
+            <div class="tb-stats-grid cols-2">
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-total-interest">$318,861</div>
+                <div class="tb-stat-lbl">Total Interest Paid</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-total-cost">$568,861</div>
+                <div class="tb-stat-lbl">Total Payments Amount</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-payoff-time">30 Years</div>
+                <div class="tb-stat-lbl">Payoff Duration</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-interest-saved">$0</div>
+                <div class="tb-stat-lbl">Interest Saved</div>
+              </div>
+            </div>
+
+            <div class="tb-btn-group">
+              <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Payment Summary
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amortization Schedule Table -->
+        <div style="margin-top: 2.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 700;">Amortization Schedule</h3>
+            <div class="tb-unit-toggle">
+              <button type="button" class="tb-unit-btn active" id="btn-view-yearly">Yearly Breakdown</button>
+              <button type="button" class="tb-unit-btn" id="btn-view-monthly">Monthly Breakdown</button>
+            </div>
+          </div>
+
+          <div class="tb-table-wrapper">
+            <table class="tb-table" id="amortization-table">
+              <thead>
+                <tr>
+                  <th>Period</th>
+                  <th>Payment</th>
+                  <th>Principal</th>
+                  <th>Interest</th>
+                  <th>Ending Balance</th>
+                </tr>
+              </thead>
+              <tbody id="amortization-tbody">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Unit: ad-result -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="2001001002"
+           data-ad-format="rectangle,horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- SEO Comprehensive Guide & FAQ -->
+    <article class="tb-seo-article">
+      <h2>How Fixed-Rate Mortgages and Amortization Work</h2>
+      <p>
+        Securing a mortgage or installment loan is one of the most substantial financial commitments an individual or family will make. 
+        A fixed-rate amortization loan is designed so that your monthly payment remains constant across the entire lifetime of the debt. 
+        However, the underlying composition of that payment changes drastically with every billing cycle.
+      </p>
+
+      <h3>Understanding the Standard EMI Formula</h3>
+      <p>
+        Lenders calculate your fixed monthly payment using the standard Equated Monthly Installment (EMI) formula:
+      </p>
+      <div class="tb-formula-box">
+        M = P &times; [ r(1 + r)<sup>n</sup> ] &divide; [ (1 + r)<sup>n</sup> - 1 ]
+      </div>
+      <p>
+        Where <strong>M</strong> is the monthly payment, <strong>P</strong> is the principal loan amount, 
+        <strong>r</strong> is the monthly interest rate (annual APR divided by 12 and 100), and <strong>n</strong> is the total number of monthly payments.
+      </p>
+
+      <h3>The Phenomenon of Early-Year Interest</h3>
+      <p>
+        During the early stages of a 30-year mortgage, the majority of every dollar you remit pays off interest rather than reducing the balance. 
+        Because interest is calculated against the remaining principal balance, a large initial debt incurs high monthly financing fees. 
+        As the principal steadily decreases, the interest burden declines, and an increasing portion of your payment goes towards equity building.
+      </p>
+
+      <div class="tb-example-card">
+        <div class="tb-example-title">The Power of Extra Monthly Payments</div>
+        <p>
+          On a $250,000 loan at 6.5% interest over 30 years, contributing just <strong>$150 extra each month</strong> 
+          saves approximately <strong>$64,000 in interest</strong> and retires the debt more than <strong>5.5 years early</strong>.
+        </p>
+      </div>
+
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="tb-faq-list">
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>What is the difference between a 15-year and 30-year loan?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            A 15-year term features higher monthly payments because principal is amortized in half the time, but charges substantially less total interest over the life of the loan. A 30-year term offers lower, more manageable monthly cash flow at the expense of higher cumulative interest.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Can I pay off my mortgage early without penalties?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Most modern conforming residential mortgages do not feature prepayment penalties. However, you should always check your specific loan disclosure statement or contact your loan servicer before making lump-sum prepayments.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>How does this calculator account for leap years?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Standard residential mortgages calculate interest on an exact 12-month equal periodic convention (annual interest divided by 12) regardless of individual calendar month lengths or leap days.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Is my private financial information stored anywhere?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            No. All math is performed exclusively in your browser session. ToolsBuddy never transmits, logs, or tracks your financial figures.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="2001001003"
+           data-ad-format="autorelaxed"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputAmount = document.getElementById('loan-amount');
+      const inputRate = document.getElementById('interest-rate');
+      const inputTerm = document.getElementById('loan-term');
+      const selectTermUnit = document.getElementById('term-unit');
+      const inputExtra = document.getElementById('extra-payment');
+
+      const btnCalculate = document.getElementById('btn-calculate-loan');
+      const btnReset = document.getElementById('btn-reset-loan');
+      const btnCopy = document.getElementById('btn-copy-summary');
+
+      const resMonthly = document.getElementById('res-monthly-payment');
+      const resExtraSubtext = document.getElementById('res-extra-subtext');
+      const resTotalInterest = document.getElementById('res-total-interest');
+      const resTotalCost = document.getElementById('res-total-cost');
+      const resPayoffTime = document.getElementById('res-payoff-time');
+      const resInterestSaved = document.getElementById('res-interest-saved');
+
+      const btnViewYearly = document.getElementById('btn-view-yearly');
+      const btnViewMonthly = document.getElementById('btn-view-monthly');
+      const amortizationTbody = document.getElementById('amortization-tbody');
+
+      let currentSchedule = [];
+      let viewMode = 'yearly';
+
+      function formatMoney(num) {
+        return '$' + Math.round(num).toLocaleString('en-US');
+      }
+
+      function formatMoneyCents(num) {
+        return '$' + num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function calculateLoan(triggerAd = false) {
+        const principal = parseFloat(inputAmount.value) || 0;
+        const annualRate = parseFloat(inputRate.value) || 0;
+        let termValue = parseInt(inputTerm.value, 10) || 1;
+        const termUnit = selectTermUnit.value;
+        const extraPayment = parseFloat(inputExtra.value) || 0;
+
+        if (principal <= 0 || annualRate <= 0 || termValue <= 0) return;
+
+        const totalMonths = termUnit === 'years' ? termValue * 12 : termValue;
+        const monthlyRate = (annualRate / 100) / 12;
+
+        // Base EMI without extra payment
+        const baseEMI = (principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) /
+                        (Math.pow(1 + monthlyRate, totalMonths) - 1);
+
+        // Amortization tracking with extra payment
+        let balance = principal;
+        let totalInterestPaid = 0;
+        let actualMonths = 0;
+        currentSchedule = [];
+
+        for (let m = 1; m <= totalMonths && balance > 0; m++) {
+          const interestMonth = balance * monthlyRate;
+          let principalMonth = baseEMI - interestMonth + extraPayment;
+
+          if (principalMonth >= balance) {
+            principalMonth = balance;
+            balance = 0;
+          } else {
+            balance -= principalMonth;
+          }
+
+          totalInterestPaid += interestMonth;
+          actualMonths = m;
+
+          currentSchedule.push({
+            month: m,
+            payment: principalMonth + interestMonth,
+            principal: principalMonth,
+            interest: interestMonth,
+            balance: balance
+          });
+        }
+
+        // Standard interest without extra payment
+        const standardTotalPayment = baseEMI * totalMonths;
+        const standardTotalInterest = standardTotalPayment - principal;
+        const interestSaved = Math.max(0, standardTotalInterest - totalInterestPaid);
+
+        // Update UI
+        const effectiveMonthly = baseEMI + extraPayment;
+        resMonthly.textContent = formatMoneyCents(effectiveMonthly);
+        resExtraSubtext.textContent = extraPayment > 0
+          ? `Includes ${formatMoneyCents(baseEMI)} base EMI + ${formatMoneyCents(extraPayment)} extra`
+          : 'Principal & Interest only';
+
+        resTotalInterest.textContent = formatMoney(totalInterestPaid);
+        resTotalCost.textContent = formatMoney(principal + totalInterestPaid);
+
+        const yearsTaken = Math.floor(actualMonths / 12);
+        const remMonths = actualMonths % 12;
+        let timeStr = '';
+        if (yearsTaken > 0) timeStr += `${yearsTaken} yr${yearsTaken > 1 ? 's' : ''} `;
+        if (remMonths > 0) timeStr += `${remMonths} mo${remMonths > 1 ? 's' : ''}`;
+        resPayoffTime.textContent = timeStr.trim() || `${actualMonths} Months`;
+
+        resInterestSaved.textContent = formatMoney(interestSaved);
+
+        renderScheduleTable();
+
+        if (triggerAd && window.refreshAds) {
+          window.refreshAds('calculate_loan');
+        }
+      }
+
+      function renderScheduleTable() {
+        amortizationTbody.innerHTML = '';
+        if (!currentSchedule.length) return;
+
+        if (viewMode === 'monthly') {
+          currentSchedule.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>Month ${row.month}</td>
+              <td>${formatMoneyCents(row.payment)}</td>
+              <td>${formatMoneyCents(row.principal)}</td>
+              <td>${formatMoneyCents(row.interest)}</td>
+              <td>${formatMoneyCents(row.balance)}</td>
+            `;
+            amortizationTbody.appendChild(tr);
+          });
+        } else {
+          // Group by year
+          const years = {};
+          currentSchedule.forEach(row => {
+            const y = Math.ceil(row.month / 12);
+            if (!years[y]) {
+              years[y] = { year: y, payment: 0, principal: 0, interest: 0, balance: 0 };
+            }
+            years[y].payment += row.payment;
+            years[y].principal += row.principal;
+            years[y].interest += row.interest;
+            years[y].balance = row.balance;
+          });
+
+          Object.values(years).forEach(yRow => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td><strong>Year ${yRow.year}</strong></td>
+              <td>${formatMoney(yRow.payment)}</td>
+              <td>${formatMoney(yRow.principal)}</td>
+              <td>${formatMoney(yRow.interest)}</td>
+              <td>${formatMoney(yRow.balance)}</td>
+            `;
+            amortizationTbody.appendChild(tr);
+          });
+        }
+      }
+
+      btnViewYearly.addEventListener('click', () => {
+        viewMode = 'yearly';
+        btnViewYearly.classList.add('active');
+        btnViewMonthly.classList.remove('active');
+        renderScheduleTable();
+      });
+
+      btnViewMonthly.addEventListener('click', () => {
+        viewMode = 'monthly';
+        btnViewMonthly.classList.add('active');
+        btnViewYearly.classList.remove('active');
+        renderScheduleTable();
+      });
+
+      btnCalculate.addEventListener('click', () => calculateLoan(true));
+      [inputAmount, inputRate, inputTerm, selectTermUnit, inputExtra].forEach(el => {
+        el.addEventListener('input', () => calculateLoan(false));
+      });
+
+      btnReset.addEventListener('click', () => {
+        inputAmount.value = '250000';
+        inputRate.value = '6.5';
+        inputTerm.value = '30';
+        selectTermUnit.value = 'years';
+        inputExtra.value = '0';
+        calculateLoan(false);
+      });
+
+      btnCopy.addEventListener('click', () => {
+        const text = `Loan Summary:
+Amount: $${inputAmount.value}
+Rate: ${inputRate.value}%
+Monthly Payment: ${resMonthly.textContent}
+Total Interest: ${resTotalInterest.textContent}
+Total Cost: ${resTotalCost.textContent}
+Payoff Time: ${resPayoffTime.textContent}
+Calculated on ToolsBuddy (https://toolsbuddy.pages.dev/loan-calculator.html)`;
+        window.copyToClipboard(text, 'Loan summary copied!');
+      });
+
+      // Initial calculation
+      calculateLoan(false);
+    });
+  </script>
+</body>
+</html>

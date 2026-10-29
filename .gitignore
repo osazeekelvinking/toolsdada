@@ -1,0 +1,19 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment / Logs
+*.log
+.env
+.env.local
+
+# Editor directories
+.vscode/
+.idea/

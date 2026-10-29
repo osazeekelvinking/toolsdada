@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3-in-1 Percentage Calculator — Free, Instant & Accurate | ToolsBuddy</title>
+  <meta name="description" content="Calculate percentages instantly with our free 3-in-1 percentage calculator. Calculate X% of Y, what percent X is of Y, and percentage increase or decrease with visual formulas.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/percentage-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/percentage-calculator.html">
+  <meta property="og:title" content="3-in-1 Percentage Calculator | ToolsBuddy">
+  <meta property="og:description" content="Calculate percentages, discounts, tips, and percentage changes instantly with real-time formulas.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="3-in-1 Percentage Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Fast, 100% free client-side percentage calculator. Live results, zero registration.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "3-in-1 Percentage Calculator",
+        "url": "https://toolsbuddy.pages.dev/percentage-calculator.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Comprehensive percentage calculator providing percentage of values, proportion comparisons, and percentage increase or decrease calculation.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do you calculate X percent of Y?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To find X percent of Y, multiply Y by X and divide the result by 100. For example, to find 20% of 150: (20 * 150) / 100 = 30."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you find what percentage X is of Y?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Divide X by Y, then multiply the resulting quotient by 100. For example, if X is 25 and Y is 200: (25 / 200) * 100 = 12.5%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is percentage increase or decrease calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Subtract the initial value from the new value, divide that difference by the original value, and multiply by 100: ((New - Old) / Old) * 100."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are calculations performed on a server or stored?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All calculations run completely within your web browser using vanilla JavaScript. No data is sent to external servers or stored without your consent."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">Tools</a>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Tool Page Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="index.html#calculators">Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Percentage Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="5" x2="5" y2="19"></line>
+          <circle cx="6.5" cy="6.5" r="2.5"></circle>
+          <circle cx="17.5" cy="17.5" r="2.5"></circle>
+        </svg>
+        Calculator
+      </span>
+      <h1 class="tb-tool-title">3-in-1 Percentage Calculator</h1>
+      <p class="tb-tool-desc">
+        Effortlessly calculate common percentages, find what percent one number is of another, or determine percentage increase and decrease with real-time visual formulas.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="1001001001"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Tool Workspace -->
+    <div class="tb-workspace">
+      <!-- Tabs -->
+      <div class="tb-tabs" role="tablist">
+        <button class="tb-tab-btn active" role="tab" aria-selected="true" data-tab="tab1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+          What is X% of Y?
+        </button>
+        <button class="tb-tab-btn" role="tab" aria-selected="false" data-tab="tab2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          X is what % of Y?
+        </button>
+        <button class="tb-tab-btn" role="tab" aria-selected="false" data-tab="tab3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          Percentage Change (% &Delta;)
+        </button>
+      </div>
+
+      <div class="tb-workspace-inner">
+        <!-- Tab 1: What is X% of Y? -->
+        <div class="tb-tab-panel active" id="tab1">
+          <div class="tb-grid-2">
+            <div class="tb-grid-form">
+              <div class="tb-field">
+                <label for="t1-percent" class="tb-label">Percentage (X)</label>
+                <div class="tb-input-group">
+                  <input type="number" step="any" id="t1-percent" class="tb-input" placeholder="e.g. 15" value="15">
+                  <span class="tb-input-suffix">%</span>
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="t1-value" class="tb-label">Of Total Value (Y)</label>
+                <div class="tb-input-group">
+                  <input type="number" step="any" id="t1-value" class="tb-input" placeholder="e.g. 200" value="200">
+                </div>
+              </div>
+              <div class="tb-btn-group">
+                <button type="button" class="tb-btn tb-btn-primary" id="btn-calc-t1">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Calculate
+                </button>
+                <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset-t1">Clear</button>
+              </div>
+            </div>
+
+            <!-- Result Box -->
+            <div class="tb-results-card">
+              <div class="tb-result-highlight">
+                <div class="tb-result-label">Result</div>
+                <div class="tb-result-value" id="t1-result">30</div>
+                <div class="tb-result-subtext" id="t1-subtext">15% of 200 is 30</div>
+              </div>
+              <div class="tb-formula-box" id="t1-formula">
+                Formula: (15 &times; 200) &divide; 100 = 30
+              </div>
+              <button type="button" class="tb-btn tb-btn-outline" id="btn-copy-t1">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Result
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: X is what % of Y? -->
+        <div class="tb-tab-panel" id="tab2">
+          <div class="tb-grid-2">
+            <div class="tb-grid-form">
+              <div class="tb-field">
+                <label for="t2-part" class="tb-label">Part Value (X)</label>
+                <input type="number" step="any" id="t2-part" class="tb-input" placeholder="e.g. 45" value="45">
+              </div>
+              <div class="tb-field">
+                <label for="t2-whole" class="tb-label">Whole Value (Y)</label>
+                <input type="number" step="any" id="t2-whole" class="tb-input" placeholder="e.g. 180" value="180">
+              </div>
+              <div class="tb-btn-group">
+                <button type="button" class="tb-btn tb-btn-primary" id="btn-calc-t2">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Calculate
+                </button>
+                <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset-t2">Clear</button>
+              </div>
+            </div>
+
+            <!-- Result Box -->
+            <div class="tb-results-card">
+              <div class="tb-result-highlight">
+                <div class="tb-result-label">Percentage Proportion</div>
+                <div class="tb-result-value" id="t2-result">25%</div>
+                <div class="tb-result-subtext" id="t2-subtext">45 is 25% of 180</div>
+              </div>
+              <div class="tb-formula-box" id="t2-formula">
+                Formula: (45 &divide; 180) &times; 100 = 25%
+              </div>
+              <button type="button" class="tb-btn tb-btn-outline" id="btn-copy-t2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Percentage
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Percentage Increase / Decrease -->
+        <div class="tb-tab-panel" id="tab3">
+          <div class="tb-grid-2">
+            <div class="tb-grid-form">
+              <div class="tb-field">
+                <label for="t3-initial" class="tb-label">Initial / Old Value (X)</label>
+                <input type="number" step="any" id="t3-initial" class="tb-input" placeholder="e.g. 80" value="80">
+              </div>
+              <div class="tb-field">
+                <label for="t3-final" class="tb-label">Final / New Value (Y)</label>
+                <input type="number" step="any" id="t3-final" class="tb-input" placeholder="e.g. 120" value="120">
+              </div>
+              <div class="tb-btn-group">
+                <button type="button" class="tb-btn tb-btn-primary" id="btn-calc-t3">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Calculate Change
+                </button>
+                <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset-t3">Clear</button>
+              </div>
+            </div>
+
+            <!-- Result Box -->
+            <div class="tb-results-card">
+              <div class="tb-result-highlight">
+                <div class="tb-result-label">Percentage Change</div>
+                <div class="tb-result-value" id="t3-result">+50%</div>
+                <div class="tb-result-subtext" id="t3-subtext">Increase of 40 (+50.00%)</div>
+              </div>
+              <div class="tb-formula-box" id="t3-formula">
+                Formula: ((120 - 80) &divide; 80) &times; 100 = +50.00%
+              </div>
+              <button type="button" class="tb-btn tb-btn-outline" id="btn-copy-t3">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Change
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Unit: ad-result -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="1001001002"
+           data-ad-format="rectangle,horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- SEO Comprehensive Guide & FAQ -->
+    <article class="tb-seo-article">
+      <h2>Understanding Percentage Calculations & Practical Applications</h2>
+      <p>
+        Percentages are an indispensable tool in finance, retail, statistics, science, and everyday decision-making. 
+        Whether you are determining a holiday sale discount, evaluating sales tax, calculating restaurant tips, or analyzing corporate revenue growth, 
+        having an accurate, rapid calculation utility ensures you avoid costly mental math mistakes.
+      </p>
+
+      <h3>1. What is X% of Y?</h3>
+      <p>
+        This fundamental operation reveals the fractional portion represented by a given percentage. 
+        To calculate it, multiply your target base number (Y) by the percentage rate (X), and divide by 100:
+      </p>
+      <div class="tb-formula-box">Value = (Percentage &times; Total) &divide; 100</div>
+      <div class="tb-example-card">
+        <div class="tb-example-title">Real-World Example (Retail Discount):</div>
+        <p>A winter coat priced at $160 is marked down by 25%. What is the discount amount?</p>
+        <p>Calculation: (25 &times; 160) &divide; 100 = <strong>$40 discount</strong>. The final price is $120.</p>
+      </div>
+
+      <h3>2. X is What Percentage of Y?</h3>
+      <p>
+        When you have an observed quantity and want to understand what share it occupies of the entire total, you calculate proportion percentage. 
+        Simply divide the observed part (X) by the whole (Y) and multiply by 100:
+      </p>
+      <div class="tb-formula-box">Percentage (%) = (Part &divide; Whole) &times; 100</div>
+      <div class="tb-example-card">
+        <div class="tb-example-title">Real-World Example (Exam Score):</div>
+        <p>A student scores 76 points on an 80-point examination. What is the grade percentage?</p>
+        <p>Calculation: (76 &divide; 80) &times; 100 = <strong>95%</strong>.</p>
+      </div>
+
+      <h3>3. Percentage Increase and Decrease (&Delta;%)</h3>
+      <p>
+        Percentage change measures relative growth or reduction compared to a baseline. 
+        Subtract the initial baseline value from the updated value, divide the difference by the initial value, and multiply by 100. 
+        A positive result denotes growth, while a negative sign signifies a reduction.
+      </p>
+      <div class="tb-formula-box">Percentage Change (%) = ((New Value - Old Value) &divide; Old Value) &times; 100</div>
+
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="tb-faq-list">
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>How do you calculate a restaurant tip quickly?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            To tip 20%, move the decimal point of your pre-tax bill one space to the left to find 10%, then double that number. For a $65 bill: 10% is $6.50, and doubling it yields a $13.00 tip.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Can a percentage increase exceed 100%?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes. When a quantity more than doubles, its percentage increase exceeds 100%. For example, rising from 50 to 150 is an increase of 100, which equals a 200% increase ((150 - 50) / 50 * 100 = 200%).
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>What happens if the original value is zero in percentage change?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Mathematically, division by zero is undefined. If an initial value starts at 0, calculating a percentage change is not mathematically possible; it is best expressed as absolute growth.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Does this percentage calculator require sign-in or save my numbers?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            No. ToolsBuddy is 100% private and runs entirely on client-side JavaScript. No account creation is required and none of your inputs or financial numbers are sent to any remote server.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="1001001003"
+           data-ad-format="autorelaxed"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tab switching
+      const tabBtns = document.querySelectorAll('.tb-tab-btn');
+      const tabPanels = document.querySelectorAll('.tb-tab-panel');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          tabPanels.forEach(p => p.classList.remove('active'));
+
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          const targetId = btn.getAttribute('data-tab');
+          const targetPanel = document.getElementById(targetId);
+          if (targetPanel) targetPanel.classList.add('active');
+
+          if (window.refreshAds) window.refreshAds('tab_switch');
+        });
+      });
+
+      // Tab 1 logic: What is X% of Y?
+      const t1Percent = document.getElementById('t1-percent');
+      const t1Value = document.getElementById('t1-value');
+      const t1Result = document.getElementById('t1-result');
+      const t1Subtext = document.getElementById('t1-subtext');
+      const t1Formula = document.getElementById('t1-formula');
+      const btnCalcT1 = document.getElementById('btn-calc-t1');
+      const btnResetT1 = document.getElementById('btn-reset-t1');
+      const btnCopyT1 = document.getElementById('btn-copy-t1');
+
+      function calcT1(shouldRefreshAd = false) {
+        const x = parseFloat(t1Percent.value);
+        const y = parseFloat(t1Value.value);
+
+        if (isNaN(x) || isNaN(y)) {
+          t1Result.textContent = '--';
+          t1Subtext.textContent = 'Please enter valid numbers';
+          return;
+        }
+
+        const res = (x * y) / 100;
+        const formatted = Number.isInteger(res) ? res.toString() : res.toFixed(4).replace(/\.?0+$/, '');
+        t1Result.textContent = formatted;
+        t1Subtext.textContent = `${x}% of ${y} is ${formatted}`;
+        t1Formula.innerHTML = `Formula: (${x} &times; ${y}) &divide; 100 = <strong>${formatted}</strong>`;
+
+        if (shouldRefreshAd && window.refreshAds) {
+          window.refreshAds('calculate_percentage');
+        }
+      }
+
+      t1Percent.addEventListener('input', () => calcT1(false));
+      t1Value.addEventListener('input', () => calcT1(false));
+      btnCalcT1.addEventListener('click', () => calcT1(true));
+      btnResetT1.addEventListener('click', () => {
+        t1Percent.value = '';
+        t1Value.value = '';
+        t1Result.textContent = '--';
+        t1Subtext.textContent = 'Enter values above';
+      });
+      btnCopyT1.addEventListener('click', () => {
+        window.copyToClipboard(t1Result.textContent, 'Percentage result copied!');
+      });
+
+      // Tab 2 logic: X is what % of Y?
+      const t2Part = document.getElementById('t2-part');
+      const t2Whole = document.getElementById('t2-whole');
+      const t2Result = document.getElementById('t2-result');
+      const t2Subtext = document.getElementById('t2-subtext');
+      const t2Formula = document.getElementById('t2-formula');
+      const btnCalcT2 = document.getElementById('btn-calc-t2');
+      const btnResetT2 = document.getElementById('btn-reset-t2');
+      const btnCopyT2 = document.getElementById('btn-copy-t2');
+
+      function calcT2(shouldRefreshAd = false) {
+        const x = parseFloat(t2Part.value);
+        const y = parseFloat(t2Whole.value);
+
+        if (isNaN(x) || isNaN(y)) {
+          t2Result.textContent = '--';
+          t2Subtext.textContent = 'Please enter valid numbers';
+          return;
+        }
+
+        if (y === 0) {
+          t2Result.textContent = 'Undefined';
+          t2Subtext.textContent = 'Whole value cannot be zero';
+          return;
+        }
+
+        const pct = (x / y) * 100;
+        const formatted = Number.isInteger(pct) ? pct.toString() : pct.toFixed(2);
+        t2Result.textContent = `${formatted}%`;
+        t2Subtext.textContent = `${x} is ${formatted}% of ${y}`;
+        t2Formula.innerHTML = `Formula: (${x} &divide; ${y}) &times; 100 = <strong>${formatted}%</strong>`;
+
+        if (shouldRefreshAd && window.refreshAds) {
+          window.refreshAds('calculate_proportion');
+        }
+      }
+
+      t2Part.addEventListener('input', () => calcT2(false));
+      t2Whole.addEventListener('input', () => calcT2(false));
+      btnCalcT2.addEventListener('click', () => calcT2(true));
+      btnResetT2.addEventListener('click', () => {
+        t2Part.value = '';
+        t2Whole.value = '';
+        t2Result.textContent = '--';
+        t2Subtext.textContent = 'Enter values above';
+      });
+      btnCopyT2.addEventListener('click', () => {
+        window.copyToClipboard(t2Result.textContent, 'Proportion copied!');
+      });
+
+      // Tab 3 logic: Percentage change
+      const t3Initial = document.getElementById('t3-initial');
+      const t3Final = document.getElementById('t3-final');
+      const t3Result = document.getElementById('t3-result');
+      const t3Subtext = document.getElementById('t3-subtext');
+      const t3Formula = document.getElementById('t3-formula');
+      const btnCalcT3 = document.getElementById('btn-calc-t3');
+      const btnResetT3 = document.getElementById('btn-reset-t3');
+      const btnCopyT3 = document.getElementById('btn-copy-t3');
+
+      function calcT3(shouldRefreshAd = false) {
+        const x = parseFloat(t3Initial.value);
+        const y = parseFloat(t3Final.value);
+
+        if (isNaN(x) || isNaN(y)) {
+          t3Result.textContent = '--';
+          t3Subtext.textContent = 'Please enter valid numbers';
+          return;
+        }
+
+        if (x === 0) {
+          t3Result.textContent = 'Undefined';
+          t3Subtext.textContent = 'Baseline cannot be zero';
+          return;
+        }
+
+        const diff = y - x;
+        const pctChange = (diff / Math.abs(x)) * 100;
+        const prefix = pctChange > 0 ? '+' : '';
+        const formatted = prefix + pctChange.toFixed(2) + '%';
+        const changeType = diff >= 0 ? 'Increase' : 'Decrease';
+
+        t3Result.textContent = formatted;
+        t3Subtext.textContent = `${changeType} of ${Math.abs(diff)} (${formatted})`;
+        t3Formula.innerHTML = `Formula: ((${y} - ${x}) &divide; |${x}|) &times; 100 = <strong>${formatted}</strong>`;
+
+        if (shouldRefreshAd && window.refreshAds) {
+          window.refreshAds('calculate_change');
+        }
+      }
+
+      t3Initial.addEventListener('input', () => calcT3(false));
+      t3Final.addEventListener('input', () => calcT3(false));
+      btnCalcT3.addEventListener('click', () => calcT3(true));
+      btnResetT3.addEventListener('click', () => {
+        t3Initial.value = '';
+        t3Final.value = '';
+        t3Result.textContent = '--';
+        t3Subtext.textContent = 'Enter values above';
+      });
+      btnCopyT3.addEventListener('click', () => {
+        window.copyToClipboard(t3Result.textContent, 'Percentage change copied!');
+      });
+
+      // Initial runs
+      calcT1(false);
+      calcT2(false);
+      calcT3(false);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Direct Chat & Link Generator with QR Code | ToolsBuddy</title>
+  <meta name="description" content="Create direct WhatsApp chat links (wa.me) with custom pre-filled messages and instant scannable QR codes. Chat without saving contact numbers to phonebook.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/whatsapp-link-generator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/whatsapp-link-generator.html">
+  <meta property="og:title" content="WhatsApp Direct Chat & Link Generator | ToolsBuddy">
+  <meta property="og:description" content="Generate instant wa.me click-to-chat links with pre-filled messages and QR codes.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WhatsApp Direct Chat & Link Generator | ToolsBuddy">
+  <meta name="twitter:description" content="Create instant WhatsApp links and mobile QR codes without adding contacts to your address book.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "WhatsApp Direct Chat & Link Generator",
+        "url": "https://toolsbuddy.pages.dev/whatsapp-link-generator.html",
+        "applicationCategory": "CommunicationApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Utility to generate WhatsApp click-to-chat URLs with pre-filled messages and high-resolution scannable QR codes.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I message someone on WhatsApp without saving their phone number?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! WhatsApp's official Click-to-Chat API (wa.me) enables instant communication with any valid international phone number without requiring you to add them to your phone's address book."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does URL encoding work for pre-filled messages?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Special characters and spaces are converted into percent-encoded strings (e.g. spaces become %20 and question marks become %3F) so that WhatsApp can render your pre-written text accurately in the conversation input box."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this generated link in Instagram bio or marketing ads?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. The generated https://wa.me/... link is universally compatible with website buttons, Instagram bio links, TikTok profiles, email signatures, and Facebook Ads."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does ToolsBuddy store or log phone numbers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. All link generation and QR rendering takes place client-side in your web browser. ToolsBuddy does not store, log, or sell any phone numbers or communications."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">Tools</a>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="index.html#utilities">Everyday Utilities</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">WhatsApp Link Generator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+        Utility
+      </span>
+      <h1 class="tb-tool-title">WhatsApp Direct Chat & Link Generator</h1>
+      <p class="tb-tool-desc">
+        Start a WhatsApp conversation with any phone number without saving it to your contacts. Create custom click-to-chat links and scannable QR codes.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="9001001001"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+        <div class="tb-grid-2">
+          <!-- Form -->
+          <form class="tb-grid-form" id="wa-form" onsubmit="event.preventDefault();">
+            <div class="tb-field">
+              <label for="wa-country" class="tb-label">Select Country Code</label>
+              <select id="wa-country" class="tb-select">
+                <option value="1" data-flag="🇺🇸">United States (+1)</option>
+                <option value="44" data-flag="🇬🇧">United Kingdom (+44)</option>
+                <option value="234" data-flag="🇳🇬" selected>Nigeria (+234)</option>
+                <option value="91" data-flag="🇮🇳">India (+91)</option>
+                <option value="1" data-flag="🇨🇦">Canada (+1)</option>
+                <option value="49" data-flag="🇩🇪">Germany (+49)</option>
+                <option value="33" data-flag="🇫🇷">France (+33)</option>
+                <option value="61" data-flag="🇦🇺">Australia (+61)</option>
+                <option value="55" data-flag="🇧🇷">Brazil (+55)</option>
+                <option value="27" data-flag="🇿🇦">South Africa (+27)</option>
+                <option value="254" data-flag="🇰🇪">Kenya (+254)</option>
+                <option value="233" data-flag="🇬🇭">Ghana (+233)</option>
+                <option value="971" data-flag="🇦🇪">United Arab Emirates (+971)</option>
+                <option value="966" data-flag="🇸🇦">Saudi Arabia (+966)</option>
+                <option value="81" data-flag="🇯🇵">Japan (+81)</option>
+                <option value="65" data-flag="🇸🇬">Singapore (+65)</option>
+                <option value="custom">Other / Custom Prefix</option>
+              </select>
+            </div>
+
+            <div class="tb-field">
+              <label for="wa-phone-input" class="tb-label">
+                <span>Phone Number</span>
+                <span class="tb-label-hint">Digits only, omit leading zero</span>
+              </label>
+              <div class="tb-input-group">
+                <span class="tb-input-prefix" id="phone-prefix-display">+234</span>
+                <input type="tel" id="wa-phone-input" class="tb-input" placeholder="e.g. 8012345678" value="8012345678" required>
+              </div>
+            </div>
+
+            <div class="tb-field">
+              <label for="wa-message-input" class="tb-label">
+                <span>Pre-filled Message</span>
+                <span class="tb-label-hint">Optional</span>
+              </label>
+              <textarea id="wa-message-input" class="tb-textarea" placeholder="Hello! I found your listing and would like to ask a quick question..." style="min-height: 120px;">Hello! I would like to inquire about your services.</textarea>
+            </div>
+
+            <div class="tb-btn-group">
+              <button type="button" class="tb-btn tb-btn-primary" id="btn-generate-wa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                Generate WhatsApp Link
+              </button>
+            </div>
+          </form>
+
+          <!-- Results & QR Display -->
+          <div class="tb-results-card" style="align-items: center; text-align: center;">
+            <div class="tb-result-label">Generated Link & QR</div>
+            
+            <div style="width: 100%; margin-bottom: 0.75rem;">
+              <input type="text" id="wa-link-output" class="tb-input mono" readonly value="https://wa.me/2348012345678?text=Hello" style="text-align: center; font-size: 0.85rem; background-color: var(--bg-hover);">
+            </div>
+
+            <!-- QR Container -->
+            <div id="wa-qr-box" style="padding: 0.75rem; background: #ffffff; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); margin-bottom: 1rem;">
+              <div id="wa-qr-target"></div>
+            </div>
+
+            <div class="tb-btn-group" style="width: 100%; justify-content: center;">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="tb-btn tb-btn-primary" id="btn-open-wa" style="background-color: #25d366; border-color: #25d366;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Open Direct Chat
+              </a>
+              <button type="button" class="tb-btn tb-btn-outline" id="btn-copy-wa-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Unit: ad-result -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="9001001002"
+           data-ad-format="rectangle,horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- SEO Comprehensive Guide & FAQ -->
+    <article class="tb-seo-article">
+      <h2>How WhatsApp Click-to-Chat Revolutionizes Customer Engagement</h2>
+      <p>
+        WhatsApp is the undisputed leader in global instant messaging, boasting over two billion active users worldwide. 
+        Traditionally, messaging a business, customer support representative, or classified seller required a frustrating multi-step workflow: 
+        copying their phone number, opening your phone's contact manager, creating a new contact, waiting for WhatsApp to sync, and searching for the contact name.
+      </p>
+
+      <h3>The wa.me Universal Protocol</h3>
+      <p>
+        WhatsApp resolved this friction by introducing the official <code>https://wa.me/&lt;number&gt;</code> protocol. 
+        When a customer clicks your link on mobile, the native WhatsApp app launches immediately with a fresh conversation thread. 
+        On desktop computers, it seamlessly prompts to launch WhatsApp Web or the WhatsApp desktop client.
+      </p>
+
+      <div class="tb-example-card">
+        <div class="tb-example-title">The Anatomy of a Pre-filled WhatsApp Link:</div>
+        <p><code>https://wa.me/14155552671?text=Hi%2C%20I%20want%20to%20book%20a%20consultation</code></p>
+        <p>
+          The <code>text</code> URL parameter automatically pre-fills the message box on the customer's phone. 
+          All they need to do is hit the send button, radically increasing conversion rates for lead generation.
+        </p>
+      </div>
+
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="tb-faq-list">
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Do I need to include the '+' sign or hyphens in the phone number?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            No. WhatsApp API format requires pure numbers without any plus signs, dashes, parentheses, or leading zeros. ToolsBuddy automatically cleans non-digit characters so your link is formatted flawlessly.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Can I embed this QR code in print brochures or storefront windows?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes! When visitors scan the QR code using their iPhone Camera or Android Google Lens, it immediately directs them straight into a direct WhatsApp conversation with your business.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Does this link expire or have a scan limit?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Never. The link points directly to the official Meta WhatsApp domain (wa.me). As long as your phone number remains active on WhatsApp, the link and QR code will work permanently.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Will this disclose my personal phone number if I share the link publicly?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes, because the wa.me protocol contains the target phone number inside the URL string itself. For business use, it is best practice to use a dedicated WhatsApp Business telephone line.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="9001001003"
+           data-ad-format="autorelaxed"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/vendor/qrcode.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const countrySelect = document.getElementById('wa-country');
+      const prefixDisplay = document.getElementById('phone-prefix-display');
+      const phoneInput = document.getElementById('wa-phone-input');
+      const messageInput = document.getElementById('wa-message-input');
+
+      const btnGenerate = document.getElementById('btn-generate-wa');
+      const linkOutput = document.getElementById('wa-link-output');
+      const btnOpen = document.getElementById('btn-open-wa');
+      const btnCopy = document.getElementById('btn-copy-wa-link');
+      const qrTarget = document.getElementById('wa-qr-target');
+
+      function updatePrefix() {
+        const val = countrySelect.value;
+        if (val === 'custom') {
+          prefixDisplay.textContent = '+';
+        } else {
+          prefixDisplay.textContent = `+${val}`;
+        }
+      }
+
+      countrySelect.addEventListener('change', () => {
+        updatePrefix();
+        generateLink(false);
+      });
+
+      function generateLink(triggerAd = false) {
+        let prefix = countrySelect.value;
+        let phone = phoneInput.value.replace(/\D/g, ''); // strip non-digits
+
+        // If leading 0 is present, strip it
+        if (phone.startsWith('0') && prefix !== 'custom') {
+          phone = phone.substring(1);
+        }
+
+        let fullNumber = prefix === 'custom' ? phone : `${prefix}${phone}`;
+        const message = messageInput.value.trim();
+
+        if (!phone) {
+          linkOutput.value = 'Please enter a valid phone number';
+          return;
+        }
+
+        let finalUrl = `https://wa.me/${fullNumber}`;
+        if (message) {
+          finalUrl += `?text=${encodeURIComponent(message)}`;
+        }
+
+        linkOutput.value = finalUrl;
+        btnOpen.href = finalUrl;
+
+        // Render QR
+        qrTarget.innerHTML = '';
+        try {
+          new QRCode(qrTarget, {
+            text: finalUrl,
+            width: 170,
+            height: 170,
+            colorDark: '#0f172a',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.M
+          });
+        } catch (e) {
+          console.warn('QR render error:', e);
+        }
+
+        if (triggerAd && window.refreshAds) {
+          window.refreshAds('generate_whatsapp_link');
+        }
+      }
+
+      btnGenerate.addEventListener('click', () => {
+        generateLink(true);
+        window.showToast('WhatsApp link & QR code ready!', 'success');
+      });
+
+      [phoneInput, messageInput].forEach(el => {
+        el.addEventListener('input', () => generateLink(false));
+      });
+
+      btnCopy.addEventListener('click', () => {
+        window.copyToClipboard(linkOutput.value, 'WhatsApp link copied!');
+      });
+
+      // Initial generation
+      updatePrefix();
+      generateLink(false);
+    });
+  </script>
+</body>
+</html>

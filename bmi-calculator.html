@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI & Ideal Weight Calculator — Metric & Imperial | ToolsBuddy</title>
+  <meta name="description" content="Calculate your Body Mass Index (BMI) and healthy weight range instantly. Supports both Metric (kg/cm) and Imperial (lbs/ft-in) with official WHO classifications.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/bmi-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/bmi-calculator.html">
+  <meta property="og:title" content="BMI & Ideal Weight Calculator | ToolsBuddy">
+  <meta property="og:description" content="Check your BMI, WHO weight status, and healthy target weight range with Metric and Imperial toggle.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BMI & Ideal Weight Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Instant BMI calculator with WHO category classification and healthy weight suggestions.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "BMI & Ideal Weight Calculator",
+        "url": "https://toolsbuddy.pages.dev/bmi-calculator.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculates Body Mass Index (BMI) using World Health Organization standards for both metric and imperial measurements.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are the official WHO BMI categories?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The World Health Organization (WHO) classifies BMI as: Underweight (< 18.5), Normal Weight (18.5 - 24.9), Overweight (25.0 - 29.9), and Obese (>= 30.0)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is BMI calculated in Metric and Imperial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In metric: BMI = weight (kg) / [height (m)]^2. In imperial: BMI = 703 * weight (lbs) / [height (inches)]^2."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does BMI account for muscle mass or athletic build?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BMI is a population-level screening metric. It cannot differentiate between dense lean skeletal muscle and adipose fat tissue. Bodybuilders and strength athletes often register elevated BMI scores despite low body fat percentages."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the healthy ideal weight range?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A person's healthy weight range corresponds to the weight interval that yields a BMI between 18.5 and 24.9 for their specific height."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">Tools</a>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="index.html#calculators">Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">BMI & Ideal Weight Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+        Health & Wellness
+      </span>
+      <h1 class="tb-tool-title">BMI & Ideal Weight Calculator</h1>
+      <p class="tb-tool-desc">
+        Calculate your Body Mass Index (BMI), view your official World Health Organization weight classification, and discover your ideal healthy weight target.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="6001001001"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+        <!-- Unit Toggle -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+          <span style="font-weight: 700; font-size: 1.05rem;">Measurement System</span>
+          <div class="tb-unit-toggle">
+            <button type="button" class="tb-unit-btn active" id="btn-unit-metric">Metric (kg, cm)</button>
+            <button type="button" class="tb-unit-btn" id="btn-unit-imperial">Imperial (lbs, ft-in)</button>
+          </div>
+        </div>
+
+        <div class="tb-grid-2">
+          <!-- Inputs Form -->
+          <form class="tb-grid-form" id="bmi-form" onsubmit="event.preventDefault();">
+            <div class="tb-grid-form cols-2">
+              <div class="tb-field">
+                <label for="bmi-gender" class="tb-label">Gender</label>
+                <select id="bmi-gender" class="tb-select">
+                  <option value="unspecified">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div class="tb-field">
+                <label for="bmi-age" class="tb-label">Age</label>
+                <input type="number" id="bmi-age" class="tb-input" min="2" max="120" value="28" placeholder="Years">
+              </div>
+            </div>
+
+            <!-- Metric Inputs (kg / cm) -->
+            <div id="wrapper-metric">
+              <div class="tb-field" style="margin-bottom: 1.25rem;">
+                <label for="metric-height" class="tb-label">Height</label>
+                <div class="tb-input-group">
+                  <input type="number" id="metric-height" class="tb-input" min="50" max="260" value="175" step="0.5" placeholder="e.g. 175">
+                  <span class="tb-input-suffix">cm</span>
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="metric-weight" class="tb-label">Weight</label>
+                <div class="tb-input-group">
+                  <input type="number" id="metric-weight" class="tb-input" min="10" max="350" value="70" step="0.5" placeholder="e.g. 70">
+                  <span class="tb-input-suffix">kg</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Imperial Inputs (ft/in / lbs) -->
+            <div id="wrapper-imperial" style="display: none;">
+              <div class="tb-grid-form cols-2" style="margin-bottom: 1.25rem;">
+                <div class="tb-field">
+                  <label for="imperial-feet" class="tb-label">Height (Feet)</label>
+                  <div class="tb-input-group">
+                    <input type="number" id="imperial-feet" class="tb-input" min="2" max="8" value="5" placeholder="5">
+                    <span class="tb-input-suffix">ft</span>
+                  </div>
+                </div>
+                <div class="tb-field">
+                  <label for="imperial-inches" class="tb-label">Height (Inches)</label>
+                  <div class="tb-input-group">
+                    <input type="number" id="imperial-inches" class="tb-input" min="0" max="11" value="9" placeholder="9">
+                    <span class="tb-input-suffix">in</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="imperial-weight" class="tb-label">Weight</label>
+                <div class="tb-input-group">
+                  <input type="number" id="imperial-weight" class="tb-input" min="30" max="700" value="154" step="1" placeholder="e.g. 154">
+                  <span class="tb-input-suffix">lbs</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-btn-group" style="margin-top: 0.5rem;">
+              <button type="button" class="tb-btn tb-btn-primary" id="btn-calc-bmi">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Calculate BMI
+              </button>
+              <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset-bmi">Reset</button>
+            </div>
+          </form>
+
+          <!-- Results Card -->
+          <div class="tb-results-card">
+            <div class="tb-result-highlight">
+              <div class="tb-result-label">Your Body Mass Index (BMI)</div>
+              <div class="tb-result-value" id="res-bmi-score">22.9</div>
+              <div style="margin-top: 0.5rem;">
+                <span id="res-bmi-badge" style="display: inline-block; padding: 0.35rem 0.9rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.85rem; background-color: var(--accent-success); color: #ffffff;">
+                  Normal Weight
+                </span>
+              </div>
+            </div>
+
+            <!-- Visual Bar Gauge -->
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text-muted);">
+                <span>16.0 (Under)</span>
+                <span>18.5 (Normal)</span>
+                <span>25.0 (Over)</span>
+                <span>30.0+ (Obese)</span>
+              </div>
+              <div style="position: relative; height: 12px; border-radius: var(--radius-full); background: linear-gradient(to right, #38bdf8 0%, #38bdf8 18.5%, #10b981 18.5%, #10b981 50%, #f59e0b 50%, #f59e0b 75%, #ef4444 75%, #ef4444 100%); overflow: visible;">
+                <div id="bmi-gauge-marker" style="position: absolute; top: -6px; left: 45%; transform: translateX(-50%); width: 24px; height: 24px; background: #ffffff; border: 3px solid var(--brand-primary); border-radius: 50%; box-shadow: var(--shadow-md); transition: left 0.3s ease;"></div>
+              </div>
+            </div>
+
+            <div class="tb-stats-grid cols-2" style="margin-top: 0.75rem;">
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-healthy-weight" style="font-size: 1.15rem;">56.7 - 76.3 kg</div>
+                <div class="tb-stat-lbl">Healthy Weight Target</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-bmi-prime">0.91</div>
+                <div class="tb-stat-lbl">BMI Prime Ratio</div>
+              </div>
+            </div>
+
+            <div class="tb-btn-group">
+              <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-bmi">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy BMI Report
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Unit: ad-result -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="6001001002"
+           data-ad-format="rectangle,horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- SEO Comprehensive Guide & FAQ -->
+    <article class="tb-seo-article">
+      <h2>Understanding Body Mass Index (BMI) and Weight Ranges</h2>
+      <p>
+        Body Mass Index (BMI) is a standardized screening metric originally conceived by the 19th-century Belgian mathematician Adolphe Quetelet. 
+        It provides a convenient, non-invasive method for healthcare professionals, athletic trainers, and individuals to assess relative body weight in proportion to height.
+      </p>
+
+      <h3>WHO Classification Scale</h3>
+      <ul>
+        <li><strong>Underweight (&lt; 18.5):</strong> May indicate malnutrition, an underlying metabolic condition, or insufficient caloric intake.</li>
+        <li><strong>Normal / Healthy Weight (18.5 &ndash; 24.9):</strong> Associated with the lowest statistical risk of cardiovascular illness, hypertension, and diabetes.</li>
+        <li><strong>Overweight (25.0 &ndash; 29.9):</strong> Moderately elevated weight relative to stature, indicating benefit from dietary calibration and exercise.</li>
+        <li><strong>Obesity Class I (30.0 &ndash; 34.9), Class II (35.0 &ndash; 39.9), Class III (&ge; 40.0):</strong> Substantially heightened risk factors for chronic ailments requiring medical guidance.</li>
+      </ul>
+
+      <h3>Mathematical Formulas</h3>
+      <div class="tb-formula-box">
+        Metric: BMI = Weight (kg) &divide; [ Height (m) ]<sup>2</sup><br>
+        Imperial: BMI = 703 &times; Weight (lbs) &divide; [ Height (in) ]<sup>2</sup>
+      </div>
+
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="tb-faq-list">
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>What is BMI Prime?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            BMI Prime is the ratio of an individual's actual BMI to the upper boundary of the healthy weight threshold (25.0). A BMI Prime of less than 0.74 indicates underweight, 0.74 to 1.0 represents healthy weight, and values greater than 1.0 indicate overweight status.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Are BMI categories identical for men and women?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            For adults aged 20 and older, standard WHO BMI cutoffs apply uniformly across both biological genders. However, women typically have a naturally higher percentage of essential body fat than men at an equivalent BMI score.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Why might a muscular athlete score in the 'Obese' range?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Muscle tissue is roughly 18% denser than fat tissue. Weightlifters and rugby players possess high muscular mass that increases total scale weight without corresponding adipose accumulation, skewing the BMI calculation upward.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Does this calculator log or store my personal health data?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Absolutely not. Your privacy is protected: all measurements are processed locally in your browser memory and never transmitted to our servers or third parties.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="6001001003"
+           data-ad-format="autorelaxed"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let unit = 'metric'; // 'metric' or 'imperial'
+
+      const btnMetric = document.getElementById('btn-unit-metric');
+      const btnImperial = document.getElementById('btn-unit-imperial');
+      const wrapperMetric = document.getElementById('wrapper-metric');
+      const wrapperImperial = document.getElementById('wrapper-imperial');
+
+      const metricHeight = document.getElementById('metric-height');
+      const metricWeight = document.getElementById('metric-weight');
+      const imperialFeet = document.getElementById('imperial-feet');
+      const imperialInches = document.getElementById('imperial-inches');
+      const imperialWeight = document.getElementById('imperial-weight');
+
+      const btnCalculate = document.getElementById('btn-calc-bmi');
+      const btnReset = document.getElementById('btn-reset-bmi');
+      const btnCopy = document.getElementById('btn-copy-bmi');
+
+      const resScore = document.getElementById('res-bmi-score');
+      const resBadge = document.getElementById('res-bmi-badge');
+      const resHealthyWeight = document.getElementById('res-healthy-weight');
+      const resBmiPrime = document.getElementById('res-bmi-prime');
+      const gaugeMarker = document.getElementById('bmi-gauge-marker');
+
+      function switchUnit(newUnit) {
+        if (unit === newUnit) return;
+        unit = newUnit;
+
+        if (unit === 'metric') {
+          btnMetric.classList.add('active');
+          btnImperial.classList.remove('active');
+          wrapperMetric.style.display = 'block';
+          wrapperImperial.style.display = 'none';
+
+          // Sync converted values
+          const ft = parseFloat(imperialFeet.value) || 0;
+          const inch = parseFloat(imperialInches.value) || 0;
+          const lbs = parseFloat(imperialWeight.value) || 0;
+          const totalInches = ft * 12 + inch;
+          if (totalInches > 0) metricHeight.value = Math.round(totalInches * 2.54);
+          if (lbs > 0) metricWeight.value = (lbs * 0.453592).toFixed(1);
+        } else {
+          btnImperial.classList.add('active');
+          btnMetric.classList.remove('active');
+          wrapperImperial.style.display = 'block';
+          wrapperMetric.style.display = 'none';
+
+          // Sync converted values
+          const cm = parseFloat(metricHeight.value) || 0;
+          const kg = parseFloat(metricWeight.value) || 0;
+          if (cm > 0) {
+            const totalIn = cm / 2.54;
+            imperialFeet.value = Math.floor(totalIn / 12);
+            imperialInches.value = Math.round(totalIn % 12);
+          }
+          if (kg > 0) imperialWeight.value = Math.round(kg * 2.20462);
+        }
+
+        calcBMI(false);
+        if (window.refreshAds) window.refreshAds('toggle_units');
+      }
+
+      btnMetric.addEventListener('click', () => switchUnit('metric'));
+      btnImperial.addEventListener('click', () => switchUnit('imperial'));
+
+      function calcBMI(triggerAd = false) {
+        let heightMeters = 0;
+        let weightKg = 0;
+
+        if (unit === 'metric') {
+          const cm = parseFloat(metricHeight.value);
+          const kg = parseFloat(metricWeight.value);
+          if (cm > 0 && kg > 0) {
+            heightMeters = cm / 100;
+            weightKg = kg;
+          }
+        } else {
+          const ft = parseFloat(imperialFeet.value) || 0;
+          const inches = parseFloat(imperialInches.value) || 0;
+          const lbs = parseFloat(imperialWeight.value) || 0;
+          const totalInches = ft * 12 + inches;
+          if (totalInches > 0 && lbs > 0) {
+            heightMeters = (totalInches * 2.54) / 100;
+            weightKg = lbs * 0.45359237;
+          }
+        }
+
+        if (heightMeters <= 0 || weightKg <= 0) return;
+
+        const bmi = weightKg / (heightMeters * heightMeters);
+        const bmiRounded = bmi.toFixed(1);
+        resScore.textContent = bmiRounded;
+
+        // BMI Prime (BMI / 25)
+        const prime = (bmi / 25).toFixed(2);
+        resBmiPrime.textContent = prime;
+
+        // WHO Category
+        let category = '';
+        let badgeColor = '';
+        if (bmi < 18.5) {
+          category = 'Underweight';
+          badgeColor = '#38bdf8';
+        } else if (bmi < 25.0) {
+          category = 'Normal Weight';
+          badgeColor = '#10b981';
+        } else if (bmi < 30.0) {
+          category = 'Overweight';
+          badgeColor = '#f59e0b';
+        } else {
+          category = 'Obese';
+          badgeColor = '#ef4444';
+        }
+
+        resBadge.textContent = category;
+        resBadge.style.backgroundColor = badgeColor;
+
+        // Healthy Weight Range: 18.5 to 24.9 BMI
+        const minHealthyKg = 18.5 * (heightMeters * heightMeters);
+        const maxHealthyKg = 24.9 * (heightMeters * heightMeters);
+
+        if (unit === 'metric') {
+          resHealthyWeight.textContent = `${minHealthyKg.toFixed(1)} - ${maxHealthyKg.toFixed(1)} kg`;
+        } else {
+          const minLbs = Math.round(minHealthyKg * 2.20462);
+          const maxLbs = Math.round(maxHealthyKg * 2.20462);
+          resHealthyWeight.textContent = `${minLbs} - ${maxLbs} lbs`;
+        }
+
+        // Position Gauge Marker (Clamped 15 to 40 scale into 0 to 100%)
+        const clampBmi = Math.max(15, Math.min(40, bmi));
+        const pct = ((clampBmi - 15) / 25) * 100;
+        gaugeMarker.style.left = `${pct}%`;
+
+        if (triggerAd && window.refreshAds) {
+          window.refreshAds('calc_bmi');
+        }
+      }
+
+      btnCalculate.addEventListener('click', () => calcBMI(true));
+      [metricHeight, metricWeight, imperialFeet, imperialInches, imperialWeight].forEach(el => {
+        el.addEventListener('input', () => calcBMI(false));
+      });
+
+      btnReset.addEventListener('click', () => {
+        if (unit === 'metric') {
+          metricHeight.value = '175';
+          metricWeight.value = '70';
+        } else {
+          imperialFeet.value = '5';
+          imperialInches.value = '9';
+          imperialWeight.value = '154';
+        }
+        calcBMI(false);
+      });
+
+      btnCopy.addEventListener('click', () => {
+        const text = `BMI Report:
+Score: ${resScore.textContent}
+Category: ${resBadge.textContent}
+Healthy Weight Range: ${resHealthyWeight.textContent}
+BMI Prime: ${resBmiPrime.textContent}
+Calculated on ToolsBuddy (https://toolsbuddy.pages.dev/bmi-calculator.html)`;
+        window.copyToClipboard(text, 'BMI report copied!');
+      });
+
+      calcBMI(false);
+    });
+  </script>
+</body>
+</html>

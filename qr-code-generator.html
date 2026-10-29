@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom QR Code Studio — Free High-Res QR Generator (URL, WiFi, vCard) | ToolsBuddy</title>
+  <meta name="description" content="Generate custom high-resolution QR codes for free. Supports URLs, WiFi passwords, WhatsApp messages, plain text, and vCards. Download instant PNG and SVG with color customization.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/qr-code-generator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/qr-code-generator.html">
+  <meta property="og:title" content="Custom QR Code Studio | ToolsBuddy">
+  <meta property="og:description" content="Create free branded QR codes for URLs, WiFi networks, WhatsApp, and vCards. Instant PNG/SVG download.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Custom QR Code Studio | ToolsBuddy">
+  <meta name="twitter:description" content="Free browser-based QR Code generator with instant high-res PNG/SVG export and color tuning.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Custom QR Code Studio",
+        "url": "https://toolsbuddy.pages.dev/qr-code-generator.html",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+        "description": "Client-side vector and raster QR code generator supporting WiFi networks, URLs, WhatsApp links, and digital business cards.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do these QR codes ever expire?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The QR codes produced by ToolsBuddy are direct static QR codes. The encoded data is etched directly into the matrix patterns, meaning they never expire, have no scan limits, and require no subscription."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does a WiFi QR code connect phones automatically?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "WiFi QR codes follow the industry standard format 'WIFI:T:WPA;S:MySSID;P:MyPassword;;'. When scanned with iOS Camera or Android Google Lens, the operating system detects the protocol and prompts to join the wireless network without manually typing passwords."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What image resolution is recommended for printing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For physical business cards, posters, or packaging, use a minimum size of 350px to 512px to guarantee sharp raster print quality, or use high contrast ratios (e.g. dark colors on light backgrounds)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my WiFi passwords or contact details logged?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. All QR matrices are drawn strictly using HTML5 Canvas within your local browser. No data ever leaves your computer or phone."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">Tools</a>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="index.html#utilities">Everyday Utilities</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Custom QR Code Studio</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        Generator
+      </span>
+      <h1 class="tb-tool-title">Custom QR Code Studio</h1>
+      <p class="tb-tool-desc">
+        Create static, non-expiring QR codes for websites, home or office WiFi, WhatsApp chats, contact vCards, or custom text with customizable colors and instant PNG download.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="5001001001"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <!-- Tabs for Modes -->
+      <div class="tb-tabs" role="tablist">
+        <button class="tb-tab-btn active" role="tab" aria-selected="true" data-mode="url">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+          URL / Website
+        </button>
+        <button class="tb-tab-btn" role="tab" aria-selected="false" data-mode="wifi">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+          WiFi Network
+        </button>
+        <button class="tb-tab-btn" role="tab" aria-selected="false" data-mode="text">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+          Plain Text
+        </button>
+        <button class="tb-tab-btn" role="tab" aria-selected="false" data-mode="whatsapp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          WhatsApp
+        </button>
+        <button class="tb-tab-btn" role="tab" aria-selected="false" data-mode="vcard">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          vCard Contact
+        </button>
+      </div>
+
+      <div class="tb-workspace-inner">
+        <div class="tb-grid-2">
+          <!-- Form Inputs -->
+          <div class="tb-grid-form">
+            <!-- URL Fields -->
+            <div id="panel-url" class="qr-mode-panel">
+              <div class="tb-field">
+                <label for="qr-url" class="tb-label">Target Website / Link URL</label>
+                <input type="url" id="qr-url" class="tb-input" placeholder="https://example.com/page" value="https://toolsbuddy.pages.dev">
+              </div>
+            </div>
+
+            <!-- WiFi Fields -->
+            <div id="panel-wifi" class="qr-mode-panel" style="display: none;">
+              <div class="tb-field">
+                <label for="wifi-ssid" class="tb-label">Network Name (SSID)</label>
+                <input type="text" id="wifi-ssid" class="tb-input" placeholder="e.g. Home_WiFi_5G">
+              </div>
+              <div class="tb-field" style="margin-top: 1rem;">
+                <label for="wifi-pass" class="tb-label">Network Password</label>
+                <input type="text" id="wifi-pass" class="tb-input" placeholder="Enter network password">
+              </div>
+              <div class="tb-grid-form cols-2" style="margin-top: 1rem;">
+                <div class="tb-field">
+                  <label for="wifi-type" class="tb-label">Encryption Type</label>
+                  <select id="wifi-type" class="tb-select">
+                    <option value="WPA" selected>WPA / WPA2 / WPA3</option>
+                    <option value="WEP">WEP</option>
+                    <option value="nopass">None (Open Network)</option>
+                  </select>
+                </div>
+                <div class="tb-field" style="justify-content: flex-end;">
+                  <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; cursor: pointer; padding-bottom: 0.65rem;">
+                    <input type="checkbox" id="wifi-hidden">
+                    <span>Hidden SSID</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Plain Text Fields -->
+            <div id="panel-text" class="qr-mode-panel" style="display: none;">
+              <div class="tb-field">
+                <label for="qr-text" class="tb-label">Custom Text or Message</label>
+                <textarea id="qr-text" class="tb-textarea" placeholder="Enter any text, serial number, note, or code..."></textarea>
+              </div>
+            </div>
+
+            <!-- WhatsApp Fields -->
+            <div id="panel-whatsapp" class="qr-mode-panel" style="display: none;">
+              <div class="tb-field">
+                <label for="wa-phone" class="tb-label">Phone Number (with Country Code, no + sign)</label>
+                <input type="tel" id="wa-phone" class="tb-input" placeholder="e.g. 14155552671">
+              </div>
+              <div class="tb-field" style="margin-top: 1rem;">
+                <label for="wa-msg" class="tb-label">Pre-filled Chat Message (Optional)</label>
+                <textarea id="wa-msg" class="tb-textarea" placeholder="Hi! I scanned your QR code and would like more information..." style="min-height: 90px;"></textarea>
+              </div>
+            </div>
+
+            <!-- vCard Fields -->
+            <div id="panel-vcard" class="qr-mode-panel" style="display: none;">
+              <div class="tb-grid-form cols-2">
+                <div class="tb-field">
+                  <label for="vc-first" class="tb-label">First Name</label>
+                  <input type="text" id="vc-first" class="tb-input" placeholder="John">
+                </div>
+                <div class="tb-field">
+                  <label for="vc-last" class="tb-label">Last Name</label>
+                  <input type="text" id="vc-last" class="tb-input" placeholder="Doe">
+                </div>
+              </div>
+              <div class="tb-field" style="margin-top: 1rem;">
+                <label for="vc-phone" class="tb-label">Phone Number</label>
+                <input type="tel" id="vc-phone" class="tb-input" placeholder="+1 555 123 4567">
+              </div>
+              <div class="tb-field" style="margin-top: 1rem;">
+                <label for="vc-email" class="tb-label">Email Address</label>
+                <input type="email" id="vc-email" class="tb-input" placeholder="john.doe@example.com">
+              </div>
+              <div class="tb-field" style="margin-top: 1rem;">
+                <label for="vc-org" class="tb-label">Company / Organization</label>
+                <input type="text" id="vc-org" class="tb-input" placeholder="Acme Inc.">
+              </div>
+            </div>
+
+            <!-- Customization Controls -->
+            <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.85rem;">Style & Dimensions</h4>
+              <div class="tb-grid-form cols-2">
+                <div class="tb-field">
+                  <label for="qr-fg-color" class="tb-label">Foreground Color</label>
+                  <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="color" id="qr-fg-color" value="#000000" style="width: 44px; height: 38px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); cursor: pointer; padding: 2px;">
+                    <span id="fg-val" style="font-family: var(--font-mono); font-size: 0.85rem;">#000000</span>
+                  </div>
+                </div>
+                <div class="tb-field">
+                  <label for="qr-bg-color" class="tb-label">Background Color</label>
+                  <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="color" id="qr-bg-color" value="#ffffff" style="width: 44px; height: 38px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); cursor: pointer; padding: 2px;">
+                    <span id="bg-val" style="font-family: var(--font-mono); font-size: 0.85rem;">#ffffff</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tb-field" style="margin-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 600;">
+                  <span>Export Resolution</span>
+                  <span id="size-label" style="color: var(--brand-primary);">280 &times; 280 px</span>
+                </div>
+                <input type="range" id="qr-size-slider" min="160" max="512" step="20" value="280" style="width: 100%; margin-top: 0.5rem; accent-color: var(--brand-primary);">
+              </div>
+            </div>
+
+            <div class="tb-btn-group" style="margin-top: 1rem;">
+              <button type="button" class="tb-btn tb-btn-primary" id="btn-generate-qr">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                Generate QR Code
+              </button>
+            </div>
+          </div>
+
+          <!-- Preview & Export Card -->
+          <div class="tb-results-card" style="align-items: center; justify-content: center; text-align: center;">
+            <div class="tb-result-label">Live QR Code Preview</div>
+            
+            <div id="qr-preview-wrapper" style="padding: 1rem; background-color: #ffffff; border-radius: var(--radius-md); box-shadow: var(--shadow-md); border: 1px solid var(--border-color); min-width: 220px; min-height: 220px; display: flex; align-items: center; justify-content: center;">
+              <div id="qrcode-canvas-target"></div>
+            </div>
+
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;" id="qr-char-count">
+              Scan with your smartphone camera
+            </div>
+
+            <div class="tb-btn-group" style="margin-top: 1.25rem;">
+              <button type="button" class="tb-btn tb-btn-primary" id="btn-download-png">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download PNG
+              </button>
+              <button type="button" class="tb-btn tb-btn-outline" id="btn-copy-qr-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Content
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Unit: ad-result -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="5001001002"
+           data-ad-format="rectangle,horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- SEO Comprehensive Guide & FAQ -->
+    <article class="tb-seo-article">
+      <h2>The Mechanics and Best Practices of QR Codes</h2>
+      <p>
+        Quick Response (QR) codes are two-dimensional matrix barcodes invented in 1994 by Denso Wave. 
+        Unlike traditional vertical one-dimensional UPC barcodes that only encode numeric identifiers horizontally, 
+        QR codes store information across both horizontal and vertical axes, allowing them to encode up to thousands of alphanumeric characters in a compact footprint.
+      </p>
+
+      <h3>Error Correction Technology</h3>
+      <p>
+        QR codes feature built-in Reed-Solomon error correction algorithms. 
+        This mathematical resilience allows a code to remain completely readable even if up to 30% of its surface is stained, torn, or partially obscured by decorative brand logos.
+      </p>
+
+      <h3>Best Practices for High-Performance Scanning</h3>
+      <ul>
+        <li><strong>Ensure High Color Contrast:</strong> Always keep the foreground modules darker than the background (e.g. dark navy on pure white). Avoid light yellow or pastel foregrounds on white canvases.</li>
+        <li><strong>Observe the "Quiet Zone":</strong> Maintain a clean, blank margin around the outer edge of your QR code so smartphone optics can differentiate the finder corner patterns from background textures.</li>
+        <li><strong>Test Before Printing:</strong> Always perform a real-world test scan with standard iOS and Android camera apps under varying lighting conditions before initiating large commercial print runs.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="tb-faq-list">
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Do these generated QR codes contain any redirect ads?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            No! Unlike shady subscription QR generators that route users through interstitial advertising redirects, ToolsBuddy generates 100% static codes that link directly to your exact destination payload.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Can I scan these QR codes directly off another computer screen?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes. Modern smartphone cameras effortlessly scan QR codes displayed on monitors, tablets, and smartphones without needing printouts.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>What happens if someone scans a WiFi QR code on an iPhone?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            iOS displays a native system banner saying "Join [Network Name] Network?". Tapping it automatically connects the iPhone without opening settings or typing the password.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Are there any usage limits or licensing fees?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            None. You can generate unlimited personal and commercial QR codes completely free with zero copyright restrictions.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="5001001003"
+           data-ad-format="autorelaxed"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/vendor/qrcode.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let activeMode = 'url';
+      let qrcodeObj = null;
+
+      const tabBtns = document.querySelectorAll('.tb-tab-btn');
+      const panels = {
+        url: document.getElementById('panel-url'),
+        wifi: document.getElementById('panel-wifi'),
+        text: document.getElementById('panel-text'),
+        whatsapp: document.getElementById('panel-whatsapp'),
+        vcard: document.getElementById('panel-vcard')
+      };
+
+      const qrTarget = document.getElementById('qrcode-canvas-target');
+      const fgColorInput = document.getElementById('qr-fg-color');
+      const bgColorInput = document.getElementById('qr-bg-color');
+      const fgVal = document.getElementById('fg-val');
+      const bgVal = document.getElementById('bg-val');
+      const sizeSlider = document.getElementById('qr-size-slider');
+      const sizeLabel = document.getElementById('size-label');
+
+      const btnGenerate = document.getElementById('btn-generate-qr');
+      const btnDownload = document.getElementById('btn-download-png');
+      const btnCopy = document.getElementById('btn-copy-qr-link');
+      const charCountLabel = document.getElementById('qr-char-count');
+
+      // Mode switching
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          activeMode = btn.getAttribute('data-mode');
+          Object.keys(panels).forEach(key => {
+            if (panels[key]) panels[key].style.display = key === activeMode ? 'block' : 'none';
+          });
+
+          renderQRCode(true);
+        });
+      });
+
+      fgColorInput.addEventListener('input', (e) => {
+        fgVal.textContent = e.target.value.toUpperCase();
+        renderQRCode(false);
+      });
+
+      bgColorInput.addEventListener('input', (e) => {
+        bgVal.textContent = e.target.value.toUpperCase();
+        renderQRCode(false);
+      });
+
+      sizeSlider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        sizeLabel.textContent = `${val} × ${val} px`;
+        renderQRCode(false);
+      });
+
+      function buildPayload() {
+        switch (activeMode) {
+          case 'url': {
+            const url = document.getElementById('qr-url').value.trim();
+            return url || 'https://toolsbuddy.pages.dev';
+          }
+          case 'wifi': {
+            const ssid = document.getElementById('wifi-ssid').value.trim();
+            const pass = document.getElementById('wifi-pass').value;
+            const type = document.getElementById('wifi-type').value;
+            const hidden = document.getElementById('wifi-hidden').checked;
+            // Format: WIFI:S:SSID;T:WPA;P:password;H:false;;
+            return `WIFI:S:${ssid};T:${type};P:${pass};H:${hidden ? 'true' : 'false'};;`;
+          }
+          case 'text': {
+            const txt = document.getElementById('qr-text').value;
+            return txt || 'ToolsBuddy Free Web Tools';
+          }
+          case 'whatsapp': {
+            let phone = document.getElementById('wa-phone').value.replace(/\D/g, '');
+            const msg = document.getElementById('wa-msg').value.trim();
+            let waUrl = `https://wa.me/${phone}`;
+            if (msg) waUrl += `?text=${encodeURIComponent(msg)}`;
+            return waUrl;
+          }
+          case 'vcard': {
+            const first = document.getElementById('vc-first').value.trim();
+            const last = document.getElementById('vc-last').value.trim();
+            const phone = document.getElementById('vc-phone').value.trim();
+            const email = document.getElementById('vc-email').value.trim();
+            const org = document.getElementById('vc-org').value.trim();
+
+            return `BEGIN:VCARD
+VERSION:3.0
+N:${last};${first};;;
+FN:${first} ${last}
+ORG:${org}
+TEL;TYPE=CELL:${phone}
+EMAIL:${email}
+END:VCARD`;
+          }
+          default:
+            return 'https://toolsbuddy.pages.dev';
+        }
+      }
+
+      function renderQRCode(triggerAd = false) {
+        const payload = buildPayload();
+        const size = parseInt(sizeSlider.value, 10) || 280;
+        const fg = fgColorInput.value;
+        const bg = bgColorInput.value;
+
+        qrTarget.innerHTML = '';
+
+        try {
+          qrcodeObj = new QRCode(qrTarget, {
+            text: payload,
+            width: size,
+            height: size,
+            colorDark: fg,
+            colorLight: bg,
+            correctLevel: QRCode.CorrectLevel.M
+          });
+
+          charCountLabel.textContent = `Payload: ${payload.length} characters encoded`;
+        } catch (err) {
+          console.error('QR code generation failed:', err);
+          qrTarget.innerHTML = '<p style="color:var(--accent-danger);">Error generating QR code. Content may be too long.</p>';
+        }
+
+        if (triggerAd && window.refreshAds) {
+          window.refreshAds('generate_qr_' + activeMode);
+        }
+      }
+
+      btnGenerate.addEventListener('click', () => {
+        renderQRCode(true);
+        window.showToast('QR Code updated!', 'success');
+      });
+
+      btnDownload.addEventListener('click', () => {
+        const img = qrTarget.querySelector('img');
+        const canvas = qrTarget.querySelector('canvas');
+
+        let dataUrl = '';
+        if (canvas) {
+          dataUrl = canvas.toDataURL('image/png');
+        } else if (img && img.src) {
+          dataUrl = img.src;
+        }
+
+        if (!dataUrl) {
+          window.showToast('Unable to export image', 'error');
+          return;
+        }
+
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = `qrcode-${activeMode}-${Date.now()}.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.showToast('PNG image downloaded!', 'success');
+      });
+
+      btnCopy.addEventListener('click', () => {
+        const payload = buildPayload();
+        window.copyToClipboard(payload, 'QR content copied!');
+      });
+
+      // Initial render
+      renderQRCode(false);
+    });
+  </script>
+</body>
+</html>

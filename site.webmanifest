@@ -1,0 +1,23 @@
+{
+  "name": "ToolsBuddy — Free Instant Web Tools Platform",
+  "short_name": "ToolsBuddy",
+  "description": "High-traffic client-side web tools platform offering free calculators, developer utilities, and AI creators launchpad.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#0066ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

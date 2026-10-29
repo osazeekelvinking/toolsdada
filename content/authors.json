@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ebookbuddy",
+    "name": "EbookBuddy Editorial Team",
+    "slug": "ebookbuddy",
+    "role": "Lead Digital Publishing Team",
+    "tagline": "Turn real problems into profitable ebooks with AI.",
+    "avatar": "assets/blog/post1_mascot_breakthrough.png",
+    "fallbackInitials": "EB",
+    "bio": "The official editorial team behind ToolsBuddy and EbookBuddy. We empower creators, entrepreneurs, and subject-matter experts to validate market demand, craft high-converting AI prompts, and launch profitable digital products.",
+    "links": {
+      "app": "ebook-buddy.html",
+      "sabimentors": "https://sabimentors.com",
+      "toolsbuddy": "https://toolsbuddy.pages.dev"
+    }
+  }
+]

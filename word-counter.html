@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Word & Character Counter — Reading Time, Sentences, Stats | ToolsBuddy</title>
+  <meta name="description" content="Free real-time word counter and character counter. Count words, characters with/without spaces, sentences, paragraphs, reading time, and speaking time instantly.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/word-counter.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/word-counter.html">
+  <meta property="og:title" content="Live Word & Character Counter | ToolsBuddy">
+  <meta property="og:description" content="Instant real-time word counter with reading time, speaking speed, characters, and text cleaning utilities.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Live Word & Character Counter | ToolsBuddy">
+  <meta name="twitter:description" content="Real-time text metrics: words, characters, sentences, paragraphs, reading & speaking time.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Live Word & Character Counter",
+        "url": "https://toolsbuddy.pages.dev/word-counter.html",
+        "applicationCategory": "TextToolApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Real-time word, character, sentence, paragraph, reading time, and speaking time counter with whitespace cleanup utilities.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How is estimated reading time calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Reading time is calculated assuming an average adult reading speed of 200 words per minute (WPM). The total word count is divided by 200 to derive total minutes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is estimated speaking time determined?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standard conversational or presentation speech ranges around 130 words per minute (WPM). Dividing total words by 130 provides a reliable speech duration estimate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What constitutes a sentence in this counter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A sentence is detected by terminal punctuation marks (periods, exclamation points, and question marks) followed by whitespace, newlines, or the end of the text."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this tool work completely in private mode?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The analysis happens entirely locally in memory using JavaScript regular expressions. No text is transmitted or saved remotely."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">Tools</a>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="index.html#text">Text Tools</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Word & Character Counter</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        Text Tool
+      </span>
+      <h1 class="tb-tool-title">Live Word & Character Counter</h1>
+      <p class="tb-tool-desc">
+        Analyze your text in real time with comprehensive metrics: word count, characters with and without spaces, sentences, paragraphs, and estimated speech and reading durations.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="4001001001"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+        <!-- Live Stat Cards Grid -->
+        <div class="tb-stats-grid cols-4" style="margin-bottom: 1.5rem;">
+          <div class="tb-stat-box" style="border-top: 3px solid var(--brand-primary);">
+            <div class="tb-stat-num" id="stat-words">0</div>
+            <div class="tb-stat-lbl">Words</div>
+          </div>
+          <div class="tb-stat-box" style="border-top: 3px solid #0ea5e9;">
+            <div class="tb-stat-num" id="stat-chars-spaces">0</div>
+            <div class="tb-stat-lbl">Characters (with spaces)</div>
+          </div>
+          <div class="tb-stat-box" style="border-top: 3px solid #10b981;">
+            <div class="tb-stat-num" id="stat-chars-no-spaces">0</div>
+            <div class="tb-stat-lbl">Characters (no spaces)</div>
+          </div>
+          <div class="tb-stat-box" style="border-top: 3px solid #f59e0b;">
+            <div class="tb-stat-num" id="stat-sentences">0</div>
+            <div class="tb-stat-lbl">Sentences</div>
+          </div>
+        </div>
+
+        <div class="tb-stats-grid cols-3" style="margin-bottom: 1.5rem;">
+          <div class="tb-stat-box">
+            <div class="tb-stat-num" id="stat-paragraphs">0</div>
+            <div class="tb-stat-lbl">Paragraphs</div>
+          </div>
+          <div class="tb-stat-box">
+            <div class="tb-stat-num" id="stat-reading-time">0s</div>
+            <div class="tb-stat-lbl">Reading Time (~200 wpm)</div>
+          </div>
+          <div class="tb-stat-box">
+            <div class="tb-stat-num" id="stat-speaking-time">0s</div>
+            <div class="tb-stat-lbl">Speaking Time (~130 wpm)</div>
+          </div>
+        </div>
+
+        <!-- Text Input Area -->
+        <div class="tb-field" style="margin-bottom: 1.25rem;">
+          <textarea id="word-input" class="tb-textarea" placeholder="Start typing, paste an article, essay, or speech to see live count updates..." style="min-height: 240px; font-size: 1.05rem;"></textarea>
+        </div>
+
+        <!-- Action Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div class="tb-btn-group">
+            <button type="button" class="tb-btn tb-btn-primary" id="btn-clean-spaces">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12H3"></path><path d="M17 8l4 4-4 4"></path></svg>
+              Clean Whitespace
+            </button>
+            <button type="button" class="tb-btn tb-btn-secondary" id="btn-remove-breaks">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+              Remove Line Breaks
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline" id="btn-copy-word-text">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy Text
+            </button>
+          </div>
+          <button type="button" class="tb-btn tb-btn-secondary" id="btn-clear-words">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Unit: ad-result -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="4001001002"
+           data-ad-format="rectangle,horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- SEO Comprehensive Guide & FAQ -->
+    <article class="tb-seo-article">
+      <h2>The Importance of Word Counts Across Modern Writing and SEO</h2>
+      <p>
+        In digital publishing, academic writing, journalism, and copywriting, length constraints define the success and engagement of content. 
+        Whether you are optimizing an article to rank on search engine results pages, ensuring a manuscript aligns with editorial guidelines, 
+        or timing a conference keynote speech, having real-time visibility into your text volume is paramount.
+      </p>
+
+      <h3>Target Word Counts by Medium</h3>
+      <ul>
+        <li><strong>Blog Posts & SEO Articles:</strong> High-performing informative articles generally range between 1,200 and 2,500 words to establish topic authority.</li>
+        <li><strong>Social Media Posts:</strong> X (formerly Twitter) allows 280 characters, LinkedIn posts thrive between 150 and 300 words, and meta descriptions must stay within 155 to 160 characters.</li>
+        <li><strong>Academic Essays & Papers:</strong> Undergraduate papers typically mandate strict bounds such as 1,500 to 3,000 words, with severe penalties for exceeding caps.</li>
+        <li><strong>Speeches & Presentations:</strong> To deliver a concise 5-minute speech at standard conversational cadence (130 words per minute), draft a manuscript of approximately 650 words.</li>
+      </ul>
+
+      <h3>Clean Formatting Utilities</h3>
+      <p>
+        Pasting text from PDF documents or legacy formatting tools frequently introduces redundant spaces, trailing tabs, and fractured line breaks. 
+        ToolsBuddy includes dedicated one-click cleanup routines to strip unwanted whitespace and rejoin broken lines seamlessly without requiring manual line-by-line editing.
+      </p>
+
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="tb-faq-list">
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>How does this tool distinguish words from numbers and symbols?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Any sequence of alphanumeric characters separated by whitespace or punctuation delimiters is treated as a word token, matching standard Microsoft Word and Google Docs counting behavior.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>What is the difference between reading time and speaking time?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Silent reading is significantly faster (~200 words per minute for an average reader) than vocal articulation, which averages ~130 words per minute due to natural breathing pauses and rhetorical cadence.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Does this counter retain my text if I accidentally close the tab?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes! Your current text draft is continuously backed up into your browser's private localStorage session, allowing you to reload or return to the page without losing your work.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Is there any limit to the document size I can paste?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            No server limits exist. You can paste entire novellas, dissertation drafts, or massive scripts, and calculations will execute instantaneously on your browser's hardware.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="4001001003"
+           data-ad-format="autorelaxed"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const textarea = document.getElementById('word-input');
+
+      const statWords = document.getElementById('stat-words');
+      const statCharsSpaces = document.getElementById('stat-chars-spaces');
+      const statCharsNoSpaces = document.getElementById('stat-chars-no-spaces');
+      const statSentences = document.getElementById('stat-sentences');
+      const statParagraphs = document.getElementById('stat-paragraphs');
+      const statReadingTime = document.getElementById('stat-reading-time');
+      const statSpeakingTime = document.getElementById('stat-speaking-time');
+
+      const btnCleanSpaces = document.getElementById('btn-clean-spaces');
+      const btnRemoveBreaks = document.getElementById('btn-remove-breaks');
+      const btnCopy = document.getElementById('btn-copy-word-text');
+      const btnClear = document.getElementById('btn-clear-words');
+
+      function formatDuration(totalSeconds) {
+        if (totalSeconds < 60) {
+          return `${Math.round(totalSeconds)}s`;
+        }
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = Math.round(totalSeconds % 60);
+        return secs > 0 ? `${mins}m ${secs}s` : `${mins} min`;
+      }
+
+      function updateCounts() {
+        const text = textarea.value;
+
+        // Words
+        const wordsMatch = text.trim() ? text.trim().match(/\S+/g) : null;
+        const words = wordsMatch ? wordsMatch.length : 0;
+
+        // Characters
+        const charsSpaces = text.length;
+        const charsNoSpaces = text.replace(/\s/g, '').length;
+
+        // Sentences
+        const sentencesMatch = text.match(/[^.!?]+[.!?]+(\s|$)/g);
+        const sentences = sentencesMatch ? sentencesMatch.length : (words > 0 ? 1 : 0);
+
+        // Paragraphs
+        const paragraphsMatch = text.split(/\n+/).filter(line => line.trim().length > 0);
+        const paragraphs = paragraphsMatch.length;
+
+        // Reading time @ 200 wpm
+        const readSeconds = (words / 200) * 60;
+        // Speaking time @ 130 wpm
+        const speakSeconds = (words / 130) * 60;
+
+        statWords.textContent = words.toLocaleString();
+        statCharsSpaces.textContent = charsSpaces.toLocaleString();
+        statCharsNoSpaces.textContent = charsNoSpaces.toLocaleString();
+        statSentences.textContent = sentences.toLocaleString();
+        statParagraphs.textContent = paragraphs.toLocaleString();
+        statReadingTime.textContent = formatDuration(readSeconds);
+        statSpeakingTime.textContent = formatDuration(speakSeconds);
+
+        if (window.tbStorage) {
+          window.tbStorage.set('tb_word_counter_text', text);
+        }
+      }
+
+      // Restore if present
+      if (window.tbStorage) {
+        const saved = window.tbStorage.get('tb_word_counter_text');
+        if (saved) {
+          textarea.value = saved;
+          updateCounts();
+        }
+      }
+
+      textarea.addEventListener('input', updateCounts);
+
+      btnCleanSpaces.addEventListener('click', () => {
+        let text = textarea.value;
+        if (!text) return;
+        // Collapse multiple spaces into single space, trim line ends
+        text = text.replace(/[ \t]+/g, ' ').replace(/^\s+|\s+$/gm, '');
+        textarea.value = text;
+        updateCounts();
+        window.showToast('Whitespace cleaned!', 'success');
+        if (window.refreshAds) window.refreshAds('clean_whitespace');
+      });
+
+      btnRemoveBreaks.addEventListener('click', () => {
+        let text = textarea.value;
+        if (!text) return;
+        // Replace newlines with spaces and collapse
+        text = text.replace(/(\r\n|\n|\r)+/g, ' ').replace(/\s+/g, ' ').trim();
+        textarea.value = text;
+        updateCounts();
+        window.showToast('Line breaks removed!', 'success');
+        if (window.refreshAds) window.refreshAds('remove_breaks');
+      });
+
+      btnCopy.addEventListener('click', () => {
+        window.copyToClipboard(textarea.value, 'Text copied to clipboard!');
+        if (window.refreshAds) window.refreshAds('copy_word_text');
+      });
+
+      btnClear.addEventListener('click', () => {
+        textarea.value = '';
+        updateCounts();
+        if (window.tbStorage) window.tbStorage.remove('tb_word_counter_text');
+        window.showToast('Cleared text', 'info');
+        if (window.refreshAds) window.refreshAds('clear_words');
+      });
+    });
+  </script>
+</body>
+</html>

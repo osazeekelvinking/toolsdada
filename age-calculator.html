@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exact Age & Date Difference Calculator — Years, Months, Days | ToolsBuddy</title>
+  <meta name="description" content="Calculate your exact age in years, months, days, hours, and minutes. Find days until your next birthday and total days lived with our free precision date calculator.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/age-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/age-calculator.html">
+  <meta property="og:title" content="Exact Age & Date Difference Calculator | ToolsBuddy">
+  <meta property="og:description" content="Calculate exact age in years, months, days, and hours, plus countdown to next birthday.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Exact Age & Date Difference Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Find your exact age down to the minute, days until your next birthday, and total days lived.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Exact Age & Date Difference Calculator",
+        "url": "https://toolsbuddy.pages.dev/age-calculator.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculates exact chronological age in years, months, days, hours, total lifespan statistics, and birthday countdowns.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the calculator account for leap years and varying month lengths?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The algorithm computes calendar date increments using native Date objects, checking the exact number of days in each intermediate Gregorian calendar month (including 29-day leap Februaries) to avoid rounding approximations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I calculate age as of a specific date in the past or future?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Simply adjust the 'Calculate Age As Of' input field to any historical date (e.g. college graduation) or future milestone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the next birthday countdown function?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The tool checks your birth month and day against the reference date. If that anniversary has already passed in the current year, it calculates the remaining days toward the anniversary in the subsequent calendar year."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my birthdate stored or shared?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All date arithmetic occurs in your browser. We never log, store, or transmit your personal dates."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">Tools</a>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="index.html#calculators">Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Exact Age Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        Calculator
+      </span>
+      <h1 class="tb-tool-title">Exact Age & Date Difference Calculator</h1>
+      <p class="tb-tool-desc">
+        Calculate your precise chronological age in years, months, and days, discover days remaining until your next birthday, and view cumulative lifespan statistics.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="1101001001"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+        <div class="tb-grid-2">
+          <!-- Inputs Form -->
+          <form class="tb-grid-form" id="age-form" onsubmit="event.preventDefault();">
+            <div class="tb-field">
+              <label for="birth-date" class="tb-label">
+                <span>Date of Birth</span>
+                <span class="tb-label-hint">Required</span>
+              </label>
+              <input type="date" id="birth-date" class="tb-input" value="1998-05-15" required>
+            </div>
+
+            <div class="tb-field">
+              <label for="as-of-date" class="tb-label">
+                <span>Calculate Age As Of</span>
+                <span class="tb-label-hint">Defaults to Today</span>
+              </label>
+              <input type="date" id="as-of-date" class="tb-input" required>
+            </div>
+
+            <div class="tb-btn-group" style="margin-top: 0.5rem;">
+              <button type="button" class="tb-btn tb-btn-primary" id="btn-calc-age">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Calculate Age
+              </button>
+              <button type="button" class="tb-btn tb-btn-secondary" id="btn-set-today">Reset to Today</button>
+            </div>
+          </form>
+
+          <!-- Results Overview -->
+          <div class="tb-results-card">
+            <div class="tb-result-highlight">
+              <div class="tb-result-label">Your Exact Age</div>
+              <div class="tb-result-value" id="res-main-age" style="font-size: clamp(1.6rem, 3.5vw, 2.3rem);">
+                28 Years, 5 Mos, 13 Days
+              </div>
+              <div class="tb-result-subtext" id="res-birthday-countdown">
+                Next Birthday: in 168 days
+              </div>
+            </div>
+
+            <!-- Detailed Lifespan Grid -->
+            <div class="tb-stats-grid cols-2">
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="stat-total-months">341</div>
+                <div class="tb-stat-lbl">Total Months Lived</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="stat-total-weeks">1,484</div>
+                <div class="tb-stat-lbl">Total Weeks</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="stat-total-days">10,392</div>
+                <div class="tb-stat-lbl">Total Days</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="stat-total-hours">249,408</div>
+                <div class="tb-stat-lbl">Total Hours</div>
+              </div>
+            </div>
+
+            <div class="tb-btn-group">
+              <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-age">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Age Report
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Unit: ad-result -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="1101001002"
+           data-ad-format="rectangle,horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- SEO Comprehensive Guide & FAQ -->
+    <article class="tb-seo-article">
+      <h2>Chronological Age Arithmetic and Calendar Complexities</h2>
+      <p>
+        Calculating your precise age sounds straightforward, but Gregorian calendar irregularities make exact arithmetic surprisingly tricky. 
+        Months range between 28, 29, 30, and 31 days, and every four years a leap year introduces a 366th day. 
+        Simply dividing the total days lived by 365 or 365.25 produces inaccuracies when evaluating exact legal age milestones.
+      </p>
+
+      <h3>How Gregorian Date Difference Arithmetic Works</h3>
+      <p>
+        To determine chronological age accurately:
+      </p>
+      <ul>
+        <li>First, subtract the birth day from the target date's day. If the target day is smaller, borrow days from the preceding calendar month.</li>
+        <li>Next, subtract the birth month from the target month. If the target month is smaller, borrow 12 months from the target year.</li>
+        <li>Finally, subtract the birth year from the target year.</li>
+      </ul>
+
+      <div class="tb-example-card">
+        <div class="tb-example-title">Milestone Perspective: What Does 10,000 Days Mean?</div>
+        <p>
+          Most people celebrate their 10,000th day on earth roughly when they are 27 years and 4 months old. 
+          Tracking total hours, days, and weeks offers an inspiring, gratitude-filled perspective on life's journey.
+        </p>
+      </div>
+
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="tb-faq-list">
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>What happens if someone was born on February 29th (Leap Day)?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            In non-leap years, their birthday is recognized legally on March 1st (or February 28th depending on regional jurisdiction). The countdown accurately reflects the exact calendar day remaining until their next celebration.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Can I calculate the age of pets or historical events?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes! The calculator supports any valid Gregorian calendar date. You can calculate the exact age of your pet, elapsed time since historical declarations, or wedding anniversaries.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Does this calculator account for time zones or daylight saving time?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Calendar age is calculated based on pure calendar dates (Day, Month, Year). Total hours and minutes are calculated using standard UTC epoch millisecond deltas, neutralizing local daylight saving shifts.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Is this service free to use without limits?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes. ToolsBuddy provides completely unrestricted access with zero login requirements, zero fees, and zero watermarks.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="1101001003"
+           data-ad-format="autorelaxed"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const birthInput = document.getElementById('birth-date');
+      const asOfInput = document.getElementById('as-of-date');
+      const btnCalc = document.getElementById('btn-calc-age');
+      const btnResetToday = document.getElementById('btn-set-today');
+      const btnCopy = document.getElementById('btn-copy-age');
+
+      const resMainAge = document.getElementById('res-main-age');
+      const resCountdown = document.getElementById('res-birthday-countdown');
+      const statMonths = document.getElementById('stat-total-months');
+      const statWeeks = document.getElementById('stat-total-weeks');
+      const statDays = document.getElementById('stat-total-days');
+      const statHours = document.getElementById('stat-total-hours');
+
+      function formatYMD(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+      }
+
+      // Initialize asOfInput with today's date
+      const today = new Date();
+      asOfInput.value = formatYMD(today);
+
+      function calculateExactAge(triggerAd = false) {
+        if (!birthInput.value || !asOfInput.value) return;
+
+        const birth = new Date(birthInput.value + 'T00:00:00');
+        const asOf = new Date(asOfInput.value + 'T00:00:00');
+
+        if (birth > asOf) {
+          resMainAge.textContent = 'Date of birth is in the future!';
+          resCountdown.textContent = 'Please select a valid date';
+          statMonths.textContent = '--';
+          statWeeks.textContent = '--';
+          statDays.textContent = '--';
+          statHours.textContent = '--';
+          return;
+        }
+
+        // Exact Gregorian arithmetic
+        let years = asOf.getFullYear() - birth.getFullYear();
+        let months = asOf.getMonth() - birth.getMonth();
+        let days = asOf.getDate() - birth.getDate();
+
+        if (days < 0) {
+          // Borrow days from previous month
+          months -= 1;
+          const prevMonthLastDay = new Date(asOf.getFullYear(), asOf.getMonth(), 0).getDate();
+          days += prevMonthLastDay;
+        }
+
+        if (months < 0) {
+          years -= 1;
+          months += 12;
+        }
+
+        resMainAge.textContent = `${years} Year${years !== 1 ? 's' : ''}, ${months} Mo${months !== 1 ? 's' : ''}, ${days} Day${days !== 1 ? 's' : ''}`;
+
+        // Next Birthday calculation
+        let nextBday = new Date(asOf.getFullYear(), birth.getMonth(), birth.getDate());
+        if (nextBday < asOf) {
+          nextBday = new Date(asOf.getFullYear() + 1, birth.getMonth(), birth.getDate());
+        }
+        const diffMsNext = nextBday - asOf;
+        const diffDaysNext = Math.ceil(diffMsNext / (1000 * 60 * 60 * 24));
+
+        if (diffDaysNext === 0 || (birth.getMonth() === asOf.getMonth() && birth.getDate() === asOf.getDate())) {
+          resCountdown.innerHTML = '<strong style="color:var(--brand-primary);">&#127881; Happy Birthday Today! &#127881;</strong>';
+        } else {
+          resCountdown.textContent = `Next Birthday: in ${diffDaysNext} day${diffDaysNext !== 1 ? 's' : ''}`;
+        }
+
+        // Total durations
+        const totalMs = asOf - birth;
+        const totalDaysCount = Math.floor(totalMs / (1000 * 60 * 60 * 24));
+        const totalWeeksCount = Math.floor(totalDaysCount / 7);
+        const totalHoursCount = totalDaysCount * 24;
+        const totalMonthsCount = years * 12 + months;
+
+        statMonths.textContent = totalMonthsCount.toLocaleString();
+        statWeeks.textContent = totalWeeksCount.toLocaleString();
+        statDays.textContent = totalDaysCount.toLocaleString();
+        statHours.textContent = totalHoursCount.toLocaleString();
+
+        if (triggerAd && window.refreshAds) {
+          window.refreshAds('calc_exact_age');
+        }
+      }
+
+      btnCalc.addEventListener('click', () => calculateExactAge(true));
+      [birthInput, asOfInput].forEach(el => {
+        el.addEventListener('change', () => calculateExactAge(false));
+      });
+
+      btnResetToday.addEventListener('click', () => {
+        asOfInput.value = formatYMD(new Date());
+        calculateExactAge(false);
+      });
+
+      btnCopy.addEventListener('click', () => {
+        const text = `Age Report:
+Exact Age: ${resMainAge.textContent}
+${resCountdown.textContent}
+Total Months: ${statMonths.textContent}
+Total Weeks: ${statWeeks.textContent}
+Total Days: ${statDays.textContent}
+Total Hours: ${statHours.textContent}
+Calculated on ToolsBuddy (https://toolsbuddy.pages.dev/age-calculator.html)`;
+        window.copyToClipboard(text, 'Age report copied!');
+      });
+
+      calculateExactAge(false);
+    });
+  </script>
+</body>
+</html>

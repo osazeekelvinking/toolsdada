@@ -1,0 +1,11 @@
+{
+  "name": "toolsbuddy",
+  "version": "1.1.0",
+  "description": "ToolsBuddy — High-Traffic No-Login Web Tools Platform & Static Blog",
+  "private": true,
+  "scripts": {
+    "build:blog": "node cms/build.js",
+    "dev": "python -m http.server 8080",
+    "start": "python -m http.server 8080"
+  }
+}

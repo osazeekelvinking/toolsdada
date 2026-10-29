@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>EbookBuddy — AI Ebook Creator & 15-Stage Launchpad | ToolsBuddy</title>
+  <meta name="description" content="Turn real problems into profitable ebooks with AI. Answer simple questions, get step-by-step prompts, and launch in 15 guided stages. Start free.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/ebook-buddy.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:site_name" content="ToolsBuddy">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/ebook-buddy.html">
+  <meta property="og:title" content="EbookBuddy — AI Ebook Creator & 15-Stage Launchpad | ToolsBuddy">
+  <meta property="og:description" content="Turn real problems into profitable ebooks with AI. 15 guided stages powered by SabiMentors × FunnelCraft AI.">
+  <meta property="og:image" content="https://toolsbuddy.pages.dev/og-image.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@sabimentors">
+  <meta name="twitter:title" content="EbookBuddy — AI Ebook Creator & 15-Stage Launchpad">
+  <meta name="twitter:description" content="Turn real problems into profitable ebooks with AI. 15 guided stages from validation to automated funnels.">
+  <meta name="twitter:image" content="https://toolsbuddy.pages.dev/og-image.png">
+
+  <!-- Platform Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "EbookBuddy AI Ebook Launchpad",
+        "url": "https://toolsbuddy.pages.dev/ebook-buddy.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires modern web browser with JavaScript enabled",
+        "description": "Turn a real problem into a profitable ebook with AI. Answer simple questions, get step-by-step prompts, and launch in 15 guided stages.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ToolsBuddy",
+          "url": "https://toolsbuddy.pages.dev/"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why is a 15-stage workflow better than asking AI to write a book in one prompt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Single-shot AI prompts generate generic, cliché-ridden text because the model lacks persona, audience pain points, and specific structural boundaries. The 15-stage workflow injects real customer voice, local pricing, outline constraints, and editorial filters at each phase."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I switch between multiple ebook projects?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! EbookBuddy includes a built-in project manager running in your browser's private localStorage and IndexedDB. You can create unlimited distinct ebook projects, rename them, and export/import them as JSON backups."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which AI models work best with these prompts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The prompts are engineered to work with all major state-of-the-art models including Anthropic Claude 3.5 Sonnet, OpenAI ChatGPT (GPT-4o), Google Gemini, DeepSeek V3, and Microsoft Copilot."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are my ebook ideas, drafts, or notes stored on your servers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. EbookBuddy operates 100% in your browser. All inputs, customized prompts, and project drafts remain strictly on your local device."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+  <script src="ads.js?v=20261027d"></script>
+
+  <style>
+
+:root {
+  --brand: var(--brand-primary, #0066ff);
+  --brand-hover: var(--brand-hover, #0052cc);
+  --brand-ink: #ffffff;
+  --bg: var(--bg-primary, #f8fafc);
+  --card: var(--bg-surface, #ffffff);
+  --ink: var(--text-primary, #0f172a);
+  --mute: var(--text-muted, #64748b);
+  --line: var(--border-color, #e2e8f0);
+  --soft: var(--bg-tag, #eff6ff);
+}
+[data-theme="dark"] {
+  --brand: var(--brand-primary, #4d94ff);
+  --brand-hover: var(--brand-hover, #60a5fa);
+  --brand-ink: #ffffff;
+  --bg: var(--bg-primary, #0b0f19);
+  --card: var(--bg-surface, #111827);
+  --ink: var(--text-primary, #f8fafc);
+  --mute: var(--text-muted, #94a3b8);
+  --line: var(--border-color, #2e384d);
+  --soft: var(--bg-tag, #172554);
+}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+
+.eb-wrap{max-width:820px;margin:0 auto;padding:0 0 2rem;}
+.hero{background:linear-gradient(135deg,#0066ff 0%,#0047b3 100%);box-shadow:0 10px 25px rgba(0,102,255,0.22);color:#fff;border-radius:18px;padding:20px;margin-bottom:14px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.app-logo{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:.82rem;letter-spacing:.02em;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:99px;color:#fff;border:1px solid rgba(255,255,255,.3)}
+.hero-actions{display:flex;gap:6px;align-items:center}
+.hero h1{margin:0 0 6px;font-size:1.5rem;line-height:1.2}
+.hero p{margin:0;opacity:.95;font-size:.95rem}
+.logo{display:inline-block;font-weight:800;font-size:.75rem;letter-spacing:.08em;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:99px;margin-bottom:10px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.how div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;font-size:.82rem;color:var(--mute)}
+.how b{display:block;color:var(--brand);font-size:1rem}
+.sticky-nav{position:sticky;top:70px;z-index:40;background:var(--bg);padding:8px 0 4px;margin:4px 0 12px;border-bottom:1px solid var(--line)}
+#stage{scroll-margin-top:120px}
+.card{scroll-margin-top:125px}
+.bar{height:7px;background:var(--line);border-radius:9px;overflow:hidden;margin:4px 0 2px}
+.bar i{display:block;height:100%;background:var(--brand);width:0;transition:width .3s}
+.pm{font-size:.78rem;color:var(--mute);margin-bottom:6px}
+.phases{display:flex;gap:6px;overflow-x:auto;padding:3px 0 6px;scrollbar-width:none}
+.phases::-webkit-scrollbar{display:none}
+.phase-btn{flex:1;min-width:130px;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 11px;font-size:.76rem;font-weight:700;color:var(--mute);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all .2s;white-space:nowrap}
+.phase-btn.on{background:var(--soft);color:var(--brand);border-color:var(--brand)}
+.phase-btn .p-num{width:16px;height:16px;border-radius:50%;background:var(--line);color:var(--ink);display:inline-grid;place-items:center;font-size:.65rem;font-weight:800}
+.phase-btn.on .p-num{background:var(--brand);color:#fff}
+.method-badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.68rem;font-weight:800;letter-spacing:.03em;margin-bottom:6px;text-transform:uppercase}
+.method-rec{background:var(--soft);color:var(--brand);border:1px solid var(--brand)}
+.method-alt{background:var(--bg);color:var(--mute);border:1px solid var(--line)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:thin}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 13px;font-size:.85rem;cursor:pointer}
+.chip.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.chip.done{border-color:var(--brand)}
+h2{font-size:1.2rem;margin:6px 0 4px}
+.sd{color:var(--mute);font-size:.9rem;margin:0 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.ch{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer}
+.ch b{flex:1}
+.ch small{display:block;color:var(--mute);font-weight:400}
+.tick{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:.75rem;color:#fff}
+.card.ok .tick{background:var(--brand);border-color:var(--brand)}
+.cv{flex:none;width:30px;height:30px;border-radius:50%;background:var(--brand);display:grid;place-items:center;transition:transform .2s}
+.cv::before{content:'';width:9px;height:9px;border-right:3px solid #fff;border-bottom:3px solid #fff;transform:translateY(-2px) rotate(45deg)}
+.card.open .cv{transform:rotate(180deg)}
+.body{display:none;padding:0 14px 14px}
+.card.open .body{display:block}
+label{display:block;font-size:.8rem;font-weight:600;margin:10px 0 4px}
+.hint{display:block;font-size:.78rem;color:var(--mute);margin:-2px 0 6px;line-height:1.4}
+.lr{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.sh{background:none;border:0;color:var(--mute);font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0;flex:none}
+.sh:hover{color:var(--brand)}
+.hx{display:none;background:var(--soft);border-left:3px solid var(--brand);border-radius:8px;padding:8px 10px;font-size:.8rem;color:var(--ink);line-height:1.45;margin:0 0 8px}
+.hx.show{display:block}
+.hb{background:none;border:0;color:var(--brand);font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;padding:6px 0}
+button.b.alt.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+input,textarea{width:100%;font:inherit;font-size:.95rem;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--brand);border-color:transparent}
+textarea{min-height:70px;resize:vertical}
+.pv{white-space:pre-wrap;background:var(--soft);border:1px dashed var(--brand);border-radius:10px;padding:12px;font-size:.85rem;margin:12px 0 8px;max-height:260px;overflow:auto;overflow-wrap:anywhere}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+button.b{flex:1;min-width:120px;border:0;border-radius:10px;padding:11px;font:inherit;font-weight:600;cursor:pointer;background:var(--brand);color:var(--brand-ink)}
+button.b.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.miss{font-size:.78rem;color:var(--mute);margin:0 0 8px}
+.nav{display:flex;justify-content:space-between;gap:8px;margin:14px 0}
+.promo{background:var(--soft);border:1px solid var(--brand);border-radius:12px;padding:12px 14px;margin:14px 0;text-align:left;color:var(--ink);line-height:1.6}
+.promo p{margin:0 0 8px}.promo p:last-child{margin:0}
+.ph{margin:0 0 10px;font-size:.78rem;letter-spacing:.08em;color:var(--brand);font-weight:800}
+.tools{display:flex;justify-content:flex-end;gap:8px}
+.tools button{background:none;border:1px solid var(--line);color:var(--mute);border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer}
+.hero-cta{margin-top:14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);border-radius:12px;padding:11px 14px;font-size:.88rem;line-height:1.45;color:#fff}
+.hero-cta a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.hero-cta a:hover{opacity:.9}
+.ai-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:12px 0 6px}
+.ai-select-wrap{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--mute)}
+.ai-select{font:inherit;font-size:.82rem;font-weight:600;padding:5px 9px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.stage-recom{background:var(--soft);border:1px solid var(--brand);border-radius:12px;padding:12px 14px;margin:10px 0 14px;display:flex;gap:12px;align-items:flex-start}
+.stage-recom-icon{font-size:1.4rem;line-height:1.2;flex:none}
+.stage-recom-body{flex:1;font-size:.83rem;line-height:1.5;color:var(--ink)}
+.stage-recom-body b{color:var(--brand)}
+.stage-recom-body p{margin:2px 0 8px}
+.stage-recom-btn{display:inline-block;margin-right:8px;margin-top:4px;background:var(--brand);color:var(--brand-ink);padding:5px 12px;border-radius:8px;font-size:.78rem;font-weight:700;text-decoration:none}
+.stage-recom-btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.stage-recom-btn:hover{opacity:.9}
+.proj-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:10px 0 10px;padding:9px 12px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.proj-left,.proj-right{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.proj-label{font-size:.82rem;font-weight:700;color:var(--mute);display:flex;align-items:center;gap:4px}
+.proj-select{font:inherit;font-size:.82rem;font-weight:600;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);max-width:180px;text-overflow:ellipsis;cursor:pointer}
+.t-btn{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:5px 9px;font:inherit;font-size:.78rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s}
+.t-btn:hover{border-color:var(--brand);color:var(--brand)}
+.save-badge{font-size:.74rem;color:var(--mute);display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:6px;background:var(--soft);border:1px solid var(--line);transition:all .3s}
+.modal-wrap{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(2px)}
+.modal-box{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:14px;max-width:520px;width:100%;padding:18px 20px;box-shadow:0 12px 32px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto}
+.modal-box h3{margin:0 0 10px;font-size:1.15rem;color:var(--brand)}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;flex-wrap:wrap}
+.modal-actions button{padding:8px 14px;border-radius:8px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
+.modal-actions button.m-cancel{background:transparent;border:1px solid var(--line);color:var(--mute)}
+.modal-actions button.m-primary{background:var(--brand);border:1px solid var(--brand);color:var(--brand-ink)}
+.modal-actions button.m-danger{background:#dc2626;border:1px solid #dc2626;color:#fff}
+.app-toast{position:fixed;top:20px;left:50%;transform:translate(-50%,-20px);background:var(--ink);color:var(--card);padding:10px 22px;border-radius:99px;font-size:.86rem;font-weight:700;letter-spacing:.01em;box-shadow:0 8px 24px rgba(0,0,0,.22),0 2px 6px rgba(0,0,0,.12);border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px;z-index:100000;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .25s cubic-bezier(.2,.8,.2,1),visibility .25s;max-width:calc(100vw - 32px);text-align:center;line-height:1.35}
+.app-toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.ad-slot-wrap{display:flex;flex-direction:column;justify-content:center;align-items:center;margin:12px auto;text-align:center;min-height:105px;overflow:hidden;scroll-margin-top:100px;position:relative}
+@media (min-width:768px){.ad-slot-wrap{min-height:105px;margin:14px auto;scroll-margin-top:105px}}
+.ad-slot-wrap.ad-autorelaxed{min-height:140px;max-width:100%;margin:18px auto 14px}
+.ad-label{display:block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);opacity:.7;margin:0 auto 4px;line-height:1;text-align:center;user-select:none}
+.ad-slot-wrap ins.adsbygoogle{display:inline-block!important;position:relative}
+.ad-slot-wrap ins.adsbygoogle iframe{max-width:100%}
+.ad-slot-wrap.ad-autorelaxed ins.adsbygoogle{display:block!important;width:100%!important;min-height:120px}
+.ad-slot-wrap.ad-collapsed{display:none!important;min-height:0!important;height:0!important;margin:0!important;padding:0!important}
+.share-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0 10px;box-shadow:0 1px 4px rgba(0,0,0,.02);transition:margin .2s ease}
+.share-head{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none}
+.share-head-info{flex:1 1 auto;min-width:0}
+.share-head b{font-size:.88rem;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.share-sub{font-size:.78rem;color:var(--mute);margin-top:2px;line-height:1.4}
+.share-head-actions{display:flex;align-items:center;gap:8px;flex:none;margin-left:auto}
+.share-toggle{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--soft);border:1px solid var(--line);color:var(--mute);cursor:pointer;transition:transform .2s ease,border-color .15s ease,color .15s ease;flex:none}
+.share-toggle:hover{border-color:var(--brand);color:var(--brand)}
+.share-toggle::before{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-1px) rotate(45deg);transition:transform .2s ease}
+.share-card.open .share-toggle::before{transform:translateY(2px) rotate(-135deg)}
+.share-card .share-body{display:none}
+.share-card.open .share-body{display:block;margin-top:10px}
+.share-grid{display:flex;flex-wrap:wrap;gap:7px}
+.s-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:99px;font:inherit;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;line-height:1;transition:opacity .15s}
+.s-btn:hover{opacity:.88}
+.s-btn svg{flex:none}
+.s-wa{background:#25D366;color:#fff}
+.s-x{background:#0f1419;color:#fff}
+:root[data-theme="dark"] .s-x{background:#2b2f33;color:#fff}
+.s-fb{background:#1877F2;color:#fff}
+.s-li{background:#0A66C2;color:#fff}
+.s-tg{background:#229ED9;color:#fff}
+.s-reddit{background:#FF4500;color:#fff}
+.s-email{background:#475569;color:#fff}
+.s-pin{background:#BD081C;color:#fff}
+.s-copy{background:var(--soft);color:var(--brand);border:1px solid var(--line)}
+.s-more{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+@media (max-width:640px){
+.share-card{padding:12px 14px}
+.share-head{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:6px 8px}
+.share-head-info{flex:1 1 calc(100% - 32px);max-width:calc(100% - 32px);min-width:0}
+.share-head-actions{display:contents}
+.share-toggle{order:2;margin-left:auto;margin-top:2px}
+.s-btn.s-copy{order:3;margin-top:6px;padding:6px 10px;font-size:.76rem}
+.share-card:not(.open) .share-head .s-copy{display:none}
+.share-head b{font-size:.85rem}
+.share-sub{font-size:.75rem;line-height:1.35}
+}
+.hero-share-pill{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35);padding:4px 10px;border-radius:99px;font:inherit;font-size:.75rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:background .2s}
+.hero-share-pill:hover{background:rgba(255,255,255,.35)}
+.hero-tutorial-btn{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.5);font-weight:800}
+.hero-tutorial-btn:hover{background:rgba(255,255,255,.45)}
+
+/* Interactive Tutorial Component Styles */
+.tutorial-card{border:1.5px solid var(--line);border-radius:16px;margin:12px 0 14px;box-shadow:0 3px 12px rgba(0,0,0,.03);transition:border-color .2s}
+.tutorial-card.open{border-color:var(--brand)}
+.tut-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none}
+.tut-head-left{display:flex;align-items:center;gap:12px;flex:1 1 auto;min-width:0}
+.tut-head-icon{font-size:1.45rem;flex:none}
+.tut-meter-pill{display:inline-block;margin-left:6px;font-size:.72rem;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--brand);border:1px solid var(--brand);vertical-align:middle}
+.tut-meter-pill.complete{background:var(--brand);color:#fff}
+.tut-progress-wrap{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:12px;scroll-margin-top:14px}
+.tut-progress-bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:6px}
+.tut-progress-fill{height:100%;background:linear-gradient(90deg,var(--brand),#00d2ff);width:0;transition:width .3s cubic-bezier(.4,0,.2,1);border-radius:99px}
+.tut-progress-text{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--mute);flex-wrap:wrap;gap:4px}
+.tut-progress-status{font-weight:700;color:var(--brand)}
+.tut-stepper{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none;margin-bottom:12px;-webkit-overflow-scrolling:touch;scroll-margin-top:14px}
+.tut-stepper::-webkit-scrollbar{display:none}
+.tut-step-content{scroll-margin-top:14px}
+.tut-step-btn{flex:none;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:6px 12px;font-size:.78rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .2s;white-space:nowrap}
+.tut-step-btn:hover{border-color:var(--brand);color:var(--brand)}
+.tut-step-btn.active{background:var(--soft);border-color:var(--brand);color:var(--brand);font-weight:800}
+.tut-step-btn.done{border-color:var(--brand)}
+.tut-step-btn .s-num{width:18px;height:18px;border-radius:50%;background:var(--line);display:grid;place-items:center;font-size:.66rem;font-weight:800;color:var(--ink)}
+.tut-step-btn.active .s-num{background:var(--brand);color:#fff}
+.tut-step-btn.done .s-num{background:var(--brand);color:#fff}
+.tut-step-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.tut-step-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.tut-step-header h3{margin:0;font-size:1.1rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.tut-step-badge{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--soft);color:var(--brand);border:1px solid var(--line);text-transform:uppercase;letter-spacing:.03em}
+.tut-why-box{background:var(--soft);border-left:3px solid var(--brand);border-radius:8px;padding:10px 12px;margin:10px 0 14px;font-size:.85rem;line-height:1.5;color:var(--ink)}
+.tut-why-box b{color:var(--brand);display:block;margin-bottom:3px;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+.tut-checklist-title{font-size:.84rem;font-weight:800;color:var(--ink);margin:12px 0 8px;display:flex;align-items:center;gap:6px}
+.tut-checklist{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.tut-check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border:1px solid var(--line);border-radius:10px;cursor:pointer;user-select:none;transition:all .15s ease}
+.tut-check-item:hover{border-color:var(--brand)}
+.tut-check-item.done{background:var(--soft);border-color:var(--brand)}
+.tut-check-box{width:20px;height:20px;border-radius:5px;border:2px solid var(--line);background:var(--card);display:grid;place-items:center;flex:none;margin-top:1px;font-size:.75rem;color:#fff;transition:all .15s}
+.tut-check-item.done .tut-check-box{background:var(--brand);border-color:var(--brand)}
+.tut-check-text{font-size:.86rem;line-height:1.45;color:var(--ink);flex:1}
+.tut-check-item.done .tut-check-text{text-decoration:line-through;color:var(--mute)}
+.tut-rec-box{background:linear-gradient(135deg,rgba(242,107,33,.08),rgba(234,88,12,.03));border:1.5px solid var(--brand);border-radius:12px;padding:14px;margin:14px 0}
+.tut-rec-header{display:flex;align-items:center;gap:8px;font-weight:800;font-size:.88rem;color:var(--brand);margin-bottom:6px}
+.tut-rec-desc{font-size:.84rem;line-height:1.5;color:var(--ink);margin:0 0 10px}
+.tut-rec-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.tut-rec-btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:6px;background:var(--brand);color:#fff;font-weight:700;font-size:.78rem;padding:9px 12px;border-radius:9px;text-decoration:none;transition:opacity .2s;min-height:38px;line-height:1.2;box-sizing:border-box}
+.tut-rec-btn.alt{background:var(--card);color:var(--brand);border:1.5px solid var(--brand)}
+.tut-rec-btn:hover{opacity:.9}
+.tut-video-slot{background:linear-gradient(135deg,#1f1f28,#2a2a38);color:#fff;border-radius:12px;padding:13px 15px;margin:14px 0;display:flex;align-items:center;gap:14px;box-shadow:0 3px 10px rgba(0,0,0,.15);position:relative;overflow:hidden}
+.tut-video-thumb{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;flex:none;font-size:1.2rem;transition:transform .2s}
+.tut-video-slot:hover .tut-video-thumb{transform:scale(1.06)}
+.tut-video-info{flex:1;min-width:0}
+.tut-video-badge{display:inline-block;background:var(--brand);color:#fff;font-size:.65rem;font-weight:800;letter-spacing:.05em;padding:2px 7px;border-radius:4px;text-transform:uppercase;margin-bottom:3px}
+.tut-video-title{font-size:.88rem;font-weight:700;line-height:1.3;margin-bottom:2px;color:#fff}
+.tut-video-sub{font-size:.74rem;color:rgba(255,255,255,.75);line-height:1.3}
+.tut-video-frame-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;margin-top:10px}
+.tut-video-frame-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+/* Structured, Responsive Tutorial Navigation & Action Controls */
+.tut-nav-bar{display:flex;flex-direction:column;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.tut-nav-main{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+@media (max-width:560px){
+  .tut-nav-main{grid-template-columns:1fr 1fr;gap:8px}
+  .tut-btn-step-done{grid-column:1 / -1;order:3}
+}
+.tut-nav-sub{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.tut-btn{border:none;border-radius:9px;padding:9px 14px;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all .15s ease;min-height:38px;line-height:1.2;box-sizing:border-box}
+.tut-btn:disabled{opacity:.35;cursor:not-allowed;pointer-events:none}
+.tut-btn.primary{background:var(--brand);color:var(--brand-ink)}
+.tut-btn.alt{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.tut-btn.alt:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+.tut-btn-step-done{white-space:nowrap}
+.tut-btn-step-done.is-complete{background:var(--soft);color:var(--brand);border-color:var(--brand)}
+.tut-stage-jump-btn{flex:1 1 230px;background:var(--soft);color:var(--brand);border:1.5px solid var(--brand);border-radius:9px;padding:9px 14px;font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;transition:all .2s;text-decoration:none;min-height:38px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tut-stage-jump-btn:hover{background:var(--brand);color:#fff}
+.tut-btn.link{background:none;border:none;color:var(--mute);padding:6px 10px;font-size:.76rem;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.tut-btn.link:hover{color:var(--brand)}
+
+  </style>
+</head>
+<body>
+  <!-- Platform Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">Tools</a>
+        <a href="ebook-buddy.html" class="tb-nav-link active">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tool Wrapper with Breadcrumbs -->
+  <main class="tb-container tb-tool-wrapper" style="padding-top: 2.75rem; padding-bottom: 4.5rem;">
+    <div style="max-width: 820px; margin: 0 auto;">
+      <nav class="tb-breadcrumb" aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        <a href="index.html" style="color: var(--text-secondary); text-decoration: none;">Home</a>
+        <span class="tb-breadcrumb-separator" style="color: var(--border-color);">/</span>
+        <a href="index.html#ai" style="color: var(--text-secondary); text-decoration: none;">AI Tools</a>
+        <span class="tb-breadcrumb-separator" style="color: var(--border-color);">/</span>
+        <span aria-current="page" style="color: var(--text-primary); font-weight: 600;">EbookBuddy</span>
+      </nav>
+
+      <!-- Platform Tool Header -->
+      <div class="tb-tool-header" style="margin-bottom: 1.5rem;">
+        <span class="tb-tool-badge" style="display: inline-flex; align-items: center; gap: 0.4rem; background-color: var(--soft); color: var(--brand); font-size: 0.775rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.3rem 0.75rem; border-radius: 99px; margin-bottom: 0.75rem; border: 1px solid var(--line);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          AI Writing Studio
+        </span>
+        <h1 class="tb-tool-title" style="font-size: clamp(1.8rem, 4vw, 2.35rem); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); margin: 0 0 0.5rem; line-height: 1.2;">EbookBuddy — AI Ebook Launchpad</h1>
+        <p class="tb-tool-desc" style="font-size: 1.025rem; color: var(--mute); max-width: 720px; line-height: 1.6; margin: 0;">
+          Turn real problems into profitable ebooks with AI. Answer simple questions, generate tested prompt sequences, and launch in 15 guided stages with zero writer's block.
+        </p>
+      </div>
+    </div>
+
+    <!-- EbookBuddy Application Workspace -->
+    <div class="eb-wrap">
+      <div class="hero">
+        <div class="hero-top">
+          <div class="app-logo"><span>📖</span> <b>EbookBuddy Studio</b></div>
+          <div class="hero-actions">
+            <button type="button" class="hero-share-pill hero-tutorial-btn" id="hero-tutorial-btn" title="Open Interactive Ebook Tutorial">🎓 Tutorial</button>
+            <a href="blog/index.html" class="hero-share-pill" style="text-decoration:none">📖 Blog</a>
+            <button type="button" class="hero-share-pill" id="hero-share-btn" title="Share EbookBuddy">📢 Share</button>
+          </div>
+        </div>
+        <h2 style="font-size: 1.6rem; margin: 0 0 6px; color: #fff;">15-Stage AI Ebook Creator</h2>
+        <p>Answer simple questions, get ready-made prompts, and paste them into your favorite AI tool.</p>
+        <div class="hero-cta">🚀 <b>When your Ebook is ready:</b> Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> to sell it, and use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a> to build your funnel in minutes.</div>
+      </div>
+
+      <div class="how"><div><b>1</b>Fill the boxes</div><div><b>2</b>Copy the prompt</div><div><b>3</b>Paste in any AI</div></div>
+
+      <!-- Ebook-buddy 728x90 1 (Desktop) / Ebook-buddy 320x90 1 (Mobile) -->
+      <div class="ad-slot-wrap" id="ad-hero" data-ad-slot-num="1" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432"><span class="ad-label">Advertisement</span></div>
+
+      <!-- Multi-Channel Creator Sharing Studio -->
+      <div class="share-card" id="share-card">
+        <div class="share-head" id="share-card-head" role="button" aria-expanded="false" aria-controls="share-card-body" title="Tap to expand or collapse">
+          <div class="share-head-info">
+            <b>📢 Share EbookBuddy with Creators</b>
+            <div class="share-sub">Help fellow writers, students & entrepreneurs launch profitable ebooks with AI.</div>
+          </div>
+          <div class="share-head-actions">
+            <button type="button" class="s-btn s-copy" id="btn-copy-share" title="Copy share link">📋 Copy Link</button>
+            <span class="share-toggle" id="share-toggle-btn" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="share-body" id="share-card-body">
+          <div class="share-grid">
+            <a href="#" class="s-btn s-wa" id="share-wa" title="Share on WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> WhatsApp</a>
+            <a href="#" class="s-btn s-x" id="share-x" title="Share on X (Twitter)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X / Twitter</a>
+            <a href="#" class="s-btn s-fb" id="share-fb" title="Share on Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+            <a href="#" class="s-btn s-li" id="share-li" title="Share on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.55a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg> LinkedIn</a>
+            <a href="#" class="s-btn s-tg" id="share-tg" title="Share on Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg> Telegram</a>
+            <button type="button" class="s-btn s-more" id="btn-native-share" title="More share options">📲 More...</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Manager Controls -->
+      <div class="proj-bar">
+        <div class="proj-left">
+          <span class="proj-label">📁 Project:</span>
+          <select id="proj-select" class="proj-select" title="Switch between ebook projects"></select>
+          <button type="button" class="t-btn" id="proj-new" title="Create a new project">+ New</button>
+          <button type="button" class="t-btn" id="proj-ren" title="Rename or edit project title">✏️ Edit</button>
+          <button type="button" class="t-btn" id="proj-del" title="Delete this project">🗑️</button>
+          <button type="button" class="t-btn" id="proj-save" title="Save current project answers">💾 Save</button>
+          <span class="save-badge" id="save-status">✓ Saved</span>
+        </div>
+        <div class="proj-right">
+          <button type="button" class="t-btn" id="btn-export-md" title="Download formatted Markdown ebook blueprint">📥 Export .MD</button>
+          <button type="button" class="t-btn" id="btn-export-json" title="Download backup JSON">💾 Backup JSON</button>
+          <button type="button" class="t-btn" id="btn-import-json" title="Import backup JSON file">📂 Import</button>
+          <input type="file" id="import-file" accept=".json" style="display:none">
+        </div>
+      </div>
+
+      <!-- Interactive Tutorial Component -->
+      <div class="card tutorial-card" id="tutorial-card">
+        <div class="ch tut-head" id="tut-header" role="button" aria-expanded="false" aria-controls="tut-body" title="Tap to expand or collapse tutorial" onclick="toggleTutorial(event)">
+          <div class="tut-head-left">
+            <span class="tut-head-icon">🎓</span>
+            <div>
+              <b>How to Create a Profitable Ebook: Interactive Tutorial
+                <span class="tut-meter-pill" id="tut-meter-pill">0% Done</span>
+              </b>
+              <small>9 bite-sized steps · Actionable checklist · Recommended: SabiMentors × FunnelCraft AI</small>
+            </div>
+          </div>
+          <span class="cv"></span>
+        </div>
+        <div class="body tut-body" id="tut-body">
+          <div class="tut-progress-wrap" id="tut-progress-wrap">
+            <div class="tut-progress-bar"><div class="tut-progress-fill" id="tut-progress-fill" style="width:0%"></div></div>
+            <div class="tut-progress-text">
+              <span id="tut-progress-count">0 of 27 checklist tasks completed</span>
+              <span id="tut-progress-status" class="tut-progress-status">Ready to start</span>
+            </div>
+          </div>
+          <!-- Ebook-buddy Tutorial 728x90 (Desktop) / 320x90 (Mobile) -->
+          <div class="ad-slot-wrap" id="ad-tutorial" data-ad-slot-num="tutorial" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699"><span class="ad-label">Advertisement</span></div>
+          <div class="tut-stepper" id="tut-stepper"></div>
+          <div id="tut-step-content" class="tut-step-content"></div>
+        </div>
+      </div>
+
+      <!-- Fast-Start Brief Importer -->
+      <div class='card open' id='fast-start-card'>
+        <div class='ch'>
+          <b>⚡ Fast start: let your AI fill your fields<small>Do not know what to write? Pick your path, copy the prompt, then paste your AI’s answer back here.</small></b>
+          <span class='cv'></span>
+        </div>
+        <div class='body'>
+          <label>1. Choose your path</label>
+          <div class='row'>
+            <button class='b alt' data-m='exp' id='m1'>🧠 I will use my own experience</button>
+            <button class='b alt' data-m='res' id='m2'>🔎 Start from problem research</button>
+          </div>
+          <label>2. Copy this prompt into your AI</label>
+          <small class='hint'>Your AI will ask a few simple questions (or research for you), then write all your starting fields.</small>
+          <div class='pv' id='fsp'></div>
+          <div class='row'>
+            <button class='b' data-a='fc'>Copy prompt</button>
+            <button class='b alt' data-a='fo' id='fob'>Open in AI ↗</button>
+          </div>
+          <label for='imp'>3. Paste your AI’s MY BRIEF here</label>
+          <small class='hint'>Paste the whole MY BRIEF section. The app reads it and fills your boxes in every stage.</small>
+          <textarea id='imp' placeholder='country: ...&#10;reader: ...'></textarea>
+          <button class='b' id='imb' style='margin-top:8px;width:100%'>Fill my fields</button>
+          <p class='miss' id='imm'></p>
+        </div>
+      </div>
+
+      <!-- Preferred AI & Workspace Tools -->
+      <div class="ai-bar">
+        <div class="ai-select-wrap">
+          <span>🤖 Preferred AI:</span>
+          <select id="ai-tool" class="ai-select">
+            <option value="claude">Claude</option>
+            <option value="chatgpt">ChatGPT</option>
+            <option value="gemini">Google Gemini</option>
+            <option value="deepseek">DeepSeek</option>
+            <option value="copilot">Microsoft Copilot</option>
+            <option value="custom">Any AI / Other</option>
+          </select>
+        </div>
+        <div class="tools">
+          <button id="thm" title="Switch Light/Dark Mode">🌙 Dark</button>
+          <button id="rs">Reset all</button>
+        </div>
+      </div>
+
+      <!-- Sticky Stage & Phase Navigation Bar -->
+      <div class="sticky-nav" id="sticky-nav">
+        <div class="bar"><i id="pb"></i></div>
+        <div class="pm" id="pm"></div>
+        <div class="phases" id="phases"></div>
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <!-- Ebook-buddy 728x90 2 (Desktop) / Ebook-buddy 320x90 2 (Mobile) -->
+      <div class="ad-slot-wrap" id="ad-top" data-ad-slot-num="2" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699"><span class="ad-label">Advertisement</span></div>
+
+      <!-- Main Stage Container -->
+      <div id="stage"></div>
+
+      <!-- Ebook-buddy 728x90 3 (Desktop) / Ebook-buddy 320x90 3 (Mobile) -->
+      <div class="ad-slot-wrap" id="ad-bottom" data-ad-slot-num="3" data-ad-slot-desk="9246930392" data-ad-slot-mob="5231663766"><span class="ad-label">Advertisement</span></div>
+
+      <!-- Navigation Footer for Stages -->
+      <div class="nav"><button class="b alt" id="pv">← Back</button><button class="b" id="nx">Next stage →</button></div>
+
+      <!-- SabiMentors Recommendation Banner inside Workspace -->
+      <div class='promo'>
+        <h4 class='ph'>RECOMMENDED PLATFORMS FOR YOU…</h4>
+        <p>Want a free and powerful platform to sell your ebooks and digital products? Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a>.</p>
+        <p>Want an AI-powered funnel builder to build your ebook funnel in minutes? Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a>, you can start for free.</p>
+      </div>
+
+      <!-- Multiplex Footer Ad Unit -->
+      <div class="ad-slot-wrap ad-autorelaxed" id="ad-footer" data-ad-slot-num="footer" data-ad-slot="3385897927" data-ad-format="autorelaxed"><span class="ad-label">Advertisement</span></div>
+    </div>
+  </main>
+
+  <!-- Platform Toast -->
+  <div id="app-toast" class="app-toast" role="status" aria-live="polite"></div>
+
+  <!-- Modal Dialog Container -->
+  <div id="app-modal" class="modal-wrap" style="display:none">
+    <div class="modal-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h3 id="modal-title" style="margin:0">Modal Title</h3>
+        <button type="button" id="modal-x" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--mute)">✕</button>
+      </div>
+      <div id="modal-body"></div>
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </div>
+
+  <!-- Platform Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+
+  <!-- EbookBuddy Core Application Script -->
+  <script>
+
+var L={country:["Your country / city","e.g. Nigeria, Lagos or UK, London"],reader:["Target reader","e.g. new graduates looking for remote jobs"],niche:["Topic / niche","e.g. exam prep, poultry farming, freelancing"],problem:["Problem you solve","e.g. students fail Maths because of poor study plans"],ideas:["Your ideas (paste list)","One idea per line",1],title:["Ebook title","Working title is fine"],background:["Your background and skills","What you know, did, or solved",1],hours:["Hours per week","e.g. 10"],budget:["Budget","e.g. $50 or 20,000 in your currency"],goal:["90-day goal","e.g. publish 1 ebook, 50 sales"],quotes:["Real customer quotes","Paste exact comments from your research",1],voc_data:["Customer comments & questions","Paste real comments, forum posts, or DMs",1],comp_data:["Competitor research notes","Paste competitor strengths, weaknesses & gaps",1],val_metrics:["Validation results","e.g. 65 waitlist signups, 12 pre-orders",1],scale_metrics:["Weekly scaling numbers","e.g. 350 visitors, 28 signups, 9 sales, $120 revenue",1],draft_text:["Chapter draft to edit","Paste the chapter or section you want to polish",1],sales_text:["Sales page copy","Paste your sales page text here",1],trans_text:["Text to localize or translate","Paste section to adapt for a new region/language",1],data:["Pasted research data","Comments, reviews, competitor details",1],numbers:["Your numbers","Visitors, signups, sales, revenue...",1],price:["Price (your currency)","e.g. $9 or ₦5,000"],offer:["Your offer","Ebook + bonuses + deadline",1],outline:["Chapter outline","Paste the outline for this chapter",1],chapter:["Chapter number and title","e.g. 3: Build your 30-day plan"],text:["Paste your text","Draft, chapter or sales page",1],platform:["Main platform","e.g. TikTok, WhatsApp Status"],feedback:["Buyer feedback","Reviews, questions, DMs",1],lang:["Language","e.g. French, Spanish, Yoruba, Swahili, Arabic"]};
+var H={country:"Where you and your buyers are. This helps your AI use local prices, payment methods, and relatable examples.",reader:"Describe ONE specific person with a job or situation in your market. Example: 'new graduates in my city seeking their first remote job'.",niche:"The subject area your ebook lives in. Example: 'exam preparation for school leavers' or 'poultry farming for beginners'.",problem:"The painful problem your ebook fixes, in the buyer's own words. Example: 'I keep failing my exams because I lack a realistic study plan'.",ideas:"Paste 3 to 10 ebook ideas, one per line. If you ran the brainstorm prompt, paste the best candidates here.",title:"A working title is fine; you can polish it later. Best format: clear result + for whom + without obstacle.",background:"Your work history, skills, experience, or problems you solved. Honest and simple builds the best authority.",hours:"Hours you can realistically dedicate each week. Example: 8.",budget:"What you can spend on tools, ads, and cover design. Zero is completely fine.",goal:"One clear target for the next 90 days. Example: 'Publish my first ebook and get 50 paying buyers'.",quotes:"Real words from your target buyers (from social media groups, comments, DMs, or interviews). 5 to 15 lines.",voc_data:"Raw customer quotes, questions, complaints, or forum comments. Real reader language makes your copy convert.",comp_data:"Notes on competing ebooks, courses, or guides. Note what they charge, what buyers praise, and what complaints they get.",val_metrics:"How many people signed up for your waitlist, replied to your poll, or pre-ordered. 10 buyers or 100 signups is a strong signal.",scale_metrics:"Your weekly traffic, opt-ins, sales, and refund numbers. Helps identify which step in your funnel needs optimization.",draft_text:"The chapter or section of your ebook manuscript you want to edit for mobile flow, clarity, and fact-checking.",sales_text:"Your completed sales page copy that you want to convert into WhatsApp messages, Status updates, and social posts.",trans_text:"A chapter or section you want to adapt to local currencies, slang, and cultural context for a new market.",data:"Raw material from your research: comments, questions, reviews of competing ebooks, or notes from interviews.",numbers:"Type or paste your real figures (visitors, signups, sales, revenue).",price:"Your price idea in your local currency or USD. If unsure, your AI will recommend pricing tiers for your market.",offer:"What the buyer gets and any deadline. Example: 'Core Ebook + 30-day checklist + WhatsApp group, launch price $9 until Friday'.",outline:"Paste the outline for this chapter only (from the Plan stage). Bullet points are fine.",chapter:"The number and title of the chapter you are writing now. Example: '2: Build your weekly study timetable'.",text:"Paste the exact text you want improved or checked: a chapter, sales page, or translation section.",platform:"Where you will post most often. Pick one primary channel to start (e.g. TikTok, WhatsApp Status, X).",feedback:"Paste what buyers and followers say: reviews, questions, DMs, complaints. These tell you what to improve or build next.",lang:"The target language for your translation (e.g. French, Spanish, Swahili, Arabic)."};
+var S=[
+{t:"Setup",e:"🧭",d:"Teach your AI who you are so every answer fits your reality.",i:[
+{t:"Master context",d:"Paste this first in a new AI chat.",p:"You are my expert partner for building a profitable ebook business serving readers in my country and around the world.\n\nAbout me:\n- Location: {{country}}\n- Background and skills: {{background}}\n- Hours per week: {{hours}}\n- Budget: {{budget}}\n- 90-day goal: {{goal}}\n\nRules: be practical for my market (mobile readers, data costs, how people pay, local currency, and the platforms they use). Plain English, short sentences. Never invent facts, laws, prices, links or testimonials; mark uncertain items [VERIFY]. For health, legal, finance and immigration topics give general educational info only. Output format: Whenever you provide content, plans, outlines, drafts, copy, or final deliverables, present the complete response inside a single markdown code block (```) so it is simple to copy in one click without conversational filler. Ask at most 3 clarifying questions. End every answer with Next step: and one action.\n\nConfirm you understand, then ask what you need to start."}]},
+{t:"Ideas",e:"💡",d:"Find pressing problems people will pay to solve.",i:[
+{t:"Pressing problems brainstorm",d:"50 real problems in your market.",p:"List 50 pressing, painful everyday problems people in {{country}} would pay to solve. Group by money, jobs, education, migration, small business, agriculture, energy, relationships, health (educational only), digital skills, legal literacy, personal growth. For each: who has it, why it hurts, how they cope now, and likelihood to pay (low/medium/high). Do not invent statistics."},
+{t:"Narrow the niche",d:"Specific beats broad.",p:"Take this broad problem: {{problem}}. Break it into 20 narrow ebook topics, each naming a specific person, a specific result and a specific obstacle: How [person] can [result] without [obstacle]. Mark the 5 most likely to sell in {{country}} and explain why."},
+{t:"Score your ideas",d:"Pick a winner with numbers.",p:"Score each idea 1 to 5 on pain intensity, willingness to pay, reachability, beatable competition, my credibility, speed to create, and catalogue potential. Return a table with totals out of 35, one-line reasons, and your top 3. Flag high legal, medical or financial risk.\n\nIdeas:\n{{ideas}}"}]},
+{t:"Research",e:"🔎",d:"Learn what your buyers actually say and want.",i:[
+{t:"Search phrases",d:"60 phrases real people use.",p:"Give me 60 search phrases and questions people in {{country}} type or post about {{niche}}. Include plain English, local slang or local languages, misspellings, how-to, cost of, scam, step by step. Group by buyer intent: curious, comparing, ready to buy."},
+{t:"Voice-of-customer analysis",d:"Find their exact words.",p:"Analyze these real comments about {{niche}}:\n{{voc_data}}\n\nReturn: top 10 problems ranked, top 10 repeated questions, verbatim emotional phrases, wrong beliefs, objections to buying a guide, and words I should use in my title and sales copy."},
+{t:"Competitor gaps",d:"Be clearly different.",p:"Here are competing ebooks, courses or solutions on {{niche}}:\n{{comp_data}}\n\nProvide a table of strengths, weaknesses, and common buyer complaints. Then give: 5 gaps nobody fills (local relevance, price, simplicity, templates, language, updates), what competitors do well that I must match, what buyers dislike that I must fix, and a winning positioning statement."}]},
+{t:"Validate",e:"✅",d:"Prove people want it before you write.",i:[
+{t:"Validation community posts",d:"Ask your audience without being salesy.",p:"Write 5 short, natural community posts (Facebook groups, WhatsApp Status, X, TikTok captions) asking {{reader}} in {{country}} about their biggest daily challenge with {{problem}}. One clear question each, informal conversational phrasing, no sales hype, offering a free quick checklist as a thank-you for their thoughts."},
+{t:"Early waitlist & concept test",d:"Test real demand before writing.",p:"Write high-converting copy for an early waitlist / pre-sale page to test market demand for an ebook helping {{reader}} in {{country}} solve {{problem}} (working title: {{title}}).\n\nInclude:\n1. Attention-grabbing headline and subheadline\n2. The core struggle and 5 tangible result-driven benefits\n3. Who this is for and who it is NOT for\n4. A free instant checklist/gift for joining the waitlist\n5. An early-bird founder price (recommend an attractive introductory price or use {{price}}) with a limited-time bonus\n6. Expected delivery date, risk-free satisfaction promise, and clear button CTA\n7. A punchy WhatsApp broadcast / Status version under 100 words. Keep claims realistic."},
+{t:"Go / no-go verdict",d:"Strong signal = 10 buyers or 100 signups.",p:"Judge whether I should build, pivot the angle, or drop this idea based on my early interest signals.\nThreshold: 10 pre-sale buyers or 100 waitlist signups is a strong green-light signal.\n\nMy validation numbers:\n{{val_metrics}}\n\nExplain your verdict clearly and give 3 specific adjustments to test if the response is weak."}]},
+{t:"Position",e:"🎯",d:"Promise, title and angle.",i:[
+{t:"Promise and positioning",d:"One line your buyer instantly gets.",p:"Using my research, write:\n1) A one-line promise: Help [who] [achieve what] in [timeframe] without [painful obstacle]\n2) A positioning statement setting me apart from generic alternatives\n3) 5 result-based benefits focusing on transformation\n4) 5 proof ideas I can create or document\n5) 3 honest limits to set healthy expectations and build trust.\n\nTopic: {{niche}} for {{reader}}\nReal buyer words: {{quotes}}"},
+{t:"Title generator",d:"30 titles, 5 best picks.",p:"Generate 30 title and subtitle combinations for an ebook helping {{reader}} in {{country}} solve {{problem}}. Incorporate these real buyer phrases: {{quotes}}. Mix benefit-driven, how-to, numerical, warning, and curiosity angles. No unrealistic hype. Select the top 5, explain why each will convert, and provide a 20-word tagline for each."}]},
+{t:"Plan",e:"🗺️",d:"Outline and bonuses.",i:[
+{t:"Ebook outline & page budget",d:"25 to 40 mobile-friendly pages.",p:"Create a detailed, mobile-friendly outline for the ebook {{title}} for {{reader}} in {{country}}.\nTarget length: 25 to 40 pages (6 to 8 chapters, ~1,000–1,500 words per chapter), structured for low data and easy phone reading.\n\nStructure:\n- Welcome & Author story\n- 10-Minute Quick Win\n- Core System (3 to 6 practical steps)\n- Real local case studies and budget-friendly examples\n- Checklists and templates\n- Common mistakes, scams and expensive traps to avoid\n- 30-Day step-by-step action roadmap\n- Resource directory and next steps\n\nFor every chapter provide: chapter goal, key takeaways, one local example with local pricing, one fill-in template or checklist, a \"Do this today\" micro-action, and specific facts to verify."},
+{t:"Anti-piracy bonus stack",d:"Value that is hard to forward.",p:"Suggest 15 easy-to-create bonuses for {{title}} that add high perceived value and make the ebook difficult to pirate or forward as a plain PDF (e.g., interactive spreadsheet templates, WhatsApp voice note walkthroughs, fillable checklists, copy-paste scripts, private community access). Rank by value-to-effort ratio. Pick the top 4 and explain how each protects the value of the purchase."}]},
+{t:"Write",e:"✍️",d:"Draft each part in your voice. Pick the drafting strategy that suits you best.",i:[
+{t:"Introduction",badge:"Start Here",d:"Hook, promise, quick win.",p:"Write the introduction (400 to 600 words) for {{title}} aimed at {{reader}} in {{country}}.\nOpen with this real quote: {{quotes}}.\nClearly describe the daily struggle, promise the specific transformation, specify who this book is for and who it is NOT for, explain how to navigate the book quickly on a mobile phone, and provide an actionable 10-minute quick win they can do right now. Leave [MY STORY HERE] placeholders for personal experiences. Do not invent personal anecdotes."},
+{t:"Chapter by chapter (guided)",badge:"Recommended for Quality",d:"Interactive guided writing with AI pausing for your feedback.",p:"Let us write my ebook one chapter at a time, with me in control of every step.\n\nTitle: {{title}}\nReader: {{reader}} in {{country}}\nVoice: warm, clear, practical, like an encouraging expert mentor. Short paragraphs for phone screens.\nOutline: {{outline}}\nReal reader words: {{quotes}}\n\nProcess:\n1) Show the complete Table of Contents and wait for my confirmation.\n2) Once confirmed, write only Chapter 1 (1,000 to 1,500 words) featuring: a relatable hook, step-by-step actionable instructions, a realistic local example with local pricing, a checklist or template, a \"Common Mistakes\" callout, and a \"Do This Today\" action. Output the chapter inside a single markdown code block (```) so I can copy it in one click.\n3) Stop and ask me for one personal experience, local tweak, or correction to incorporate.\n4) When I reply NEXT, proceed to the next chapter; if I provide feedback, revise first.\nNever invent statistics, laws, or prices; use [VERIFY: detail] and [MY STORY HERE]. Begin with step 1."},
+{t:"Full ebook in one go",badge:"Fast First Draft",d:"Your AI writes the whole book manuscript from your brief.",p:"Write my complete ebook manuscript from start to finish.\n\nTitle: {{title}}\nReader: {{reader}} in {{country}}\nProblem it solves: {{problem}}\nAuthor background: {{background}}\nReal reader words: {{quotes}}\nOutline (if empty, construct an optimal 7-chapter structure first): {{outline}}\n\nQuality standard: An exceptionally practical, specific, and actionable guide that delivers immediate transformation.\nVoice: Warm, authoritative, concise, and easy to read on mobile devices. Short paragraphs.\nInclude: A 10-minute quick win in the opening chapters; in each chapter provide step-by-step instructions, a realistic local scenario with local pricing, an actionable checklist/template, a \"Common Mistakes\" box, and a \"Do This Today\" prompt; conclude with a 30-Day implementation roadmap and resource directory.\nDo not fabricate laws, statistics, or testimonials; flag unconfirmed items with [VERIFY]. Insert [MY STORY HERE] where personal authority belongs. Include a professional disclaimer page.\n\nFormat: Output the complete manuscript inside a single markdown code block (```) so I can copy it in one click (Cover page copy, Table of Contents, Introduction, all Chapters, Conclusion, Bonus directory, and Disclaimer). If you reach your output limit, stop at the end of a section, output CONTINUE FROM: [Heading], and I will reply continue."},
+{t:"Targeted chapter drafter",badge:"Single Chapter",d:"Draft or rewrite any single chapter by number.",p:"Write Chapter {{chapter}} of my ebook for {{reader}} in {{country}}.\nVoice: warm, clear, practical, like an encouraging mentor. Short sentences for phone readability.\n\nOutline for this chapter:\n{{outline}}\n\nRequirements:\n- Hook opening using this reader sentiment: {{quotes}}\n- Practical, step-by-step implementation instructions\n- One relatable local example with realistic local prices\n- A fill-in checklist, script, or template\n- A \"Common Mistakes to Avoid\" box\n- A single \"Do This Today\" action step\n- Mark facts to verify with [VERIFY: what to check] and personal stories with [MY EXPERIENCE HERE]\nTarget length: 1,000 to 1,500 words."},
+{t:"Action tools & checklists",badge:"Bonus Tools",d:"Checklists, scripts, and trackers readers can use immediately.",p:"Create 5 ready-to-use action tools for my ebook {{title}} on {{problem}}:\n1. A quick-reference step-by-step checklist\n2. A copy-paste message script (WhatsApp & email)\n3. A progress tracker table\n4. A budget/cost calculation worksheet\n5. A text-based decision flowchart\nMake each tool immediately usable, mobile-friendly, and printable."}]},
+{t:"Edit",e:"🧪",d:"Polish, fact-check, protect yourself.",i:[
+{t:"Ruthless editor",d:"Tighter, clearer, phone-ready.",p:"Act as a strict, experienced developmental and line editor. Review this ebook draft for clarity, conciseness, pacing, fluff, repetition, weak recommendations, unsupported assertions, and mobile readability (aim for an accessible 7th-to-8th grade reading level).\nReturn:\n1. Key issues ranked by priority\n2. A tightened, punchy rewrite of weak paragraphs\n3. 3 practical ways to increase the immediate usefulness of the advice\n4. Any claims requiring factual verification.\n\nDraft text:\n{{draft_text}}"},
+{t:"Fact-check list",d:"Know what to verify.",p:"Review this text and extract every claim that must be verified before publishing (laws, government fees, visa requirements, deadlines, prices, health or medical guidelines, financial advice, statistics, external URLs).\nFor each claim specify:\n- The exact statement in the text\n- The legal/reputational risk of an error\n- The authoritative primary source type to verify it against.\nDo not attempt to verify facts yourself.\n\nDraft text:\n{{draft_text}}"},
+{t:"Disclaimer page",d:"Short and clear.",p:"Write a concise, professional disclaimer page for my ebook on {{niche}}:\n- Educational and informational purpose only, not professional legal, financial, or medical advice\n- Information accurate at time of writing but subject to regulatory/market changes\n- Individual outcomes vary based on execution and circumstances\n- Recommendation to consult licensed professionals for high-risk decisions\n- \"Last Updated\" timestamp and author update commitment."}]},
+{t:"Design",e:"🎨",d:"Cover, mockups and layout that look professional.",i:[
+{t:"Cover brief",d:"High-contrast, clear outcome.",p:"Create a high-converting cover design brief for {{title}} aimed at {{reader}} in {{country}}.\nInclude:\n- Core visual focal point conveying the transformation\n- High-contrast, attention-grabbing color palette (optimised for mobile screen thumbnails)\n- Typography hierarchy (Title, Subtitle, Author name, Badge)\n- 3 distinct layout concepts (Minimalist Authority, Bold Problem-Solver, Magazine/Case-Study)\n- Things to avoid (clutter, low-contrast text, generic stock photos)\n- 3 detailed image-generation prompts for Canva, Midjourney, or Leonardo AI."},
+{t:"3D Book Mockup & Promo Visuals",d:"Visual prompts for AI image tools.",p:"Generate 3 detailed visual prompt descriptions to create realistic 3D book cover mockups and promotional graphics for {{title}} using Midjourney, DALL-E 3, Leonardo AI, or Canva.\n\nPrompts needed:\n1. Floating 3D paperback book mockup on a sleek, minimalist wooden desk with soft studio lighting and modern stationery\n2. Digital product bundle mockup showing an ebook displayed on an iPad tablet, a smartphone, and printed cheat-sheet checklists\n3. Social media promo graphic showcasing the book cover with a high-contrast badge: \"Instant Digital Download - Read on Any Phone\".\nSpecify clean background, crisp edges, realistic shadows, 8K commercial photography quality, no gibberish text on the mockups."},
+{t:"Phone-friendly layout",d:"Under 5 MB, easy to read.",p:"Provide step-by-step formatting instructions to format my ebook in Google Docs or Canva for flawless reading on mobile phones:\n- Page dimensions (A5 or 6x9 inch for comfortable phone scrolling)\n- Margin widths, line height (1.4–1.6), and readable font sizes (12–14pt body, 20–24pt headings)\n- Color contrast for readability in bright sunlight\n- Setting up a clickable Table of Contents\n- Creating highlighted callout boxes for tips and warnings\n- Exporting an optimized PDF file under 5 MB with fast loading on 3G/4G networks."}]},
+{t:"Offer",e:"💰",d:"Price and package it.",i:[
+{t:"Pricing strategy",d:"Local and international prices.",p:"Help me determine the ideal pricing strategy for my ebook {{title}} for {{reader}} in {{country}}.\n(Starting price idea: {{price}}).\n\nIf my starting price is empty or unverified, recommend 3 price tiers:\n1. Accessible Entry Price (low barrier, maximum volume)\n2. Sweet-Spot Profitable Price (best perceived value & margin)\n3. Premium Bundle Price (includes audio, templates, or community access).\nProvide values in both local currency and USD. Explain based on: the financial value of solving the problem, typical buyer disposable income, local mobile payment preferences, and competitor benchmarks. Include 3 low-friction price tests."},
+{t:"Offer stack",d:"Make buying a no-brainer.",p:"Create an irresistible offer stack for {{title}} (priced around {{price}}):\n- Core Ebook transformation\n- 3 high-value, easy-to-deliver bonuses (templates, scripts, resource lists)\n- An appealing Order Bump idea (e.g. audio edition, fast-track checklist, or video walkthrough) for digital checkout on SabiMentors\n- A limited-time launch discount incentive\n- A risk-reversal guarantee (satisfaction promise)\n- A compelling reason to buy today rather than later.\nWrite this offer stack in two formats: 1) for a high-converting sales page, and 2) for a concise WhatsApp broadcast message. No artificial or dishonest scarcity."}]},
+{t:"Sales page",e:"🛒",d:"Copy that converts honestly.",i:[
+{t:"Sales page copy",d:"Full page, mobile-first.",p:"Write a complete, mobile-responsive sales page copy for {{title}} for {{reader}} in {{country}}.\n\nFramework:\n1. Compelling headline and subheadline highlighting the primary benefit\n2. Agitation of the problem using these authentic buyer words: {{quotes}}\n3. The true cost and frustration of leaving the problem unsolved\n4. The breakthrough: Introducing the ebook and why it works\n5. Detailed chapter breakdown showing the tangible takeaways\n6. Who this ebook is built for and who should NOT buy it\n7. The complete Offer Stack and bonuses: {{offer}}\n8. Social proof placeholders [REAL TESTIMONIAL HERE]\n9. Comprehensive FAQ covering: payment methods (mobile money, cards), download instructions, data size, device compatibility, and refund policy\n10. Final call to action with a strong risk-free guarantee.\nTone: Honest, empathetic, persuasive, zero exaggerated claims, short paragraphs for phone screens."},
+{t:"Short-form copy pack",d:"WhatsApp, Status, social, ads.",p:"From this sales copy, generate a multi-channel promo pack:\n1. A 100-word direct WhatsApp pitch with an enticing hook\n2. Three 50-word WhatsApp Status captions with emoji bullets and call to action\n3. An engaging Facebook & Instagram caption with storytelling hook\n4. A 6-post educational Twitter / X thread breaking down one key lesson with an invitation to get the full guide\n5. 10 punchy ad headlines.\nKeep every variation honest, conversational, and focused on solving the reader's real pain.\n\nSales copy:\n{{sales_text}}"}]},
+{t:"Funnel",e:"🧲",d:"Lead magnet and nurture sequence.",i:[
+{t:"Lead magnet",d:"A free win that leads to the sale.",p:"Suggest 10 free lead magnet concepts for {{title}} that directly address {{problem}} for {{reader}}, ranked by opt-in potential.\nThen write the complete, ready-to-publish content for the best one (3 to 5 pages):\n- A rapid, tangible quick win achievable in under 15 minutes\n- Author introduction showcasing your expertise\n- Practical step-by-step checklist or cheat sheet\n- A seamless, organic transition inviting them to read the complete ebook {{title}} [INSERT LINK]."},
+{t:"7-day nurture sequence",d:"Email and WhatsApp versions.",p:"Write a 7-day automated nurture sequence for new subscribers who downloaded the lead magnet for {{title}}:\n- Day 1: Warm welcome, link delivery, and immediate quick-win action\n- Day 2: The single biggest myth or trap holding most {{reader}} back\n- Day 3: A relatable story of overcoming {{problem}}\n- Day 4: A practical breakdown of a costly mistake to avoid\n- Day 5: Proof / Case study showcasing what is possible\n- Day 6: Overcoming common objections (price, time, difficulty) and the core offer\n- Day 7: Final deadline reminder and encouragement.\nProvide both an Email format (with attention-grabbing subject lines) and a WhatsApp broadcast format (under 80 words each). Authentic tone, no manufactured urgency."}]},
+{t:"Traffic",e:"📣",d:"Content that brings buyers.",i:[
+{t:"30-day content plan",d:"Daily posts with hooks.",p:"Create a practical 30-day content calendar for {{platform}} to attract {{reader}} in {{country}} and promote {{title}} and its free lead magnet.\nFor each day specify:\n- Content pillar (Quick tip, Myth buster, Story, Mistake to avoid, Tutorial, Social proof, Direct offer)\n- Hook (first 3 seconds / headline)\n- 3-point script or post body (under 45 seconds for video or 100 words for text)\n- Clear Call to Action (comment a keyword for the lead magnet or tap link)\n- Relevant local hashtags.\nIncorporate realistic everyday scenarios from {{country}}."},
+{t:"Hook bank",d:"50 scroll-stoppers.",p:"Write 50 scroll-stopping content hooks addressing {{problem}} for {{reader}} in {{country}}:\n- 10 Question hooks that make the reader stop and think\n- 10 \"Stop doing this\" warning hooks\n- 10 Myth-busting / contrarian hooks\n- 10 Numbered / listicle hooks\n- 10 Personal story / \"How I solved this\" hooks.\nMake them sharp, culturally relatable, and free of empty clickbait."}]},
+{t:"Launch",e:"🚀",d:"Go live and collect proof.",i:[
+{t:"14-day launch plan",d:"Pre-launch to close.",p:"Create a comprehensive 14-day launch blueprint for {{title}} with the offer: {{offer}}.\nSchedule:\n- Days 1–5 (Pre-launch): Problem awareness, audience polls, revealing the cover, behind-the-scenes creation\n- Days 6–7 (Anticipation): Announcing the launch date, early-bird bonuses, waitlist opening\n- Day 8 (Launch Day): Cart opens with founder pricing, celebration announcement across all channels\n- Days 9–12 (Mid-launch): Highlighting specific chapters, addressing FAQs, sharing early buyer reactions\n- Days 13–14 (Final Call): Last chance for launch bonuses and founder price before it increases.\nFor each day give: exact messaging angle, channel strategy, and one core metric to monitor."},
+{t:"Testimonial collector",d:"Real proof, with permission.",p:"For {{title}}, create an automated feedback and testimonial collection system:\n1. A warm check-in message to send buyers 3 to 5 days after purchase\n2. 5 frictionless questions that naturally produce powerful, authentic testimonials (what they struggled with, what they learned, their favorite chapter, their results)\n3. A respectful permission request to feature their first name and feedback publicly\n4. A follow-up gentle reminder for busy readers.\nExplicit rule: Never invent or fake testimonials."}]},
+{t:"Scale",e:"📈",d:"Improve weekly and grow a catalogue.",i:[
+{t:"Weekly performance review",d:"Fix the weakest step first.",p:"Analyze my weekly ebook business metrics:\n{{scale_metrics}}\n\nTasks:\n1. Identify the single biggest bottleneck in my funnel (traffic, landing page conversion, checkout completion, or referral)\n2. Explain the likely root cause based on buyer psychology\n3. Give me 3 high-impact, low-effort split tests or adjustments to implement this week to improve sales."},
+{t:"Next ebook finder",d:"Let buyers choose your next product.",p:"Based on this real reader feedback, questions, and inquiries:\n{{feedback}}\n\nSuggest 8 logical next products to expand my catalog from {{title}}:\n- Companion workbooks or templates\n- Advanced step-by-step masterclasses\n- Audio editions or video walkthroughs\n- Specialized niche spin-offs\n- Monthly membership or private community.\nFor each: describe the target buyer, core promise, recommended pricing, and how it cross-sells from {{title}}."},
+{t:"Localise and translate",d:"Reach new countries and languages.",p:"Help me adapt this section of my ebook for readers in {{country}}:\n- Replace examples, costs, payment methods, local slang, and institutional references with accurate local equivalents\n- Flag any local regulations or legal differences that require [VERIFY]\n- Translate the adapted section into {{lang}} using a natural, engaging, and conversational tone tailored for mobile readers.\n\nText to adapt:\n{{trans_text}}"}]}
+];
+var V={},D={},cur=0,K="fc_ebook_v1",aiK="fc_ai_pref",thK="fc_theme_pref";
+var prjK="fc_projects_list",curPrjK="fc_cur_proj_id";
+var projects=[],curProjId="proj_default";
+var AIS={
+claude:{name:"Claude",url:"https://claude.ai/new?q="},
+chatgpt:{name:"ChatGPT",url:"https://chatgpt.com/"},
+gemini:{name:"Google Gemini",url:"https://gemini.google.com/app"},
+deepseek:{name:"DeepSeek",url:"https://chat.deepseek.com/"},
+copilot:{name:"Copilot",url:"https://copilot.microsoft.com/"},
+custom:{name:"AI",url:""}
+};
+var curAI="claude",curTheme="light";
+function escapeHtml(s){return String(s||"").replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function slugify(s){return(s||"ebook").toString().toLowerCase().trim().replace(/\s+/g,"-").replace(/[^\w\-]+/g,"").replace(/\-\-+/g,"-")||"ebook"}
+try{
+var o=JSON.parse(localStorage.getItem(K)||"{}");V=o.v||{};D=o.d||{};
+var sa=localStorage.getItem(aiK);if(sa&&AIS[sa])curAI=sa;
+var sth=localStorage.getItem("tb_theme")||localStorage.getItem(thK);
+if(sth){curTheme=sth}else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){curTheme="dark"}
+}catch(e){}
+function showModal(title,bodyHtml,actions){
+var m=document.getElementById("app-modal");
+if(!m)return;
+document.getElementById("modal-title").textContent=title;
+document.getElementById("modal-body").innerHTML=bodyHtml;
+var act=document.getElementById("modal-actions");
+act.innerHTML="";
+(actions||[{text:"OK",cls:"m-primary"}]).forEach(function(a){
+var b=document.createElement("button");
+b.type="button";
+b.className=a.cls||"m-primary";
+b.textContent=a.text;
+b.onclick=function(){
+if(a.onClick){if(a.onClick.call(b)!==false)closeModal()}else{closeModal()}
+};
+act.appendChild(b);
+});
+m.style.display="flex";
+var inp=m.querySelector("input, textarea");
+if(inp){setTimeout(function(){try{if(inp.focus)inp.focus();if(inp.select)inp.select()}catch(e){}},50)}
+}
+function closeModal(){
+var m=document.getElementById("app-modal");
+if(m)m.style.display="none";
+}
+var mxBtn=document.getElementById("modal-x");
+if(mxBtn)mxBtn.onclick=closeModal;
+var modalWrap=document.getElementById("app-modal");
+if(modalWrap){
+modalWrap.onclick=function(e){
+if(e.target===modalWrap)closeModal();
+};
+}
+document.addEventListener("keydown",function(e){
+if(e.key==="Escape"||e.keyCode===27)closeModal();
+});
+function toastSave(msg){
+var b=document.getElementById("save-status");
+if(!b)return;
+b.textContent=msg||"✓ Saved";
+b.style.color="var(--brand)";
+setTimeout(function(){b.textContent="✓ Saved";b.style.color="var(--mute)"},1800);
+}
+function initProjects(){
+try{
+var rawList=localStorage.getItem(prjK);
+var savedCurId=localStorage.getItem(curPrjK);
+if(rawList){projects=JSON.parse(rawList)||[]}
+}catch(e){}
+if(!projects||!projects.length){
+var legacyName=(V&&V.title&&V.title.trim())||"My First Ebook";
+projects=[{id:"proj_default",name:legacyName,updatedAt:Date.now()}];
+curProjId="proj_default";
+try{
+localStorage.setItem(prjK,JSON.stringify(projects));
+localStorage.setItem(curPrjK,curProjId);
+localStorage.setItem("fc_proj_"+curProjId,JSON.stringify({id:curProjId,name:legacyName,v:V,d:D,updatedAt:Date.now()}));
+}catch(e){}
+}else{
+if(savedCurId&&projects.some(function(p){return p.id===savedCurId})){curProjId=savedCurId}
+else{curProjId=projects[0].id}
+try{
+var rawData=localStorage.getItem("fc_proj_"+curProjId);
+if(rawData){
+var pData=JSON.parse(rawData);
+if(pData&&pData.v){V=pData.v}
+if(pData&&pData.d){D=pData.d}
+}
+}catch(e){}
+}
+}
+function getCurProj(){
+for(var i=0;i<projects.length;i++){
+if(projects[i].id===curProjId)return projects[i];
+}
+return projects[0]||{id:curProjId,name:"My First Ebook",updatedAt:Date.now()};
+}
+function renderProjectSelector(){
+var sel=document.getElementById("proj-select");
+if(!sel)return;
+var h="";
+projects.forEach(function(p){
+h+='<option value="'+p.id+'"'+(p.id===curProjId?' selected':'')+'>'+escapeHtml(p.name||"Untitled")+'</option>';
+});
+sel.innerHTML=h;
+}
+function switchProject(newId){
+if(newId===curProjId)return;
+sv();
+var target=projects.find(function(p){return p.id===newId});
+if(!target)return;
+curProjId=newId;
+try{localStorage.setItem(curPrjK,curProjId)}catch(e){}
+try{
+var rawData=localStorage.getItem("fc_proj_"+curProjId);
+if(rawData){
+var pData=JSON.parse(rawData);
+V=pData.v||{};
+D=pData.d||{};
+}else{
+V={};D={};
+}
+}catch(e){V={};D={}}
+renderProjectSelector();
+stage();
+fs();
+scrollToStage();
+refreshAds();
+toastSave("Switched project");
+}
+function newProject(){
+showModal(
+"✨ Create New Ebook Project",
+'<label style="display:block;margin:0 0 6px;font-weight:600">Enter a project title or topic:</label><input id="modal-proj-name" placeholder="e.g. Remote Job Blueprint" value="New Ebook Project">',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Create Project",cls:"m-primary",onClick:function(){
+var input=document.getElementById("modal-proj-name");
+var val=input?input.value.trim():"";
+if(!val)val="Untitled Ebook";
+sv();
+var newId="proj_"+Date.now()+"_"+Math.random().toString(36).substr(2,4);
+var newProj={id:newId,name:val,updatedAt:Date.now()};
+projects.push(newProj);
+curProjId=newId;
+V={title:val};
+D={};
+sv();
+renderProjectSelector();
+stage();
+fs();
+toastSave("New project created!");
+}}
+]
+);
+}
+function renameProject(){
+var curP=getCurProj();
+showModal(
+"✏️ Edit / Rename Project",
+'<label style="display:block;margin:0 0 6px;font-weight:600">Project Name:</label><input id="modal-proj-ren" value="'+escapeHtml(curP.name)+'">',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Save Name",cls:"m-primary",onClick:function(){
+var input=document.getElementById("modal-proj-ren");
+var val=input?input.value.trim():"";
+if(!val)return false;
+curP.name=val;
+curP.renamed=true;
+curP.updatedAt=Date.now();
+sv();
+renderProjectSelector();
+toastSave("Project renamed!");
+}}
+]
+);
+}
+function deleteProject(){
+var curP=getCurProj();
+showModal(
+"🗑️ Delete Project?",
+'<p style="margin:0 0 10px;font-size:.9rem;line-height:1.5">Are you sure you want to delete <b>'+escapeHtml(curP.name)+'</b>? All your answers and prompts for this project will be removed.</p>',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Delete Project",cls:"m-danger",onClick:function(){
+var delId=curProjId;
+try{localStorage.removeItem("fc_proj_"+delId)}catch(e){}
+idbDeleteProject(delId);
+projects=projects.filter(function(p){return p.id!==delId});
+if(!projects.length){
+projects=[{id:"proj_"+Date.now(),name:"My First Ebook",updatedAt:Date.now()}];
+}
+curProjId=projects[0].id;
+try{
+localStorage.setItem(prjK,JSON.stringify(projects));
+localStorage.setItem(curPrjK,curProjId);
+var raw=localStorage.getItem("fc_proj_"+curProjId);
+if(raw){var d=JSON.parse(raw);V=d.v||{};D=d.d||{}}else{V={};D={}}
+}catch(e){V={};D={}}
+renderProjectSelector();
+stage();
+fs();
+toastSave("Project deleted");
+}}
+]
+);
+}
+function applyTheme(t){
+curTheme=t;
+document.documentElement.setAttribute('data-theme',t);
+try{localStorage.setItem(thK,t);localStorage.setItem("tb_theme",t)}catch(e){}
+var btn=document.getElementById("thm");
+if(btn){btn.textContent=(t==="dark"?"☀️ Light":"🌙 Dark")}
+}
+var IDB_NAME="EbookBuddyDB",IDB_LEGACY_NAME="EbookLaunchpadDB",IDB_STORE="project_state",idbInst=null;
+function getIDB(cb){
+if(idbInst)return cb(null,idbInst);
+if(!window.indexedDB)return cb(new Error("IDB unsupported"));
+var req=window.indexedDB.open(IDB_NAME,1);
+req.onupgradeneeded=function(e){
+var db=e.target.result;
+if(!db.objectStoreNames.contains(IDB_STORE)){db.createObjectStore(IDB_STORE,{keyPath:"id"})}
+};
+req.onsuccess=function(e){
+idbInst=e.target.result;
+try{
+var testTx=idbInst.transaction(IDB_STORE,"readonly");
+var countReq=testTx.objectStore(IDB_STORE).count();
+countReq.onsuccess=function(){
+if(countReq.result===0&&window.indexedDB.open){
+var oldReq=window.indexedDB.open(IDB_LEGACY_NAME,1);
+oldReq.onsuccess=function(oe){
+var oldDb=oe.target.result;
+if(oldDb.objectStoreNames.contains(IDB_STORE)){
+var otx=oldDb.transaction(IDB_STORE,"readonly");
+var oReq=otx.objectStore(IDB_STORE).getAll();
+oReq.onsuccess=function(){
+if(oReq.result&&oReq.result.length){
+var ntx=idbInst.transaction(IDB_STORE,"readwrite");
+var nStore=ntx.objectStore(IDB_STORE);
+oReq.result.forEach(function(rec){nStore.put(rec)});
+}
+};
+}
+};
+}
+};
+}catch(err){}
+cb(null,idbInst);
+};
+req.onerror=function(e){cb(e.target.error)};
+}
+function idbSave(data){
+idbSaveProject({id:curProjId,name:getCurProj().name,v:data.v||V,d:data.d||D,ai:curAI,theme:curTheme});
+}
+function idbSaveProject(data){
+getIDB(function(err,db){
+if(err||!db)return;
+try{
+var tx=db.transaction(IDB_STORE,"readwrite");
+var store=tx.objectStore(IDB_STORE);
+data.updatedAt=Date.now();
+store.put(data);
+store.put({id:"__projects_meta__",projects:projects,curProjId:curProjId,updatedAt:Date.now()});
+store.put({id:"current",v:data.v,d:data.d,ai:curAI,theme:curTheme,updatedAt:Date.now()});
+}catch(e){}
+});
+}
+function idbDeleteProject(id){
+getIDB(function(err,db){
+if(err||!db)return;
+try{
+var tx=db.transaction(IDB_STORE,"readwrite");
+var store=tx.objectStore(IDB_STORE);
+store.delete(id);
+store.put({id:"__projects_meta__",projects:projects,curProjId:curProjId,updatedAt:Date.now()});
+}catch(e){}
+});
+}
+function idbLoad(cb){
+getIDB(function(err,db){
+if(err||!db)return cb(err);
+try{
+var tx=db.transaction(IDB_STORE,"readonly");
+var store=tx.objectStore(IDB_STORE);
+var reqMeta=store.get("__projects_meta__");
+var reqCur=store.get(curProjId);
+var reqLegacy=store.get("current");
+tx.oncomplete=function(){
+cb(null,{meta:reqMeta.result,cur:reqCur.result,legacy:reqLegacy.result});
+};
+tx.onerror=function(e){cb(e)};
+}catch(e){cb(e)}
+});
+}
+function aiName(){return AIS[curAI]?AIS[curAI].name:"AI"}
+function aiBtn(){return "Open in "+aiName()+" ↗"}
+var REC={
+3:{icon:"🚀",title:"Ready to validate or take pre-orders?",text:"Build a high-converting waitlist or pre-sale landing page in minutes using <b>FunnelCraft AI</b>. Want to collect payments upfront? Use <b>SabiMentors</b> for zero-stress digital checkouts.",links:[{t:"Build waitlist on FunnelCraft AI ↗",u:"https://www.funnelcraftai.com"},{t:"Pre-sell on SabiMentors ↗",u:"https://sabimentors.com"}]},
+9:{icon:"💳",title:"Host and price your offer without fees eating your profit",text:"Use <b>SabiMentors</b> to host your ebook, order bumps, bonus files, and private community links. Accept local and international currencies with instant payouts.",links:[{t:"Set up offer on SabiMentors ↗",u:"https://sabimentors.com"}]},
+10:{icon:"⚡",title:"Turn your AI sales copy into a live page in minutes",text:"Don’t struggle with complex web builders. Paste your generated copy into <b>FunnelCraft AI</b> to generate a mobile-responsive, conversion-optimized ebook sales page instantly.",links:[{t:"Build sales page with FunnelCraft AI ↗",u:"https://www.funnelcraftai.com"}]},
+11:{icon:"🧲",title:"Automate your lead generation & nurture sequences",text:"Connect your free lead magnet opt-in page directly to automated email and WhatsApp delivery funnels using <b>FunnelCraft AI</b>.",links:[{t:"Launch lead funnel with FunnelCraft AI ↗",u:"https://www.funnelcraftai.com"}]},
+13:{icon:"🎉",title:"Launch engine: Funnels + Instant Checkout",text:"Pair <b>FunnelCraft AI</b> (for high-converting launch pages and countdowns) with <b>SabiMentors</b> (for secure customer checkouts, zero delivery headaches, and automated access).",links:[{t:"Sell with SabiMentors ↗",u:"https://sabimentors.com"},{t:"Launch with FunnelCraft AI ↗",u:"https://www.funnelcraftai.com"}]},
+14:{icon:"📈",title:"Scale your catalogue and recruit affiliates",text:"Ready to expand? <b>SabiMentors</b> lets you bundle multiple ebooks, launch order bumps, and recruit an army of affiliates to promote your digital products.",links:[{t:"Scale store on SabiMentors ↗",u:"https://sabimentors.com"}]}
+};
+function renderRec(r){
+var lks=r.links.map(function(l){return '<a href="'+l.u+'" target="_blank" rel="noopener" class="stage-recom-btn">'+l.t+'</a>'}).join(" ");
+return '<div class="stage-recom"><div class="stage-recom-icon">'+r.icon+'</div><div class="stage-recom-body"><b>'+r.title+'</b><p>'+r.text+'</p><div>'+lks+'</div></div></div>';
+}
+function sv(){
+var curP=getCurProj();
+if(V.title&&V.title.trim()&&(curP.name==="My First Ebook"||curP.name==="Untitled Ebook"||curP.name==="New Ebook Project"||!curP.renamed)){
+curP.name=V.title.trim();
+renderProjectSelector();
+}
+curP.updatedAt=Date.now();
+var projPayload={id:curProjId,name:curP.name,v:V,d:D,updatedAt:curP.updatedAt};
+try{
+localStorage.setItem(K,JSON.stringify({v:V,d:D}));
+localStorage.setItem("fc_proj_"+curProjId,JSON.stringify(projPayload));
+localStorage.setItem(prjK,JSON.stringify(projects));
+localStorage.setItem(curPrjK,curProjId);
+}catch(e){}
+idbSaveProject(projPayload);
+toastSave();
+}
+function downloadFile(filename,content,mimeType){
+var ok=false;
+try{
+var blob=new Blob([content],{type:mimeType});
+var url=URL.createObjectURL(blob);
+var a=document.createElement("a");
+a.href=url;
+a.download=filename;
+a.style.display="none";
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+setTimeout(function(){URL.revokeObjectURL(url)},60000);
+ok=true;
+}catch(e){
+try{
+var a=document.createElement("a");
+a.href="data:"+mimeType+";charset=utf-8,"+encodeURIComponent(content);
+a.download=filename;
+a.style.display="none";
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+ok=true;
+}catch(err){}
+}
+return ok;
+}
+function generateMarkdownExport(){
+var title=(V.title&&V.title.trim())||getCurProj().name||"Untitled Ebook";
+var lines=[];
+lines.push("# "+title);
+if(getVal("reader")||getVal("country")){
+lines.push("*A practical guide for "+(getVal("reader")||"readers")+(getVal("country")?" in "+getVal("country"):"")+"*");
+}
+lines.push("");
+lines.push("> **Generated with [EbookBuddy](https://sabimentors.com)**  ");
+lines.push("> *Powered by [SabiMentors](https://sabimentors.com) × [FunnelCraft AI](https://www.funnelcraftai.com)*  ");
+lines.push("> **Export Date:** "+new Date().toLocaleDateString()+"  ");
+lines.push("");
+lines.push("---");
+lines.push("");
+lines.push("## 🧭 Project Blueprint & Core Context");
+lines.push("- **Target Reader:** "+(getVal("reader")||"*(Not filled yet)*"));
+lines.push("- **Target Country / City:** "+(getVal("country")||"*(Not filled yet)*"));
+lines.push("- **Topic / Niche:** "+(getVal("niche")||"*(Not filled yet)*"));
+lines.push("- **Problem Solved:** "+(getVal("problem")||"*(Not filled yet)*"));
+lines.push("- **Author Background & Authority:** "+(getVal("background")||"*(Not filled yet)*"));
+lines.push("- **Weekly Commitment:** "+(getVal("hours")?getVal("hours")+" hrs/week":"*(Not filled yet)*"));
+lines.push("- **Budget:** "+(getVal("budget")||"*(Not filled yet)*"));
+lines.push("- **90-Day Goal:** "+(getVal("goal")||"*(Not filled yet)*"));
+lines.push("- **Target Price:** "+(getVal("price")||"*(Not filled yet)*"));
+lines.push("- **Main Marketing Platform:** "+(getVal("platform")||"*(Not filled yet)*"));
+lines.push("");
+lines.push("---");
+lines.push("");
+lines.push("## 🎯 Offer, Positioning & Voice-of-Customer");
+lines.push("### Core Offer Stack");
+lines.push(getVal("offer")?getVal("offer"):"*(Not specified yet)*");
+lines.push("");
+lines.push("### Real Customer Quotes & Comments");
+lines.push(getVal("quotes")?getVal("quotes"):"*(No quotes added yet)*");
+lines.push("");
+if(getVal("voc_data")){lines.push("### Voice-of-Customer Research");lines.push(getVal("voc_data"));lines.push("")}
+if(getVal("comp_data")){lines.push("### Competitor Research & Gaps");lines.push(getVal("comp_data"));lines.push("")}
+if(getVal("ideas")){lines.push("### Brainstormed Ideas");lines.push(getVal("ideas"));lines.push("")}
+lines.push("---");
+lines.push("");
+lines.push("## 🗺️ Ebook Outline");
+lines.push(getVal("outline")?getVal("outline"):"*(No outline drafted yet)*");
+lines.push("");
+lines.push("---");
+lines.push("");
+lines.push("## ✍️ Draft Chapters & Working Copy");
+lines.push(getVal("draft_text")?getVal("draft_text"):"*(No draft text saved yet)*");
+lines.push("");
+if(getVal("sales_text")){lines.push("### Sales Page Copy");lines.push(getVal("sales_text"));lines.push("")}
+if(getVal("val_metrics")){lines.push("### Early Validation Signals");lines.push(getVal("val_metrics"));lines.push("")}
+if(getVal("scale_metrics")){lines.push("### Weekly Scaling Numbers");lines.push(getVal("scale_metrics"));lines.push("")}
+if(getVal("feedback")){lines.push("### Customer Feedback");lines.push(getVal("feedback"));lines.push("")}
+lines.push("---");
+lines.push("");
+lines.push("## 📋 15-Stage System & Customized Prompts");
+lines.push("");
+S.forEach(function(stg,sIdx){
+lines.push("### "+stg.e+" Stage "+(sIdx+1)+": "+stg.t);
+lines.push("*"+stg.d+"*");
+lines.push("");
+stg.i.forEach(function(it,pIdx){
+var k=id(sIdx,pIdx);
+var done=D[k]?"[✓ Done]":"[ ] Not done";
+lines.push("#### "+done+" "+(pIdx+1)+". "+it.t);
+lines.push("**Purpose:** "+it.d);
+lines.push("");
+lines.push("```text");
+lines.push(build(it.p));
+lines.push("```");
+lines.push("");
+});
+});
+lines.push("---");
+lines.push("");
+lines.push("## 🚀 Recommended Next Steps to Publish & Profit");
+lines.push("1. **Sell your Ebook:** [SabiMentors](https://sabimentors.com) — Free digital product hosting, seamless multi-currency payments, order bumps & instant product delivery.");
+lines.push("2. **Build Your Funnel in Minutes:** [FunnelCraft AI](https://www.funnelcraftai.com) — Automated high-converting sales pages, lead funnels & copy generation.");
+lines.push("");
+return lines.join("\n");
+}
+function generateJsonBackup(){
+var curP=getCurProj();
+var payload={
+app:"EbookBuddy",
+version:2,
+exportedAt:new Date().toISOString(),
+project:{
+id:curP.id,
+name:curP.name,
+v:V,
+d:D,
+updatedAt:curP.updatedAt||Date.now()
+},
+ai:curAI,
+theme:curTheme
+};
+return JSON.stringify(payload,null,2);
+}
+function exportMarkdown(){
+var title=(V.title&&V.title.trim())||getCurProj().name||"ebook";
+var mdContent=generateMarkdownExport();
+var filename=slugify(title)+"-ebook-buddy.md";
+var dlOk=downloadFile(filename,mdContent,"text/markdown;charset=utf-8");
+showModal(
+"📥 Export Ebook Blueprint (.MD)",
+'<p style="margin:0 0 8px;font-size:.85rem;color:var(--mute)">'+(dlOk?'✓ File download initiated for <b>'+escapeHtml(filename)+'</b>.':'Copy your markdown blueprint or download directly:')+'</p>'+
+'<textarea id="modal-export-area" readonly style="width:100%;height:180px;font-size:.8rem;font-family:monospace;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px">'+escapeHtml(mdContent)+'</textarea>',
+[
+{text:"Close",cls:"m-cancel"},
+{text:"📋 Copy Markdown",cls:"m-primary",onClick:function(){
+var ta=document.getElementById("modal-export-area");
+if(ta)cp(ta.value,this,"📥 Markdown blueprint copied to clipboard!");
+return false;
+}},
+{text:"⬇️ Download File",cls:"m-primary",onClick:function(){
+downloadFile(filename,mdContent,"text/markdown;charset=utf-8");
+return false;
+}},
+{text:"📢 Share App",cls:"m-primary",onClick:function(){
+openShareModal();
+return false;
+}}
+]
+);
+}
+function exportJson(){
+var title=(V.title&&V.title.trim())||getCurProj().name||"ebook";
+var jsonContent=generateJsonBackup();
+var filename=slugify(title)+"-backup.json";
+var dlOk=downloadFile(filename,jsonContent,"application/json;charset=utf-8");
+showModal(
+"💾 Backup Project Data (.JSON)",
+'<p style="margin:0 0 8px;font-size:.85rem;color:var(--mute)">'+(dlOk?'✓ Backup file download started for <b>'+escapeHtml(filename)+'</b>.':'Copy your backup JSON data below:')+'</p>'+
+'<textarea id="modal-json-area" readonly style="width:100%;height:180px;font-size:.8rem;font-family:monospace;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px">'+escapeHtml(jsonContent)+'</textarea>',
+[
+{text:"Close",cls:"m-cancel"},
+{text:"📋 Copy JSON",cls:"m-primary",onClick:function(){
+var ta=document.getElementById("modal-json-area");
+if(ta)cp(ta.value,this,"💾 Backup JSON copied to clipboard!");
+return false;
+}},
+{text:"⬇️ Download File",cls:"m-primary",onClick:function(){
+downloadFile(filename,jsonContent,"application/json;charset=utf-8");
+return false;
+}},
+{text:"📢 Share App",cls:"m-primary",onClick:function(){
+openShareModal();
+return false;
+}}
+]
+);
+}
+function importProjectJson(jsonStr){
+var data;
+try{
+data=JSON.parse(jsonStr);
+}catch(e){
+showModal("⚠️ Import Failed","<p>Invalid JSON file format. Please choose a valid EbookBuddy backup file.</p>",[{text:"OK",cls:"m-primary"}]);
+return false;
+}
+var importedV=(data.project&&data.project.v)||data.v;
+var importedD=(data.project&&data.project.d)||data.d||{};
+var importedName=(data.project&&data.project.name)||(importedV&&importedV.title)||"Imported Ebook";
+if(!importedV||typeof importedV!=="object"){
+showModal("⚠️ Import Failed","<p>The selected file does not contain valid project fields.</p>",[{text:"OK",cls:"m-primary"}]);
+return false;
+}
+showModal(
+"📂 Import Project",
+'<p style="margin:0 0 10px;font-size:.9rem;line-height:1.5">How would you like to import <b>'+escapeHtml(importedName)+'</b>?</p>',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Overwrite Current Project",cls:"m-danger",onClick:function(){
+var curP=getCurProj();
+curP.name=importedName;
+curP.updatedAt=Date.now();
+V=importedV;
+D=importedD;
+if(data.ai&&AIS[data.ai]){curAI=data.ai;var ait=document.getElementById("ai-tool");if(ait)ait.value=curAI;}
+sv();
+renderProjectSelector();
+stage();
+fs();
+toastSave("Project imported & saved!");
+}},
+{text:"Create As New Project",cls:"m-primary",onClick:function(){
+var newId="proj_"+Date.now()+"_"+Math.random().toString(36).substr(2,4);
+var newProj={id:newId,name:importedName,updatedAt:Date.now()};
+projects.push(newProj);
+curProjId=newId;
+V=importedV;
+D=importedD;
+if(data.ai&&AIS[data.ai]){curAI=data.ai;var ait=document.getElementById("ai-tool");if(ait)ait.value=curAI;}
+sv();
+renderProjectSelector();
+stage();
+fs();
+toastSave("Imported as new project!");
+}}
+]
+);
+return true;
+}
+function getVal(k){
+if(V[k]&&V[k].trim())return V[k].trim();
+if(k==="voc_data"||k==="comp_data")return (V.data&&V.data.trim())||"";
+if(k==="val_metrics"||k==="scale_metrics")return (V.numbers&&V.numbers.trim())||"";
+if(k==="draft_text"||k==="sales_text"||k==="trans_text")return (V.text&&V.text.trim())||"";
+return "";
+}
+function keys(p){var m=p.match(/\{\{(\w+)\}\}/g)||[],u=[];m.forEach(function(x){x=x.slice(2,-2);if(u.indexOf(x)<0)u.push(x)});return u}
+function build(p,forCopy){
+var res=p.replace(/\{\{(\w+)\}\}/g,function(_,k){
+var v=getVal(k);
+return v?v:"["+(L[k]?L[k][0]:k)+"]";
+});
+var isMaster=res.indexOf("You are my expert partner for building a profitable ebook business")>=0;
+if(!isMaster&&res.indexOf("one click")===-1&&res.indexOf("one-click")===-1){
+res+="\n\nOutput format: Present your complete response inside a single markdown code block (```) so it is simple to copy in one click without conversational filler.";
+}
+if(forCopy){
+var m=miss(p);
+if(m.length>0){
+res+="\n\n[Note for AI: Any bracketed placeholder like ["+(L[m[0]]?L[m[0]][0]:m[0])+"] is unfinalized. Please suggest 3 compelling options for it based on my context before proceeding.]";
+}
+}
+return res;
+}
+function miss(p){return keys(p).filter(function(k){return !getVal(k)})}
+function id(s,i){return s+"-"+i}
+function tot(){var n=0;S.forEach(function(s){n+=s.i.length});return n}
+function prog(){var d=Object.keys(D).filter(function(k){return D[k]}).length,t=tot();document.getElementById("pb").style.width=(d/t*100)+"%";document.getElementById("pm").textContent=d+" of "+t+" prompts done"+(d==t?" 🎉 You are ready to sell!":"");}
+var PHASES=[
+{name:"Ideate & Validate",icon:"💡",stages:[0,1,2,3]},
+{name:"Outline & Write",icon:"✍️",stages:[4,5,6,7,8]},
+{name:"Package & Funnels",icon:"💰",stages:[9,10,11]},
+{name:"Launch & Scale",icon:"🚀",stages:[12,13,14]}
+];
+function getPhaseIdx(sIdx){
+for(var p=0;p<PHASES.length;p++){
+if(PHASES[p].stages.indexOf(sIdx)>=0)return p;
+}
+return 0;
+}
+function renderPhases(){
+var pel=document.getElementById("phases");
+if(!pel)return;
+var curP=getPhaseIdx(cur);
+var h="";
+PHASES.forEach(function(ph,pIdx){
+h+='<button type="button" class="phase-btn'+(pIdx===curP?" on":"")+'" data-phase="'+pIdx+'"><span class="p-num">'+(pIdx+1)+'</span> '+ph.icon+' '+ph.name+'</button>';
+});
+pel.innerHTML=h;
+}
+function chips(){
+renderPhases();
+var h="";
+S.forEach(function(s,i){
+var all=s.i.every(function(_,j){return D[id(i,j)]});
+h+='<button class="chip'+(i==cur?" on":"")+(all?" done":"")+'" data-i="'+i+'">'+s.e+" "+(i+1)+". "+s.t+(all?" ✓":"")+"</button>";
+});
+var c=document.getElementById("chips");
+c.innerHTML=h;
+var on=c.querySelector(".on");
+if(on){try{c.scrollLeft=on.offsetLeft-(c.clientWidth-on.clientWidth)/2}catch(e){}}
+}
+function stage(){
+var s=S[cur],h="<h2>"+s.e+" "+(cur+1)+". "+s.t+'</h2><p class="sd">'+s.d+"</p>";
+if(REC[cur])h+=renderRec(REC[cur]);
+s.i.forEach(function(it,j){
+var k=id(cur,j),f="";
+keys(it.p).forEach(function(q){
+var l=L[q]||[q,""];
+f+='<div class="lr"><label for="f-'+q+'-'+k+'">'+l[0]+"</label>"+(H[q]?'<button type="button" class="sh" data-t="1">See Hint</button>':"")+"</div>"+(H[q]?'<small class="hx">💡 '+H[q]+"</small>":"")+(l[2]?'<textarea id="f-'+q+"-"+k+'" data-k="'+q+'" placeholder="'+l[1]+'"></textarea>':'<input id="f-'+q+"-"+k+'" data-k="'+q+'" placeholder="'+l[1]+'">')+'<button class="hb" data-h="'+q+'" data-w="'+k+'">✨ Help me fill this</button><div id="hp-'+q+'-'+k+'"></div>';
+});
+var badgeHtml=it.badge?'<span class="method-badge '+(it.badge.indexOf('Recommended')>=0?'method-rec':'method-alt')+'">'+it.badge+'</span> ' : '';
+h+='<div class="card'+(D[k]?" ok":"")+(j==0?" open":"")+'" data-id="'+k+'"><div class="ch"><span class="tick">'+(D[k]?"✓":"")+"</span><b>"+badgeHtml+it.t+"<small>"+it.d+'</small></b><span class="cv"></span></div><div class="body">'+f+'<div class="pv" id="pv-'+k+'"></div><p class="miss" id="ms-'+k+'"></p><div class="row"><button class="b" data-a="copy" data-p="'+j+'">Copy prompt</button><button class="b alt" data-a="open" data-p="'+j+'">'+aiBtn()+'</button><button class="b alt" data-a="done" data-p="'+j+'">Mark done</button></div></div></div>';
+});
+document.getElementById("stage").innerHTML=h;
+document.querySelectorAll("#stage [data-k]").forEach(function(e){e.value=getVal(e.dataset.k)||""});
+s.i.forEach(function(_,j){upd(j)});
+chips();
+prog();
+}
+function upd(j){
+var k=id(cur,j),it=S[cur].i[j],m=miss(it.p);
+document.getElementById("pv-"+k).textContent=build(it.p,false);
+document.getElementById("ms-"+k).textContent=m.length?"Still empty: "+m.map(function(x){return L[x]?L[x][0]:x}).join(", ")+" (you can still copy and fill later)":"All filled. Ready to paste into your AI.";
+}
+var toastTimer=null;
+function showToast(msg){
+var el=document.getElementById("app-toast");
+if(!el){
+el=document.createElement("div");
+el.id="app-toast";
+el.className="app-toast";
+el.setAttribute("role","status");
+el.setAttribute("aria-live","polite");
+document.body.appendChild(el);
+}
+el.innerHTML=msg||"✓ Copied to clipboard!";
+el.classList.add("show");
+if(toastTimer)clearTimeout(toastTimer);
+toastTimer=setTimeout(function(){el.classList.remove("show")},2200);
+}
+function toast(b,t){
+if(!b||typeof b.textContent==="undefined")return;
+var o=b.textContent;
+b.textContent=t;
+setTimeout(function(){b.textContent=o},1500);
+}
+function copyText(t,b,msg){
+var noticeMsg=msg||"✓ Copied to clipboard!";
+function done(){
+if(b&&b.nodeType===1)toast(b,"Copied ✓");
+showToast(noticeMsg);
+}
+function fb(){
+var a=document.createElement("textarea");
+a.value=t;
+a.style.position="fixed";
+a.style.opacity="0";
+a.style.left="-9999px";
+document.body.appendChild(a);
+a.select();
+try{
+document.execCommand("copy");
+done();
+}catch(e){
+if(b&&b.nodeType===1)toast(b,"Press to copy");
+showToast("⚠️ Could not auto-copy. Please copy manually.");
+}
+document.body.removeChild(a);
+}
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(t).then(done,fb);
+}else{
+fb();
+}
+}
+var cp=copyText;
+document.addEventListener("input",function(e){var k=e.target.dataset&&e.target.dataset.k;if(!k)return;V[k]=e.target.value;document.querySelectorAll('[data-k="'+k+'"]').forEach(function(x){if(x!==e.target)x.value=e.target.value});S[cur].i.forEach(function(_,j){upd(j)});sv()});
+function snapToStageHeader(smooth){
+requestAnimationFrame(function(){
+var stage=document.getElementById("stage");
+if(!stage)return;
+var header=stage.querySelector("h2")||stage;
+var nav=document.getElementById("sticky-nav");
+if(!nav||!header)return;
+var navBottom=nav.getBoundingClientRect().bottom;
+var headerTop=header.getBoundingClientRect().top;
+var diff=headerTop-navBottom;
+var targetY=Math.max(0,window.pageYOffset+diff-8);
+window.scrollTo({top:targetY,behavior:smooth!==false?"smooth":"auto"});
+});
+}
+window.snapToStageHeader=snapToStageHeader;
+function toggleTutorial(e, forceOpen){
+  if(e && e.stopPropagation) e.stopPropagation();
+  var tc = document.getElementById("tutorial-card");
+  var tutHead = document.getElementById("tut-header");
+  if(!tc) return;
+  var willOpen = (typeof forceOpen === "boolean") ? forceOpen : !tc.classList.contains("open");
+  if(willOpen){
+    tc.classList.add("open");
+    if(tutHead) tutHead.setAttribute("aria-expanded", "true");
+    try{renderAd("ad-tutorial")}catch(err){}
+  } else {
+    tc.classList.remove("open");
+    if(tutHead) tutHead.setAttribute("aria-expanded", "false");
+  }
+}
+window.toggleTutorial = toggleTutorial;
+function scrollToStage(){
+requestAnimationFrame(function(){
+var ad=document.getElementById("ad-top");
+var stage=document.getElementById("stage");
+var header=stage?(stage.querySelector("h2")||stage):stage;
+var nav=document.getElementById("sticky-nav");
+if(!header||!nav)return;
+var hasActiveAd=ad&&!ad.classList.contains("ad-collapsed")&&ad.offsetHeight>20&&(ad.querySelector("iframe")!==null||(ad.querySelector("ins")&&ad.querySelector("ins").getAttribute("data-ad-status")==="filled"));
+var targetEl=hasActiveAd?ad:header;
+var navBottom=nav.getBoundingClientRect().bottom;
+var targetTop=targetEl.getBoundingClientRect().top;
+var diff=targetTop-navBottom;
+var targetY=Math.max(0,window.pageYOffset+diff-8);
+window.scrollTo({top:targetY,behavior:"smooth"});
+});
+}
+document.addEventListener("click",function(e){var t=e.target;
+var pBtn=t.closest(".phase-btn");if(pBtn){var pIdx=+pBtn.dataset.phase;var targetStage=PHASES[pIdx].stages[0];if(targetStage!==cur){cur=targetStage;stage();scrollToStage();refreshAds()}return}
+if(t.classList.contains("chip")){cur=+t.dataset.i;stage();scrollToStage();refreshAds();return}
+var ch=t.closest(".ch");if(ch){if(ch.id==="tut-header"||ch.closest("#tutorial-card")){toggleTutorial(e);return}var cardEl=ch.parentNode;cardEl.classList.toggle("open");if(cardEl.classList.contains("open")){setTimeout(function(){var nav=document.getElementById("sticky-nav");var navH=nav?nav.getBoundingClientRect().height:100;var rect=cardEl.getBoundingClientRect();if(rect.top<navH+10){var targetY=window.pageYOffset+rect.top-navH-14;window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"})}},60)}return}
+var d=t.dataset||{};
+if(d.t){var hx=t.parentNode.nextElementSibling;hx.classList.toggle('show');t.textContent=hx.classList.contains('show')?'Hide Hint':'See Hint';return}
+if(d.m){V.__mode=d.m;sv();fs();return}
+if(d.a=='fc'){copyText(fsP(),t,"✓ Fast-start prompt copied!");return}
+if(d.a=='fo'){go(fsP(),t);return}
+if(d.h){var bx=document.getElementById('hp-'+d.h+'-'+d.w);if(bx.innerHTML){bx.innerHTML='';return}HPT[d.h+d.w]=helpP(d.h);bx.innerHTML='<div class="pv"></div><div class="row"><button class="b" data-a="hc" data-x="'+d.h+d.w+'">Copy helper prompt</button><button class="b alt" data-a="ho" data-x="'+d.h+d.w+'">'+aiBtn()+'</button></div><p class="miss">Paste the FINAL ANSWER from your AI into the box above.</p>';bx.firstChild.textContent=HPT[d.h+d.w];return}
+if(d.a=='hc'){copyText(HPT[d.x],t,"✓ Helper prompt copied!");return}
+if(d.a=='ho'){go(HPT[d.x],t);return}
+var a=t.dataset&&t.dataset.a;if(!a)return;var j=+t.dataset.p,it=S[cur].i[j],k=id(cur,j),txt=build(it.p,true);
+if(a=="copy"){copyText(txt,t,"✓ Prompt copied to clipboard!")}
+if(a=="open"){go(txt,t)}
+if(a=="done"){D[k]=!D[k];sv();stage()}});
+document.getElementById("nx").onclick=function(){if(cur<S.length-1){cur++;stage();scrollToStage();refreshAds()}};
+document.getElementById("pv").onclick=function(){if(cur>0){cur--;stage();scrollToStage();refreshAds()}};
+document.getElementById("rs").onclick=function(){
+var curP=getCurProj();
+showModal(
+"⚠️ Reset Project Answers?",
+'<p style="margin:0 0 10px;font-size:.9rem;line-height:1.5">Are you sure you want to clear all your answers and prompt progress for <b>'+escapeHtml(curP.name)+'</b>? This cannot be undone.</p>',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Clear All Answers",cls:"m-danger",onClick:function(){
+V={};D={};sv();stage();toastSave("All answers cleared");
+}}
+]
+);
+};
+var HPT={};
+function mode(){return V.__mode=='res'?'res':'exp'}
+var MT={exp:'Work from MY OWN EXPERIENCE. Interview me with simple everyday questions, one at a time (maximum 5), and give example answers I can pick from. Label guesses [MY GUESS]. Never invent facts, statistics or real people.',res:'Work from PROBLEM RESEARCH. If you can search the web, find real public discussions (Facebook groups, forums, Reddit, X, review sites, local communities) from my target country and give links; use only real material. If you cannot browse, give me a 15-minute research mission (exact search phrases, where to look, what to copy) and wait for me to paste what I find. Never invent quotes, statistics or testimonials.'};
+var X={niche:'Suggest 8 narrow niches that fit my background and a market that already pays, then recommend the best one.',reader:'Suggest 5 specific reader profiles (job, situation, location) who would pay, say why, then recommend one.',problem:'Give 5 specific, urgent problems this reader has, in their own words, then recommend the most painful and most payable one.',ideas:'Give 10 narrow ebook ideas, one per line, in the form: How [person] can [result] without [obstacle].',title:'Give 10 title options, pick the strongest, and put only that title in FINAL ANSWER.',background:'Help me discover my skills, experience, results and problems I have solved, then write 3 to 5 plain sentences.',quotes:'Give 10 to 15 short lines in the way my buyers really talk about this problem. In experience mode label each [MY RECALL]; in research mode use only real sources and add the link.',voc_data:'Give 10 to 15 short lines of what real buyers say, ask, and complain about regarding this problem (from forums, groups, and reviews).',comp_data:'List 3 to 5 common competitors or guides on this topic with their pricing, main strengths, and 3 critical gaps they leave open.',val_metrics:'Show me how to summarize my waitlist signups, pre-orders, and survey responses into a clear metrics summary.',scale_metrics:'Show me how to format my weekly traffic, signups, sales, revenue, and refund numbers for review.',draft_text:'Review what earlier stage creates this manuscript section, and outline what to paste here for editing.',sales_text:'Review my sales page copy and show me the main sections to paste here for repurposing.',trans_text:'Specify which section of the ebook to adapt or translate for a new region or language.',data:'Collect real raw material about this topic: comments, questions and competitor reviews, each with its source link.',outline:'Create a chapter outline of 6 to 9 chapters: a 10-minute quick win first, then core steps, templates and checklists, mistakes to avoid, and a 30-day action plan. Give each chapter a goal and key points.',chapter:'Look at my outline and give me only the number and title of the next chapter to write.',price:'Recommend a price in my local currency and in USD with a short reason and a launch discount idea. Put one line in FINAL ANSWER.',offer:'Build my offer in 2 lines: the ebook, 3 easy bonuses, a guarantee and a launch deadline.',platform:'Recommend the one best platform to start on for my buyers and why. Put only its name in FINAL ANSWER.',goal:'Suggest 3 realistic 90-day goals for my time and budget, then recommend one.',numbers:'Show me where to find my real numbers (store dashboard, WhatsApp, social insights) and help me list them clearly.',text:'If I do not have a draft yet, tell me which earlier stage creates this text and ask me what I already have.',feedback:'Help me gather and list real buyer reviews, questions and DMs, and tell me where to look.'};
+function brief(){var r='';Object.keys(L).forEach(function(k){if(getVal(k))r+='- '+L[k][0]+': '+getVal(k)+'\n'});return r||'(nothing yet)'}
+function helpP(k){return 'You are coaching a first-time ebook creator who does not know what to write. I am filling the field "'+L[k][0]+'" in my ebook planning app.\nWhat this field needs: '+(H[k]||'')+'\n\n'+MT[mode()]+'\n'+(X[k]||'')+'\n\nMy brief so far:\n'+brief()+'\n\nRules: simple language, local context for my country, quality over length, mark unverified items [VERIFY]. Output format: End with a section titled FINAL ANSWER formatted inside a single markdown code block (```) containing ONLY the exact text I should paste into the field, so I can copy it in one click (plain text, no extra headings or quotation marks inside the code block).'}
+function fsP(){return 'You are my ebook coach. Help me build a Project Brief for a valuable, problem-solving ebook, even though I may not know what to write.\n\n'+MT[mode()]+'\n\nStart by asking my country, what I know or have lived through, and who I would like to help. Before the final pick, show the 3 strongest problem options and why one is specific, urgent and already paid for. Mark unverified items [VERIFY].\n\nFinish with a section titled MY BRIEF formatted inside a single markdown code block (```) so I can copy the entire brief in one click. Inside the code block, format one field per line as key: value (multi-line values may continue on the next lines). Use exactly these keys: country, background, hours, budget, goal, niche, reader, problem, title, price, platform, quotes, offer. Keep the language simple.'}
+function go(p,b){
+cp(p,b);
+var conf=AIS[curAI]||AIS.claude;
+if(curAI=="claude"){
+var u="https://claude.ai/new?q="+encodeURIComponent(p);
+if(u.length>7000){alert("Prompt copied to clipboard! It is long, so paste it into Claude.");window.open("https://claude.ai/new","_blank","noopener");return}
+window.open(u,"_blank","noopener");
+return;
+}
+if(curAI=="chatgpt"){
+if(p.length<1500){window.open("https://chatgpt.com/?q="+encodeURIComponent(p),"_blank","noopener")}
+else{window.open("https://chatgpt.com/","_blank","noopener")}
+return;
+}
+if(conf.url){
+window.open(conf.url,"_blank","noopener");
+}else{
+alert("Prompt copied to clipboard! Paste it into your AI tool.");
+}
+}
+function fs(){
+document.getElementById('m1').classList.toggle('on',mode()=='exp');
+document.getElementById('m2').classList.toggle('on',mode()=='res');
+document.getElementById('fsp').textContent=fsP();
+var fob=document.getElementById('fob');if(fob)fob.textContent=aiBtn();
+}
+document.getElementById('imb').onclick=function(){var c=null,n=0;document.getElementById('imp').value.split('\n').forEach(function(l){var m=l.match(/^\s*[-*#]*\s*\**\s*(\w+)\s*\**\s*:\**\s*(.*)$/);if(m&&L[m[1].toLowerCase()]){c=m[1].toLowerCase();V[c]=m[2].trim();n++;if(c==="data"){V.voc_data=V.data;V.comp_data=V.data}if(c==="numbers"){V.val_metrics=V.numbers;V.scale_metrics=V.numbers}if(c==="text"){V.draft_text=V.text;V.sales_text=V.text;V.trans_text=V.text}}else if(c&&l.trim()){V[c]+='\n'+l.trim();if(c==="data"){V.voc_data=V.data;V.comp_data=V.data}if(c==="numbers"){V.val_metrics=V.numbers;V.scale_metrics=V.numbers}if(c==="text"){V.draft_text=V.text;V.sales_text=V.text;V.trans_text=V.text}}});sv();document.getElementById('imm').textContent=n?'Filled '+n+' fields ✓ Now start with Stage 1 and keep going.':'No key: value lines found. Ask your AI to use the exact MY BRIEF format.';stage()};
+var ait=document.getElementById("ai-tool");
+if(ait){ait.value=curAI;ait.onchange=function(){curAI=this.value;try{localStorage.setItem(aiK,curAI)}catch(e){}stage();fs()}}
+var psel=document.getElementById("proj-select");
+if(psel){psel.onchange=function(){switchProject(this.value)}}
+var pnew=document.getElementById("proj-new");
+if(pnew){pnew.onclick=function(){newProject()}}
+var pren=document.getElementById("proj-ren");
+if(pren){pren.onclick=function(){renameProject()}}
+var pdel=document.getElementById("proj-del");
+if(pdel){pdel.onclick=function(){deleteProject()}}
+var psave=document.getElementById("proj-save");
+if(psave){psave.onclick=function(){sv();toastSave("Project saved ✓")}}
+var bemd=document.getElementById("btn-export-md");
+if(bemd){bemd.onclick=function(){exportMarkdown()}}
+var bejson=document.getElementById("btn-export-json");
+if(bejson){bejson.onclick=function(){exportJson()}}
+var bijson=document.getElementById("btn-import-json");
+var fimp=document.getElementById("import-file");
+if(bijson&&fimp){
+bijson.onclick=function(){fimp.click()};
+fimp.onchange=function(e){
+var file=e.target.files&&e.target.files[0];
+if(!file)return;
+var reader=new FileReader();
+reader.onload=function(evt){
+importProjectJson(evt.target.result);
+fimp.value="";
+};
+reader.readAsText(file);
+};
+}
+var SHARE_DATA={
+title:"EbookBuddy — Turn A Real Problem Into A Profitable Ebook",
+text:"Turn a real problem into a profitable ebook with AI! 🚀 Create your ebook in 15 guided stages with EbookBuddy. Powered by SabiMentors × FunnelCraft AI.",
+url:"https://eb.sabimentors.com"
+};
+function getShareUrl(){
+if(typeof window!=="undefined"&&window.location&&window.location.protocol.startsWith("http")){
+return window.location.href.split("#")[0];
+}
+return "https://toolsbuddy.pages.dev/ebook-buddy.html";
+}
+function shareApp(platform){
+var url=getShareUrl();
+var text=SHARE_DATA.text;
+var encodedUrl=encodeURIComponent(url);
+var encodedText=encodeURIComponent(text);
+if(platform==="whatsapp"){
+window.open("https://api.whatsapp.com/send?text="+encodeURIComponent(text+" 👉 "+url),"_blank","noopener,noreferrer");
+}else if(platform==="x"){
+window.open("https://twitter.com/intent/tweet?text="+encodedText+"&url="+encodedUrl,"_blank","noopener,noreferrer");
+}else if(platform==="facebook"){
+window.open("https://www.facebook.com/sharer/sharer.php?u="+encodedUrl,"_blank","noopener,noreferrer");
+}else if(platform==="linkedin"){
+window.open("https://www.linkedin.com/sharing/share-offsite/?url="+encodedUrl,"_blank","noopener,noreferrer");
+}else if(platform==="telegram"){
+window.open("https://t.me/share/url?url="+encodedUrl+"&text="+encodedText,"_blank","noopener,noreferrer");
+}else if(platform==="reddit"){
+window.open("https://reddit.com/submit?url="+encodedUrl+"&title="+encodeURIComponent(SHARE_DATA.title),"_blank","noopener,noreferrer");
+}else if(platform==="email"){
+window.location.href="mailto:?subject="+encodeURIComponent(SHARE_DATA.title)+"&body="+encodeURIComponent(text+"\n\n👉 "+url);
+}else if(platform==="pinterest"){
+window.open("https://pinterest.com/pin/create/button/?url="+encodedUrl+"&description="+encodedText,"_blank","noopener,noreferrer");
+}else if(platform==="copy"){
+var btn=document.getElementById("btn-copy-share")||document.body;
+cp(url,btn,"📋 Share link copied to clipboard!");
+toastSave("Share link copied! 📋");
+}else if(platform==="native"){
+var sharePayload={
+title:SHARE_DATA.title,
+text:SHARE_DATA.text,
+url:url
+};
+if(navigator.share){
+try{
+if(navigator.canShare&&!navigator.canShare(sharePayload)){
+openShareModal();
+return;
+}
+navigator.share(sharePayload).catch(function(err){
+if(err&&(err.name==="AbortError"||err.code===20)){
+return;
+}
+openShareModal();
+});
+}catch(e){
+openShareModal();
+}
+}else{
+openShareModal();
+}
+}
+}
+function openShareModal(){
+var url=getShareUrl();
+showModal(
+"📢 Share EbookBuddy",
+'<p style="margin:0 0 12px;font-size:.88rem;color:var(--mute)">Choose your preferred platform or copy the share link:</p>'+
+'<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">'+
+'<button type="button" class="s-btn s-wa" onclick="shareApp(\'whatsapp\')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> WhatsApp</button>'+
+'<button type="button" class="s-btn s-x" onclick="shareApp(\'x\')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X / Twitter</button>'+
+'<button type="button" class="s-btn s-fb" onclick="shareApp(\'facebook\')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</button>'+
+'<button type="button" class="s-btn s-li" onclick="shareApp(\'linkedin\')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.55a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg> LinkedIn</button>'+
+'<button type="button" class="s-btn s-tg" onclick="shareApp(\'telegram\')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg> Telegram</button>'+
+'<button type="button" class="s-btn s-reddit" onclick="shareApp(\'reddit\')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.703zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.688-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.197-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg> Reddit</button>'+
+'<button type="button" class="s-btn s-email" onclick="shareApp(\'email\')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> Email</button>'+
+'<button type="button" class="s-btn s-pin" onclick="shareApp(\'pinterest\')"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 0 0-4.37 23.18c-.06-.94-.12-2.39.02-3.42l.98-4.17s-.25-.5-.25-1.24c0-1.16.67-2.03 1.51-2.03.71 0 1.05.53 1.05 1.17 0 .71-.45 1.78-.69 2.77-.2.83.42 1.51 1.24 1.51 1.49 0 2.63-1.57 2.63-3.83 0-2-1.44-3.4-3.49-3.4-2.38 0-3.78 1.78-3.78 3.63 0 .72.28 1.49.62 1.91a.25.25 0 0 1 .06.24c-.06.26-.2.83-.23.95-.04.16-.14.2-.31.12-1.15-.53-1.87-2.21-1.87-3.56 0-2.89 2.1-5.55 6.06-5.55 3.18 0 5.65 2.27 5.65 5.3 0 3.16-1.99 5.71-4.76 5.71-1 0-1.94-.52-2.26-1.13l-.62 2.34c-.22.87-.83 1.96-1.24 2.63A12 12 0 1 0 12 0z"/></svg> Pinterest</button>'+
+'</div>'+
+'<label style="display:block;margin:0 0 6px;font-size:.8rem;font-weight:600">Share Link:</label>'+
+'<input type="text" id="share-modal-input" readonly value="'+escapeHtml(url)+'" style="font-size:.85rem;padding:8px">',
+[
+{text:"Close",cls:"m-cancel"},
+{text:"📋 Copy Link",cls:"m-primary",onClick:function(){
+var inp=document.getElementById("share-modal-input");
+if(inp)cp(inp.value,this,"📋 Share link copied to clipboard!");
+toastSave("Link copied! 📋");
+return false;
+}}
+]
+);
+}
+var heroShareBtn=document.getElementById("hero-share-btn");
+if(heroShareBtn){heroShareBtn.onclick=function(){openShareModal()}}
+var footerShareLink=document.getElementById("footer-share-link");
+if(footerShareLink){footerShareLink.onclick=function(){openShareModal()}}
+var waBtn=document.getElementById("share-wa");
+if(waBtn){waBtn.onclick=function(e){e.preventDefault();shareApp("whatsapp")}}
+var xBtn=document.getElementById("share-x");
+if(xBtn){xBtn.onclick=function(e){e.preventDefault();shareApp("x")}}
+var fbBtn=document.getElementById("share-fb");
+if(fbBtn){fbBtn.onclick=function(e){e.preventDefault();shareApp("facebook")}}
+var liBtn=document.getElementById("share-li");
+if(liBtn){liBtn.onclick=function(e){e.preventDefault();shareApp("linkedin")}}
+var tgBtn=document.getElementById("share-tg");
+if(tgBtn){tgBtn.onclick=function(e){e.preventDefault();shareApp("telegram")}}
+var copyShareBtn=document.getElementById("btn-copy-share");
+if(copyShareBtn){copyShareBtn.onclick=function(){shareApp("copy")}}
+var nativeShareBtn=document.getElementById("btn-native-share");
+if(nativeShareBtn){nativeShareBtn.onclick=function(){shareApp("native")}}
+var shareHead=document.getElementById("share-card-head");
+if(shareHead){
+shareHead.addEventListener("click",function(e){
+if(e.target.closest("#btn-copy-share")||e.target.closest("button")||e.target.closest("a")){return}
+var sc=document.getElementById("share-card");
+if(sc){
+sc.classList.toggle("open");
+var isOpen=sc.classList.contains("open");
+shareHead.setAttribute("aria-expanded",isOpen?"true":"false");
+}
+});
+}
+// ==========================================
+// Interactive Step-by-Step Profitable Ebook Tutorial
+// ==========================================
+var TUT_KEY="fc_tut_checklist_v2";
+var curTutStep=0;
+var tutChecked={};
+
+var TUTORIAL_STEPS=[
+  {
+    id:1,
+    title:"Find an Urgent, Expensive Problem",
+    short:"1. Problem",
+    icon:"🎯",
+    badge:"Step 1: Ideation",
+    stageIndex:1,
+    stageName:"Stage 2: Ideas",
+    why:"Never write an encyclopedia. Profitable ebooks solve ONE specific, expensive bottleneck that keeps your buyer awake at 2:00 AM.",
+    tasks:[
+      "Pick 1 specific audience who already spends money (e.g. nursing grads, small shop owners, exam takers)",
+      "Identify their #1 painful bottleneck in their own frustrated words",
+      "Confirm willing-to-pay signals: Do people actively pay or desperately search to fix this today?"
+    ],
+    rec:null,
+    video:{
+      title:"How to Spot a $1,000+ Ebook Problem in 10 Minutes",
+      duration:"4 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:2,
+    title:"Voice-of-Customer Research & Slang",
+    short:"2. Research",
+    icon:"🔎",
+    badge:"Step 2: Research",
+    stageIndex:2,
+    stageName:"Stage 3: Research",
+    why:"Don't guess what your readers want. Steal their exact words, questions, and complaints from social media groups, Reddit, and customer reviews.",
+    tasks:[
+      "Collect 5 to 10 real comments or forum questions from your target audience and country",
+      "List their top 3 objections ('Is this legit?', 'Too expensive', 'Will it work on my phone?')",
+      "Feed customer phrases into EbookBuddy Stage 3 prompt to create natural, high-converting copy"
+    ],
+    rec:null,
+    video:{
+      title:"Voice-of-Customer Research: Stealing Words That Sell",
+      duration:"5 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:3,
+    title:"Validate Demand Before Writing (Pre-Sale & Waitlist)",
+    short:"3. Validate",
+    icon:"✅",
+    badge:"Step 3: Validation",
+    stageIndex:3,
+    stageName:"Stage 4: Validate",
+    why:"The #1 creator mistake is writing for 6 months before asking anyone to buy. Prove market demand first: aim for 10 pre-orders or 100 waitlist signups.",
+    tasks:[
+      "Build a sleek 1-page waitlist or pre-sale page in minutes with FunnelCraft AI",
+      "Set up instant multi-currency checkout on SabiMentors to collect early-bird payments",
+      "Share your validation hook across WhatsApp, X, or Facebook groups (Green light = 10 buyers or 100 leads)"
+    ],
+    rec:{
+      tool:"FunnelCraft AI & SabiMentors",
+      text:"Build a sleek waitlist page in 3 minutes with <b>FunnelCraft AI</b>. To collect real pre-order payments in local currency or USD with zero delivery stress, connect your product on <b>SabiMentors</b> with instant customer confirmation.",
+      links:[
+        {text:"Build Waitlist with FunnelCraft AI ↗",url:"https://www.funnelcraftai.com",primary:true},
+        {text:"Pre-sell on SabiMentors ↗",url:"https://sabimentors.com",primary:false}
+      ]
+    },
+    video:{
+      title:"The 10-Buyer Validation Method: Sell Before You Write",
+      duration:"6 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:4,
+    title:"Magnetic Title & 25–40 Page Quick-Win Outline",
+    short:"4. Outline",
+    icon:"🗺️",
+    badge:"Step 4: Architecture",
+    stageIndex:5,
+    stageName:"Stage 6: Plan",
+    why:"Short ebooks sell faster, read easily on mobile phones, and boast 5x higher completion rates. Target 25 to 40 pages with a 10-minute quick win in Chapter 1.",
+    tasks:[
+      "Craft a transformation title: 'How [Who] Can [Result] Without [Painful Obstacle]'",
+      "Map 6 to 8 focused chapters with fill-in templates and relatable local case studies",
+      "Stack 3 easy-to-create anti-piracy bonuses (templates, WhatsApp audio notes, cheat sheets)"
+    ],
+    rec:null,
+    video:{
+      title:"The Mobile-First Outline Formula: 30 Pages of Pure Transformation",
+      duration:"4 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:5,
+    title:"Fast Guided AI Drafting & Human Voice Injection",
+    short:"5. Write AI",
+    icon:"✍️",
+    badge:"Step 5: Writing",
+    stageIndex:6,
+    stageName:"Stage 7: Write",
+    why:"Use AI as your high-speed co-pilot, but inject your own real stories, local prices, and personal voice so your book never sounds robotic or generic.",
+    tasks:[
+      "Draft the Introduction with an immediate 10-minute actionable quick win",
+      "Write chapter-by-chapter using EbookBuddy's Guided Prompts (1,000–1,500 words per chapter)",
+      "Replace all [MY STORY] placeholders with genuine personal experiences or local examples"
+    ],
+    rec:null,
+    video:{
+      title:"AI Prompt Mastery: Writing Chapters Readers Actually Finish",
+      duration:"5 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:6,
+    title:"Ruthless Editing, Fact-Checking & Legal Disclaimers",
+    short:"6. Polish",
+    icon:"🧪",
+    badge:"Step 6: Editing",
+    stageIndex:7,
+    stageName:"Stage 8: Edit",
+    why:"Tighten fluff, verify every law/fee/statistic, and protect yourself legally with a clear, professional disclaimer.",
+    tasks:[
+      "Run the Ruthless Editor prompt to cut fluff and format for 7th-grade mobile readability",
+      "Verify all factual claims (official fees, visa requirements, medical/financial rules)",
+      "Add a professional disclaimer page stating educational purpose and individual execution"
+    ],
+    rec:null,
+    video:{
+      title:"Polishing Your Manuscript: The 30-Minute Self-Editing Checklist",
+      duration:"4 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:7,
+    title:"High-Converting 3D Mockups & Mobile PDF",
+    short:"7. Design",
+    icon:"🎨",
+    badge:"Step 7: Packaging",
+    stageIndex:8,
+    stageName:"Stage 9: Design",
+    why:"People judge a digital download in 1 second. High-contrast covers and realistic 3D tablet/phone mockups multiply perceived value.",
+    tasks:[
+      "Create a high-contrast cover in Canva (bold title clearly legible as a tiny thumbnail)",
+      "Generate a 3D digital bundle mockup (book cover + tablet + phone + checklist sheets)",
+      "Format in Google Docs or Canva with 14pt body text and export a light PDF under 5 MB"
+    ],
+    rec:null,
+    video:{
+      title:"Creating 3D Product Mockups That Boost Ebook Conversions",
+      duration:"3 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:8,
+    title:"Build Your Automated Sales Funnel (FunnelCraft AI)",
+    short:"8. Funnels",
+    icon:"🧲",
+    badge:"Step 8: Funnels",
+    stageIndex:10,
+    stageName:"Stage 11: Sales Page",
+    why:"An ebook link posted without a dedicated funnel gets ignored. An automated funnel captures leads, handles objections, and sells 24/7.",
+    tasks:[
+      "Copy your AI-generated sales page copy from EbookBuddy Stage 11",
+      "Use FunnelCraft AI to deploy a mobile-responsive sales funnel and landing page in minutes",
+      "Connect a free lead magnet (Stage 12) with a 7-day automated email/WhatsApp nurture sequence"
+    ],
+    rec:{
+      tool:"FunnelCraft AI",
+      text:"Skip complicated web developers and expensive software. <b>FunnelCraft AI</b> builds high-converting, mobile-first sales funnels and lead pages tailored for digital products in minutes. You can start completely free.",
+      links:[
+        {text:"Launch Funnel on FunnelCraft AI ↗",url:"https://www.funnelcraftai.com",primary:true}
+      ]
+    },
+    video:{
+      title:"Deploying a 24/7 Ebook Sales Funnel with FunnelCraft AI",
+      duration:"6 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:9,
+    title:"Set Up Instant Checkout, Delivery & Launch (SabiMentors)",
+    short:"9. Checkout",
+    icon:"💰",
+    badge:"Step 9: Monetization",
+    stageIndex:9,
+    stageName:"Stage 10: Offer",
+    why:"Never email PDFs manually! Use a dedicated digital store that accepts cards, mobile money, and transfers, delivers files instantly, and boosts revenue with Order Bumps.",
+    tasks:[
+      "Create your free digital product on SabiMentors and upload your ebook PDF + bonus files",
+      "Add an Order Bump (e.g. audio edition or checklist workbook) to instantly increase average cart value",
+      "Execute the 14-day launch sequence (Stage 14) and recruit affiliates on SabiMentors to scale sales"
+    ],
+    rec:{
+      tool:"SabiMentors",
+      text:"<b>SabiMentors</b> is the ultimate free platform to sell ebooks and digital products. Accept local and international payments with zero delivery headaches, instant automated customer access, order bumps, and built-in affiliate marketing.",
+      links:[
+        {text:"Start Selling Free on SabiMentors ↗",url:"https://sabimentors.com",primary:true}
+      ]
+    },
+    video:{
+      title:"Selling on SabiMentors: Zero-Fee Setup, Order Bumps & Instant Payouts",
+      duration:"5 mins",
+      embedUrl:""
+    }
+  }
+];
+
+function loadTutorialState(){
+  try{
+    var raw=localStorage.getItem(TUT_KEY);
+    if(raw){
+      var d=JSON.parse(raw);
+      if(d){
+        if(typeof d.curStep==="number"&&d.curStep>=0&&d.curStep<TUTORIAL_STEPS.length){curTutStep=d.curStep}
+        if(d.checked&&typeof d.checked==="object"){tutChecked=d.checked}
+      }
+    }
+  }catch(e){}
+}
+
+function saveTutorialState(){
+  try{
+    localStorage.setItem(TUT_KEY,JSON.stringify({
+      curStep:curTutStep,
+      checked:tutChecked,
+      updatedAt:Date.now()
+    }));
+  }catch(e){}
+}
+
+function getTutorialTaskStats(){
+  var total=0,done=0;
+  TUTORIAL_STEPS.forEach(function(st,sIdx){
+    st.tasks.forEach(function(_,tIdx){
+      total++;
+      if(tutChecked["s"+sIdx+"-t"+tIdx])done++;
+    });
+  });
+  return {total:total,done:done,pct:total?Math.round((done/total)*100):0};
+}
+
+function isStepCompleted(sIdx){
+  var st=TUTORIAL_STEPS[sIdx];
+  if(!st)return false;
+  return st.tasks.every(function(_,tIdx){return !!tutChecked["s"+sIdx+"-t"+tIdx]});
+}
+
+function toggleTutorialTask(sIdx,tIdx){
+  var k="s"+sIdx+"-t"+tIdx;
+  tutChecked[k]=!tutChecked[k];
+  saveTutorialState();
+  var stats=getTutorialTaskStats();
+  if(tutChecked[k]){
+    if(isStepCompleted(sIdx)){
+      showToast("🎉 Step "+(sIdx+1)+" complete! Keep going!");
+    }else{
+      showToast("✓ Task checked off!");
+    }
+    if(stats.done===stats.total){
+      celebrateTutorialCompletion();
+    }
+  }
+  renderTutorial();
+}
+
+function markAllStepTasksDone(sIdx){
+  var st=TUTORIAL_STEPS[sIdx];
+  if(!st)return;
+  st.tasks.forEach(function(_,tIdx){
+    tutChecked["s"+sIdx+"-t"+tIdx]=true;
+  });
+  saveTutorialState();
+  showToast("🎉 Step "+(sIdx+1)+" all marked done!");
+  var stats=getTutorialTaskStats();
+  if(stats.done===stats.total){
+    celebrateTutorialCompletion();
+  }
+  renderTutorial();
+}
+
+function celebrateTutorialCompletion(){
+  showModal(
+    "🎉 Outstanding! Profitable Ebook Checklist Complete!",
+    '<div style="text-align:center;padding:10px 0">'+
+    '<div style="font-size:2.8rem;margin-bottom:8px">🚀 🏆 📖</div>'+
+    '<p style="font-size:1rem;line-height:1.5;margin:0 0 12px;font-weight:600">You have completed all 9 steps to create, launch, and monetize a profitable ebook!</p>'+
+    '<p style="font-size:.86rem;color:var(--mute);margin:0 0 14px">Your funnel, offers, and chapters are ready. Now it is time to deploy your sales machine and start generating income.</p>'+
+    '<div style="background:var(--soft);border:1px solid var(--brand);border-radius:10px;padding:12px;text-align:left;font-size:.85rem;margin-bottom:12px">'+
+    '<p style="margin:0 0 6px"><b>Next Big Steps:</b></p>'+
+    '<p style="margin:0 0 6px">1. <b>Deploy Your Funnel:</b> Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">FunnelCraft AI</a> to build your high-converting sales page.</p>'+
+    '<p style="margin:0">2. <b>Launch Your Digital Store:</b> Connect your product and checkout on <a href="https://sabimentors.com" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">SabiMentors</a> for instant payouts & order bumps.</p>'+
+    '</div>'+
+    '</div>',
+    [
+      {text:"Close",cls:"m-cancel"},
+      {text:"🚀 Build on FunnelCraft AI",cls:"m-primary",onClick:function(){window.open("https://www.funnelcraftai.com","_blank","noopener");return false;}},
+      {text:"💰 Sell on SabiMentors",cls:"m-primary",onClick:function(){window.open("https://sabimentors.com","_blank","noopener");return false;}}
+    ]
+  );
+}
+
+function resetTutorialChecklist(){
+  showModal(
+    "⚠️ Reset Tutorial Progress?",
+    '<p style="margin:0 0 10px;font-size:.9rem;line-height:1.5">Are you sure you want to uncheck all checklist tasks in the tutorial? This allows you to start the roadmap fresh.</p>',
+    [
+      {text:"Cancel",cls:"m-cancel"},
+      {text:"Reset Checklist",cls:"m-danger",onClick:function(){
+        tutChecked={};
+        saveTutorialState();
+        renderTutorial();
+        toastSave("Tutorial checklist reset");
+      }}
+    ]
+  );
+}
+
+function snapToTutorialStep(smooth){
+  requestAnimationFrame(function(){
+    var target=document.getElementById("tut-progress-wrap")||document.getElementById("tut-stepper")||document.getElementById("tutorial-card");
+    if(!target)return;
+    var prefersReduced=false;
+    try{
+      prefersReduced=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    }catch(e){}
+    var rect=target.getBoundingClientRect();
+    var scrollY=window.pageYOffset||document.documentElement.scrollTop||0;
+    var targetY=Math.max(0,scrollY+rect.top-12);
+    try{
+      window.scrollTo({
+        top:targetY,
+        behavior:(smooth!==false&&!prefersReduced)?"smooth":"auto"
+      });
+    }catch(err){
+      window.scrollTo(0,targetY);
+    }
+  });
+}
+
+function setTutorialStep(idx,autoScroll){
+  if(idx<0||idx>=TUTORIAL_STEPS.length)return;
+  curTutStep=idx;
+  saveTutorialState();
+  var tc=document.getElementById("tutorial-card");
+  if(tc&&!tc.classList.contains("open")){
+    tc.classList.add("open");
+    var tutHead=document.getElementById("tut-header");
+    if(tutHead)tutHead.setAttribute("aria-expanded","true");
+  }
+  renderTutorial();
+  if(autoScroll!==false){
+    snapToTutorialStep(true);
+  }
+  refreshAds();
+}
+
+function jumpToStageFromTutorial(stageIdx){
+  if(typeof stageIdx==="number"&&stageIdx>=0&&stageIdx<S.length){
+    cur=stageIdx;
+    stage();
+    scrollToStage();
+    refreshAds();
+    showToast("Switched to Stage "+(stageIdx+1)+": "+S[stageIdx].t+" 🚀");
+  }
+}
+
+function renderTutorial(){
+  var tc=document.getElementById("tutorial-card");
+  if(!tc)return;
+  var stats=getTutorialTaskStats();
+  
+  var pill=document.getElementById("tut-meter-pill");
+  if(pill){
+    pill.textContent=stats.pct+"% Done";
+    if(stats.pct===100){pill.classList.add("complete");pill.textContent="100% Done 🎉"}
+    else{pill.classList.remove("complete")}
+  }
+  
+  var fill=document.getElementById("tut-progress-fill");
+  if(fill)fill.style.width=stats.pct+"%";
+  var count=document.getElementById("tut-progress-count");
+  if(count)count.textContent=stats.done+" of "+stats.total+" checklist tasks completed ("+stats.pct+"%)";
+  var status=document.getElementById("tut-progress-status");
+  if(status){
+    if(stats.pct===0)status.textContent="Ready to start";
+    else if(stats.pct<35)status.textContent="Off to a great start! 🚀";
+    else if(stats.pct<75)status.textContent="Halfway there! ✍️";
+    else if(stats.pct<100)status.textContent="Almost ready to launch! 🎯";
+    else status.textContent="🎉 Ready to Profit!";
+  }
+  
+  var stepper=document.getElementById("tut-stepper");
+  if(stepper){
+    var sHtml="";
+    TUTORIAL_STEPS.forEach(function(st,sIdx){
+      var isDone=isStepCompleted(sIdx);
+      var isActive=sIdx===curTutStep;
+      sHtml+='<button type="button" class="tut-step-btn'+(isActive?' active':'')+(isDone?' done':'')+'" onclick="setTutorialStep('+sIdx+',true)" title="'+escapeHtml(st.title)+'">';
+      sHtml+='<span class="s-num">'+(isDone?'✓':(sIdx+1))+'</span> '+st.icon+' '+st.short+'</button>';
+    });
+    stepper.innerHTML=sHtml;
+    var onBtn=stepper.querySelector(".tut-step-btn.active");
+    if(onBtn){try{stepper.scrollLeft=onBtn.offsetLeft-(stepper.clientWidth-onBtn.clientWidth)/2}catch(e){}}
+  }
+  
+  var contentEl=document.getElementById("tut-step-content");
+  if(contentEl){
+    var st=TUTORIAL_STEPS[curTutStep];
+    var isDone=isStepCompleted(curTutStep);
+    var h='<div class="tut-step-card">';
+    
+    h+='<div class="tut-step-header">';
+    h+='<h3><span>'+st.icon+'</span> '+st.title+'</h3>';
+    h+='<span class="tut-step-badge">'+st.badge+(isDone?' · ✓ DONE':'')+'</span>';
+    h+='</div>';
+    
+    h+='<div class="tut-why-box"><b>💡 Why This Step Makes Your Ebook Profitable:</b>'+escapeHtml(st.why)+'</div>';
+    
+    h+='<div class="tut-checklist-title"><span>📋 Step Action Checklist:</span></div>';
+    h+='<div class="tut-checklist">';
+    st.tasks.forEach(function(task,tIdx){
+      var checked=!!tutChecked["s"+curTutStep+"-t"+tIdx];
+      h+='<div class="tut-check-item'+(checked?' done':'')+'" onclick="toggleTutorialTask('+curTutStep+','+tIdx+')">';
+      h+='<div class="tut-check-box">'+(checked?'✓':'')+'</div>';
+      h+='<div class="tut-check-text">'+escapeHtml(task)+'</div>';
+      h+='</div>';
+    });
+    h+='</div>';
+    
+    if(st.rec){
+      h+='<div class="tut-rec-box">';
+      h+='<div class="tut-rec-header"><span>⭐ Recommended Tool:</span> '+escapeHtml(st.rec.tool)+'</div>';
+      h+='<div class="tut-rec-desc">'+st.rec.text+'</div>';
+      h+='<div class="tut-rec-links">';
+      st.rec.links.forEach(function(link){
+        h+='<a href="'+link.url+'" target="_blank" rel="noopener" class="tut-rec-btn'+(link.primary?'':' alt')+'">'+escapeHtml(link.text)+'</a>';
+      });
+      h+='</div>';
+      h+='</div>';
+    }
+    
+    if(st.video){
+      if(st.video.embedUrl){
+        h+='<div class="tut-video-frame-wrap"><iframe src="'+escapeHtml(st.video.embedUrl)+'" allowfullscreen loading="lazy"></iframe></div>';
+      }else{
+        h+='<div class="tut-video-slot">';
+        h+='<div class="tut-video-thumb">▶</div>';
+        h+='<div class="tut-video-info">';
+        h+='<span class="tut-video-badge">🎬 Video Tutorial Coming Soon</span>';
+        h+='<div class="tut-video-title">'+escapeHtml(st.video.title)+' ('+st.video.duration+')</div>';
+        h+='<div class="tut-video-sub">Bite-sized video walkthrough will be added here. Follow the interactive checklist above in the meantime!</div>';
+        h+='</div>';
+        h+='</div>';
+      }
+    }
+    
+    h+='<div class="tut-nav-bar">';
+    h+='<div class="tut-nav-main">';
+    h+='<button type="button" id="tut-prev-btn" class="tut-btn alt tut-btn-nav" onclick="setTutorialStep('+(curTutStep-1)+',true)" '+(curTutStep<=0?'disabled title="You are on the first step"':'')+'>← Prev Step</button>';
+    if(!isDone){
+      h+='<button type="button" class="tut-btn alt tut-btn-step-done" onclick="markAllStepTasksDone('+curTutStep+')">✓ Mark Step Done</button>';
+    }else{
+      h+='<button type="button" class="tut-btn alt tut-btn-step-done is-complete" onclick="markAllStepTasksDone('+curTutStep+')" title="Step tasks completed">✓ Step Done</button>';
+    }
+    h+='<button type="button" id="tut-next-btn" class="tut-btn primary tut-btn-nav" onclick="setTutorialStep('+(curTutStep+1)+',true)" '+(curTutStep>=TUTORIAL_STEPS.length-1?'disabled title="You are on the final step"':'')+'>Next Step →</button>';
+    h+='</div>';
+    h+='<div class="tut-nav-sub">';
+    if(typeof st.stageIndex==="number"){
+      h+='<button type="button" class="tut-stage-jump-btn" onclick="jumpToStageFromTutorial('+st.stageIndex+')" title="Open '+escapeHtml(st.stageName)+' in EbookBuddy">';
+      h+='<span class="tut-stage-jump-text">🚀 Jump to '+escapeHtml(st.stageName)+' in App ↗</span>';
+      h+='</button>';
+    }
+    h+='<button type="button" class="tut-btn link" onclick="resetTutorialChecklist()">↺ Reset Checklist</button>';
+    h+='</div>';
+    h+='</div>';
+    
+    h+='</div>';
+    contentEl.innerHTML=h;
+  }
+}
+
+function initTutorial(){
+  loadTutorialState();
+  renderTutorial();
+  
+  var tutHead=document.getElementById("tut-header");
+  if(tutHead){
+    tutHead.onclick=function(e){
+      toggleTutorial(e);
+    };
+  }
+  
+  var heroTutBtn=document.getElementById("hero-tutorial-btn");
+  if(heroTutBtn){
+    heroTutBtn.onclick=function(e){
+      toggleTutorial(e, true);
+      requestAnimationFrame(function(){
+        var tc=document.getElementById("tutorial-card");
+        if(tc){
+          var rect=tc.getBoundingClientRect();
+          var targetY=Math.max(0,window.pageYOffset+rect.top-75);
+          window.scrollTo({top:targetY,behavior:"smooth"});
+        }
+      });
+    };
+  }
+}
+window.snapToTutorialStep=snapToTutorialStep;
+window.setTutorialStep=setTutorialStep;
+window.toggleTutorialTask=toggleTutorialTask;
+window.markAllStepTasksDone=markAllStepTasksDone;
+window.resetTutorialChecklist=resetTutorialChecklist;
+window.jumpToStageFromTutorial=jumpToStageFromTutorial;
+
+var AD_CLIENT="ca-pub-6130384188487467";
+function renderAd(id){
+if(window.EbookBuddyAds&&window.EbookBuddyAds.renderAd){return window.EbookBuddyAds.renderAd(id)}
+var c=typeof id==="string"?document.getElementById(id):id;
+if(!c)return;
+var isDesk=window.innerWidth>=768;
+var slotMap={"ad-hero":isDesk?"4369386116":"8117059432","ad-tutorial":isDesk?"3056304442":"6229262699","ad-top":isDesk?"3056304442":"6229262699","ad-bottom":isDesk?"9246930392":"5231663766","ad-footer":"3385897927"};
+var num=c.getAttribute("data-ad-slot-num");
+var slot=c.getAttribute(isDesk?"data-ad-slot-desk":"data-ad-slot-mob")||c.getAttribute("data-ad-slot")||(num==1?(isDesk?"4369386116":"8117059432"):num==2?(isDesk?"3056304442":"6229262699"):num==3?(isDesk?"9246930392":"5231663766"):num=="footer"?"3385897927":null)||slotMap[c.id];
+if(!slot)return;
+if(c._ebTimer){clearTimeout(c._ebTimer);c._ebTimer=null;}
+if(c._ebObs){c._ebObs.disconnect();c._ebObs=null;}
+c.classList.remove("ad-collapsed");
+c.innerHTML="";
+var lbl=document.createElement("span");
+lbl.className="ad-label";
+lbl.textContent="Advertisement";
+c.appendChild(lbl);
+var isAuto=c.getAttribute("data-ad-format")==="autorelaxed"||c.classList.contains("ad-autorelaxed")||c.id==="ad-footer";
+var ins=document.createElement("ins");
+ins.className="adsbygoogle";
+if(isAuto){
+ins.style.display="block";
+ins.setAttribute("data-ad-format","autorelaxed");
+}else{
+ins.style.display="inline-block";
+ins.style.width=(isDesk?728:320)+"px";
+ins.style.height="90px";
+}
+ins.setAttribute("data-ad-client",AD_CLIENT);
+ins.setAttribute("data-ad-slot",slot);
+c.appendChild(ins);
+var adLoaded=false,collapseTimer=null,obs=null;
+var startTime=Date.now();
+var slotName=c.id||c.getAttribute("data-ad-slot-num")||"slot";
+if(window.location&&(window.location.hostname==="localhost"||window.location.hostname==="127.0.0.1")){
+console.log("[EbookBuddy Ads] #"+slotName+" initialized at "+new Date().toLocaleTimeString()+". 10.0s safety countdown started. (Note: AdSense returns unfilled on localhost).");
+}
+function markLoaded(){
+if(adLoaded)return;
+adLoaded=true;
+var elapsed=((Date.now()-startTime)/1000).toFixed(1);
+console.log("[EbookBuddy Ads] #"+slotName+" ad LOADED after "+elapsed+"s. Auto-collapse cancelled.");
+c.classList.remove("ad-collapsed");
+if(collapseTimer){clearTimeout(collapseTimer);collapseTimer=null;}
+if(c._ebTimer){clearTimeout(c._ebTimer);c._ebTimer=null;}
+if(obs){obs.disconnect();obs=null;}
+if(c._ebObs){c._ebObs.disconnect();c._ebObs=null;}
+}
+function isAdLoaded(){
+if(adLoaded)return true;
+var st=ins.getAttribute("data-ad-status");
+if(st==="unfilled")return false;
+if(st==="filled"){markLoaded();return true;}
+var creativeIframe=ins.querySelector("iframe[id^='google_ads_iframe']");
+if(creativeIframe){markLoaded();return true;}
+var iframes=ins.getElementsByTagName("iframe");
+for(var i=0;i<iframes.length;i++){
+var ifr=iframes[i];
+if(ifr.id==="google_esf")continue;
+var isHidden=ifr.style.display==="none"||ifr.style.visibility==="hidden";
+if(isHidden)continue;
+if(ifr.id&&(ifr.id.indexOf("aswift")===0||ifr.id.indexOf("google_ads")===0)){
+markLoaded();
+return true;
+}
+var rect=ifr.getBoundingClientRect?ifr.getBoundingClientRect():null;
+var h=(rect&&rect.height)?rect.height:(ifr.offsetHeight||0);
+var w=(rect&&rect.width)?rect.width:(ifr.offsetWidth||0);
+var attrH=parseInt(ifr.getAttribute("height")||ifr.style.height||"0",10);
+var attrW=parseInt(ifr.getAttribute("width")||ifr.style.width||"0",10);
+if(h>20||w>20||attrH>20||attrW>20){
+markLoaded();
+return true;
+}
+}
+if(ins.getAttribute("data-adsbygoogle-status")==="done"&&ins.children.length>0&&st!=="unfilled"){
+var hasVisibleContent=false;
+for(var j=0;j<ins.children.length;j++){
+var ch=ins.children[j];
+if(ch.id!=="google_esf"&&ch.style.display!=="none"&&ch.style.visibility!=="hidden"){
+hasVisibleContent=true;
+break;
+}
+}
+if(hasVisibleContent){
+markLoaded();
+return true;
+}
+}
+return false;
+}
+function collapseAd(){
+if(adLoaded)return;
+if(ins.parentElement!==c)return;
+var isTopAd=c.id==="ad-top";
+var wasInLayout=!c.classList.contains("ad-collapsed")&&c.offsetHeight>0;
+c.classList.add("ad-collapsed");
+if(isTopAd&&wasInLayout&&typeof snapToStageHeader==="function"){
+snapToStageHeader(true);
+}
+}
+if(window.MutationObserver){
+obs=new window.MutationObserver(function(muts){
+for(var i=0;i<muts.length;i++){
+var m=muts[i];
+if(m.type==="attributes"&&m.attributeName==="data-ad-status"){
+if(ins.getAttribute("data-ad-status")==="filled"){
+markLoaded();
+return;
+}
+}
+}
+var creativeIframe=ins.querySelector("iframe[id^='google_ads_iframe']");
+if(creativeIframe&&creativeIframe.offsetHeight>20){
+markLoaded();
+}
+});
+obs.observe(ins,{attributes:true,childList:true,subtree:true});
+c._ebObs=obs;
+}
+collapseTimer=setTimeout(function(){
+if(ins.parentElement!==c)return;
+var elapsed=((Date.now()-startTime)/1000).toFixed(1);
+if(isAdLoaded()){
+console.log("[EbookBuddy Ads] #"+slotName+" 10s timer check: Ad is LOADED ("+elapsed+"s). Preserving slot.");
+markLoaded();
+return;
+}
+console.log("[EbookBuddy Ads] #"+slotName+" safety timer fired after "+elapsed+"s. Auto-collapsing empty slot.");
+collapseAd();
+},10000);
+c._ebTimer=collapseTimer;
+try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}
+}
+function refreshAds(){
+if(document.hidden)return;
+if(window.EbookBuddyAds&&window.EbookBuddyAds.refreshAds){return window.EbookBuddyAds.refreshAds()}
+renderAd("ad-hero");
+var tc=document.getElementById("tutorial-card");
+if(tc&&tc.classList.contains("open")){renderAd("ad-tutorial")}
+renderAd("ad-top");
+renderAd("ad-bottom");
+renderAd("ad-footer");
+}
+var lastIsDesk=window.innerWidth>=768,resizeAdTimer=null;
+function initAds(){
+if(window.EbookBuddyAds&&window.EbookBuddyAds.initAds){return window.EbookBuddyAds.initAds()}
+refreshAds();
+}
+window.addEventListener("resize",function(){
+if(window.EbookBuddyAds)return;
+clearTimeout(resizeAdTimer);
+resizeAdTimer=setTimeout(function(){
+var nowDesk=window.innerWidth>=768;
+if(nowDesk!==lastIsDesk){
+lastIsDesk=nowDesk;
+refreshAds();
+}
+},300);
+});
+var thmBtn=document.getElementById("thm");
+if(thmBtn){
+thmBtn.onclick=function(){
+applyTheme(curTheme==="dark"?"light":"dark");
+idbSave({v:V,d:D,ai:curAI,theme:curTheme});
+};
+}
+applyTheme(curTheme);
+initProjects();
+renderProjectSelector();
+idbLoad(function(err,res){
+if(!err&&res){
+var dirty=false;
+if(res.meta&&res.meta.projects&&res.meta.projects.length){
+res.meta.projects.forEach(function(mp){
+var existing=projects.find(function(p){return p.id===mp.id});
+if(!existing){
+projects.push(mp);
+dirty=true;
+}else if(mp.updatedAt&&(mp.updatedAt>(existing.updatedAt||0))){
+existing.name=mp.name;
+existing.updatedAt=mp.updatedAt;
+dirty=true;
+}
+});
+}
+var saved=res.cur||res.legacy;
+var curP=getCurProj();
+if(saved){
+var curUpdated=curP.updatedAt||0;
+var savedUpdated=saved.updatedAt||0;
+if(savedUpdated>curUpdated){
+if(saved.v){V=saved.v;dirty=true}
+if(saved.d){D=saved.d;dirty=true}
+}
+if(saved.ai&&saved.ai!==curAI&&AIS[saved.ai]){curAI=saved.ai;var ait=document.getElementById("ai-tool");if(ait)ait.value=curAI;dirty=true}
+if(saved.theme&&saved.theme!==curTheme){applyTheme(saved.theme)}
+}
+if(dirty){renderProjectSelector();stage();fs()}
+}
+});
+if('scrollRestoration' in history){history.scrollRestoration='manual'}
+window.addEventListener('beforeunload',function(){window.scrollTo(0,0)});
+stage();fs();initAds();initTutorial();
+window.scrollTo(0,0);
+requestAnimationFrame(function(){window.scrollTo(0,0)});
+window.addEventListener('load',function(){window.scrollTo(0,0)});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instant JSON Formatter, Validator & Minifier | ToolsBuddy</title>
+  <meta name="description" content="Format, beautify, validate, and minify JSON data instantly. Pinpoint line and column syntax errors, load sample data, and download clean JSON files client-side.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/json-formatter.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/json-formatter.html">
+  <meta property="og:title" content="Instant JSON Formatter & Validator | ToolsBuddy">
+  <meta property="og:description" content="Clean, beautify, and validate JSON code with instant syntax error detection and 1-click copy.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Instant JSON Formatter & Validator | ToolsBuddy">
+  <meta name="twitter:description" content="Format and validate JSON directly in your browser. Fast, private, zero server uploads.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Instant JSON Formatter & Validator",
+        "url": "https://toolsbuddy.pages.dev/json-formatter.html",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Developer utility for beautifying, validating, and minifying JSON data with syntax error detection and formatting options.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What makes JSON invalid?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Common syntax violations include trailing commas after the last array or object key, unquoted keys, single quotes instead of double quotes, and unescaped line breaks inside strings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the error pinpointing work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When parsing fails, the validator catches the syntax exception, parses the exact character position offset, and maps it to line and column numbers to display precisely where the syntax error is located."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my sensitive JSON payload sent to a cloud server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No! All validation and formatting happens purely within your browser's local V8 or SpiderMonkey JavaScript runtime engine. API keys and customer records never leave your local machine."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I minify JSON to reduce payload size?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Clicking the 'Minify / Compact' button strips all extraneous whitespace and indentation, resulting in the smallest valid JSON byte payload suitable for production network transport."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">Tools</a>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="index.html#developer">Developer Tools</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">JSON Formatter & Validator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        Developer
+      </span>
+      <h1 class="tb-tool-title">Instant JSON Formatter & Validator</h1>
+      <p class="tb-tool-desc">
+        Format, beautify, and validate your JSON data in real time with line-by-line syntax error identification, minification, and one-click export.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="7001001001"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+        <!-- Status Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
+          <div id="json-status-indicator" style="display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; font-weight: 700; color: var(--accent-success);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Valid JSON</span>
+          </div>
+          <div style="display: flex; gap: 0.5rem; font-size: 0.825rem; font-weight: 600; color: var(--text-muted);">
+            <span id="json-size-stat">Size: 0 B</span>
+            <span>&bull;</span>
+            <span id="json-lines-stat">Lines: 1</span>
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="tb-field" style="margin-bottom: 1.25rem;">
+          <textarea id="json-input" class="tb-textarea mono" placeholder="Paste unformatted or raw JSON here..." style="min-height: 320px; font-size: 0.95rem;"></textarea>
+        </div>
+
+        <!-- Error Alert Box -->
+        <div id="json-error-box" style="display: none; background-color: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--accent-danger); padding: 0.75rem 1rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: 1.25rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-danger);">
+          <div style="font-weight: 700; margin-bottom: 0.25rem;">Syntax Error Detected:</div>
+          <div id="json-error-message">Unexpected token at line 1, column 5</div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div class="tb-btn-group">
+            <button type="button" class="tb-btn tb-btn-primary" id="btn-format-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+              Format (2 Spaces)
+            </button>
+            <button type="button" class="tb-btn tb-btn-secondary" id="btn-format-4">
+              Format (4 Spaces)
+            </button>
+            <button type="button" class="tb-btn tb-btn-secondary" id="btn-minify">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline></svg>
+              Minify / Compact
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline" id="btn-copy-json">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy JSON
+            </button>
+          </div>
+
+          <div class="tb-btn-group">
+            <button type="button" class="tb-btn tb-btn-secondary" id="btn-load-sample">Load Sample</button>
+            <button type="button" class="tb-btn tb-btn-secondary" id="btn-download-json">Download</button>
+            <button type="button" class="tb-btn tb-btn-secondary" id="btn-clear-json">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Unit: ad-result -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="7001001002"
+           data-ad-format="rectangle,horizontal"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- SEO Comprehensive Guide & FAQ -->
+    <article class="tb-seo-article">
+      <h2>The Standard for Modern Data Exchange: Understanding JSON</h2>
+      <p>
+        JavaScript Object Notation (JSON) is the universal language of modern web APIs, distributed microservices, NoSQL databases, and application configuration files. 
+        Originally standardized by Douglas Crockford in the early 2000s, JSON offers an elegant, lightweight, text-based data serialization format 
+        that is both easily readable by human software engineers and effortlessly parsed by automated computational runtimes.
+      </p>
+
+      <h3>Formatting vs. Minification in Production Workflows</h3>
+      <p>
+        During local development and API debugging, software engineers require <strong>beautified JSON</strong> with 2-space or 4-space hierarchical indentation. 
+        Visual nesting makes deeply nested object structures, arrays of records, and boolean flags immediately intelligible. 
+        Conversely, when sending high-volume payloads across content delivery networks (CDNs) or storing cache data in memory, 
+        <strong>minified JSON</strong> eliminates unnecessary line returns and spaces, reducing file transfer size and bandwidth consumption by 30% to 50%.
+      </p>
+
+      <h3>Strict JSON Syntax Rules</h3>
+      <ul>
+        <li><strong>Keys Must Be Double-Quoted:</strong> Unlike relaxed JavaScript objects, standard JSON requires all object property keys to be enclosed within double quotes (<code>"key"</code>).</li>
+        <li><strong>No Trailing Commas:</strong> Commas must only delimit intermediate entries. Placing a trailing comma after the final key in an object or array causes an immediate syntax parse error.</li>
+        <li><strong>Restricted Value Types:</strong> JSON accepts strings, numbers, booleans (<code>true</code>, <code>false</code>), <code>null</code>, objects, and arrays. Functions, comments, and <code>undefined</code> are invalid.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="tb-faq-list">
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Can I format JSON files that contain passwords or confidential keys safely?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes, ToolsBuddy is completely safe for confidential payloads. The code runs entirely locally inside your browser sandbox. We have no backend logging servers, and no data packets are ever dispatched across the internet.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Why did my JSON fail with 'Unexpected token in JSON at position X'?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            This typically occurs due to single quotes around keys/values, trailing commas after the last item in a list, or unescaped control characters. Our validator pinpoints the exact line and column to fix it immediately.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Does this tool support 2-space and 4-space formatting?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes. You can toggle between 2-space indentation (favored by modern web frameworks and frontend codebases) and 4-space indentation (frequently used in Python and backend architectures) with one click.
+          </div>
+        </div>
+
+        <div class="tb-faq-item">
+          <button type="button" class="tb-faq-trigger">
+            <span>Can I load large JSON files up to several megabytes?</span>
+            <svg class="tb-faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-faq-content">
+            Yes. Because modern browser JavaScript engines process data directly in RAM without server roundtrips, payloads of multiple megabytes parse and beautify in just a few milliseconds.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6130384188487467"
+           data-ad-slot="7001001003"
+           data-ad-format="autorelaxed"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const textarea = document.getElementById('json-input');
+      const statusIndicator = document.getElementById('json-status-indicator');
+      const sizeStat = document.getElementById('json-size-stat');
+      const linesStat = document.getElementById('json-lines-stat');
+      const errorBox = document.getElementById('json-error-box');
+      const errorMessage = document.getElementById('json-error-message');
+
+      const btnFormat2 = document.getElementById('btn-format-2');
+      const btnFormat4 = document.getElementById('btn-format-4');
+      const btnMinify = document.getElementById('btn-minify');
+      const btnCopy = document.getElementById('btn-copy-json');
+      const btnSample = document.getElementById('btn-load-sample');
+      const btnDownload = document.getElementById('btn-download-json');
+      const btnClear = document.getElementById('btn-clear-json');
+
+      const sampleJson = {
+        name: "ToolsBuddy API",
+        version: "2.5.0",
+        active: true,
+        features: ["zero-config", "privacy-first", "client-side-only"],
+        metrics: {
+          ttfb_ms: 28,
+          lighthouse_score: 100,
+          offline_capable: true
+        },
+        tags: ["utilities", "developer", "calculators"]
+      };
+
+      function formatBytes(bytes) {
+        if (bytes === 0) return '0 B';
+        const k = 1024;
+        const sizes = ['B', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+      }
+
+      function findErrorPosition(errStr, text) {
+        // Look for "position 123" in error string
+        const match = errStr.match(/position\s+(\d+)/i);
+        if (match && match[1]) {
+          const pos = parseInt(match[1], 10);
+          const lines = text.substring(0, pos).split('\n');
+          const lineNum = lines.length;
+          const colNum = lines[lines.length - 1].length + 1;
+          return { line: lineNum, col: colNum };
+        }
+        // Fallback for Firefox "line 1 column 5"
+        const ffMatch = errStr.match(/line\s+(\d+)\s+column\s+(\d+)/i);
+        if (ffMatch) {
+          return { line: ffMatch[1], col: ffMatch[2] };
+        }
+        return null;
+      }
+
+      function validateJSON() {
+        const text = textarea.value.trim();
+        const rawBytes = new Blob([textarea.value]).size;
+        sizeStat.textContent = `Size: ${formatBytes(rawBytes)}`;
+        const lineCount = textarea.value ? textarea.value.split('\n').length : 0;
+        linesStat.textContent = `Lines: ${lineCount.toLocaleString()}`;
+
+        if (!text) {
+          statusIndicator.innerHTML = '<span style="color:var(--text-muted);">&bull; Awaiting JSON input</span>';
+          errorBox.style.display = 'none';
+          return null;
+        }
+
+        try {
+          const parsed = JSON.parse(text);
+          statusIndicator.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span style="color:var(--accent-success);">Valid JSON Syntax</span>
+          `;
+          errorBox.style.display = 'none';
+          return parsed;
+        } catch (err) {
+          const pos = findErrorPosition(err.message, text);
+          let errText = err.message;
+          if (pos) {
+            errText = `${err.message} (Line ${pos.line}, Column ${pos.col})`;
+          }
+          statusIndicator.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-danger)" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+            <span style="color:var(--accent-danger);">Invalid JSON Syntax</span>
+          `;
+          errorMessage.textContent = errText;
+          errorBox.style.display = 'block';
+          return null;
+        }
+      }
+
+      textarea.addEventListener('input', validateJSON);
+
+      function formatWithSpaces(indentSpaces, triggerName) {
+        const parsed = validateJSON();
+        if (parsed !== null) {
+          textarea.value = JSON.stringify(parsed, null, indentSpaces);
+          validateJSON();
+          window.showToast(`Formatted with ${indentSpaces}-space indent!`, 'success');
+          if (window.refreshAds) window.refreshAds(triggerName);
+        } else {
+          window.showToast('Fix syntax errors before formatting', 'error');
+        }
+      }
+
+      btnFormat2.addEventListener('click', () => formatWithSpaces(2, 'format_json_2'));
+      btnFormat4.addEventListener('click', () => formatWithSpaces(4, 'format_json_4'));
+
+      btnMinify.addEventListener('click', () => {
+        const parsed = validateJSON();
+        if (parsed !== null) {
+          textarea.value = JSON.stringify(parsed);
+          validateJSON();
+          window.showToast('JSON minified & compacted!', 'success');
+          if (window.refreshAds) window.refreshAds('minify_json');
+        } else {
+          window.showToast('Fix syntax errors before minifying', 'error');
+        }
+      });
+
+      btnCopy.addEventListener('click', () => {
+        window.copyToClipboard(textarea.value, 'JSON copied to clipboard!');
+      });
+
+      btnSample.addEventListener('click', () => {
+        textarea.value = JSON.stringify(sampleJson, null, 2);
+        validateJSON();
+        window.showToast('Sample JSON loaded!', 'info');
+      });
+
+      btnDownload.addEventListener('click', () => {
+        const val = textarea.value;
+        if (!val.trim()) {
+          window.showToast('Nothing to download', 'error');
+          return;
+        }
+        const blob = new Blob([val], { type: 'application/json;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'formatted-data.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        window.showToast('JSON file downloaded!', 'success');
+      });
+
+      btnClear.addEventListener('click', () => {
+        textarea.value = '';
+        validateJSON();
+        window.showToast('Cleared JSON editor', 'info');
+      });
+
+      // Initialize with sample
+      textarea.value = JSON.stringify(sampleJson, null, 2);
+      validateJSON();
+    });
+  </script>
+</body>
+</html>
