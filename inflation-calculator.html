@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inflation Calculator - Purchasing Power & CPI Value | ToolsBuddy</title>
+  <meta name="description" content="Calculate how inflation erodes purchasing power over time. Compare historical inflation rates, project future cost of living, and see cumulative price increases.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/inflation-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/inflation-calculator.html">
+  <meta property="og:title" content="Inflation Calculator | ToolsBuddy">
+  <meta property="og:description" content="Free instant inflation calculator with real purchasing power erosion curves and future cost estimations.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inflation Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Forecast future purchasing power, cumulative price inflation, and doubling time.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Inflation Calculator",
+        "url": "https://toolsbuddy.pages.dev/inflation-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculate purchasing power loss, future cost of living, cumulative inflation rate, and Rule of 72 price doubling intervals with interactive visual charts.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between future cost and purchasing power?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Future cost tells you how many dollars you will need in the future to purchase a basket of goods that costs $100 today. Purchasing power tells you how much that same $100 cash bill sitting in your wallet today will actually buy in the future."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the Rule of 72 for inflation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Rule of 72 is a mental shortcut to estimate how many years it takes for prices to double due to inflation: divide 72 by the annual inflation rate. For example, at 3.0% inflation, everyday prices double in approximately 24 years (72 / 3 = 24)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the historical average inflation rate in the US?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Over the past 50 to 100 years, the US Consumer Price Index (CPI) has averaged approximately 3.1% to 3.3% annually. The Federal Reserve targets a long-run annual inflation benchmark of 2.0%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I protect my savings from inflation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Holding cash or low-interest savings accounts guarantees real loss of purchasing power during inflation. Productive assets like diversified equities (stocks), real estate, inflation-protected bonds (TIPS, I-Bonds), and commodities historically provide returns higher than inflation."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="inflation-calculator.html" class="tb-dropdown-item" role="menuitem">Inflation Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="financial-calculators.html">Financial Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Inflation Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        Purchasing Power &amp; Economy
+      </span>
+      <h1 class="tb-tool-title">Inflation Calculator</h1>
+      <p class="tb-tool-desc">
+        Calculate how inflation reduces real purchasing power over time. Compare future prices, see cumulative inflation percentages, and view annual erosion schedules.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Column -->
+      <div class="tb-tool-main">
+        <!-- Platform Toolbar -->
+        <div class="tb-platform-toolbar">
+          <div class="tb-toolbar-group">
+            <label for="currency-select">Currency:</label>
+            <select id="currency-select" class="tb-currency-select">
+              <option value="$">USD ($)</option>
+              <option value="€">EUR (€)</option>
+              <option value="£">GBP (£)</option>
+              <option value="₦">NGN (₦)</option>
+              <option value="₹">INR (₹)</option>
+              <option value="C$">CAD (C$)</option>
+              <option value="A$">AUD (A$)</option>
+              <option value="¥">JPY (¥)</option>
+            </select>
+          </div>
+          <div class="tb-toolbar-group">
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              Share Calculation
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="tb-workspace">
+          <div class="tb-workspace-inner">
+            <div class="tb-grid-2">
+              <!-- Left Form Column -->
+              <form class="tb-grid-form" id="inflation-form" onsubmit="event.preventDefault();">
+                <div class="tb-presets-wrapper" style="margin-bottom: 1.25rem;">
+                  <span class="tb-presets-label">Benchmark Rates:</span>
+                  <div class="tb-presets-chips" id="inflation-presets">
+                    <button type="button" class="tb-preset-chip" data-amount="1000" data-years="10" data-rate="3.2">US Historical (3.2%, 10 yrs)</button>
+                    <button type="button" class="tb-preset-chip" data-amount="1000" data-years="20" data-rate="2.0">Fed Target (2.0%, 20 yrs)</button>
+                    <button type="button" class="tb-preset-chip" data-amount="5000" data-years="5" data-rate="6.5">High Inflation Cycle (6.5%, 5 yrs)</button>
+                    <button type="button" class="tb-preset-chip" data-amount="10000" data-years="30" data-rate="3.0">30-Year Career (3.0%, 30 yrs)</button>
+                  </div>
+                </div>
+
+                <div class="tb-field">
+                  <label for="inp-amount" class="tb-label">Starting Amount ($)</label>
+                  <input type="number" id="inp-amount" class="tb-input" value="1000" min="1" step="10" required>
+                  <span class="tb-hint">Current cash amount or price of goods today.</span>
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-years" class="tb-label">Time Horizon (Years)</label>
+                    <input type="number" id="inp-years" class="tb-input" value="10" min="1" max="60" step="1" required>
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-rate" class="tb-label">Avg Annual Inflation (%)</label>
+                    <input type="number" id="inp-rate" class="tb-input" value="3.2" min="0" max="100" step="0.1" required>
+                  </div>
+                </div>
+
+                <!-- Quick Year Pills -->
+                <div style="display: flex; gap: 0.5rem; margin-top: -0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-year" data-years="5">5 Years</button>
+                  <button type="button" class="tb-btn tb-btn-primary tb-btn-sm btn-year" data-years="10">10 Years</button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-year" data-years="15">15 Years</button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-year" data-years="20">20 Years</button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-year" data-years="30">30 Years</button>
+                </div>
+
+                <div class="tb-btn-group">
+                  <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Calculate Impact
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset</button>
+                </div>
+              </form>
+
+              <!-- Right Results Column -->
+              <div class="tb-results-card">
+                <div class="tb-result-highlight">
+                  <div class="tb-result-label">Future Cost of Same Goods</div>
+                  <div class="tb-result-value" id="res-future-cost">$1,370.24</div>
+                  <div class="tb-result-subtext" id="res-purchasing-power" style="color: var(--accent-danger, #ef4444); font-weight: 600;">
+                    Today's $1,000 cash will buy only $729.80 of goods in 10 years
+                  </div>
+                </div>
+
+                <div class="tb-stats-grid cols-2">
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-cum-inflation" style="color: var(--accent-danger, #ef4444);">+37.0%</div>
+                    <div class="tb-stat-lbl">Cumulative Price Increase</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-power-loss" style="color: var(--accent-danger, #ef4444);">-27.0%</div>
+                    <div class="tb-stat-lbl">Purchasing Power Loss</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-rule72">22.5 Years</div>
+                    <div class="tb-stat-lbl">Price Doubling Time (Rule of 72)</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-extra-cost">+$370.24</div>
+                    <div class="tb-stat-lbl">Additional Cash Required</div>
+                  </div>
+                </div>
+
+                <!-- Visual Area Chart -->
+                <div class="tb-chart-container" style="margin-top: 1.5rem; text-align: center;">
+                  <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Purchasing Power Erosion vs Future Price</h4>
+                  <canvas id="inflation-chart" width="400" height="220" style="max-width: 100%; height: auto; margin: 0 auto; display: block;"></canvas>
+                </div>
+
+                <div class="tb-btn-group" style="margin-top: 1.5rem;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                    Copy Inflation Summary
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-export-csv">
+                    Export Schedule (CSV)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Annual Schedule Table -->
+            <div class="tb-table-section" style="margin-top: 2.5rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                Annual Purchasing Power &amp; Price Evolution
+              </h3>
+              <div class="tb-table-wrapper" style="overflow-x: auto;">
+                <table class="tb-table" id="inflation-table">
+                  <thead>
+                    <tr>
+                      <th>Year</th>
+                      <th>Equivalent Future Cost</th>
+                      <th>Purchasing Power of Cash</th>
+                      <th>Cumulative Inflation</th>
+                      <th>Real Value Loss</th>
+                    </tr>
+                  </thead>
+                  <tbody id="inflation-table-body">
+                    <!-- Populated dynamically by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Article -->
+        <article class="tb-article">
+          <h2>How Inflation Works: The Silent Wealth Tax</h2>
+          <p>
+            Inflation is the general rise in the price of goods and services over time, resulting in a persistent decrease in the purchasing power of money. When prices increase, each individual currency unit buys fewer products. The future equivalent cost formula is:
+          </p>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: monospace; margin: 1rem 0; font-size: 0.95rem;">
+            Future Price (F) = Current Amount &times; (1 + r)<sup>n</sup><br>
+            Real Purchasing Power (P) = Current Amount / (1 + r)<sup>n</sup>
+          </div>
+          <p>
+            Where <strong>r</strong> is the annual inflation rate (expressed as a decimal) and <strong>n</strong> is the number of elapsed years.
+          </p>
+
+          <h2>The Rule of 72: Price Doubling Benchmark</h2>
+          <p>
+            The <strong>Rule of 72</strong> provides a swift mathematical estimate of how long it takes for the general price level to double at a steady inflation rate. Simply divide 72 by the annual percentage rate:
+          </p>
+          <ul>
+            <li><strong>At 2.0% Inflation (Fed target):</strong> Prices double every 36.0 years.</li>
+            <li><strong>At 3.2% Inflation (US long-term average):</strong> Prices double every 22.5 years.</li>
+            <li><strong>At 6.0% Inflation:</strong> Prices double every 12.0 years.</li>
+            <li><strong>At 8.0% Inflation:</strong> Prices double every 9.0 years.</li>
+          </ul>
+
+          <h2>Nominal vs. Real Returns</h2>
+          <p>
+            Many investors mistakenly look solely at <em>nominal returns</em> (the raw percentage gain shown on their bank or brokerage statement). However, what truly determines financial independence is <strong>real return</strong>, defined as:
+          </p>
+          <p style="font-weight: 600; text-align: center; margin: 1rem 0; font-size: 1.1rem; color: var(--accent-primary);">
+            Real Return &asymp; Nominal Return &minus; Inflation Rate
+          </p>
+          <p>
+            If a certificate of deposit (CD) pays 4.0% interest while inflation averages 5.0%, the investor's purchasing power declines by approximately 1.0% each year, despite the positive dollar balance shown on paper.
+          </p>
+        </article>
+
+        <!-- FAQ Accordion -->
+        <section class="tb-faq-section">
+          <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+          <div class="tb-faq-list">
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the difference between future cost and purchasing power?</summary>
+              <div class="tb-faq-answer">
+                <p>Future cost tells you how many dollars you will need in the future to purchase a basket of goods that costs $100 today. Purchasing power tells you how much that same $100 cash bill sitting in your wallet today will actually buy in the future.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the Rule of 72 for inflation?</summary>
+              <div class="tb-faq-answer">
+                <p>The Rule of 72 is a mental shortcut to estimate how many years it takes for prices to double due to inflation: divide 72 by the annual inflation rate. For example, at 3.0% inflation, everyday prices double in approximately 24 years (72 / 3 = 24).</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the historical average inflation rate in the US?</summary>
+              <div class="tb-faq-answer">
+                <p>Over the past 50 to 100 years, the US Consumer Price Index (CPI) has averaged approximately 3.1% to 3.3% annually. The Federal Reserve targets a long-run annual inflation benchmark of 2.0%.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How can I protect my savings from inflation?</summary>
+              <div class="tb-faq-answer">
+                <p>Holding cash or low-interest savings accounts guarantees real loss of purchasing power during inflation. Productive assets like diversified equities (stocks), real estate, inflation-protected bonds (TIPS, I-Bonds), and commodities historically provide returns higher than inflation.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <!-- Popular Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Popular Calculators
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="inflation-calculator.html" class="tb-sidebar-link"><span>Inflation Calculator</span><span>&rarr;</span></a>
+            <a href="compound-interest-calculator.html" class="tb-sidebar-link"><span>Compound Interest</span><span>&rarr;</span></a>
+            <a href="retirement-calculator.html" class="tb-sidebar-link"><span>Retirement Calculator</span><span>&rarr;</span></a>
+            <a href="auto-loan-calculator.html" class="tb-sidebar-link"><span>Auto Loan Calculator</span><span>&rarr;</span></a>
+            <a href="mortgage-calculator.html" class="tb-sidebar-link"><span>Mortgage Calculator</span><span>&rarr;</span></a>
+            <a href="percentage-calculator.html" class="tb-sidebar-link"><span>Percentage Calculator</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All economic calculations occur strictly within your web browser. Zero personal financial parameters are stored or logged.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('inflation-form');
+      const inAmount = document.getElementById('inp-amount');
+      const inYears = document.getElementById('inp-years');
+      const inRate = document.getElementById('inp-rate');
+
+      const resFutureCost = document.getElementById('res-future-cost');
+      const resPurchasingPower = document.getElementById('res-purchasing-power');
+      const resCumInflation = document.getElementById('res-cum-inflation');
+      const resPowerLoss = document.getElementById('res-power-loss');
+      const resRule72 = document.getElementById('res-rule72');
+      const resExtraCost = document.getElementById('res-extra-cost');
+      const chartCanvas = document.getElementById('inflation-chart');
+      const tableBody = document.getElementById('inflation-table-body');
+
+      function calculateInflation() {
+        const amount = Math.max(1, parseFloat(inAmount.value) || 1000);
+        const years = Math.max(1, parseInt(inYears.value, 10) || 10);
+        const rate = Math.max(0, parseFloat(inRate.value) || 0) / 100;
+
+        // Future Cost = Amount * (1 + rate)^years
+        const futureCost = amount * Math.pow(1 + rate, years);
+        // Purchasing Power = Amount / (1 + rate)^years
+        const purchasingPower = amount / Math.pow(1 + rate, years);
+        const cumulativeInflationPct = (Math.pow(1 + rate, years) - 1) * 100;
+        const powerLossPct = ((amount - purchasingPower) / amount) * 100;
+        const rule72Years = rate > 0 ? (72 / (rate * 100)).toFixed(1) : 'Infinite';
+        const extraCash = futureCost - amount;
+
+        resFutureCost.textContent = CalcCore.formatCurrency(futureCost, 2);
+        resPurchasingPower.textContent = `Today's ${CalcCore.formatCurrency(amount, 0)} will buy only ${CalcCore.formatCurrency(purchasingPower, 2)} worth of goods in ${years} years`;
+        resCumInflation.textContent = `+${cumulativeInflationPct.toFixed(1)}%`;
+        resPowerLoss.textContent = `-${powerLossPct.toFixed(1)}%`;
+        resRule72.textContent = `${rule72Years} Years`;
+        resExtraCost.textContent = `+${CalcCore.formatCurrency(extraCash, 2)}`;
+
+        // Build Table & Chart Data
+        const chartLabels = [];
+        const futureCostSeries = [];
+        const purchasingPowerSeries = [];
+        let tableRowsHtml = '';
+
+        for (let y = 0; y <= years; y++) {
+          const yrFuture = amount * Math.pow(1 + rate, y);
+          const yrPower = amount / Math.pow(1 + rate, y);
+          const yrCum = (Math.pow(1 + rate, y) - 1) * 100;
+          const yrLoss = ((amount - yrPower) / amount) * 100;
+
+          chartLabels.push(`Yr ${y}`);
+          futureCostSeries.push(Math.round(yrFuture));
+          purchasingPowerSeries.push(Math.round(yrPower));
+
+          const isMilestone = (y === 0) || (y === years) || (y <= 5) || (y % 5 === 0);
+          if (isMilestone) {
+            tableRowsHtml += `
+              <tr>
+                <td><strong>Year ${y}</strong></td>
+                <td style="font-weight: 600;">${CalcCore.formatCurrency(yrFuture, 2)}</td>
+                <td style="color: var(--accent-danger, #ef4444); font-weight: 600;">${CalcCore.formatCurrency(yrPower, 2)}</td>
+                <td style="color: var(--accent-danger, #ef4444);">+${yrCum.toFixed(1)}%</td>
+                <td>-${yrLoss.toFixed(1)}%</td>
+              </tr>
+            `;
+          }
+        }
+
+        tableBody.innerHTML = tableRowsHtml;
+
+        // Render Area Chart
+        CalcCharts.drawAreaChart(chartCanvas, chartLabels, [
+          { label: 'Future Cost of Basket', data: futureCostSeries, color: '#ef4444' },
+          { label: 'Purchasing Power of Cash', data: purchasingPowerSeries, color: '#0066ff' }
+        ]);
+      }
+
+      // Quick year buttons
+      document.querySelectorAll('.btn-year').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.btn-year').forEach(b => {
+            b.classList.remove('tb-btn-primary');
+            b.classList.add('tb-btn-outline');
+          });
+          btn.classList.remove('tb-btn-outline');
+          btn.classList.add('tb-btn-primary');
+          inYears.value = btn.getAttribute('data-years');
+          calculateInflation();
+        });
+      });
+
+      // Presets
+      CalcCore.bindPresets('#inflation-presets', (preset) => {
+        inAmount.value = preset.amount;
+        inYears.value = preset.years;
+        inRate.value = preset.rate;
+
+        document.querySelectorAll('.btn-year').forEach(b => {
+          if (b.getAttribute('data-years') === String(preset.years)) {
+            b.classList.remove('tb-btn-outline');
+            b.classList.add('tb-btn-primary');
+          } else {
+            b.classList.remove('tb-btn-primary');
+            b.classList.add('tb-btn-outline');
+          }
+        });
+
+        calculateInflation();
+      });
+
+      // Export CSV
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        CalcCore.exportTableToCSV('#inflation-table', 'inflation-erosion-schedule.csv');
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Inflation Impact Summary:
+Initial Basket Cost: ${CalcCore.formatCurrency(parseFloat(inAmount.value) || 0, 0)}
+Future Basket Cost: ${resFutureCost.textContent}
+Purchasing Power: ${resPurchasingPower.textContent}
+Cumulative Inflation: ${resCumInflation.textContent}
+Doubling Time: ${resRule72.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Inflation summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Reactive & buttons
+      CalcCore.bindReactive(form, calculateInflation);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateInflation);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        calculateInflation();
+      });
+
+      // Initial run
+      calculateInflation();
+    });
+  </script>
+</body>
+</html>

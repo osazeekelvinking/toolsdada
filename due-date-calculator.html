@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregnancy Due Date Calculator - LMP & Conception | ToolsBuddy</title>
+  <meta name="description" content="Calculate your estimated delivery date (EDD), current pregnancy week, trimester, and key medical milestones using Naegele's rule, conception date, or IVF transfer.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/due-date-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/due-date-calculator.html">
+  <meta property="og:title" content="Pregnancy Due Date Calculator | ToolsBuddy">
+  <meta property="og:description" content="Calculate estimated delivery date, gestational age, and pregnancy milestone timeline.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pregnancy Due Date Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Estimate your baby's due date, track current week by week development, and view milestone dates.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Pregnancy Due Date Calculator",
+        "url": "https://toolsbuddy.pages.dev/due-date-calculator.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculates estimated delivery date (EDD), current gestational week, trimester progress, and developmental milestones based on LMP, conception date, or IVF.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does Naegele's rule calculate the estimated due date?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Naegele's rule calculates the Estimated Date of Delivery (EDD) by taking the first day of the last menstrual period (LMP), adding 280 days (40 weeks), and adjusting for menstrual cycle variance from the standard 28-day cycle."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What percentage of babies are actually born on their exact due date?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only approximately 4% to 5% of babies are born on their precise estimated due date. Most healthy births occur within a normal window spanning from 37 weeks (early term) to 42 weeks (post term)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between gestational age and fetal age?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Gestational age is measured from the first day of your last menstrual period (LMP), which is approximately two weeks before conception occurs. Fetal age measures actual developmental age from the time of ovulation/fertilization."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is an IVF due date calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For IVF with a 3-day embryo transfer, add 263 days to the transfer date. For a 5-day blastocyst transfer, add 261 days to the transfer date. IVF dates are exceptionally precise because the exact fertilization and transfer times are documented."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="due-date-calculator.html" class="tb-dropdown-item" role="menuitem">Due Date Calculator</a>
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="fitness-health-calculators.html">Fitness &amp; Health Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Due Date Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        Pregnancy &amp; Obstetric Care
+      </span>
+      <h1 class="tb-tool-title">Pregnancy Due Date Calculator</h1>
+      <p class="tb-tool-desc">
+        Calculate your Estimated Date of Delivery (EDD), track your pregnancy week by week, and plan your clinical milestones based on your last period, conception date, or IVF transfer.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Column -->
+      <div class="tb-tool-main">
+        <!-- Platform Toolbar -->
+        <div class="tb-platform-toolbar">
+          <div class="tb-toolbar-group">
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Clinical Method:</span>
+            <span class="tb-tool-badge" style="margin: 0; background: rgba(0, 102, 255, 0.1); color: #0066ff;">ACOG Clinical Standard</span>
+          </div>
+          <div class="tb-toolbar-group">
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              Share Calculation
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="tb-workspace">
+          <div class="tb-workspace-inner">
+            <div class="tb-grid-2">
+              <!-- Left Form Column -->
+              <form class="tb-grid-form" id="duedate-form" onsubmit="event.preventDefault();">
+                <div class="tb-field">
+                  <label for="inp-method" class="tb-label">Calculation Method</label>
+                  <select id="inp-method" class="tb-select">
+                    <option value="lmp" selected>First Day of Last Period (LMP)</option>
+                    <option value="conception">Conception / Ovulation Date</option>
+                    <option value="ivf3">IVF Day 3 Embryo Transfer</option>
+                    <option value="ivf5">IVF Day 5 Blastocyst Transfer</option>
+                  </select>
+                </div>
+
+                <div class="tb-field">
+                  <label for="inp-date" class="tb-label" id="lbl-date">First Day of Last Period</label>
+                  <input type="date" id="inp-date" class="tb-input" required>
+                  <span class="tb-hint" id="hint-date">Select the date your last menstrual cycle began.</span>
+                </div>
+
+                <div class="tb-field" id="wrap-cycle">
+                  <label for="inp-cycle" class="tb-label">Average Menstrual Cycle Length</label>
+                  <input type="number" id="inp-cycle" class="tb-input" value="28" min="20" max="45" step="1">
+                  <span class="tb-hint">Standard cycle is 28 days (ovulation occurs ~Day 14).</span>
+                </div>
+
+                <div class="tb-btn-group">
+                  <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Calculate Due Date
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-secondary" id="btn-today">Set to Recent (8 Weeks)</button>
+                </div>
+              </form>
+
+              <!-- Right Results Column -->
+              <div class="tb-results-card">
+                <div class="tb-result-highlight">
+                  <div class="tb-result-label">Estimated Delivery Date (EDD)</div>
+                  <div class="tb-result-value" id="res-edd-date" style="font-size: 1.85rem; color: #ec4899;">November 12, 2026</div>
+                  <div class="tb-result-subtext" id="res-days-left">182 Days Remaining &bull; 40 Weeks Total</div>
+                </div>
+
+                <div class="tb-stats-grid cols-2">
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-gest-age" style="color: #0066ff;">14 Weeks, 0 Days</div>
+                    <div class="tb-stat-lbl">Current Gestational Age</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-trimester" style="color: #10b981;">2nd Trimester</div>
+                    <div class="tb-stat-lbl">Pregnancy Stage</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-conception-date">Feb 19, 2026</div>
+                    <div class="tb-stat-lbl">Estimated Conception</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-progress-pct">35.0%</div>
+                    <div class="tb-stat-lbl">Pregnancy Completed</div>
+                  </div>
+                </div>
+
+                <!-- Pregnancy Progress Bar -->
+                <div style="margin-top: 1.5rem; background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem;">
+                    <span>Conception</span>
+                    <span>1st Trimester</span>
+                    <span>2nd Trimester</span>
+                    <span>Full Term</span>
+                  </div>
+                  <div style="width: 100%; height: 12px; background: rgba(0,0,0,0.08); border-radius: 6px; overflow: hidden; position: relative;">
+                    <div id="progress-bar-fill" style="height: 100%; width: 35%; background: linear-gradient(90deg, #ec4899, #8b5cf6); border-radius: 6px; transition: width 0.3s ease;"></div>
+                  </div>
+                </div>
+
+                <div class="tb-btn-group" style="margin-top: 1.5rem;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                    Copy Due Date Summary
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-export-csv">
+                    Export Milestones (CSV)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Milestone Timeline Table -->
+            <div class="tb-table-section" style="margin-top: 2.5rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                Key Pregnancy Developmental &amp; Clinical Milestones
+              </h3>
+              <div class="tb-table-wrapper" style="overflow-x: auto;">
+                <table class="tb-table" id="milestones-table">
+                  <thead>
+                    <tr>
+                      <th>Week</th>
+                      <th>Milestone Description</th>
+                      <th>Estimated Date</th>
+                      <th>Clinical Focus</th>
+                    </tr>
+                  </thead>
+                  <tbody id="milestones-table-body">
+                    <!-- Populated dynamically by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Article -->
+        <article class="tb-article">
+          <h2>How Your Due Date is Calculated: Naegele's Rule</h2>
+          <p>
+            Obstetricians worldwide rely on <strong>Naegele's Rule</strong> to estimate a baby's date of birth. Devised by German obstetrician Franz Karl Naegele in the 19th century, the rule assumes a standard human gestational period of 280 days (40 weeks) from the first day of the last normal menstrual period (LMP).
+          </p>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: monospace; margin: 1rem 0; font-size: 0.95rem;">
+            Estimated Due Date (EDD) = LMP Date + 280 Days + (Cycle Length &minus; 28 Days)
+          </div>
+          <p>
+            Because ovulation typically occurs 14 days prior to the start of the next cycle, women with shorter cycles (e.g., 24 days) ovulate earlier, resulting in an earlier delivery date. Conversely, longer cycles (e.g., 34 days) push the estimated date further out.
+          </p>
+
+          <h2>Why Only 4% of Babies Arrive on Their Due Date</h2>
+          <p>
+            A due date is best understood as the midpoint of a normal delivery bell curve rather than an exact deadline. ACOG (American College of Obstetricians and Gynecologists) categorizes deliveries as:
+          </p>
+          <ul>
+            <li><strong>Early Term:</strong> 37 weeks, 0 days through 38 weeks, 6 days.</li>
+            <li><strong>Full Term:</strong> 39 weeks, 0 days through 40 weeks, 6 days.</li>
+            <li><strong>Late Term:</strong> 41 weeks, 0 days through 41 weeks, 6 days.</li>
+            <li><strong>Post Term:</strong> 42 weeks, 0 days and beyond.</li>
+          </ul>
+          <p>
+            Over 90% of healthy pregnancies result in spontaneous labor between 37 and 42 weeks.
+          </p>
+
+          <h2>First Trimester Ultrasound Dating</h2>
+          <p>
+            While LMP is the initial dating benchmark, an early ultrasound measuring the embryo's <strong>Crown-Rump Length (CRL)</strong> between weeks 7 and 13 is the gold standard for clinical precision. If the ultrasound date differs from LMP by more than 5 to 7 days, obstetricians will adjust your official due date accordingly.
+          </p>
+        </article>
+
+        <!-- FAQ Accordion -->
+        <section class="tb-faq-section">
+          <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+          <div class="tb-faq-list">
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How does Naegele's rule calculate the estimated due date?</summary>
+              <div class="tb-faq-answer">
+                <p>Naegele's rule calculates the Estimated Date of Delivery (EDD) by taking the first day of the last menstrual period (LMP), adding 280 days (40 weeks), and adjusting for menstrual cycle variance from the standard 28-day cycle.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What percentage of babies are actually born on their exact due date?</summary>
+              <div class="tb-faq-answer">
+                <p>Only approximately 4% to 5% of babies are born on their precise estimated due date. Most healthy births occur within a normal window spanning from 37 weeks (early term) to 42 weeks (post term).</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the difference between gestational age and fetal age?</summary>
+              <div class="tb-faq-answer">
+                <p>Gestational age is measured from the first day of your last menstrual period (LMP), which is approximately two weeks before conception occurs. Fetal age measures actual developmental age from the time of ovulation/fertilization.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How is an IVF due date calculated?</summary>
+              <div class="tb-faq-answer">
+                <p>For IVF with a 3-day embryo transfer, add 263 days to the transfer date. For a 5-day blastocyst transfer, add 261 days to the transfer date. IVF dates are exceptionally precise because the exact fertilization and transfer times are documented.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <!-- Popular Health Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Health &amp; Family Tools
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="due-date-calculator.html" class="tb-sidebar-link"><span>Due Date Calculator</span><span>&rarr;</span></a>
+            <a href="bmi-calculator.html" class="tb-sidebar-link"><span>BMI &amp; Ideal Weight</span><span>&rarr;</span></a>
+            <a href="calorie-calculator.html" class="tb-sidebar-link"><span>Calorie &amp; Macro Calc</span><span>&rarr;</span></a>
+            <a href="body-fat-calculator.html" class="tb-sidebar-link"><span>Body Fat Calculator</span><span>&rarr;</span></a>
+            <a href="age-calculator.html" class="tb-sidebar-link"><span>Exact Age Calculator</span><span>&rarr;</span></a>
+            <a href="fitness-health-calculators.html" class="tb-sidebar-link"><span>All Health Calculators</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All pregnancy calculations occur strictly in your web browser. Zero personal medical or family dates are stored on any server.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('duedate-form');
+      const inMethod = document.getElementById('inp-method');
+      const inDate = document.getElementById('inp-date');
+      const inCycle = document.getElementById('inp-cycle');
+      const lblDate = document.getElementById('lbl-date');
+      const hintDate = document.getElementById('hint-date');
+      const wrapCycle = document.getElementById('wrap-cycle');
+
+      const resEddDate = document.getElementById('res-edd-date');
+      const resDaysLeft = document.getElementById('res-days-left');
+      const resGestAge = document.getElementById('res-gest-age');
+      const resTrimester = document.getElementById('res-trimester');
+      const resConceptionDate = document.getElementById('res-conception-date');
+      const resProgressPct = document.getElementById('res-progress-pct');
+      const progressBarFill = document.getElementById('progress-bar-fill');
+      const tableBody = document.getElementById('milestones-table-body');
+
+      // Default date to 10 weeks ago
+      const defaultDate = new Date();
+      defaultDate.setDate(defaultDate.getDate() - 70);
+      inDate.value = defaultDate.toISOString().split('T')[0];
+
+      inMethod.addEventListener('change', () => {
+        const m = inMethod.value;
+        if (m === 'lmp') {
+          lblDate.textContent = 'First Day of Last Period (LMP)';
+          hintDate.textContent = 'Select the date your last menstrual cycle began.';
+          wrapCycle.style.display = 'block';
+        } else if (m === 'conception') {
+          lblDate.textContent = 'Estimated Conception / Ovulation Date';
+          hintDate.textContent = 'Date intercourse or ovulation occurred (~2 weeks after LMP).';
+          wrapCycle.style.display = 'none';
+        } else if (m === 'ivf3') {
+          lblDate.textContent = 'Day 3 Embryo Transfer Date';
+          hintDate.textContent = 'The exact calendar date your Day 3 embryo was transferred.';
+          wrapCycle.style.display = 'none';
+        } else if (m === 'ivf5') {
+          lblDate.textContent = 'Day 5 Blastocyst Transfer Date';
+          hintDate.textContent = 'The exact calendar date your Day 5 blastocyst was transferred.';
+          wrapCycle.style.display = 'none';
+        }
+        calculateDueDate();
+      });
+
+      function formatDate(date) {
+        return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+      }
+
+      function calculateDueDate() {
+        if (!inDate.value) return;
+        const inputDate = new Date(inDate.value + 'T00:00:00');
+        const method = inMethod.value;
+        const cycle = parseInt(inCycle.value, 10) || 28;
+        const cycleAdj = cycle - 28;
+
+        let edd = new Date(inputDate);
+        let lmpEquivalent = new Date(inputDate);
+        let conceptionDate = new Date(inputDate);
+
+        if (method === 'lmp') {
+          // EDD = LMP + 280 days + cycleAdj
+          edd.setDate(edd.getDate() + 280 + cycleAdj);
+          conceptionDate.setDate(conceptionDate.getDate() + 14 + cycleAdj);
+        } else if (method === 'conception') {
+          // EDD = Conception + 266 days
+          edd.setDate(edd.getDate() + 266);
+          lmpEquivalent.setDate(lmpEquivalent.getDate() - 14);
+        } else if (method === 'ivf3') {
+          // EDD = Transfer + 263 days
+          edd.setDate(edd.getDate() + 263);
+          lmpEquivalent.setDate(lmpEquivalent.getDate() - 17);
+          conceptionDate.setDate(conceptionDate.getDate() - 3);
+        } else if (method === 'ivf5') {
+          // EDD = Transfer + 261 days
+          edd.setDate(edd.getDate() + 261);
+          lmpEquivalent.setDate(lmpEquivalent.getDate() - 19);
+          conceptionDate.setDate(conceptionDate.getDate() - 5);
+        }
+
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        // Days elapsed since LMP equivalent
+        const diffTime = today - lmpEquivalent;
+        const daysElapsed = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const weeksElapsed = Math.floor(daysElapsed / 7);
+        const daysRemInWeek = daysElapsed % 7;
+
+        // Days remaining
+        const remainingDays = Math.ceil((edd - today) / (1000 * 60 * 60 * 24));
+        const progressPct = Math.max(0, Math.min(100, (daysElapsed / 280) * 100));
+
+        // Trimester classification
+        let trimesterStr = '1st Trimester';
+        let trimesterColor = '#0066ff';
+        if (weeksElapsed >= 28) {
+          trimesterStr = '3rd Trimester';
+          trimesterColor = '#ec4899';
+        } else if (weeksElapsed >= 14) {
+          trimesterStr = '2nd Trimester';
+          trimesterColor = '#10b981';
+        }
+
+        // Display results
+        resEddDate.textContent = formatDate(edd);
+        resDaysLeft.textContent = remainingDays > 0 ? `${remainingDays} Days Remaining &bull; 40 Weeks Total` : 'Due date reached or delivery passed';
+        resGestAge.textContent = `${weeksElapsed} Weeks, ${daysRemInWeek} Days`;
+        resTrimester.textContent = trimesterStr;
+        resTrimester.style.color = trimesterColor;
+        resConceptionDate.textContent = formatDate(conceptionDate);
+        resProgressPct.textContent = `${progressPct.toFixed(1)}%`;
+        progressBarFill.style.width = `${progressPct}%`;
+
+        // Milestone timeline
+        const milestones = [
+          { week: 2, name: 'Estimated Conception', desc: 'Ovulation and fertilization of the egg', offset: 14 + cycleAdj },
+          { week: 5, name: 'First Heartbeat Detectable', desc: 'Heart tube begins rhythmic contractions', offset: 35 + cycleAdj },
+          { week: 10, name: 'End of Embryonic Stage', desc: 'Major organs formed; officially a fetus', offset: 70 + cycleAdj },
+          { week: 13, name: 'End of 1st Trimester', desc: 'Risk of miscarriage drops significantly', offset: 91 + cycleAdj },
+          { week: 18, name: 'Anatomy Ultrasound Scan', desc: 'Detailed organ scan and gender reveal', offset: 126 + cycleAdj },
+          { week: 24, name: 'Viability Benchmark', desc: 'Fetus has viable chance of survival outside womb', offset: 168 + cycleAdj },
+          { week: 28, name: 'Start of 3rd Trimester', desc: 'Rapid weight gain, brain and lung maturation', offset: 196 + cycleAdj },
+          { week: 37, name: 'Early Full Term', desc: 'Lungs fully developed and ready for birth', offset: 259 + cycleAdj },
+          { week: 40, name: 'Estimated Delivery Date (EDD)', desc: 'Official due date milestone', offset: 280 + cycleAdj }
+        ];
+
+        let tableHtml = '';
+        milestones.forEach(m => {
+          const mDate = new Date(lmpEquivalent);
+          mDate.setDate(mDate.getDate() + m.offset);
+          const isPassed = today >= mDate;
+
+          tableHtml += `
+            <tr ${isPassed ? 'style="opacity: 0.65;"' : 'style="font-weight: 500;"'}>
+              <td><strong>Week ${m.week}</strong></td>
+              <td>${m.name} ${isPassed ? '<span class="tb-tool-badge" style="padding: 0.1rem 0.4rem; font-size: 0.65rem; background: #e2e8f0;">Passed</span>' : ''}</td>
+              <td style="color: var(--accent-primary, #0066ff); font-weight: 600;">${formatDate(mDate)}</td>
+              <td>${m.desc}</td>
+            </tr>
+          `;
+        });
+        tableBody.innerHTML = tableHtml;
+      }
+
+      // Reset to 8 weeks preset
+      document.getElementById('btn-today').addEventListener('click', () => {
+        const d = new Date();
+        d.setDate(d.getDate() - 56);
+        inDate.value = d.toISOString().split('T')[0];
+        calculateDueDate();
+      });
+
+      // Export CSV
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        CalcCore.exportTableToCSV('#milestones-table', 'pregnancy-milestones-timeline.csv');
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Pregnancy Due Date Summary:
+Estimated Delivery Date: ${resEddDate.textContent}
+Current Gestational Age: ${resGestAge.textContent}
+Trimester: ${resTrimester.textContent}
+Days Remaining: ${resDaysLeft.textContent}
+Estimated Conception: ${resConceptionDate.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Due date summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Reactive & buttons
+      CalcCore.bindReactive(form, calculateDueDate);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateDueDate);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+
+      // Initial run
+      calculateDueDate();
+    });
+  </script>
+</body>
+</html>

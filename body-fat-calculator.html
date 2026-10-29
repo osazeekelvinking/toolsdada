@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Body Fat Calculator - US Navy & BMI Method | ToolsBuddy</title>
+  <meta name="description" content="Calculate your body fat percentage, lean body mass, and fat mass using the clinically validated US Navy circumference method. Includes ideal body fat benchmarks.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/body-fat-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/body-fat-calculator.html">
+  <meta property="og:title" content="Body Fat Calculator | ToolsBuddy">
+  <meta property="og:description" content="Calculate body fat percentage, lean mass, and health categories using the US Navy tape measurement method.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Body Fat Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Accurate body fat percentage, fat mass, and lean muscle mass estimation with visual composition charts.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Body Fat Calculator",
+        "url": "https://toolsbuddy.pages.dev/body-fat-calculator.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculate body fat percentage, lean body mass, fat mass, and body composition categories using the US Navy circumference method and BMI comparisons.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How accurate is the US Navy body fat tape method?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The US Navy tape method has a typical margin of error of approximately 3% to 4% compared to clinical Dual-Energy X-ray Absorptiometry (DEXA) scans, making it one of the most reliable and accessible non-invasive fitness assessments available."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where should I take the body circumference measurements?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For men: Measure neck circumference just below the larynx (Adam's apple), and waist circumference horizontally across the abdomen at the navel level. For women: Measure neck just below the larynx, waist at the narrowest point of the torso (above the navel), and hips at the widest circumference of the buttocks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is considered a healthy body fat percentage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "According to the American Council on Exercise (ACE), healthy fitness ranges are 14% to 17% for men and 21% to 24% for women. Average acceptable ranges are 18% to 24% for men and 25% to 31% for women."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between subcutaneous fat and visceral fat?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Subcutaneous fat lies directly beneath your skin and can be pinched. Visceral fat wraps around internal abdominal organs (liver, pancreas, intestines) and carries significantly higher cardiovascular and metabolic disease risks when elevated."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="due-date-calculator.html" class="tb-dropdown-item" role="menuitem">Due Date Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="fitness-health-calculators.html">Fitness &amp; Health Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Body Fat Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        Body Metrics &amp; Fitness
+      </span>
+      <h1 class="tb-tool-title">Body Fat Calculator</h1>
+      <p class="tb-tool-desc">
+        Estimate your body fat percentage, lean body mass, and fat mass using the clinically proven US Navy circumference method. Includes ACE category classifications.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Column -->
+      <div class="tb-tool-main">
+        <!-- Platform Toolbar -->
+        <div class="tb-platform-toolbar">
+          <div class="tb-toolbar-group">
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Unit System:</span>
+            <div class="tb-btn-group" style="display: inline-flex; margin: 0;">
+              <button type="button" class="tb-btn tb-btn-primary tb-btn-sm" id="btn-unit-us">US / Imperial</button>
+              <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-unit-metric">Metric</button>
+            </div>
+          </div>
+          <div class="tb-toolbar-group">
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              Share Calculation
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="tb-workspace">
+          <div class="tb-workspace-inner">
+            <div class="tb-grid-2">
+              <!-- Left Form Column -->
+              <form class="tb-grid-form" id="bodyfat-form" onsubmit="event.preventDefault();">
+                <div class="tb-presets-wrapper" style="margin-bottom: 1.25rem;">
+                  <span class="tb-presets-label">Quick Profiles:</span>
+                  <div class="tb-presets-chips" id="bf-presets">
+                    <button type="button" class="tb-preset-chip" data-gender="male" data-age="28" data-weight="175" data-feet="5" data-inches="10" data-neck="15.5" data-waist="32" data-hip="38">Athletic Male (175 lbs)</button>
+                    <button type="button" class="tb-preset-chip" data-gender="male" data-age="35" data-weight="195" data-feet="5" data-inches="11" data-neck="16" data-waist="36" data-hip="40">Average Male (195 lbs)</button>
+                    <button type="button" class="tb-preset-chip" data-gender="female" data-age="26" data-weight="135" data-feet="5" data-inches="5" data-neck="13" data-waist="26" data-hip="36">Fit Female (135 lbs)</button>
+                    <button type="button" class="tb-preset-chip" data-gender="female" data-age="34" data-weight="155" data-feet="5" data-inches="6" data-neck="13.5" data-waist="30" data-hip="40">Average Female (155 lbs)</button>
+                  </div>
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label class="tb-label">Gender</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                      <button type="button" class="tb-btn tb-btn-primary tb-btn-sm btn-gender" id="gender-male" data-gender="male" style="flex: 1;">Male</button>
+                      <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-gender" id="gender-female" data-gender="female" style="flex: 1;">Female</button>
+                    </div>
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-age" class="tb-label">Age</label>
+                    <input type="number" id="inp-age" class="tb-input" value="28" min="15" max="100" required>
+                  </div>
+                </div>
+
+                <div class="tb-field">
+                  <label for="inp-weight" class="tb-label" id="lbl-weight">Current Weight (lbs)</label>
+                  <input type="number" id="inp-weight" class="tb-input" value="175" min="50" max="600" step="0.5" required>
+                </div>
+
+                <!-- Height: US (Feet/Inches) vs Metric (cm) -->
+                <div id="wrap-height-us" class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-height-ft" class="tb-label">Height (Feet)</label>
+                    <input type="number" id="inp-height-ft" class="tb-input" value="5" min="3" max="8">
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-height-in" class="tb-label">Height (Inches)</label>
+                    <input type="number" id="inp-height-in" class="tb-input" value="10" min="0" max="11.9" step="0.5">
+                  </div>
+                </div>
+                <div id="wrap-height-metric" class="tb-field" style="display: none;">
+                  <label for="inp-height-cm" class="tb-label">Height (cm)</label>
+                  <input type="number" id="inp-height-cm" class="tb-input" value="178" min="90" max="250">
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-neck" class="tb-label" id="lbl-neck">Neck (inches)</label>
+                    <input type="number" id="inp-neck" class="tb-input" value="15.5" min="5" max="80" step="0.1" required>
+                    <span class="tb-hint">Below Adam's apple.</span>
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-waist" class="tb-label" id="lbl-waist">Waist (inches)</label>
+                    <input type="number" id="inp-waist" class="tb-input" value="32" min="10" max="120" step="0.1" required>
+                    <span class="tb-hint">At navel for men, narrowest for women.</span>
+                  </div>
+                </div>
+
+                <!-- Hip: Required for women -->
+                <div class="tb-field" id="wrap-hip" style="display: none;">
+                  <label for="inp-hip" class="tb-label" id="lbl-hip">Hips (inches)</label>
+                  <input type="number" id="inp-hip" class="tb-input" value="38" min="10" max="150" step="0.1">
+                  <span class="tb-hint">Widest circumference of hips/buttocks.</span>
+                </div>
+
+                <div class="tb-btn-group">
+                  <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Calculate Body Fat
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset</button>
+                </div>
+              </form>
+
+              <!-- Right Results Column -->
+              <div class="tb-results-card">
+                <div class="tb-result-highlight">
+                  <div class="tb-result-label">Estimated Body Fat (US Navy)</div>
+                  <div class="tb-result-value" id="res-bf-pct">14.8%</div>
+                  <div class="tb-result-subtext" id="res-category" style="color: var(--accent-success, #10b981); font-weight: 600;">
+                    Fitness Category (ACE Standard)
+                  </div>
+                </div>
+
+                <div class="tb-stats-grid cols-2">
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-fat-mass">25.9 lbs</div>
+                    <div class="tb-stat-lbl">Total Body Fat Mass</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-lean-mass" style="color: var(--accent-primary, #0066ff); font-weight: 700;">149.1 lbs</div>
+                    <div class="tb-stat-lbl">Lean Muscle &amp; Tissue Mass</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-bmi-val">25.1</div>
+                    <div class="tb-stat-lbl">Body Mass Index (BMI)</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-ideal-range">11% &ndash; 17%</div>
+                    <div class="tb-stat-lbl">Ideal Fitness Range</div>
+                  </div>
+                </div>
+
+                <!-- Visual Donut Chart: Lean Mass vs Fat Mass -->
+                <div class="tb-chart-container" style="margin-top: 1.5rem; text-align: center;">
+                  <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Body Composition Split</h4>
+                  <canvas id="bodyfat-chart" width="300" height="220" style="max-width: 100%; height: auto; margin: 0 auto; display: block;"></canvas>
+                </div>
+
+                <div class="tb-btn-group" style="margin-top: 1.5rem;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                    Copy Body Composition Summary
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-export-csv">
+                    Export Benchmarks (CSV)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ACE Standard Classification Table -->
+            <div class="tb-table-section" style="margin-top: 2.5rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                American Council on Exercise (ACE) Body Fat Reference Table
+              </h3>
+              <div class="tb-table-wrapper" style="overflow-x: auto;">
+                <table class="tb-table" id="bodyfat-table">
+                  <thead>
+                    <tr>
+                      <th>Classification</th>
+                      <th>Men (% Fat)</th>
+                      <th>Women (% Fat)</th>
+                      <th>Health Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-essential">
+                      <td><strong>Essential Fat</strong></td>
+                      <td>2% &ndash; 5%</td>
+                      <td>10% &ndash; 13%</td>
+                      <td>Minimum physiological requirement</td>
+                    </tr>
+                    <tr id="row-athletes">
+                      <td><strong>Athletes</strong></td>
+                      <td>6% &ndash; 13%</td>
+                      <td>14% &ndash; 20%</td>
+                      <td>High muscular definition &amp; conditioning</td>
+                    </tr>
+                    <tr id="row-fitness">
+                      <td><strong>Fitness</strong></td>
+                      <td>14% &ndash; 17%</td>
+                      <td>21% &ndash; 24%</td>
+                      <td>Optimal athletic health &amp; cardiovascular fitness</td>
+                    </tr>
+                    <tr id="row-average">
+                      <td><strong>Average / Acceptable</strong></td>
+                      <td>18% &ndash; 24%</td>
+                      <td>25% &ndash; 31%</td>
+                      <td>Normal metabolic health range</td>
+                    </tr>
+                    <tr id="row-obese">
+                      <td><strong>Obese</strong></td>
+                      <td>25%+</td>
+                      <td>32%+</td>
+                      <td>Elevated cardiovascular and metabolic risk</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Article -->
+        <article class="tb-article">
+          <h2>Understanding Body Fat Percentage vs. BMI</h2>
+          <p>
+            While Body Mass Index (BMI) is widely used by public health agencies, it suffers from a significant flaw: it cannot distinguish between dense muscle mass and fatty tissue. A muscular weightlifter may register as "overweight" or "obese" under standard BMI charts despite having a lean 10% body fat. <strong>Body fat percentage</strong> provides the true measure of your body composition by comparing adipose fat mass directly against lean muscle tissue, bones, and organs.
+          </p>
+
+          <h2>The US Navy Circumference Method</h2>
+          <p>
+            Developed by researchers Hodgdon and Beckett at the Naval Health Research Center, the US Navy formula estimates body density and adipose tissue using precise circumference tape measurements:
+          </p>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: monospace; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+            <strong>Men:</strong> %BF = 86.010 &times; log<sub>10</sub>(Waist &minus; Neck) &minus; 70.041 &times; log<sub>10</sub>(Height) + 36.76<br>
+            <strong>Women:</strong> %BF = 163.205 &times; log<sub>10</sub>(Waist + Hip &minus; Neck) &minus; 97.684 &times; log<sub>10</sub>(Height) &minus; 78.387
+          </div>
+          <p>
+            All circumference measurements are converted into centimeters for computation. The log-linear relationship closely mirrors hydrostatic underwater weighing and clinical DEXA scans.
+          </p>
+
+          <h2>How to Measure Accurately at Home</h2>
+          <ol>
+            <li><strong>Use a Flexible Vinyl Tape:</strong> Avoid stretching fabric tapes or rigid metal measuring tapes.</li>
+            <li><strong>Measure Directly on Skin:</strong> Do not compress soft tissue; ensure the tape is level and taut.</li>
+            <li><strong>Standard Anatomical Landmarks:</strong>
+              <ul>
+                <li><em>Neck:</em> Measure just below the thyroid cartilage (Adam's apple), looking straight ahead with relaxed shoulders.</li>
+                <li><em>Waist (Men):</em> Measure horizontally across the torso directly at the midpoint of the navel (belly button).</li>
+                <li><em>Waist (Women):</em> Measure at the point of minimal abdominal circumference (usually 1 inch above the navel).</li>
+                <li><em>Hips (Women):</em> Measure across the widest circumference of the buttocks.</li>
+              </ul>
+            </li>
+          </ol>
+        </article>
+
+        <!-- FAQ Accordion -->
+        <section class="tb-faq-section">
+          <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+          <div class="tb-faq-list">
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How accurate is the US Navy body fat tape method?</summary>
+              <div class="tb-faq-answer">
+                <p>The US Navy tape method has a typical margin of error of approximately 3% to 4% compared to clinical Dual-Energy X-ray Absorptiometry (DEXA) scans, making it one of the most reliable and accessible non-invasive fitness assessments available.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">Where should I take the body circumference measurements?</summary>
+              <div class="tb-faq-answer">
+                <p>For men: Measure neck circumference just below the larynx (Adam's apple), and waist circumference horizontally across the abdomen at the navel level. For women: Measure neck just below the larynx, waist at the narrowest point of the torso (above the navel), and hips at the widest circumference of the buttocks.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is considered a healthy body fat percentage?</summary>
+              <div class="tb-faq-answer">
+                <p>According to the American Council on Exercise (ACE), healthy fitness ranges are 14% to 17% for men and 21% to 24% for women. Average acceptable ranges are 18% to 24% for men and 25% to 31% for women.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the difference between subcutaneous fat and visceral fat?</summary>
+              <div class="tb-faq-answer">
+                <p>Subcutaneous fat lies directly beneath your skin and can be pinched. Visceral fat wraps around internal abdominal organs (liver, pancreas, intestines) and carries significantly higher cardiovascular and metabolic disease risks when elevated.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <!-- Popular Health Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Health &amp; Fitness Tools
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="body-fat-calculator.html" class="tb-sidebar-link"><span>Body Fat Calculator</span><span>&rarr;</span></a>
+            <a href="bmr-calculator.html" class="tb-sidebar-link"><span>BMR Calculator</span><span>&rarr;</span></a>
+            <a href="calorie-calculator.html" class="tb-sidebar-link"><span>Calorie &amp; Macro Calc</span><span>&rarr;</span></a>
+            <a href="bmi-calculator.html" class="tb-sidebar-link"><span>BMI &amp; Ideal Weight</span><span>&rarr;</span></a>
+            <a href="due-date-calculator.html" class="tb-sidebar-link"><span>Due Date Calculator</span><span>&rarr;</span></a>
+            <a href="fitness-health-calculators.html" class="tb-sidebar-link"><span>All Health Calculators</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All body composition computations run entirely in your local browser. No health, weight, or biometric measurements are ever collected or stored.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('bodyfat-form');
+      let currentUnit = 'us'; // 'us' or 'metric'
+      let currentGender = 'male';
+
+      const btnUnitUs = document.getElementById('btn-unit-us');
+      const btnUnitMetric = document.getElementById('btn-unit-metric');
+      const btnGenderMale = document.getElementById('gender-male');
+      const btnGenderFemale = document.getElementById('gender-female');
+
+      const inAge = document.getElementById('inp-age');
+      const inWeight = document.getElementById('inp-weight');
+      const inHeightFt = document.getElementById('inp-height-ft');
+      const inHeightIn = document.getElementById('inp-height-in');
+      const inHeightCm = document.getElementById('inp-height-cm');
+      const inNeck = document.getElementById('inp-neck');
+      const inWaist = document.getElementById('inp-waist');
+      const inHip = document.getElementById('inp-hip');
+
+      const wrapHeightUs = document.getElementById('wrap-height-us');
+      const wrapHeightMetric = document.getElementById('wrap-height-metric');
+      const wrapHip = document.getElementById('wrap-hip');
+
+      const lblWeight = document.getElementById('lbl-weight');
+      const lblNeck = document.getElementById('lbl-neck');
+      const lblWaist = document.getElementById('lbl-waist');
+      const lblHip = document.getElementById('lbl-hip');
+
+      const resBfPct = document.getElementById('res-bf-pct');
+      const resCategory = document.getElementById('res-category');
+      const resFatMass = document.getElementById('res-fat-mass');
+      const resLeanMass = document.getElementById('res-lean-mass');
+      const resBmiVal = document.getElementById('res-bmi-val');
+      const resIdealRange = document.getElementById('res-ideal-range');
+      const chartCanvas = document.getElementById('bodyfat-chart');
+
+      // Gender toggle
+      function setGender(gender) {
+        currentGender = gender;
+        if (gender === 'male') {
+          btnGenderMale.classList.add('tb-btn-primary');
+          btnGenderMale.classList.remove('tb-btn-outline');
+          btnGenderFemale.classList.remove('tb-btn-primary');
+          btnGenderFemale.classList.add('tb-btn-outline');
+          wrapHip.style.display = 'none';
+          resIdealRange.textContent = '11% – 17%';
+        } else {
+          btnGenderFemale.classList.add('tb-btn-primary');
+          btnGenderFemale.classList.remove('tb-btn-outline');
+          btnGenderMale.classList.remove('tb-btn-primary');
+          btnGenderMale.classList.add('tb-btn-outline');
+          wrapHip.style.display = 'block';
+          resIdealRange.textContent = '19% – 24%';
+        }
+        calculateBodyFat();
+      }
+
+      btnGenderMale.addEventListener('click', () => setGender('male'));
+      btnGenderFemale.addEventListener('click', () => setGender('female'));
+
+      // Unit toggle
+      function setUnit(unit) {
+        if (unit === currentUnit) return;
+        currentUnit = unit;
+        if (unit === 'metric') {
+          btnUnitMetric.classList.add('tb-btn-primary');
+          btnUnitMetric.classList.remove('tb-btn-outline');
+          btnUnitUs.classList.remove('tb-btn-primary');
+          btnUnitUs.classList.add('tb-btn-outline');
+
+          wrapHeightUs.style.display = 'none';
+          wrapHeightMetric.style.display = 'block';
+
+          // Convert values to metric
+          const curLbs = parseFloat(inWeight.value) || 175;
+          inWeight.value = Math.round(curLbs / 2.20462);
+          lblWeight.textContent = 'Current Weight (kg)';
+
+          const totalInches = (parseFloat(inHeightFt.value) || 5) * 12 + (parseFloat(inHeightIn.value) || 10);
+          inHeightCm.value = Math.round(totalInches * 2.54);
+
+          inNeck.value = (parseFloat(inNeck.value) * 2.54).toFixed(1);
+          inWaist.value = (parseFloat(inWaist.value) * 2.54).toFixed(1);
+          inHip.value = (parseFloat(inHip.value) * 2.54).toFixed(1);
+
+          lblNeck.textContent = 'Neck (cm)';
+          lblWaist.textContent = 'Waist (cm)';
+          lblHip.textContent = 'Hips (cm)';
+        } else {
+          btnUnitUs.classList.add('tb-btn-primary');
+          btnUnitUs.classList.remove('tb-btn-outline');
+          btnUnitMetric.classList.remove('tb-btn-primary');
+          btnUnitMetric.classList.add('tb-btn-outline');
+
+          wrapHeightMetric.style.display = 'none';
+          wrapHeightUs.style.display = 'flex';
+
+          const curKg = parseFloat(inWeight.value) || 80;
+          inWeight.value = Math.round(curKg * 2.20462);
+          lblWeight.textContent = 'Current Weight (lbs)';
+
+          const curCm = parseFloat(inHeightCm.value) || 178;
+          const totalIn = curCm / 2.54;
+          inHeightFt.value = Math.floor(totalIn / 12);
+          inHeightIn.value = Math.round(totalIn % 12);
+
+          inNeck.value = (parseFloat(inNeck.value) / 2.54).toFixed(1);
+          inWaist.value = (parseFloat(inWaist.value) / 2.54).toFixed(1);
+          inHip.value = (parseFloat(inHip.value) / 2.54).toFixed(1);
+
+          lblNeck.textContent = 'Neck (inches)';
+          lblWaist.textContent = 'Waist (inches)';
+          lblHip.textContent = 'Hips (inches)';
+        }
+        calculateBodyFat();
+      }
+
+      btnUnitUs.addEventListener('click', () => setUnit('us'));
+      btnUnitMetric.addEventListener('click', () => setUnit('metric'));
+
+      function calculateBodyFat() {
+        // Standard US Navy Formula uses inches
+        let weightKg = 0;
+        let heightIn = 0;
+        let neckIn = 0;
+        let waistIn = 0;
+        let hipIn = 0;
+
+        if (currentUnit === 'us') {
+          const lbs = Math.max(50, parseFloat(inWeight.value) || 175);
+          weightKg = lbs / 2.20462;
+          const feet = Math.max(3, parseFloat(inHeightFt.value) || 5);
+          const inches = Math.max(0, parseFloat(inHeightIn.value) || 10);
+          heightIn = feet * 12 + inches;
+          neckIn = parseFloat(inNeck.value) || 15.5;
+          waistIn = parseFloat(inWaist.value) || 32;
+          hipIn = parseFloat(inHip.value) || 38;
+        } else {
+          weightKg = Math.max(25, parseFloat(inWeight.value) || 80);
+          const heightCm = Math.max(90, parseFloat(inHeightCm.value) || 178);
+          heightIn = heightCm / 2.54;
+          neckIn = (parseFloat(inNeck.value) || 39) / 2.54;
+          waistIn = (parseFloat(inWaist.value) || 81) / 2.54;
+          hipIn = (parseFloat(inHip.value) || 96) / 2.54;
+        }
+
+        // US Navy formula (Hodgdon & Beckett) in inches
+        let bfPct = 0;
+        if (currentGender === 'male') {
+          const diff = Math.max(1, waistIn - neckIn);
+          bfPct = 86.010 * Math.log10(diff) - 70.041 * Math.log10(heightIn) + 36.76;
+        } else {
+          const sumDiff = Math.max(1, waistIn + hipIn - neckIn);
+          bfPct = 163.205 * Math.log10(sumDiff) - 97.684 * Math.log10(heightIn) - 78.387;
+        }
+
+        bfPct = Math.max(2, Math.min(65, bfPct));
+
+        // Fat mass & Lean mass
+        const displayWeight = currentUnit === 'us' ? (weightKg * 2.20462) : weightKg;
+        const weightUnitStr = currentUnit === 'us' ? 'lbs' : 'kg';
+
+        const fatMass = displayWeight * (bfPct / 100);
+        const leanMass = displayWeight - fatMass;
+
+        // BMI
+        const heightM = (heightIn * 2.54) / 100;
+        const bmi = weightKg / (heightM * heightM);
+
+        // Classification
+        let categoryName = 'Fitness';
+        let categoryColor = 'var(--accent-success, #10b981)';
+
+        // Clear active table rows
+        ['row-essential', 'row-athletes', 'row-fitness', 'row-average', 'row-obese'].forEach(id => {
+          document.getElementById(id)?.classList.remove('tb-row-highlight');
+        });
+
+        if (currentGender === 'male') {
+          if (bfPct < 6) {
+            categoryName = 'Essential Fat (<6%)';
+            categoryColor = '#f59e0b';
+            document.getElementById('row-essential')?.classList.add('tb-row-highlight');
+          } else if (bfPct < 14) {
+            categoryName = 'Athletes (6% – 13%)';
+            categoryColor = '#10b981';
+            document.getElementById('row-athletes')?.classList.add('tb-row-highlight');
+          } else if (bfPct < 18) {
+            categoryName = 'Fitness (14% – 17%)';
+            categoryColor = '#0066ff';
+            document.getElementById('row-fitness')?.classList.add('tb-row-highlight');
+          } else if (bfPct < 25) {
+            categoryName = 'Average / Acceptable (18% – 24%)';
+            categoryColor = '#64748b';
+            document.getElementById('row-average')?.classList.add('tb-row-highlight');
+          } else {
+            categoryName = 'Obese (25%+)';
+            categoryColor = '#ef4444';
+            document.getElementById('row-obese')?.classList.add('tb-row-highlight');
+          }
+        } else {
+          if (bfPct < 14) {
+            categoryName = 'Essential Fat (<14%)';
+            categoryColor = '#f59e0b';
+            document.getElementById('row-essential')?.classList.add('tb-row-highlight');
+          } else if (bfPct < 21) {
+            categoryName = 'Athletes (14% – 20%)';
+            categoryColor = '#10b981';
+            document.getElementById('row-athletes')?.classList.add('tb-row-highlight');
+          } else if (bfPct < 25) {
+            categoryName = 'Fitness (21% – 24%)';
+            categoryColor = '#0066ff';
+            document.getElementById('row-fitness')?.classList.add('tb-row-highlight');
+          } else if (bfPct < 32) {
+            categoryName = 'Average / Acceptable (25% – 31%)';
+            categoryColor = '#64748b';
+            document.getElementById('row-average')?.classList.add('tb-row-highlight');
+          } else {
+            categoryName = 'Obese (32%+)';
+            categoryColor = '#ef4444';
+            document.getElementById('row-obese')?.classList.add('tb-row-highlight');
+          }
+        }
+
+        // Display results
+        resBfPct.textContent = `${bfPct.toFixed(1)}%`;
+        resCategory.textContent = categoryName;
+        resCategory.style.color = categoryColor;
+        resFatMass.textContent = `${fatMass.toFixed(1)} ${weightUnitStr}`;
+        resLeanMass.textContent = `${leanMass.toFixed(1)} ${weightUnitStr}`;
+        resBmiVal.textContent = bmi.toFixed(1);
+
+        // Donut Chart
+        CalcCharts.drawDonutChart(chartCanvas, [
+          { label: 'Lean Body Mass', value: Math.round(leanMass), color: '#0066ff' },
+          { label: 'Fat Mass', value: Math.round(fatMass), color: '#f59e0b' }
+        ], { cutout: 0.62 });
+      }
+
+      // Presets
+      CalcCore.bindPresets('#bf-presets', (preset) => {
+        setGender(preset.gender);
+        if (currentUnit !== 'us') setUnit('us');
+
+        inAge.value = preset.age;
+        inWeight.value = preset.weight;
+        inHeightFt.value = preset.feet;
+        inHeightIn.value = preset.inches;
+        inNeck.value = preset.neck;
+        inWaist.value = preset.waist;
+        inHip.value = preset.hip;
+
+        calculateBodyFat();
+      });
+
+      // Export CSV
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        CalcCore.exportTableToCSV('#bodyfat-table', 'ace-body-fat-benchmarks.csv');
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Body Composition Summary:
+Body Fat Percentage: ${resBfPct.textContent}
+Classification: ${resCategory.textContent}
+Lean Body Mass: ${resLeanMass.textContent}
+Fat Mass: ${resFatMass.textContent}
+BMI: ${resBmiVal.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Body fat summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Reactive & buttons
+      CalcCore.bindReactive(form, calculateBodyFat);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateBodyFat);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        setGender('male');
+        if (currentUnit !== 'us') setUnit('us');
+        calculateBodyFat();
+      });
+
+      // Initial run
+      calculateBodyFat();
+    });
+  </script>
+</body>
+</html>

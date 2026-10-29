@@ -270,7 +270,7 @@
       "financial"
     ],
     "icon": "finance",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "interest-calculator": {
@@ -315,7 +315,7 @@
       "financial"
     ],
     "icon": "finance",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "amortization-calculator": {
@@ -375,7 +375,7 @@
       "financial"
     ],
     "icon": "finance",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "finance-calculator": {
@@ -422,7 +422,7 @@
       "financial"
     ],
     "icon": "finance",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "salary-calculator": {
@@ -437,7 +437,7 @@
       "financial"
     ],
     "icon": "finance",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "401k-calculator": {
@@ -1392,7 +1392,7 @@
       "fitness-health"
     ],
     "icon": "health",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "bmr-calculator": {
@@ -1407,7 +1407,7 @@
       "fitness-health"
     ],
     "icon": "health",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "macro-calculator": {
@@ -1502,7 +1502,7 @@
       "fitness-health"
     ],
     "icon": "health",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "pace-calculator": {
@@ -1534,7 +1534,7 @@
       "fitness-health"
     ],
     "icon": "health",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "carbohydrate-calculator": {

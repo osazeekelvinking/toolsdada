@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Loan Calculator with Monthly Payment & Amortization | ToolsBuddy</title>
+  <meta name="description" content="Calculate monthly auto loan payments, total interest cost, sales tax, down payment and trade-in value with interactive charts and year-by-year payment schedules.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/auto-loan-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/auto-loan-calculator.html">
+  <meta property="og:title" content="Auto Loan Calculator | ToolsBuddy">
+  <meta property="og:description" content="Free instant car loan payment calculator with interactive payment breakdown charts and amortization schedules.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Auto Loan Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Calculate monthly car loan payments, trade-in equity, taxes, and total interest.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Auto Loan Calculator",
+        "url": "https://toolsbuddy.pages.dev/auto-loan-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculate auto loan monthly payments, total interest, sales tax, down payment, trade-in equity, and complete year-by-year amortization schedules.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does a trade-in affect my car loan and sales tax?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In most US states and regions, your trade-in vehicle's value directly reduces the taxable purchase price of the new vehicle. For instance, trading in a $5,000 vehicle for a $30,000 car means you only pay sales tax on the $25,000 difference, saving you hundreds in upfront tax."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the recommended car loan term length?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Financial advisors recommend loan terms between 36 and 60 months. While 72 or 84-month loans lower your monthly payment, they significantly increase total interest paid and keep you underwater (owing more than the car is worth) for years."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the 20/4/10 rule for buying a car?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The 20/4/10 rule recommends putting down at least 20%, financing the vehicle for no longer than 4 years (48 months), and keeping total monthly automotive expenses (loan payment, insurance, fuel) below 10% of your gross monthly income."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is GAP insurance and do I need it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Guaranteed Asset Protection (GAP) insurance covers the difference between your vehicle's actual cash market value and the remaining loan balance if your car is stolen or totaled. It is highly recommended if you make a down payment under 20% or finance for 60+ months."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="financial-calculators.html">Financial Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Auto Loan Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        Loans & Auto Financing
+      </span>
+      <h1 class="tb-tool-title">Auto Loan Calculator</h1>
+      <p class="tb-tool-desc">
+        Calculate your exact monthly car loan payment, estimate total interest charges, factor in trade-in value and state sales taxes, and inspect full amortization schedules.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Column -->
+      <div class="tb-tool-main">
+        <!-- Platform Toolbar -->
+        <div class="tb-platform-toolbar">
+          <div class="tb-toolbar-group">
+            <label for="currency-select">Currency:</label>
+            <select id="currency-select" class="tb-currency-select">
+              <option value="$">USD ($)</option>
+              <option value="€">EUR (€)</option>
+              <option value="£">GBP (£)</option>
+              <option value="₦">NGN (₦)</option>
+              <option value="₹">INR (₹)</option>
+              <option value="C$">CAD (C$)</option>
+              <option value="A$">AUD (A$)</option>
+              <option value="¥">JPY (¥)</option>
+            </select>
+          </div>
+          <div class="tb-toolbar-group">
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              Share Calculation
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="tb-workspace">
+          <div class="tb-workspace-inner">
+            <div class="tb-grid-2">
+              <!-- Left Form Column -->
+              <form class="tb-grid-form" id="auto-loan-form" onsubmit="event.preventDefault();">
+                <div class="tb-presets-wrapper" style="margin-bottom: 1.25rem;">
+                  <span class="tb-presets-label">Popular Scenarios:</span>
+                  <div class="tb-presets-chips" id="auto-presets">
+                    <button type="button" class="tb-preset-chip" data-price="35000" data-down="5000" data-trade="3000" data-owed="0" data-rate="5.9" data-term="60" data-tax="6.5" data-fees="450">New Car (60mo @ 5.9%)</button>
+                    <button type="button" class="tb-preset-chip" data-price="22000" data-down="3000" data-trade="1500" data-owed="0" data-rate="7.8" data-term="48" data-tax="6.0" data-fees="350">Used Car (48mo @ 7.8%)</button>
+                    <button type="button" class="tb-preset-chip" data-price="48000" data-down="8000" data-trade="6000" data-owed="0" data-rate="6.4" data-term="72" data-tax="7.0" data-fees="600">SUV / Truck (72mo @ 6.4%)</button>
+                    <button type="button" class="tb-preset-chip" data-price="28000" data-down="0" data-trade="0" data-owed="0" data-rate="6.9" data-term="60" data-tax="5.0" data-fees="400">Zero Down Special</button>
+                  </div>
+                </div>
+
+                <div class="tb-field">
+                  <label for="inp-price" class="tb-label">Vehicle Price ($)</label>
+                  <input type="number" id="inp-price" class="tb-input" value="35000" min="500" step="100" required>
+                  <span class="tb-hint">Sticker price or negotiated vehicle purchase price.</span>
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-rate" class="tb-label">Interest Rate (APR %)</label>
+                    <input type="number" id="inp-rate" class="tb-input" value="6.5" min="0" max="30" step="0.1" required>
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-term" class="tb-label">Loan Term (Months)</label>
+                    <input type="number" id="inp-term" class="tb-input" value="60" min="12" max="96" step="1" required>
+                  </div>
+                </div>
+
+                <!-- Quick Term Selection Buttons -->
+                <div class="tb-term-pills" style="display: flex; gap: 0.5rem; margin-top: -0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-term" data-term="36">36 Mo (3 Yrs)</button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-term" data-term="48">48 Mo (4 Yrs)</button>
+                  <button type="button" class="tb-btn tb-btn-primary tb-btn-sm btn-term" data-term="60">60 Mo (5 Yrs)</button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-term" data-term="72">72 Mo (6 Yrs)</button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-term" data-term="84">84 Mo (7 Yrs)</button>
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-down" class="tb-label">Down Payment ($)</label>
+                    <input type="number" id="inp-down" class="tb-input" value="5000" min="0" step="100">
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-trade" class="tb-label">Trade-in Allowance ($)</label>
+                    <input type="number" id="inp-trade" class="tb-input" value="2500" min="0" step="100">
+                  </div>
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-owed" class="tb-label">Trade-in Owed ($)</label>
+                    <input type="number" id="inp-owed" class="tb-input" value="0" min="0" step="100">
+                    <span class="tb-hint">Negative equity to roll into new loan.</span>
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-tax" class="tb-label">Sales Tax Rate (%)</label>
+                    <input type="number" id="inp-tax" class="tb-input" value="6.0" min="0" max="25" step="0.1">
+                  </div>
+                </div>
+
+                <div class="tb-field">
+                  <label for="inp-fees" class="tb-label">Title, Registration & Dealer Fees ($)</label>
+                  <input type="number" id="inp-fees" class="tb-input" value="450" min="0" step="10">
+                </div>
+
+                <div class="tb-btn-group">
+                  <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Calculate Payment
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset Form</button>
+                </div>
+              </form>
+
+              <!-- Right Results Column -->
+              <div class="tb-results-card">
+                <div class="tb-result-highlight">
+                  <div class="tb-result-label">Estimated Monthly Payment</div>
+                  <div class="tb-result-value" id="res-monthly">$562.48</div>
+                  <div class="tb-result-subtext" id="res-subtext">Based on 60 monthly payments at 6.5% APR</div>
+                </div>
+
+                <div class="tb-stats-grid cols-2">
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-principal">$29,300</div>
+                    <div class="tb-stat-lbl">Total Loan Amount</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-interest" style="color: var(--accent-danger, #ef4444);">$4,449</div>
+                    <div class="tb-stat-lbl">Total Interest Paid</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-tax-fees">$2,400</div>
+                    <div class="tb-stat-lbl">Sales Tax & Fees</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-total-cost" style="font-weight: 700;">$41,249</div>
+                    <div class="tb-stat-lbl">Total Vehicle Cost</div>
+                  </div>
+                </div>
+
+                <!-- Visual Donut Chart -->
+                <div class="tb-chart-container" style="margin-top: 1.5rem; text-align: center;">
+                  <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Vehicle Cost Breakdown</h4>
+                  <canvas id="auto-chart" width="300" height="220" style="max-width: 100%; height: auto; margin: 0 auto; display: block;"></canvas>
+                </div>
+
+                <div class="tb-btn-group" style="margin-top: 1.5rem;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                    Copy Calculation Summary
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-export-csv">
+                    Export Amortization (CSV)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Amortization Table Section -->
+            <div class="tb-table-section" style="margin-top: 2.5rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                Annual Payment & Loan Balance Schedule
+              </h3>
+              <div class="tb-table-wrapper" style="overflow-x: auto;">
+                <table class="tb-table" id="auto-schedule-table">
+                  <thead>
+                    <tr>
+                      <th>Year</th>
+                      <th>Principal Paid</th>
+                      <th>Interest Paid</th>
+                      <th>Total Payments</th>
+                      <th>Remaining Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody id="auto-schedule-body">
+                    <!-- Populated dynamically by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Article -->
+        <article class="tb-article">
+          <h2>How to Calculate Your Auto Loan Payment</h2>
+          <p>
+            An auto loan is an installment loan where you borrow money to purchase a motor vehicle and repay the balance over fixed monthly intervals with interest. The monthly payment is calculated using the standard fixed amortization formula:
+          </p>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: monospace; margin: 1rem 0; font-size: 0.95rem;">
+            Monthly Payment (M) = P &times; [r(1 + r)<sup>n</sup>] / [(1 + r)<sup>n</sup> &minus; 1]
+          </div>
+          <p>
+            Where:
+          </p>
+          <ul>
+            <li><strong>P (Principal)</strong> = Vehicle Price &minus; Down Payment &minus; Net Trade-in Equity + Sales Tax + Dealer Fees</li>
+            <li><strong>r (Monthly Interest Rate)</strong> = Annual Percentage Rate (APR) / 100 / 12</li>
+            <li><strong>n (Total Payments)</strong> = Loan Term in Months (e.g., 60 for a 5-year loan)</li>
+          </ul>
+
+          <h2>The 20/4/10 Rule for Smart Car Buying</h2>
+          <p>
+            Automobiles are rapidly depreciating assets, losing an average of 15% to 20% of their value in the very first year. To prevent becoming "underwater" (where you owe more to the bank than the car is worth on the market), financial planners recommend the <strong>20/4/10 rule</strong>:
+          </p>
+          <ol>
+            <li><strong>20% Down Payment:</strong> Putting down at least 20% in cash or trade-in equity absorbs the steep initial depreciation curve.</li>
+            <li><strong>4-Year Maximum Term (48 Months):</strong> Financing for 48 months or fewer ensures you build equity faster than the vehicle depreciates.</li>
+            <li><strong>10% Income Cap:</strong> Your total monthly vehicle expenses—including loan payment, insurance premiums, maintenance, and fuel—should never exceed 10% of your gross monthly income.</li>
+          </ol>
+
+          <h2>How Trade-In Affects Sales Tax</h2>
+          <p>
+            In over 40 US states and several international jurisdictions, a vehicle trade-in provides a significant <strong>tax credit</strong>. Sales tax is computed only on the difference between the new vehicle's purchase price and the trade-in allowance. For example, buying a $35,000 car with a $5,000 trade-in at a 6% tax rate results in $1,800 in sales tax instead of $2,100, saving you $300 immediately.
+          </p>
+        </article>
+
+        <!-- FAQ Accordion -->
+        <section class="tb-faq-section">
+          <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+          <div class="tb-faq-list">
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How does a trade-in affect my car loan and sales tax?</summary>
+              <div class="tb-faq-answer">
+                <p>In most US states and regions, your trade-in vehicle's value directly reduces the taxable purchase price of the new vehicle. For instance, trading in a $5,000 vehicle for a $30,000 car means you only pay sales tax on the $25,000 difference, saving you hundreds in upfront tax.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the recommended car loan term length?</summary>
+              <div class="tb-faq-answer">
+                <p>Financial advisors recommend loan terms between 36 and 60 months. While 72 or 84-month loans lower your monthly payment, they significantly increase total interest paid and keep you underwater (owing more than the car is worth) for years.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the 20/4/10 rule for buying a car?</summary>
+              <div class="tb-faq-answer">
+                <p>The 20/4/10 rule recommends putting down at least 20%, financing the vehicle for no longer than 4 years (48 months), and keeping total monthly automotive expenses (loan payment, insurance, fuel) below 10% of your gross monthly income.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is GAP insurance and do I need it?</summary>
+              <div class="tb-faq-answer">
+                <p>Guaranteed Asset Protection (GAP) insurance covers the difference between your vehicle's actual cash market value and the remaining loan balance if your car is stolen or totaled. It is highly recommended if you make a down payment under 20% or finance for 60+ months.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <!-- Popular Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Popular Calculators
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="auto-loan-calculator.html" class="tb-sidebar-link"><span>Auto Loan Calculator</span><span>&rarr;</span></a>
+            <a href="mortgage-calculator.html" class="tb-sidebar-link"><span>Mortgage Calculator</span><span>&rarr;</span></a>
+            <a href="loan-calculator.html" class="tb-sidebar-link"><span>Loan & EMI Calculator</span><span>&rarr;</span></a>
+            <a href="compound-interest-calculator.html" class="tb-sidebar-link"><span>Compound Interest</span><span>&rarr;</span></a>
+            <a href="calorie-calculator.html" class="tb-sidebar-link"><span>Calorie & Macro Calc</span><span>&rarr;</span></a>
+            <a href="percentage-calculator.html" class="tb-sidebar-link"><span>Percentage Calculator</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All calculations run directly in your web browser. No personal automotive or financial data is ever collected or transmitted.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('auto-loan-form');
+      const inPrice = document.getElementById('inp-price');
+      const inRate = document.getElementById('inp-rate');
+      const inTerm = document.getElementById('inp-term');
+      const inDown = document.getElementById('inp-down');
+      const inTrade = document.getElementById('inp-trade');
+      const inOwed = document.getElementById('inp-owed');
+      const inTax = document.getElementById('inp-tax');
+      const inFees = document.getElementById('inp-fees');
+
+      const resMonthly = document.getElementById('res-monthly');
+      const resSubtext = document.getElementById('res-subtext');
+      const resPrincipal = document.getElementById('res-principal');
+      const resInterest = document.getElementById('res-interest');
+      const resTaxFees = document.getElementById('res-tax-fees');
+      const resTotalCost = document.getElementById('res-total-cost');
+      const chartCanvas = document.getElementById('auto-chart');
+      const tableBody = document.getElementById('auto-schedule-body');
+
+      function calculateAutoLoan() {
+        const price = Math.max(0, parseFloat(inPrice.value) || 0);
+        const apr = Math.max(0, parseFloat(inRate.value) || 0);
+        const termMonths = Math.max(1, parseInt(inTerm.value, 10) || 60);
+        const downPayment = Math.max(0, parseFloat(inDown.value) || 0);
+        const tradeIn = Math.max(0, parseFloat(inTrade.value) || 0);
+        const tradeOwed = Math.max(0, parseFloat(inOwed.value) || 0);
+        const taxRate = Math.max(0, parseFloat(inTax.value) || 0);
+        const fees = Math.max(0, parseFloat(inFees.value) || 0);
+
+        // Net Trade-in Equity
+        const netTrade = tradeIn - tradeOwed;
+
+        // Sales Tax calculation (tax applies to price minus trade-in value where applicable)
+        const taxableAmount = Math.max(0, price - tradeIn);
+        const salesTax = taxableAmount * (taxRate / 100);
+
+        // Financed Principal
+        // Total purchase cost = price + salesTax + fees - downPayment - netTrade
+        let principal = price + salesTax + fees - downPayment - netTrade;
+        if (principal < 0) principal = 0;
+
+        // Monthly Payment
+        let monthlyPayment = 0;
+        const monthlyRate = apr / 100 / 12;
+
+        if (principal > 0) {
+          if (monthlyRate === 0) {
+            monthlyPayment = principal / termMonths;
+          } else {
+            const factor = Math.pow(1 + monthlyRate, termMonths);
+            monthlyPayment = principal * (monthlyRate * factor) / (factor - 1);
+          }
+        }
+
+        const totalPaid = monthlyPayment * termMonths;
+        const totalInterest = Math.max(0, totalPaid - principal);
+        const totalVehicleCost = downPayment + Math.max(0, netTrade) + totalPaid;
+
+        // Update displays
+        resMonthly.textContent = CalcCore.formatCurrency(monthlyPayment, 2);
+        resSubtext.textContent = `Based on ${termMonths} monthly payments at ${apr.toFixed(2)}% APR`;
+        resPrincipal.textContent = CalcCore.formatCurrency(principal, 0);
+        resInterest.textContent = CalcCore.formatCurrency(totalInterest, 0);
+        resTaxFees.textContent = CalcCore.formatCurrency(salesTax + fees, 0);
+        resTotalCost.textContent = CalcCore.formatCurrency(totalVehicleCost, 0);
+
+        // Render Donut Chart
+        CalcCharts.drawDonutChart(chartCanvas, [
+          { label: 'Loan Principal', value: Math.round(principal), color: '#0066ff' },
+          { label: 'Total Interest', value: Math.round(totalInterest), color: '#ef4444' },
+          { label: 'Sales Tax & Fees', value: Math.round(salesTax + fees), color: '#10b981' },
+          { label: 'Down Payment', value: Math.round(downPayment), color: '#f59e0b' }
+        ], { cutout: 0.62 });
+
+        // Build Annual Schedule Table
+        let tableHtml = '';
+        let balance = principal;
+        const totalYears = Math.ceil(termMonths / 12);
+
+        for (let y = 1; y <= totalYears; y++) {
+          const monthsInYear = Math.min(12, termMonths - (y - 1) * 12);
+          let yearPrincipal = 0;
+          let yearInterest = 0;
+
+          for (let m = 1; m <= monthsInYear; m++) {
+            const interestPayment = balance * monthlyRate;
+            const principalPayment = Math.min(balance, monthlyPayment - interestPayment);
+            yearInterest += interestPayment;
+            yearPrincipal += principalPayment;
+            balance -= principalPayment;
+          }
+
+          tableHtml += `
+            <tr>
+              <td><strong>Year ${y}</strong></td>
+              <td>${CalcCore.formatCurrency(yearPrincipal, 0)}</td>
+              <td style="color: var(--accent-danger, #ef4444);">${CalcCore.formatCurrency(yearInterest, 0)}</td>
+              <td>${CalcCore.formatCurrency(yearPrincipal + yearInterest, 0)}</td>
+              <td style="font-weight: 600;">${CalcCore.formatCurrency(Math.max(0, balance), 0)}</td>
+            </tr>
+          `;
+        }
+
+        tableBody.innerHTML = tableHtml;
+      }
+
+      // Quick term pill buttons
+      document.querySelectorAll('.btn-term').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.btn-term').forEach(b => {
+            b.classList.remove('tb-btn-primary');
+            b.classList.add('tb-btn-outline');
+          });
+          btn.classList.remove('tb-btn-outline');
+          btn.classList.add('tb-btn-primary');
+          inTerm.value = btn.getAttribute('data-term');
+          calculateAutoLoan();
+        });
+      });
+
+      // Presets
+      CalcCore.bindPresets('#auto-presets', (preset) => {
+        inPrice.value = preset.price;
+        inDown.value = preset.down;
+        inTrade.value = preset.trade;
+        inOwed.value = preset.owed;
+        inRate.value = preset.rate;
+        inTerm.value = preset.term;
+        inTax.value = preset.tax;
+        inFees.value = preset.fees;
+
+        document.querySelectorAll('.btn-term').forEach(b => {
+          if (b.getAttribute('data-term') === String(preset.term)) {
+            b.classList.remove('tb-btn-outline');
+            b.classList.add('tb-btn-primary');
+          } else {
+            b.classList.remove('tb-btn-primary');
+            b.classList.add('tb-btn-outline');
+          }
+        });
+
+        calculateAutoLoan();
+      });
+
+      // Export CSV
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        CalcCore.exportTableToCSV('#auto-schedule-table', 'auto-loan-amortization.csv');
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Auto Loan Calculation Summary:
+Monthly Payment: ${resMonthly.textContent}
+Total Loan Amount: ${resPrincipal.textContent}
+Total Interest Paid: ${resInterest.textContent}
+Sales Tax & Fees: ${resTaxFees.textContent}
+Total Vehicle Cost: ${resTotalCost.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Auto loan summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Reactive & buttons
+      CalcCore.bindReactive(form, calculateAutoLoan);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateAutoLoan);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        calculateAutoLoan();
+      });
+
+      // Initial run
+      calculateAutoLoan();
+    });
+  </script>
+</body>
+</html>

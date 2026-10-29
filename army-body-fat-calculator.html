@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Army Body Fat Calculator - AR 600-9 Tape Test | ToolsBuddy</title>
+  <meta name="description" content="Calculate your military body fat percentage and test compliance with the official US Army Regulation AR 600-9 standards (DA Form 5500/5501). Includes ACFT exemption rules.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/army-body-fat-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/army-body-fat-calculator.html">
+  <meta property="og:title" content="Army Body Fat Calculator | ToolsBuddy">
+  <meta property="og:description" content="Official US Army Body Composition Program (AR 600-9) tape test calculator with pass/fail assessment.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Army Body Fat Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Official AR 600-9 body fat calculation with DA Form 5500/5501 standards and ACFT exemption check.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Army Body Fat Calculator",
+        "url": "https://toolsbuddy.pages.dev/army-body-fat-calculator.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculates US Army body fat percentage, pass/fail status, and compliance with Army Regulation AR 600-9 standards for male and female soldiers.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the maximum allowable body fat percentage in the US Army?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under Army Regulation AR 600-9, maximum allowable body fat standards depend on age. For males: Age 17–20 is 20%, 21–27 is 22%, 28–39 is 24%, and 40+ is 26%. For females: Age 17–20 is 30%, 21–27 is 32%, 28–39 is 34%, and 40+ is 36%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the Army ACFT tape test exemption?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under updated Army Directive policy, soldiers who score 540 points or higher on the Army Combat Fitness Test (ACFT), with at least 80 points in each of the six events, are completely exempt from the body fat tape test regardless of their weight on the scale."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Army round body fat percentages?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In accordance with AR 600-9, all body fat calculations are rounded down to the nearest whole integer. For example, a calculated 22.9% is officially recorded as 22% on DA Form 5500."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are the official measurement tape sites located?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For male soldiers: The neck circumference is measured just below the larynx, and the abdomen circumference is measured horizontally at the midpoint of the navel. For female soldiers: The neck is measured below the larynx, the waist is measured at the narrowest point of the torso, and the hips are measured at the widest protrusion of the buttocks."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="army-body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Army Body Fat Calculator</a>
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="fitness-health-calculators.html">Fitness &amp; Health Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Army Body Fat Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        Military Fitness &amp; Readiness
+      </span>
+      <h1 class="tb-tool-title">Army Body Fat Calculator (AR 600-9)</h1>
+      <p class="tb-tool-desc">
+        Calculate your military body fat percentage according to official US Army Regulation AR 600-9 (DA Form 5500 / 5501). Check pass/fail compliance and ACFT exemption status.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Column -->
+      <div class="tb-tool-main">
+        <!-- Platform Toolbar -->
+        <div class="tb-platform-toolbar">
+          <div class="tb-toolbar-group">
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Unit System:</span>
+            <div class="tb-btn-group" style="display: inline-flex; margin: 0;">
+              <button type="button" class="tb-btn tb-btn-primary tb-btn-sm" id="btn-unit-us">US / Imperial</button>
+              <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-unit-metric">Metric</button>
+            </div>
+          </div>
+          <div class="tb-toolbar-group">
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              Share Calculation
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="tb-workspace">
+          <div class="tb-workspace-inner">
+            <div class="tb-grid-2">
+              <!-- Left Form Column -->
+              <form class="tb-grid-form" id="army-form" onsubmit="event.preventDefault();">
+                <div class="tb-presets-wrapper" style="margin-bottom: 1.25rem;">
+                  <span class="tb-presets-label">Soldier Profiles:</span>
+                  <div class="tb-presets-chips" id="army-presets">
+                    <button type="button" class="tb-preset-chip" data-gender="male" data-age="20" data-weight="175" data-feet="5" data-inches="10" data-neck="15.5" data-waist="32" data-hip="38">Soldier (Male 20, 15%)</button>
+                    <button type="button" class="tb-preset-chip" data-gender="male" data-age="25" data-weight="185" data-feet="5" data-inches="11" data-neck="16" data-waist="35" data-hip="39">NCO (Male 25, 18%)</button>
+                    <button type="button" class="tb-preset-chip" data-gender="female" data-age="22" data-weight="135" data-feet="5" data-inches="5" data-neck="13" data-waist="27" data-hip="37">Recruit (Female 22, 25%)</button>
+                    <button type="button" class="tb-preset-chip" data-gender="male" data-age="42" data-weight="205" data-feet="6" data-inches="0" data-neck="16.5" data-waist="38" data-hip="41">Senior (Male 42, 22%)</button>
+                  </div>
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label class="tb-label">Gender (AR 600-9 Form)</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                      <button type="button" class="tb-btn tb-btn-primary tb-btn-sm btn-gender" id="gender-male" data-gender="male" style="flex: 1;">Male (DA 5500)</button>
+                      <button type="button" class="tb-btn tb-btn-outline tb-btn-sm btn-gender" id="gender-female" data-gender="female" style="flex: 1;">Female (DA 5501)</button>
+                    </div>
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-age" class="tb-label">Age (Years)</label>
+                    <input type="number" id="inp-age" class="tb-input" value="22" min="17" max="65" required>
+                    <span class="tb-hint">Determines allowable maximum body fat.</span>
+                  </div>
+                </div>
+
+                <div class="tb-field">
+                  <label for="inp-weight" class="tb-label" id="lbl-weight">Scale Weight (lbs)</label>
+                  <input type="number" id="inp-weight" class="tb-input" value="180" min="70" max="450" step="0.5" required>
+                </div>
+
+                <!-- Height: US vs Metric -->
+                <div id="wrap-height-us" class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-height-ft" class="tb-label">Height (Feet)</label>
+                    <input type="number" id="inp-height-ft" class="tb-input" value="5" min="3" max="8">
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-height-in" class="tb-label">Height (Inches)</label>
+                    <input type="number" id="inp-height-in" class="tb-input" value="10" min="0" max="11.9" step="0.5">
+                  </div>
+                </div>
+                <div id="wrap-height-metric" class="tb-field" style="display: none;">
+                  <label for="inp-height-cm" class="tb-label">Height (cm)</label>
+                  <input type="number" id="inp-height-cm" class="tb-input" value="178" min="100" max="250">
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-neck" class="tb-label" id="lbl-neck">Neck (inches)</label>
+                    <input type="number" id="inp-neck" class="tb-input" value="16.0" min="5" max="80" step="0.25" required>
+                    <span class="tb-hint">Directly below Adam's apple.</span>
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-waist" class="tb-label" id="lbl-waist">Abdomen / Waist (inches)</label>
+                    <input type="number" id="inp-waist" class="tb-input" value="34.0" min="10" max="120" step="0.25" required>
+                    <span class="tb-hint">Navel level for males; narrowest for females.</span>
+                  </div>
+                </div>
+
+                <!-- Hips: Females only -->
+                <div class="tb-field" id="wrap-hip" style="display: none;">
+                  <label for="inp-hip" class="tb-label" id="lbl-hip">Hips (inches)</label>
+                  <input type="number" id="inp-hip" class="tb-input" value="38.0" min="10" max="150" step="0.25">
+                  <span class="tb-hint">Widest protrusion of buttocks.</span>
+                </div>
+
+                <!-- ACFT 540 Exemption Toggle -->
+                <div class="tb-field" style="background: rgba(0, 102, 255, 0.05); padding: 0.75rem; border-radius: 6px; border: 1px dashed var(--border-color);">
+                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.875rem; font-weight: 600; margin: 0;">
+                    <input type="checkbox" id="chk-acft-exempt">
+                    <span>ACFT Score 540+ (80+ per event) Exemption</span>
+                  </label>
+                  <span class="tb-hint" style="margin-top: 0.25rem;">Exempts soldier from tape test regardless of body fat.</span>
+                </div>
+
+                <div class="tb-btn-group">
+                  <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Calculate Army Body Fat
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset</button>
+                </div>
+              </form>
+
+              <!-- Right Results Column -->
+              <div class="tb-results-card">
+                <div class="tb-result-highlight">
+                  <div class="tb-result-label">Official Army Body Fat (AR 600-9)</div>
+                  <div class="tb-result-value" id="res-army-bf">17%</div>
+                  <div class="tb-result-subtext" id="res-pass-status" style="color: var(--accent-success, #10b981); font-weight: 700;">
+                    PASSED &bull; 5% Below Allowable Maximum
+                  </div>
+                </div>
+
+                <div class="tb-stats-grid cols-2">
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-allowable-bf">22%</div>
+                    <div class="tb-stat-lbl">Max Allowable Limit</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-fat-mass">30.6 lbs</div>
+                    <div class="tb-stat-lbl">Total Body Fat Mass</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-lean-mass" style="color: var(--accent-primary, #0066ff); font-weight: 700;">149.4 lbs</div>
+                    <div class="tb-stat-lbl">Lean Muscle Mass</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-exact-pct">17.2%</div>
+                    <div class="tb-stat-lbl">Unrounded Tape Reading</div>
+                  </div>
+                </div>
+
+                <!-- Donut Chart: Lean vs Fat -->
+                <div class="tb-chart-container" style="margin-top: 1.5rem; text-align: center;">
+                  <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Body Composition Split</h4>
+                  <canvas id="army-chart" width="300" height="220" style="max-width: 100%; height: auto; margin: 0 auto; display: block;"></canvas>
+                </div>
+
+                <div class="tb-btn-group" style="margin-top: 1.5rem;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                    Copy AR 600-9 Summary
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-export-csv">
+                    Export Standards (CSV)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- AR 600-9 Standards Reference Table -->
+            <div class="tb-table-section" style="margin-top: 2.5rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                Official US Army Body Composition Program (AR 600-9) Maximum Allowable Standards
+              </h3>
+              <div class="tb-table-wrapper" style="overflow-x: auto;">
+                <table class="tb-table" id="army-table">
+                  <thead>
+                    <tr>
+                      <th>Age Group</th>
+                      <th>Male Max Allowable %</th>
+                      <th>Female Max Allowable %</th>
+                      <th>Evaluation Form</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="row-age-17">
+                      <td><strong>17 &ndash; 20 Years</strong></td>
+                      <td>20%</td>
+                      <td>30%</td>
+                      <td>DA Form 5500 (M) / DA Form 5501 (F)</td>
+                    </tr>
+                    <tr id="row-age-21">
+                      <td><strong>21 &ndash; 27 Years</strong></td>
+                      <td>22%</td>
+                      <td>32%</td>
+                      <td>DA Form 5500 (M) / DA Form 5501 (F)</td>
+                    </tr>
+                    <tr id="row-age-28">
+                      <td><strong>28 &ndash; 39 Years</strong></td>
+                      <td>24%</td>
+                      <td>34%</td>
+                      <td>DA Form 5500 (M) / DA Form 5501 (F)</td>
+                    </tr>
+                    <tr id="row-age-40">
+                      <td><strong>40+ Years</strong></td>
+                      <td>26%</td>
+                      <td>36%</td>
+                      <td>DA Form 5500 (M) / DA Form 5501 (F)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Article -->
+        <article class="tb-article">
+          <h2>The Army Body Composition Program (AR 600-9)</h2>
+          <p>
+            The primary objective of the <strong>Army Body Composition Program (ABCP)</strong> is to ensure all soldiers maintain optimal physical readiness, operational discipline, and cardiovascular health. Soldiers whose body weight exceeds the screening table height-weight benchmarks are required to undergo the official circumference tape test.
+          </p>
+
+          <h2>Official AR 600-9 Taping Formulas</h2>
+          <p>
+            Measurements are taken three times consecutively and averaged to the nearest 0.5 inch (or converted to cm):
+          </p>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: monospace; margin: 1rem 0; font-size: 0.9rem; line-height: 1.6;">
+            <strong>Male (DA Form 5500):</strong><br>
+            % Body Fat = 86.010 &times; log<sub>10</sub>(Abdomen &minus; Neck) &minus; 70.041 &times; log<sub>10</sub>(Height) + 36.76<br><br>
+            <strong>Female (DA Form 5501):</strong><br>
+            % Body Fat = 163.205 &times; log<sub>10</sub>(Waist + Hip &minus; Neck) &minus; 97.684 &times; log<sub>10</sub>(Height) &minus; 78.387
+          </div>
+          <p>
+            Per AR 600-9 paragraph 3-3, <strong>all fractions are rounded down</strong> to the nearest whole percentage point.
+          </p>
+
+          <h2>The ACFT 540+ Exemption Policy</h2>
+          <p>
+            In recognition of muscular strength and high physical conditioning, the US Department of the Army instituted an exemption policy: any soldier who scores <strong>540 or higher on the Army Combat Fitness Test (ACFT)</strong>, with a minimum of 80 points in every individual event, is completely exempt from the body fat tape test regardless of height or scale weight.
+          </p>
+        </article>
+
+        <!-- FAQ Accordion -->
+        <section class="tb-faq-section">
+          <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+          <div class="tb-faq-list">
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the maximum allowable body fat percentage in the US Army?</summary>
+              <div class="tb-faq-answer">
+                <p>Under Army Regulation AR 600-9, maximum allowable body fat standards depend on age. For males: Age 17–20 is 20%, 21–27 is 22%, 28–39 is 24%, and 40+ is 26%. For females: Age 17–20 is 30%, 21–27 is 32%, 28–39 is 34%, and 40+ is 36%.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the Army ACFT tape test exemption?</summary>
+              <div class="tb-faq-answer">
+                <p>Under updated Army Directive policy, soldiers who score 540 points or higher on the Army Combat Fitness Test (ACFT), with at least 80 points in each of the six events, are completely exempt from the body fat tape test regardless of their weight on the scale.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How does the Army round body fat percentages?</summary>
+              <div class="tb-faq-answer">
+                <p>In accordance with AR 600-9, all body fat calculations are rounded down to the nearest whole integer. For example, a calculated 22.9% is officially recorded as 22% on DA Form 5500.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">Where are the official measurement tape sites located?</summary>
+              <div class="tb-faq-answer">
+                <p>For male soldiers: The neck circumference is measured just below the larynx, and the abdomen circumference is measured horizontally at the midpoint of the navel. For female soldiers: The neck is measured below the larynx, the waist is measured at the narrowest point of the torso, and the hips are measured at the widest protrusion of the buttocks.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <!-- Popular Health Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Health &amp; Readiness Tools
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="army-body-fat-calculator.html" class="tb-sidebar-link"><span>Army Body Fat Calculator</span><span>&rarr;</span></a>
+            <a href="body-fat-calculator.html" class="tb-sidebar-link"><span>Body Fat Calculator</span><span>&rarr;</span></a>
+            <a href="bmr-calculator.html" class="tb-sidebar-link"><span>BMR Calculator</span><span>&rarr;</span></a>
+            <a href="calorie-calculator.html" class="tb-sidebar-link"><span>Calorie &amp; Macro Calc</span><span>&rarr;</span></a>
+            <a href="bmi-calculator.html" class="tb-sidebar-link"><span>BMI &amp; Ideal Weight</span><span>&rarr;</span></a>
+            <a href="fitness-health-calculators.html" class="tb-sidebar-link"><span>All Health Calculators</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All AR 600-9 evaluations occur strictly in your local browser. Zero military, personnel, or biometric records are ever transmitted or saved.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('army-form');
+      let currentUnit = 'us';
+      let currentGender = 'male';
+
+      const btnUnitUs = document.getElementById('btn-unit-us');
+      const btnUnitMetric = document.getElementById('btn-unit-metric');
+      const btnGenderMale = document.getElementById('gender-male');
+      const btnGenderFemale = document.getElementById('gender-female');
+
+      const inAge = document.getElementById('inp-age');
+      const inWeight = document.getElementById('inp-weight');
+      const inHeightFt = document.getElementById('inp-height-ft');
+      const inHeightIn = document.getElementById('inp-height-in');
+      const inHeightCm = document.getElementById('inp-height-cm');
+      const inNeck = document.getElementById('inp-neck');
+      const inWaist = document.getElementById('inp-waist');
+      const inHip = document.getElementById('inp-hip');
+      const chkAcft = document.getElementById('chk-acft-exempt');
+
+      const wrapHeightUs = document.getElementById('wrap-height-us');
+      const wrapHeightMetric = document.getElementById('wrap-height-metric');
+      const wrapHip = document.getElementById('wrap-hip');
+
+      const lblWeight = document.getElementById('lbl-weight');
+      const lblNeck = document.getElementById('lbl-neck');
+      const lblWaist = document.getElementById('lbl-waist');
+      const lblHip = document.getElementById('lbl-hip');
+
+      const resArmyBf = document.getElementById('res-army-bf');
+      const resPassStatus = document.getElementById('res-pass-status');
+      const resAllowableBf = document.getElementById('res-allowable-bf');
+      const resFatMass = document.getElementById('res-fat-mass');
+      const resLeanMass = document.getElementById('res-lean-mass');
+      const resExactPct = document.getElementById('res-exact-pct');
+      const chartCanvas = document.getElementById('army-chart');
+
+      function setGender(gender) {
+        currentGender = gender;
+        if (gender === 'male') {
+          btnGenderMale.classList.add('tb-btn-primary');
+          btnGenderMale.classList.remove('tb-btn-outline');
+          btnGenderFemale.classList.remove('tb-btn-primary');
+          btnGenderFemale.classList.add('tb-btn-outline');
+          wrapHip.style.display = 'none';
+        } else {
+          btnGenderFemale.classList.add('tb-btn-primary');
+          btnGenderFemale.classList.remove('tb-btn-outline');
+          btnGenderMale.classList.remove('tb-btn-primary');
+          btnGenderMale.classList.add('tb-btn-outline');
+          wrapHip.style.display = 'block';
+        }
+        calculateArmyBf();
+      }
+
+      btnGenderMale.addEventListener('click', () => setGender('male'));
+      btnGenderFemale.addEventListener('click', () => setGender('female'));
+
+      function setUnit(unit) {
+        if (unit === currentUnit) return;
+        currentUnit = unit;
+        if (unit === 'metric') {
+          btnUnitMetric.classList.add('tb-btn-primary');
+          btnUnitMetric.classList.remove('tb-btn-outline');
+          btnUnitUs.classList.remove('tb-btn-primary');
+          btnUnitUs.classList.add('tb-btn-outline');
+
+          wrapHeightUs.style.display = 'none';
+          wrapHeightMetric.style.display = 'block';
+
+          const curLbs = parseFloat(inWeight.value) || 180;
+          inWeight.value = Math.round(curLbs / 2.20462);
+          lblWeight.textContent = 'Scale Weight (kg)';
+
+          const totalInches = (parseFloat(inHeightFt.value) || 5) * 12 + (parseFloat(inHeightIn.value) || 10);
+          inHeightCm.value = Math.round(totalInches * 2.54);
+
+          inNeck.value = (parseFloat(inNeck.value) * 2.54).toFixed(1);
+          inWaist.value = (parseFloat(inWaist.value) * 2.54).toFixed(1);
+          inHip.value = (parseFloat(inHip.value) * 2.54).toFixed(1);
+
+          lblNeck.textContent = 'Neck (cm)';
+          lblWaist.textContent = 'Abdomen / Waist (cm)';
+          lblHip.textContent = 'Hips (cm)';
+        } else {
+          btnUnitUs.classList.add('tb-btn-primary');
+          btnUnitUs.classList.remove('tb-btn-outline');
+          btnUnitMetric.classList.remove('tb-btn-primary');
+          btnUnitMetric.classList.add('tb-btn-outline');
+
+          wrapHeightMetric.style.display = 'none';
+          wrapHeightUs.style.display = 'flex';
+
+          const curKg = parseFloat(inWeight.value) || 82;
+          inWeight.value = Math.round(curKg * 2.20462);
+          lblWeight.textContent = 'Scale Weight (lbs)';
+
+          const curCm = parseFloat(inHeightCm.value) || 178;
+          const totalIn = curCm / 2.54;
+          inHeightFt.value = Math.floor(totalIn / 12);
+          inHeightIn.value = Math.round(totalIn % 12);
+
+          inNeck.value = (parseFloat(inNeck.value) / 2.54).toFixed(1);
+          inWaist.value = (parseFloat(inWaist.value) / 2.54).toFixed(1);
+          inHip.value = (parseFloat(inHip.value) / 2.54).toFixed(1);
+
+          lblNeck.textContent = 'Neck (inches)';
+          lblWaist.textContent = 'Abdomen / Waist (inches)';
+          lblHip.textContent = 'Hips (inches)';
+        }
+        calculateArmyBf();
+      }
+
+      btnUnitUs.addEventListener('click', () => setUnit('us'));
+      btnUnitMetric.addEventListener('click', () => setUnit('metric'));
+
+      function calculateArmyBf() {
+        let weightKg = 0;
+        let heightIn = 0;
+        let neckIn = 0;
+        let waistIn = 0;
+        let hipIn = 0;
+
+        if (currentUnit === 'us') {
+          const lbs = Math.max(50, parseFloat(inWeight.value) || 180);
+          weightKg = lbs / 2.20462;
+          const feet = Math.max(3, parseFloat(inHeightFt.value) || 5);
+          const inches = Math.max(0, parseFloat(inHeightIn.value) || 10);
+          heightIn = feet * 12 + inches;
+          neckIn = parseFloat(inNeck.value) || 16;
+          waistIn = parseFloat(inWaist.value) || 34;
+          hipIn = parseFloat(inHip.value) || 38;
+        } else {
+          weightKg = Math.max(25, parseFloat(inWeight.value) || 82);
+          const heightCm = Math.max(90, parseFloat(inHeightCm.value) || 178);
+          heightIn = heightCm / 2.54;
+          neckIn = (parseFloat(inNeck.value) || 40.5) / 2.54;
+          waistIn = (parseFloat(inWaist.value) || 86) / 2.54;
+          hipIn = (parseFloat(inHip.value) || 96.5) / 2.54;
+        }
+
+        const age = Math.max(17, parseInt(inAge.value, 10) || 22);
+        const isAcftExempt = chkAcft.checked;
+
+        // Allowable Maximum Table AR 600-9
+        let maxAllowable = 22;
+        let activeRowId = 'row-age-21';
+
+        if (currentGender === 'male') {
+          if (age <= 20) { maxAllowable = 20; activeRowId = 'row-age-17'; }
+          else if (age <= 27) { maxAllowable = 22; activeRowId = 'row-age-21'; }
+          else if (age <= 39) { maxAllowable = 24; activeRowId = 'row-age-28'; }
+          else { maxAllowable = 26; activeRowId = 'row-age-40'; }
+        } else {
+          if (age <= 20) { maxAllowable = 30; activeRowId = 'row-age-17'; }
+          else if (age <= 27) { maxAllowable = 32; activeRowId = 'row-age-21'; }
+          else if (age <= 39) { maxAllowable = 34; activeRowId = 'row-age-28'; }
+          else { maxAllowable = 36; activeRowId = 'row-age-40'; }
+        }
+
+        // Highlight active table row
+        ['row-age-17', 'row-age-21', 'row-age-28', 'row-age-40'].forEach(id => {
+          document.getElementById(id)?.classList.remove('tb-row-highlight');
+        });
+        document.getElementById(activeRowId)?.classList.add('tb-row-highlight');
+
+        // AR 600-9 Formula
+        let rawBf = 0;
+        if (currentGender === 'male') {
+          const diff = Math.max(1, waistIn - neckIn);
+          rawBf = 86.010 * Math.log10(diff) - 70.041 * Math.log10(heightIn) + 36.76;
+        } else {
+          const sumDiff = Math.max(1, waistIn + hipIn - neckIn);
+          rawBf = 163.205 * Math.log10(sumDiff) - 97.684 * Math.log10(heightIn) - 78.387;
+        }
+
+        rawBf = Math.max(2, Math.min(65, rawBf));
+        // Per AR 600-9, round down to whole integer
+        const officialBf = Math.floor(rawBf);
+
+        // Pass / Fail Determination
+        let statusText = '';
+        let statusColor = '#10b981';
+
+        if (isAcftExempt) {
+          statusText = 'PASSED &bull; Exempt via ACFT 540+ Score Policy';
+          statusColor = '#0066ff';
+        } else if (officialBf <= maxAllowable) {
+          const margin = maxAllowable - officialBf;
+          statusText = `PASSED &bull; ${margin}% Below Allowable Maximum (${maxAllowable}%)`;
+          statusColor = '#10b981';
+        } else {
+          const excess = officialBf - maxAllowable;
+          statusText = `FAILED &bull; ${excess}% Over Allowable Maximum (${maxAllowable}%)`;
+          statusColor = '#ef4444';
+        }
+
+        const displayWeight = currentUnit === 'us' ? (weightKg * 2.20462) : weightKg;
+        const weightUnitStr = currentUnit === 'us' ? 'lbs' : 'kg';
+        const fatMass = displayWeight * (officialBf / 100);
+        const leanMass = displayWeight - fatMass;
+
+        resArmyBf.textContent = `${officialBf}%`;
+        resPassStatus.textContent = statusText;
+        resPassStatus.style.color = statusColor;
+        resAllowableBf.textContent = `${maxAllowable}%`;
+        resFatMass.textContent = `${fatMass.toFixed(1)} ${weightUnitStr}`;
+        resLeanMass.textContent = `${leanMass.toFixed(1)} ${weightUnitStr}`;
+        resExactPct.textContent = `${rawBf.toFixed(1)}%`;
+
+        // Render Donut Chart
+        CalcCharts.drawDonutChart(chartCanvas, [
+          { label: 'Lean Body Mass', value: Math.round(leanMass), color: '#0066ff' },
+          { label: 'Body Fat Mass', value: Math.round(fatMass), color: '#f59e0b' }
+        ], { cutout: 0.62 });
+      }
+
+      // Presets
+      CalcCore.bindPresets('#army-presets', (preset) => {
+        setGender(preset.gender);
+        if (currentUnit !== 'us') setUnit('us');
+
+        inAge.value = preset.age;
+        inWeight.value = preset.weight;
+        inHeightFt.value = preset.feet;
+        inHeightIn.value = preset.inches;
+        inNeck.value = preset.neck;
+        inWaist.value = preset.waist;
+        inHip.value = preset.hip;
+        chkAcft.checked = false;
+
+        calculateArmyBf();
+      });
+
+      chkAcft.addEventListener('change', calculateArmyBf);
+
+      // Export CSV
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        CalcCore.exportTableToCSV('#army-table', 'ar600-9-army-body-fat-standards.csv');
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `AR 600-9 Army Body Fat Summary:
+Official Army Body Fat: ${resArmyBf.textContent}
+Status: ${resPassStatus.textContent}
+Max Allowable for Age: ${resAllowableBf.textContent}
+Lean Mass: ${resLeanMass.textContent}
+Fat Mass: ${resFatMass.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Army body fat summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Reactive & buttons
+      CalcCore.bindReactive(form, calculateArmyBf);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateArmyBf);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        setGender('male');
+        if (currentUnit !== 'us') setUnit('us');
+        calculateArmyBf();
+      });
+
+      // Initial run
+      calculateArmyBf();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tax Calculator - Federal, FICA & Take-Home Pay | ToolsBuddy</title>
+  <meta name="description" content="Calculate federal income tax, Social Security, Medicare (FICA), state tax, and net take-home paycheck with progressive tax brackets and standard deductions.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/tax-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/tax-calculator.html">
+  <meta property="og:title" content="Income Tax & Take-Home Pay Calculator | ToolsBuddy">
+  <meta property="og:description" content="Free take-home pay and tax bracket calculator with federal, state, and FICA payroll tax breakdowns.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Income Tax Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Calculate net take-home pay, progressive tax brackets, and effective tax rates.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Income Tax Calculator",
+        "url": "https://toolsbuddy.pages.dev/tax-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculate federal income tax, Social Security, Medicare, state income tax, and net take-home pay across annual, monthly, and bi-weekly pay periods.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does moving into a higher tax bracket mean I take home less money?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, this is a widespread myth. Under the progressive US tax bracket system, only the specific dollars earned inside that higher tax bracket are taxed at the higher marginal rate. Every dollar earned below that bracket continues to be taxed at the lower previous rates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between marginal and effective tax rate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your marginal tax rate is the tax percentage applied to your very last dollar of income (your top tax bracket). Your effective tax rate is the true average percentage of your total income paid in taxes (Total Taxes Paid divided by Gross Income), which is always significantly lower than your marginal rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is FICA tax?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "FICA stands for Federal Insurance Contributions Act. It consists of a 6.2% Social Security tax (capped at statutory annual wage limits) and a 1.45% Medicare tax (uncapped, plus an additional 0.9% for high earners)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do 401(k) and HSA contributions lower my taxes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pre-tax contributions to a traditional 401(k), 403(b), or Health Savings Account (HSA) reduce your Gross Adjusted Income dollar-for-dollar before tax calculations occur. If you are in the 22% tax bracket and contribute $5,000 to a 401(k), you instantly save $1,100 in federal income taxes."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="tax-calculator.html" class="tb-dropdown-item" role="menuitem">Income Tax Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="financial-calculators.html">Financial Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Income Tax Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        Tax &amp; Take-Home Pay
+      </span>
+      <h1 class="tb-tool-title">Income Tax &amp; Take-Home Pay Calculator</h1>
+      <p class="tb-tool-desc">
+        Calculate your federal income tax, Social Security, Medicare (FICA), state tax, and net take-home paycheck with progressive tax brackets and deductions.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Column -->
+      <div class="tb-tool-main">
+        <!-- Platform Toolbar -->
+        <div class="tb-platform-toolbar">
+          <div class="tb-toolbar-group">
+            <label for="currency-select">Currency:</label>
+            <select id="currency-select" class="tb-currency-select">
+              <option value="$">USD ($)</option>
+              <option value="€">EUR (€)</option>
+              <option value="£">GBP (£)</option>
+              <option value="₦">NGN (₦)</option>
+              <option value="₹">INR (₹)</option>
+              <option value="C$">CAD (C$)</option>
+              <option value="A$">AUD (A$)</option>
+              <option value="¥">JPY (¥)</option>
+            </select>
+          </div>
+          <div class="tb-toolbar-group">
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              Share Calculation
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="tb-workspace">
+          <div class="tb-workspace-inner">
+            <div class="tb-grid-2">
+              <!-- Left Form Column -->
+              <form class="tb-grid-form" id="tax-form" onsubmit="event.preventDefault();">
+                <div class="tb-presets-wrapper" style="margin-bottom: 1.25rem;">
+                  <span class="tb-presets-label">Common Scenarios:</span>
+                  <div class="tb-presets-chips" id="tax-presets">
+                    <button type="button" class="tb-preset-chip" data-income="55000" data-status="single" data-pretax="2500" data-state="4.5">Single ($55k)</button>
+                    <button type="button" class="tb-preset-chip" data-income="95000" data-status="single" data-pretax="6000" data-state="5.0">Professional ($95k)</button>
+                    <button type="button" class="tb-preset-chip" data-income="160000" data-status="married" data-pretax="12000" data-state="5.0">Married Jointly ($160k)</button>
+                    <button type="button" class="tb-preset-chip" data-income="220000" data-status="married" data-pretax="20000" data-state="6.0">High Earner ($220k)</button>
+                  </div>
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-income" class="tb-label">Gross Annual Income ($)</label>
+                    <input type="number" id="inp-income" class="tb-input" value="75000" min="0" step="500" required>
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-status" class="tb-label">Filing Status</label>
+                    <select id="inp-status" class="tb-select">
+                      <option value="single" selected>Single</option>
+                      <option value="married">Married Filing Jointly</option>
+                      <option value="head">Head of Household</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-pretax" class="tb-label">Pre-Tax Deductions ($)</label>
+                    <input type="number" id="inp-pretax" class="tb-input" value="3000" min="0" step="100">
+                    <span class="tb-hint">401(k), HSA, Health Insurance premiums.</span>
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-state-rate" class="tb-label">Estimated State Tax (%)</label>
+                    <input type="number" id="inp-state-rate" class="tb-input" value="4.5" min="0" max="15" step="0.1">
+                    <span class="tb-hint">0% (TX, FL, WA) to ~13% (CA).</span>
+                  </div>
+                </div>
+
+                <div class="tb-field">
+                  <label for="inp-deduction" class="tb-label">Deduction Type</label>
+                  <select id="inp-deduction" class="tb-select">
+                    <option value="standard" selected>Standard Deduction ($14,600 Single / $29,200 Married)</option>
+                    <option value="itemized">Custom Itemized Deduction</option>
+                  </select>
+                </div>
+
+                <div class="tb-field" id="wrap-itemized" style="display: none;">
+                  <label for="inp-itemized-amt" class="tb-label">Itemized Deduction Amount ($)</label>
+                  <input type="number" id="inp-itemized-amt" class="tb-input" value="16000" min="0" step="100">
+                </div>
+
+                <div class="tb-btn-group">
+                  <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Calculate Taxes
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset</button>
+                </div>
+              </form>
+
+              <!-- Right Results Column -->
+              <div class="tb-results-card">
+                <div class="tb-result-highlight">
+                  <div class="tb-result-label">Net Take-Home Pay</div>
+                  <div class="tb-result-value" id="res-takehome">$58,261</div>
+                  <div class="tb-result-subtext" id="res-rate-summary">Effective Tax Rate: 18.3% &bull; Marginal Bracket: 22.0%</div>
+                </div>
+
+                <div class="tb-stats-grid cols-2">
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-fed-tax" style="color: var(--accent-danger, #ef4444);">$7,423</div>
+                    <div class="tb-stat-lbl">Federal Income Tax</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-fica-tax" style="color: var(--accent-danger, #ef4444);">$5,738</div>
+                    <div class="tb-stat-lbl">FICA (SocSec + Medicare)</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-state-tax" style="color: var(--accent-danger, #ef4444);">$2,583</div>
+                    <div class="tb-stat-lbl">Estimated State Tax</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-total-taxes" style="font-weight: 700;">$15,744</div>
+                    <div class="tb-stat-lbl">Total Tax Burden</div>
+                  </div>
+                </div>
+
+                <!-- Donut Chart -->
+                <div class="tb-chart-container" style="margin-top: 1.5rem; text-align: center;">
+                  <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Income Allocation Breakdown</h4>
+                  <canvas id="tax-chart" width="300" height="220" style="max-width: 100%; height: auto; margin: 0 auto; display: block;"></canvas>
+                </div>
+
+                <div class="tb-btn-group" style="margin-top: 1.5rem;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                    Copy Tax Summary
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-export-csv">
+                    Export Breakdown (CSV)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paycheck Schedules Table -->
+            <div class="tb-table-section" style="margin-top: 2.5rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                Take-Home Paycheck Frequency Breakdown
+              </h3>
+              <div class="tb-table-wrapper" style="overflow-x: auto;">
+                <table class="tb-table" id="tax-paycheck-table">
+                  <thead>
+                    <tr>
+                      <th>Pay Frequency</th>
+                      <th>Gross Pay</th>
+                      <th>Pre-Tax Deductions</th>
+                      <th>Total Taxes Owed</th>
+                      <th>Net Take-Home Pay</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tax-paycheck-body">
+                    <!-- Populated dynamically by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Progressive Bracket Waterfall Table -->
+            <div class="tb-table-section" style="margin-top: 2rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                Progressive Federal Tax Bracket Waterfall
+              </h3>
+              <div class="tb-table-wrapper" style="overflow-x: auto;">
+                <table class="tb-table" id="tax-bracket-table">
+                  <thead>
+                    <tr>
+                      <th>Bracket Rate</th>
+                      <th>Taxable Bracket Range</th>
+                      <th>Your Taxable Income in Bracket</th>
+                      <th>Tax Incurred</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tax-bracket-body">
+                    <!-- Populated dynamically by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Article -->
+        <article class="tb-article">
+          <h2>Marginal vs. Effective Tax Rate: Debunking the Bracket Myth</h2>
+          <p>
+            One of the most persistent misconceptions in personal finance is that earning more money and crossing into a higher tax bracket reduces your net take-home pay. Under the progressive US tax code, <strong>this is mathematically impossible</strong>.
+          </p>
+          <p>
+            The US tax system uses progressive brackets: each tax rate applies only to income falling within that specific dollar interval. For example, if you are a single filer:
+          </p>
+          <ul>
+            <li>The first $11,600 of taxable income is taxed at exactly 10%.</li>
+            <li>Only dollars from $11,601 to $47,150 are taxed at 12%.</li>
+            <li>Only dollars from $47,151 to $100,525 are taxed at 22%.</li>
+          </ul>
+          <p>
+            Your <strong>marginal tax rate</strong> is the highest bracket your income touches. Your <strong>effective tax rate</strong> is your total tax divided by your gross income, which is always substantially lower.
+          </p>
+
+          <h2>Understanding FICA Payroll Taxes</h2>
+          <p>
+            In addition to progressive income taxes, wage earners pay mandatory payroll taxes under the Federal Insurance Contributions Act (FICA):
+          </p>
+          <ol>
+            <li><strong>Social Security (6.2%):</strong> Applied to earned income up to the statutory wage limit ($168,600). Earnings beyond this ceiling incur 0% Social Security tax.</li>
+            <li><strong>Medicare (1.45%):</strong> Applied to all wages with zero cap. High earners (over $200,000 for single filers, $250,000 for married couples) pay an Additional Medicare Tax of 0.9% on income above the threshold.</li>
+          </ol>
+
+          <h2>How Pre-Tax Contributions Slash Your Tax Bill</h2>
+          <p>
+            Contributing to traditional retirement plans (401k, 403b) or Health Savings Accounts (HSA) directly reduces your taxable income from the top bracket downwards. If you are in the 24% federal bracket and contribute $10,000 to your 401(k), you immediately avoid paying $2,400 in federal taxes and hundreds in state taxes.
+          </p>
+        </article>
+
+        <!-- FAQ Accordion -->
+        <section class="tb-faq-section">
+          <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+          <div class="tb-faq-list">
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">Does moving into a higher tax bracket mean I take home less money?</summary>
+              <div class="tb-faq-answer">
+                <p>No, this is a widespread myth. Under the progressive US tax bracket system, only the specific dollars earned inside that higher tax bracket are taxed at the higher marginal rate. Every dollar earned below that bracket continues to be taxed at the lower previous rates.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the difference between marginal and effective tax rate?</summary>
+              <div class="tb-faq-answer">
+                <p>Your marginal tax rate is the tax percentage applied to your very last dollar of income (your top tax bracket). Your effective tax rate is the true average percentage of your total income paid in taxes (Total Taxes Paid divided by Gross Income), which is always significantly lower than your marginal rate.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is FICA tax?</summary>
+              <div class="tb-faq-answer">
+                <p>FICA stands for Federal Insurance Contributions Act. It consists of a 6.2% Social Security tax (capped at statutory annual wage limits) and a 1.45% Medicare tax (uncapped, plus an additional 0.9% for high earners).</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How do 401(k) and HSA contributions lower my taxes?</summary>
+              <div class="tb-faq-answer">
+                <p>Pre-tax contributions to a traditional 401(k), 403(b), or Health Savings Account (HSA) reduce your Gross Adjusted Income dollar-for-dollar before tax calculations occur. If you are in the 22% tax bracket and contribute $5,000 to a 401(k), you instantly save $1,100 in federal income taxes.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <!-- Popular Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Popular Calculators
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="tax-calculator.html" class="tb-sidebar-link"><span>Income Tax Calculator</span><span>&rarr;</span></a>
+            <a href="salary-calculator.html" class="tb-sidebar-link"><span>Salary Calculator</span><span>&rarr;</span></a>
+            <a href="compound-interest-calculator.html" class="tb-sidebar-link"><span>Compound Interest</span><span>&rarr;</span></a>
+            <a href="auto-loan-calculator.html" class="tb-sidebar-link"><span>Auto Loan Calculator</span><span>&rarr;</span></a>
+            <a href="mortgage-calculator.html" class="tb-sidebar-link"><span>Mortgage Calculator</span><span>&rarr;</span></a>
+            <a href="percentage-calculator.html" class="tb-sidebar-link"><span>Percentage Calculator</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All tax computations execute locally on your device. Zero salary, income, or deduction information is ever sent to any remote server.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('tax-form');
+      const inIncome = document.getElementById('inp-income');
+      const inStatus = document.getElementById('inp-status');
+      const inPreTax = document.getElementById('inp-pretax');
+      const inStateRate = document.getElementById('inp-state-rate');
+      const inDeduction = document.getElementById('inp-deduction');
+      const inItemizedAmt = document.getElementById('inp-itemized-amt');
+      const wrapItemized = document.getElementById('wrap-itemized');
+
+      const resTakehome = document.getElementById('res-takehome');
+      const resRateSummary = document.getElementById('res-rate-summary');
+      const resFedTax = document.getElementById('res-fed-tax');
+      const resFicaTax = document.getElementById('res-fica-tax');
+      const resStateTax = document.getElementById('res-state-tax');
+      const resTotalTaxes = document.getElementById('res-total-taxes');
+      const chartCanvas = document.getElementById('tax-chart');
+      const paycheckTableBody = document.getElementById('tax-paycheck-body');
+      const bracketTableBody = document.getElementById('tax-bracket-body');
+
+      // Toggle itemized deduction input
+      inDeduction.addEventListener('change', () => {
+        wrapItemized.style.display = inDeduction.value === 'itemized' ? 'block' : 'none';
+        calculateTaxes();
+      });
+
+      // Federal Brackets Reference
+      const brackets = {
+        single: [
+          { rate: 0.10, cap: 11600 },
+          { rate: 0.12, cap: 47150 },
+          { rate: 0.22, cap: 100525 },
+          { rate: 0.24, cap: 191950 },
+          { rate: 0.32, cap: 243725 },
+          { rate: 0.35, cap: 609350 },
+          { rate: 0.37, cap: Infinity }
+        ],
+        married: [
+          { rate: 0.10, cap: 23200 },
+          { rate: 0.12, cap: 94300 },
+          { rate: 0.22, cap: 201050 },
+          { rate: 0.24, cap: 383900 },
+          { rate: 0.32, cap: 487450 },
+          { rate: 0.35, cap: 731200 },
+          { rate: 0.37, cap: Infinity }
+        ],
+        head: [
+          { rate: 0.10, cap: 16550 },
+          { rate: 0.12, cap: 63100 },
+          { rate: 0.22, cap: 100500 },
+          { rate: 0.24, cap: 191950 },
+          { rate: 0.32, cap: 243700 },
+          { rate: 0.35, cap: 609350 },
+          { rate: 0.37, cap: Infinity }
+        ]
+      };
+
+      const standardDeductions = {
+        single: 14600,
+        married: 29200,
+        head: 21900
+      };
+
+      function calculateTaxes() {
+        const grossIncome = Math.max(0, parseFloat(inIncome.value) || 0);
+        const status = inStatus.value || 'single';
+        const preTax = Math.max(0, parseFloat(inPreTax.value) || 0);
+        const stateRatePct = Math.max(0, parseFloat(inStateRate.value) || 0) / 100;
+
+        // Deduction
+        let deduction = standardDeductions[status] || 14600;
+        if (inDeduction.value === 'itemized') {
+          deduction = Math.max(0, parseFloat(inItemizedAmt.value) || 0);
+        }
+
+        // Taxable Federal Income
+        const agi = Math.max(0, grossIncome - preTax);
+        const taxableIncome = Math.max(0, agi - deduction);
+
+        // Calculate Progressive Federal Tax
+        let fedTax = 0;
+        let marginalRate = 0.10;
+        let prevCap = 0;
+        const currentBrackets = brackets[status] || brackets.single;
+        let bracketRowsHtml = '';
+
+        currentBrackets.forEach(b => {
+          if (taxableIncome > prevCap) {
+            const chunk = Math.min(taxableIncome - prevCap, b.cap - prevCap);
+            const chunkTax = chunk * b.rate;
+            fedTax += chunkTax;
+            marginalRate = b.rate;
+
+            bracketRowsHtml += `
+              <tr>
+                <td><strong>${(b.rate * 100).toFixed(0)}%</strong></td>
+                <td>${CalcCore.formatCurrency(prevCap, 0)} &ndash; ${b.cap === Infinity ? 'Over' : CalcCore.formatCurrency(b.cap, 0)}</td>
+                <td>${CalcCore.formatCurrency(chunk, 0)}</td>
+                <td style="color: var(--accent-danger, #ef4444); font-weight: 600;">${CalcCore.formatCurrency(chunkTax, 0)}</td>
+              </tr>
+            `;
+          } else {
+            bracketRowsHtml += `
+              <tr style="opacity: 0.5;">
+                <td>${(b.rate * 100).toFixed(0)}%</td>
+                <td>${CalcCore.formatCurrency(prevCap, 0)} &ndash; ${b.cap === Infinity ? 'Over' : CalcCore.formatCurrency(b.cap, 0)}</td>
+                <td>$0</td>
+                <td>$0</td>
+              </tr>
+            `;
+          }
+          prevCap = b.cap;
+        });
+
+        // FICA Taxes
+        // Social Security: 6.2% up to $168,600
+        const ssCap = 168600;
+        const socSecTax = Math.min(grossIncome, ssCap) * 0.062;
+        // Medicare: 1.45% all wages + 0.9% additional over threshold ($200k single / $250k married)
+        const medThreshold = status === 'married' ? 250000 : 200000;
+        let medicareTax = grossIncome * 0.0145;
+        if (grossIncome > medThreshold) {
+          medicareTax += (grossIncome - medThreshold) * 0.009;
+        }
+        const totalFica = socSecTax + medicareTax;
+
+        // Estimated State Income Tax
+        const stateTax = taxableIncome * stateRatePct;
+
+        // Total Taxes & Net Take Home
+        const totalTaxes = fedTax + totalFica + stateTax;
+        const netTakeHome = Math.max(0, grossIncome - preTax - totalTaxes);
+        const effectiveRatePct = grossIncome > 0 ? (totalTaxes / grossIncome) * 100 : 0;
+
+        // Update displays
+        resTakehome.textContent = CalcCore.formatCurrency(netTakeHome, 0);
+        resRateSummary.textContent = `Effective Tax Rate: ${effectiveRatePct.toFixed(1)}% &bull; Marginal Bracket: ${(marginalRate * 100).toFixed(0)}%`;
+        resFedTax.textContent = CalcCore.formatCurrency(fedTax, 0);
+        resFicaTax.textContent = CalcCore.formatCurrency(totalFica, 0);
+        resStateTax.textContent = CalcCore.formatCurrency(stateTax, 0);
+        resTotalTaxes.textContent = CalcCore.formatCurrency(totalTaxes, 0);
+
+        bracketTableBody.innerHTML = bracketRowsHtml;
+
+        // Paycheck Frequency Table
+        const frequencies = [
+          { name: 'Annual', periods: 1 },
+          { name: 'Monthly', periods: 12 },
+          { name: 'Semi-Monthly (24x)', periods: 24 },
+          { name: 'Bi-Weekly (26x)', periods: 26 },
+          { name: 'Weekly (52x)', periods: 52 }
+        ];
+
+        let paycheckHtml = '';
+        frequencies.forEach(f => {
+          paycheckHtml += `
+            <tr>
+              <td><strong>${f.name}</strong></td>
+              <td>${CalcCore.formatCurrency(grossIncome / f.periods, 2)}</td>
+              <td>${CalcCore.formatCurrency(preTax / f.periods, 2)}</td>
+              <td style="color: var(--accent-danger, #ef4444);">${CalcCore.formatCurrency(totalTaxes / f.periods, 2)}</td>
+              <td style="font-weight: 700; color: var(--accent-success, #10b981);">${CalcCore.formatCurrency(netTakeHome / f.periods, 2)}</td>
+            </tr>
+          `;
+        });
+        paycheckTableBody.innerHTML = paycheckHtml;
+
+        // Render Donut Chart
+        CalcCharts.drawDonutChart(chartCanvas, [
+          { label: 'Net Take-Home Pay', value: Math.round(netTakeHome), color: '#10b981' },
+          { label: 'Federal Income Tax', value: Math.round(fedTax), color: '#0066ff' },
+          { label: 'FICA (SocSec/Med)', value: Math.round(totalFica), color: '#f59e0b' },
+          { label: 'Estimated State Tax', value: Math.round(stateTax), color: '#8b5cf6' },
+          { label: 'Pre-Tax Deductions', value: Math.round(preTax), color: '#64748b' }
+        ], { cutout: 0.62 });
+      }
+
+      // Presets
+      CalcCore.bindPresets('#tax-presets', (preset) => {
+        inIncome.value = preset.income;
+        inStatus.value = preset.status;
+        inPreTax.value = preset.pretax;
+        inStateRate.value = preset.state;
+        calculateTaxes();
+      });
+
+      // Export CSV
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        CalcCore.exportTableToCSV('#tax-paycheck-table', 'take-home-paycheck-breakdown.csv');
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Income Tax & Take-Home Pay Summary:
+Gross Annual Income: ${CalcCore.formatCurrency(parseFloat(inIncome.value) || 0, 0)}
+Net Take-Home Pay: ${resTakehome.textContent}
+Federal Income Tax: ${resFedTax.textContent}
+FICA Taxes: ${resFicaTax.textContent}
+State Income Tax: ${resStateTax.textContent}
+Effective Tax Rate: ${resRateSummary.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Tax calculation summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Reactive & buttons
+      CalcCore.bindReactive(form, calculateTaxes);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateTaxes);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        wrapItemized.style.display = 'none';
+        calculateTaxes();
+      });
+
+      // Initial run
+      calculateTaxes();
+    });
+  </script>
+</body>
+</html>

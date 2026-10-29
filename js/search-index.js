@@ -226,14 +226,14 @@ window.TB_TOOLS_INDEX = [
     "id": "auto-loan-calculator",
     "title": "Auto Loan Calculator",
     "category": "financial",
-    "url": "financial-calculators.html#auto-loan-calculator",
+    "url": "auto-loan-calculator.html",
     "desc": "Free online Auto Loan Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "auto",
       "loan",
       "financial"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "interest-calculator",
@@ -263,13 +263,13 @@ window.TB_TOOLS_INDEX = [
     "id": "retirement-calculator",
     "title": "Retirement Calculator",
     "category": "financial",
-    "url": "financial-calculators.html#retirement-calculator",
+    "url": "retirement-calculator.html",
     "desc": "Free online Retirement Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "retirement",
       "financial"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "amortization-calculator",
@@ -311,13 +311,13 @@ window.TB_TOOLS_INDEX = [
     "id": "inflation-calculator",
     "title": "Inflation Calculator",
     "category": "financial",
-    "url": "financial-calculators.html#inflation-calculator",
+    "url": "inflation-calculator.html",
     "desc": "Free online Inflation Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "inflation",
       "financial"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "finance-calculator",
@@ -348,26 +348,26 @@ window.TB_TOOLS_INDEX = [
     "id": "tax-calculator",
     "title": "Income Tax Calculator",
     "category": "financial",
-    "url": "financial-calculators.html#tax-calculator",
+    "url": "tax-calculator.html",
     "desc": "Free online Income Tax Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "income",
       "tax",
       "financial"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "salary-calculator",
     "title": "Salary Calculator",
     "category": "financial",
-    "url": "financial-calculators.html#salary-calculator",
+    "url": "salary-calculator.html",
     "desc": "Free online Salary Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "salary",
       "financial"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "401k-calculator",
@@ -1132,26 +1132,26 @@ window.TB_TOOLS_INDEX = [
     "id": "body-fat-calculator",
     "title": "Body Fat Calculator",
     "category": "fitness-health",
-    "url": "fitness-health-calculators.html#body-fat-calculator",
+    "url": "body-fat-calculator.html",
     "desc": "Free online Body Fat Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "body",
       "fat",
       "fitness-health"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "bmr-calculator",
     "title": "BMR Calculator",
     "category": "fitness-health",
-    "url": "fitness-health-calculators.html#bmr-calculator",
+    "url": "bmr-calculator.html",
     "desc": "Free online BMR Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "bmr",
       "fitness-health"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "macro-calculator",
@@ -1221,14 +1221,14 @@ window.TB_TOOLS_INDEX = [
     "id": "due-date-calculator",
     "title": "Due Date Calculator",
     "category": "fitness-health",
-    "url": "fitness-health-calculators.html#due-date-calculator",
+    "url": "due-date-calculator.html",
     "desc": "Free online Due Date Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "due",
       "date",
       "fitness-health"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "pace-calculator",
@@ -1246,7 +1246,7 @@ window.TB_TOOLS_INDEX = [
     "id": "army-body-fat-calculator",
     "title": "Army Body Fat Calculator",
     "category": "fitness-health",
-    "url": "fitness-health-calculators.html#army-body-fat-calculator",
+    "url": "army-body-fat-calculator.html",
     "desc": "Free online Army Body Fat Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "army",
@@ -1254,7 +1254,7 @@ window.TB_TOOLS_INDEX = [
       "fat",
       "fitness-health"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "carbohydrate-calculator",
