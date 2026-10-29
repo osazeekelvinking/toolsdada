@@ -30,6 +30,7 @@
 
     init() {
       this.initCurrency();
+      this.initNumberInputs();
       this.initUrlState();
       this.initSliders();
     },
@@ -52,6 +53,10 @@
           this.setCurrency(e.target.value);
         });
       });
+
+      if (saved && saved !== '$') {
+        window.dispatchEvent(new CustomEvent('tb:currency-change', { detail: { symbol: saved } }));
+      }
     },
 
     setCurrency(symbol) {
@@ -98,6 +103,121 @@
       return Number(num).toLocaleString('en-US', {
         minimumFractionDigits: decimals,
         maximumFractionDigits: decimals
+      });
+    },
+
+    /**
+     * Parses a string or number safely, removing comma separators
+     */
+    parseNumber(val) {
+      if (typeof val === 'number') return isNaN(val) ? 0 : val;
+      if (val === null || val === undefined) return 0;
+      const clean = String(val).replace(/,/g, '').trim();
+      const num = parseFloat(clean);
+      return isNaN(num) ? 0 : num;
+    },
+
+    /**
+     * Format a raw string or number with thousands commas while preserving decimals
+     */
+    formatNumberString(val) {
+      if (val === null || val === undefined) return '';
+      const str = String(val).replace(/,/g, '').trim();
+      if (str === '' || str === '-') return str;
+
+      const isNegative = str.startsWith('-');
+      const unsigned = isNegative ? str.substring(1) : str;
+      const parts = unsigned.split('.');
+
+      let integerPart = parts[0].replace(/\D/g, '');
+      if (integerPart !== '') {
+        if (/^0+$/.test(integerPart)) {
+          integerPart = '0';
+        } else {
+          integerPart = Number(integerPart).toLocaleString('en-US');
+        }
+      }
+
+      const decimalPart = parts.length > 1 ? '.' + parts[1].replace(/\D/g, '') : '';
+      return (isNegative ? '-' : '') + integerPart + decimalPart;
+    },
+
+    /**
+     * Attach dynamic live comma formatting with cursor preservation to an input
+     */
+    attachNumberFormatter(input) {
+      if (!input || input._tbFormatted) return;
+      input._tbFormatted = true;
+
+      // Switch to text type so browser native controls permit comma characters
+      if (input.type === 'number') {
+        input.type = 'text';
+      }
+      input.inputMode = 'decimal';
+      input.autocomplete = 'off';
+
+      // Format initial value if present
+      if (input.value && input.value !== '') {
+        input.value = this.formatNumberString(input.value);
+      }
+
+      // Live formatting as user types with cursor preservation
+      input.addEventListener('input', () => {
+        const oldVal = input.value;
+        const oldCursor = input.selectionStart || 0;
+
+        // Count how many non-comma characters were before cursor
+        const digitsBefore = oldVal.slice(0, oldCursor).replace(/,/g, '').length;
+
+        const formatted = CalcCore.formatNumberString(oldVal);
+        input.value = formatted;
+
+        // Restore cursor position matching same digit count
+        let newCursor = 0;
+        let counted = 0;
+        for (let i = 0; i < formatted.length; i++) {
+          if (formatted[i] !== ',') {
+            counted++;
+          }
+          if (counted === digitsBefore) {
+            newCursor = i + 1;
+            break;
+          }
+        }
+        if (digitsBefore === 0) newCursor = 0;
+        if (newCursor > formatted.length) newCursor = formatted.length;
+
+        try {
+          input.setSelectionRange(newCursor, newCursor);
+        } catch (e) {}
+      });
+
+      // Cleanup on blur
+      input.addEventListener('blur', () => {
+        if (input.value.endsWith('.')) {
+          input.value = input.value.slice(0, -1);
+        }
+      });
+    },
+
+    /**
+     * Initialize number input formatting across the page
+     */
+    initNumberInputs() {
+      // 1. Any input inside an input group with currency prefix
+      document.querySelectorAll('.tb-input-prefix[data-currency]').forEach(prefix => {
+        const group = prefix.closest('.tb-input-group');
+        if (group) {
+          const inp = group.querySelector('input');
+          if (inp && !inp.hasAttribute('data-no-format')) {
+            this.attachNumberFormatter(inp);
+          }
+        }
+      });
+
+      // 2. Explicitly tagged inputs
+      document.querySelectorAll('input[data-format="number"], input.tb-format-number, input[data-type="currency"]').forEach(inp => {
+        this.attachNumberFormatter(inp);
       });
     },
 
@@ -262,6 +382,13 @@
           try {
             const values = JSON.parse(presetData);
             presetCallback(values);
+            // Ensure inputs reflect comma formatting
+            const scope = container.closest('.tb-workspace') || document;
+            scope.querySelectorAll('input').forEach(inp => {
+              if (inp._tbFormatted) {
+                inp.value = CalcCore.formatNumberString(inp.value);
+              }
+            });
             // Highlight active preset
             container.querySelectorAll('[data-preset]').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');

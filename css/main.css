@@ -233,6 +233,7 @@ img, svg {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  position: relative;
 }
 
 .tb-brand {
@@ -304,7 +305,7 @@ img, svg {
 
 /* Calculators Dropdown Menu (Desktop) */
 .tb-nav-dropdown {
-  position: relative;
+  position: static;
   display: inline-flex;
   align-items: center;
 }
@@ -344,16 +345,17 @@ img, svg {
 
 .tb-dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  width: 720px;
-  max-width: 92vw;
+  top: calc(100% + 10px);
+  right: 1.5rem;
+  left: auto;
+  transform: translateY(6px);
+  width: 800px;
+  max-width: calc(100% - 220px);
   background-color: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -364,10 +366,10 @@ img, svg {
 .tb-dropdown-menu::before {
   content: '';
   position: absolute;
-  top: -12px;
+  top: -14px;
   left: 0;
   right: 0;
-  height: 12px;
+  height: 14px;
 }
 
 .tb-nav-dropdown:hover .tb-dropdown-menu,
@@ -375,13 +377,26 @@ img, svg {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
 .tb-dropdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  gap: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .tb-dropdown-menu {
+    width: 520px;
+    right: 1.5rem;
+    max-width: calc(100% - 180px);
+    padding: 1.15rem 1.25rem;
+  }
+  .tb-dropdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
 }
 
 .tb-dropdown-col {
@@ -393,13 +408,13 @@ img, svg {
   display: flex;
   align-items: center;
   gap: 0.45rem;
-  font-size: 0.85rem;
+  font-size: 0.825rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--brand-primary);
-  padding-bottom: 0.65rem;
-  margin-bottom: 0.65rem;
+  padding: 0.35rem 0.5rem 0.6rem;
+  margin-bottom: 0.45rem;
   border-bottom: 1px solid var(--border-color);
   transition: color var(--transition-fast);
 }
@@ -411,18 +426,20 @@ img, svg {
 .tb-dropdown-links {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.25rem;
 }
 
 .tb-dropdown-item {
-  font-size: 0.875rem;
+  font-size: 0.84rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  padding: 0.4rem 0.55rem;
+  padding: 0.42rem 0.5rem;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: block;
 }
 
 .tb-dropdown-item:hover {
@@ -432,13 +449,17 @@ img, svg {
 }
 
 .tb-dropdown-more {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--brand-primary);
-  padding: 0.4rem 0.55rem;
+  padding: 0.4rem 0.5rem;
   margin-top: 0.35rem;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
 }
 
 .tb-dropdown-more:hover {
@@ -449,8 +470,8 @@ img, svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1.25rem;
-  padding-top: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
   border-top: 1px dashed var(--border-color);
   font-size: 0.85rem;
 }

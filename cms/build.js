@@ -60,24 +60,151 @@ console.log(`Loaded ${posts.length} posts and ${authors.length} authors.`);
  */
 function buildHeader(rootRel, activeNav) {
   return `
-  <header class="site-header">
-    <div class="nav-inner">
-      <a href="${rootRel}index.html" class="brand-link">
-        <div class="brand-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Navigation Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="${rootRel}index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
           </svg>
         </div>
-        <div class="brand-text">Tools<span>Buddy</span></div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
       </a>
-      <div class="nav-actions">
-        <a href="${rootRel}index.html" class="nav-link">Tools</a>
-        <a href="${rootRel}ebook-buddy.html" class="nav-link">EbookBuddy</a>
-        <a href="${rootRel}blog/index.html" class="nav-link ${activeNav === 'blog' ? 'active' : ''}">Blog</a>
+      <div class="tb-header-actions">
+        <a href="${rootRel}index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="${rootRel}financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="${rootRel}mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="${rootRel}loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="${rootRel}compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="${rootRel}auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="${rootRel}financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="${rootRel}fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="${rootRel}bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="${rootRel}calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="${rootRel}body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="${rootRel}fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="${rootRel}math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="${rootRel}percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="${rootRel}scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="${rootRel}math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="${rootRel}other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="${rootRel}age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="${rootRel}due-date-calculator.html" class="tb-dropdown-item" role="menuitem">Due Date Calculator</a>
+                  <a href="${rootRel}other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="${rootRel}index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="${rootRel}ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="${rootRel}blog/index.html" class="tb-nav-link ${activeNav === 'blog' ? 'active' : ''}">Blog</a>
         <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
       </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
     </div>
-  </header>`;
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="${rootRel}index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <div class="tb-mobile-accordion" id="tb-mobile-calc-accordion">
+          <button type="button" class="tb-mobile-link tb-mobile-accordion-toggle" id="tb-mobile-calc-toggle" aria-expanded="false">
+            <span class="tb-mobile-link-content">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+              <span>Calculators</span>
+            </span>
+            <svg class="tb-accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-mobile-accordion-body" id="tb-mobile-calc-body">
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Financial Calculators</div>
+              <a href="${rootRel}mortgage-calculator.html" class="tb-mobile-sublink">Mortgage Calculator</a>
+              <a href="${rootRel}loan-calculator.html" class="tb-mobile-sublink">Loan & EMI Calculator</a>
+              <a href="${rootRel}compound-interest-calculator.html" class="tb-mobile-sublink">Compound Interest</a>
+              <a href="${rootRel}auto-loan-calculator.html" class="tb-mobile-sublink">Auto Loan Calculator</a>
+              <a href="${rootRel}financial-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Financial Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Fitness & Health</div>
+              <a href="${rootRel}bmi-calculator.html" class="tb-mobile-sublink">BMI & Ideal Weight</a>
+              <a href="${rootRel}calorie-calculator.html" class="tb-mobile-sublink">Calorie & Macro Calculator</a>
+              <a href="${rootRel}body-fat-calculator.html" class="tb-mobile-sublink">Body Fat Calculator</a>
+              <a href="${rootRel}fitness-health-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Health Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Math Calculators</div>
+              <a href="${rootRel}percentage-calculator.html" class="tb-mobile-sublink">Percentage Calculator</a>
+              <a href="${rootRel}scientific-calculator.html" class="tb-mobile-sublink">Scientific Calculator</a>
+              <a href="${rootRel}math-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Math Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Everyday & Utilities</div>
+              <a href="${rootRel}age-calculator.html" class="tb-mobile-sublink">Exact Age Calculator</a>
+              <a href="${rootRel}due-date-calculator.html" class="tb-mobile-sublink">Due Date Calculator</a>
+              <a href="${rootRel}other-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Everyday Utilities &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="${rootRel}ebook-buddy.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>EbookBuddy AI</span>
+        </a>
+        <a href="${rootRel}blog/index.html" class="tb-mobile-link ${activeNav === 'blog' ? 'active' : ''}">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Blog & Guides</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>`;
 }
 
 /**
@@ -212,6 +339,7 @@ posts.forEach(post => {
   <meta name="twitter:description" content="${escapeHtml(post.excerpt || '')}">
 
   <!-- CSS -->
+  <link rel="stylesheet" href="${rootRel}css/main.css">
   <link rel="stylesheet" href="${blogRel}blog.css">
 
   <!-- Google AdSense -->
@@ -361,6 +489,7 @@ const blogIndexHtml = `<!DOCTYPE html>
   <meta property="og:site_name" content="ToolsBuddy">
 
   <!-- CSS -->
+  <link rel="stylesheet" href="${blogRootRel}css/main.css">
   <link rel="stylesheet" href="blog.css">
 
   <!-- Google AdSense -->
@@ -506,6 +635,7 @@ authors.forEach(author => {
   <link rel="alternate icon" href="${authorRel}favicon.ico?v=2">
   <link rel="apple-touch-icon" href="${authorRel}apple-touch-icon.png">
   <link rel="manifest" href="${authorRel}site.webmanifest">
+  <link rel="stylesheet" href="${authorRel}css/main.css">
   <link rel="stylesheet" href="${authorRel}blog/blog.css">
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}" crossorigin="anonymous"></script>
@@ -552,18 +682,21 @@ authors.forEach(author => {
 /**
  * 4. Update Root sitemap.xml
  */
+const REGISTRY_FILE = path.join(ROOT_DIR, 'data', 'tools-registry.json');
+const registryData = readJSON(REGISTRY_FILE, {});
+const activeRegistryTools = Object.values(registryData).filter(t => t.status === 'active');
+
+const categoryHubs = [
+  'financial-calculators.html',
+  'fitness-health-calculators.html',
+  'math-calculators.html',
+  'other-calculators.html'
+];
+
 const sitemapUrls = [
   { loc: `${SITE_URL}/`, priority: '1.0', changefreq: 'daily' },
-  { loc: `${SITE_URL}/percentage-calculator.html`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE_URL}/loan-calculator.html`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE_URL}/case-converter.html`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE_URL}/word-counter.html`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE_URL}/qr-code-generator.html`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE_URL}/bmi-calculator.html`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE_URL}/json-formatter.html`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE_URL}/remove-duplicate-lines.html`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE_URL}/whatsapp-link-generator.html`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE_URL}/age-calculator.html`, priority: '0.9', changefreq: 'weekly' },
+  ...categoryHubs.map(h => ({ loc: `${SITE_URL}/${h}`, priority: '0.9', changefreq: 'daily' })),
+  ...activeRegistryTools.map(t => ({ loc: `${SITE_URL}/${t.url}`, priority: t.priority === 1 ? '0.9' : '0.8', changefreq: 'weekly' })),
   { loc: `${SITE_URL}/ebook-buddy.html`, priority: '0.95', changefreq: 'weekly' },
   { loc: `${SITE_URL}/blog/`, priority: '0.9', changefreq: 'daily' },
   ...posts.map(p => ({
@@ -575,11 +708,12 @@ const sitemapUrls = [
   { loc: `${SITE_URL}/terms.html`, priority: '0.5', changefreq: 'monthly' }
 ];
 
+const todayDate = new Date().toISOString().split('T')[0];
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapUrls.map(u => `  <url>
     <loc>${u.loc}</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>${todayDate}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`).join('\n')}

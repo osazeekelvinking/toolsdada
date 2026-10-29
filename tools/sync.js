@@ -79,6 +79,19 @@ function generateSitemap() {
     xml += `  <url>\n    <loc>https://toolsbuddy.pages.dev/${tool.url}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${tool.priority === 1 ? '0.9' : '0.8'}</priority>\n  </url>\n`;
   });
 
+  // Blog & Guides
+  xml += `  <url>\n    <loc>https://toolsbuddy.pages.dev/blog/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
+
+  const postsFile = path.join(ROOT_DIR, 'content', 'posts.json');
+  if (fs.existsSync(postsFile)) {
+    try {
+      const postsData = JSON.parse(fs.readFileSync(postsFile, 'utf8'));
+      postsData.forEach(p => {
+        xml += `  <url>\n    <loc>https://toolsbuddy.pages.dev/blog/${p.slug}/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.85</priority>\n  </url>\n`;
+      });
+    } catch (e) {}
+  }
+
   // Legal & Standalone
   ['privacy-policy.html', 'terms.html', 'ebook-buddy.html'].forEach(f => {
     if (fs.existsSync(path.join(ROOT_DIR, f))) {

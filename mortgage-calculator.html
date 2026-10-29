@@ -312,7 +312,7 @@
               </label>
               <div class="tb-input-group">
                 <span class="tb-input-prefix" data-currency>$</span>
-                <input type="number" id="home-price" class="tb-input" min="10000" step="5000" value="400000" required>
+                <input type="text" id="home-price" class="tb-input" inputmode="decimal" data-format="number" value="400,000" required>
               </div>
             </div>
 
@@ -321,7 +321,7 @@
                 <label for="down-payment" class="tb-label">Down Payment</label>
                 <div class="tb-input-group">
                   <span class="tb-input-prefix" data-currency>$</span>
-                  <input type="number" id="down-payment" class="tb-input" min="0" step="1000" value="80000">
+                  <input type="text" id="down-payment" class="tb-input" inputmode="decimal" data-format="number" value="80,000">
                 </div>
               </div>
               <div class="tb-field">
@@ -360,7 +360,7 @@
                 </label>
                 <div class="tb-input-group">
                   <span class="tb-input-prefix" data-currency>$</span>
-                  <input type="number" id="prop-tax" class="tb-input" min="0" step="100" value="4800">
+                  <input type="text" id="prop-tax" class="tb-input" inputmode="decimal" data-format="number" value="4,800">
                 </div>
               </div>
               <div class="tb-field">
@@ -370,7 +370,7 @@
                 </label>
                 <div class="tb-input-group">
                   <span class="tb-input-prefix" data-currency>$</span>
-                  <input type="number" id="home-ins" class="tb-input" min="0" step="50" value="1500">
+                  <input type="text" id="home-ins" class="tb-input" inputmode="decimal" data-format="number" value="1,500">
                 </div>
               </div>
             </div>
@@ -383,7 +383,7 @@
                 </label>
                 <div class="tb-input-group">
                   <span class="tb-input-prefix" data-currency>$</span>
-                  <input type="number" id="hoa-fee" class="tb-input" min="0" step="25" value="150">
+                  <input type="text" id="hoa-fee" class="tb-input" inputmode="decimal" data-format="number" value="150">
                 </div>
               </div>
               <div class="tb-field">
@@ -393,7 +393,7 @@
                 </label>
                 <div class="tb-input-group">
                   <span class="tb-input-prefix" data-currency>$</span>
-                  <input type="number" id="extra-pay" class="tb-input" min="0" step="50" value="0">
+                  <input type="text" id="extra-pay" class="tb-input" inputmode="decimal" data-format="number" value="0">
                 </div>
               </div>
             </div>
@@ -680,36 +680,36 @@
 
       // Keep down payment amount and percentage synchronized
       inHomePrice.addEventListener('input', () => {
-        const price = parseFloat(inHomePrice.value) || 0;
+        const price = CalcCore.parseNumber(inHomePrice.value);
         const pct = parseFloat(inDownPct.value) || 0;
-        inDownPayment.value = Math.round((price * pct) / 100);
+        inDownPayment.value = CalcCore.formatNumberString(Math.round((price * pct) / 100));
       });
 
       inDownPayment.addEventListener('input', () => {
-        const price = parseFloat(inHomePrice.value) || 0;
-        const down = parseFloat(inDownPayment.value) || 0;
+        const price = CalcCore.parseNumber(inHomePrice.value);
+        const down = CalcCore.parseNumber(inDownPayment.value);
         if (price > 0) inDownPct.value = ((down / price) * 100).toFixed(1);
       });
 
       inDownPct.addEventListener('input', () => {
-        const price = parseFloat(inHomePrice.value) || 0;
+        const price = CalcCore.parseNumber(inHomePrice.value);
         const pct = parseFloat(inDownPct.value) || 0;
-        inDownPayment.value = Math.round((price * pct) / 100);
+        inDownPayment.value = CalcCore.formatNumberString(Math.round((price * pct) / 100));
       });
 
       function calculateMortgage() {
-        const homePrice = Math.max(0, parseFloat(inHomePrice.value) || 0);
-        const downPayment = Math.max(0, parseFloat(inDownPayment.value) || 0);
+        const homePrice = Math.max(0, CalcCore.parseNumber(inHomePrice.value));
+        const downPayment = Math.max(0, CalcCore.parseNumber(inDownPayment.value));
         const principal = Math.max(0, homePrice - downPayment);
         const annualRate = Math.max(0.01, parseFloat(inRate.value) || 0);
         const monthlyRate = annualRate / 100 / 12;
         const years = parseInt(inTerm.value, 10) || 30;
         const totalMonths = years * 12;
 
-        const propTaxAnnual = Math.max(0, parseFloat(inPropTax.value) || 0);
-        const homeInsAnnual = Math.max(0, parseFloat(inHomeIns.value) || 0);
-        const hoaMonthly = Math.max(0, parseFloat(inHoa.value) || 0);
-        const extraMonthly = Math.max(0, parseFloat(inExtraPay.value) || 0);
+        const propTaxAnnual = Math.max(0, CalcCore.parseNumber(inPropTax.value));
+        const homeInsAnnual = Math.max(0, CalcCore.parseNumber(inHomeIns.value));
+        const hoaMonthly = Math.max(0, CalcCore.parseNumber(inHoa.value));
+        const extraMonthly = Math.max(0, CalcCore.parseNumber(inExtraPay.value));
 
         const monthlyTax = propTaxAnnual / 12;
         const monthlyIns = homeInsAnnual / 12;
@@ -887,22 +887,32 @@ Calculated via ToolsBuddy: ${window.location.href}`;
         });
       });
 
+      // Currency Switcher Sync
+      window.addEventListener('tb:currency-change', () => calculateMortgage());
+      document.getElementById('currency-select')?.addEventListener('change', (e) => {
+        CalcCore.setCurrency(e.target.value);
+      });
+
       // Bind Reactive Engine & Share
       CalcCore.bindReactive(form, calculateMortgage);
       document.getElementById('btn-calculate')?.addEventListener('click', calculateMortgage);
       document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
       document.getElementById('btn-reset')?.addEventListener('click', () => {
         form.reset();
-        inHomePrice.value = '400000';
-        inDownPayment.value = '80000';
+        inHomePrice.value = '400,000';
+        inDownPayment.value = '80,000';
         inDownPct.value = '20';
         inRate.value = '6.5';
         inTerm.value = '30';
-        inPropTax.value = '4800';
-        inHomeIns.value = '1500';
+        inPropTax.value = '4,800';
+        inHomeIns.value = '1,500';
         inHoa.value = '150';
+        inExtraPay.value = '0';
         calculateMortgage();
       });
+
+      // Initial calculation
+      calculateMortgage();
     });
   </script>
 </body>

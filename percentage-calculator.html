@@ -300,7 +300,7 @@
               <div class="tb-field">
                 <label for="t1-value" class="tb-label">Of Total Value (Y)</label>
                 <div class="tb-input-group">
-                  <input type="number" step="any" id="t1-value" class="tb-input" placeholder="e.g. 200" value="200">
+                  <input type="text" id="t1-value" class="tb-input" inputmode="decimal" data-format="number" placeholder="e.g. 200" value="200">
                 </div>
               </div>
               <div class="tb-btn-group">
@@ -336,11 +336,11 @@
             <div class="tb-grid-form">
               <div class="tb-field">
                 <label for="t2-part" class="tb-label">Part Value (X)</label>
-                <input type="number" step="any" id="t2-part" class="tb-input" placeholder="e.g. 45" value="45">
+                <input type="text" id="t2-part" class="tb-input" inputmode="decimal" data-format="number" placeholder="e.g. 45" value="45">
               </div>
               <div class="tb-field">
                 <label for="t2-whole" class="tb-label">Whole Value (Y)</label>
-                <input type="number" step="any" id="t2-whole" class="tb-input" placeholder="e.g. 180" value="180">
+                <input type="text" id="t2-whole" class="tb-input" inputmode="decimal" data-format="number" placeholder="e.g. 180" value="180">
               </div>
               <div class="tb-btn-group">
                 <button type="button" class="tb-btn tb-btn-primary" id="btn-calc-t2">
@@ -375,11 +375,11 @@
             <div class="tb-grid-form">
               <div class="tb-field">
                 <label for="t3-initial" class="tb-label">Initial / Old Value (X)</label>
-                <input type="number" step="any" id="t3-initial" class="tb-input" placeholder="e.g. 80" value="80">
+                <input type="text" id="t3-initial" class="tb-input" inputmode="decimal" data-format="number" placeholder="e.g. 80" value="80">
               </div>
               <div class="tb-field">
                 <label for="t3-final" class="tb-label">Final / New Value (Y)</label>
-                <input type="number" step="any" id="t3-final" class="tb-input" placeholder="e.g. 120" value="120">
+                <input type="text" id="t3-final" class="tb-input" inputmode="decimal" data-format="number" placeholder="e.g. 120" value="120">
               </div>
               <div class="tb-btn-group">
                 <button type="button" class="tb-btn tb-btn-primary" id="btn-calc-t3">
@@ -630,8 +630,13 @@
       const btnCopyT1 = document.getElementById('btn-copy-t1');
 
       function calcT1(shouldRefreshAd = false) {
-        const x = parseFloat(t1Percent.value);
-        const y = parseFloat(t1Value.value);
+        if (!t1Percent.value || !t1Value.value) {
+          t1Result.textContent = '--';
+          t1Subtext.textContent = 'Please enter valid numbers';
+          return;
+        }
+        const x = CalcCore.parseNumber(t1Percent.value);
+        const y = CalcCore.parseNumber(t1Value.value);
 
         if (isNaN(x) || isNaN(y)) {
           t1Result.textContent = '--';
@@ -640,10 +645,12 @@
         }
 
         const res = (x * y) / 100;
-        const formatted = Number.isInteger(res) ? res.toString() : res.toFixed(4).replace(/\.?0+$/, '');
+        const formatted = Number.isInteger(res)
+          ? res.toLocaleString('en-US')
+          : res.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 4 });
         t1Result.textContent = formatted;
-        t1Subtext.textContent = `${x}% of ${y} is ${formatted}`;
-        t1Formula.innerHTML = `Formula: (${x} &times; ${y}) &divide; 100 = <strong>${formatted}</strong>`;
+        t1Subtext.textContent = `${x.toLocaleString('en-US')}% of ${y.toLocaleString('en-US')} is ${formatted}`;
+        t1Formula.innerHTML = `Formula: (${x.toLocaleString('en-US')} &times; ${y.toLocaleString('en-US')}) &divide; 100 = <strong>${formatted}</strong>`;
 
         if (shouldRefreshAd && window.refreshAds) {
           window.refreshAds('calculate_percentage');
@@ -674,8 +681,13 @@
       const btnCopyT2 = document.getElementById('btn-copy-t2');
 
       function calcT2(shouldRefreshAd = false) {
-        const x = parseFloat(t2Part.value);
-        const y = parseFloat(t2Whole.value);
+        if (!t2Part.value || !t2Whole.value) {
+          t2Result.textContent = '--';
+          t2Subtext.textContent = 'Please enter valid numbers';
+          return;
+        }
+        const x = CalcCore.parseNumber(t2Part.value);
+        const y = CalcCore.parseNumber(t2Whole.value);
 
         if (isNaN(x) || isNaN(y)) {
           t2Result.textContent = '--';
@@ -690,10 +702,12 @@
         }
 
         const pct = (x / y) * 100;
-        const formatted = Number.isInteger(pct) ? pct.toString() : pct.toFixed(2);
+        const formatted = Number.isInteger(pct)
+          ? pct.toLocaleString('en-US')
+          : pct.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         t2Result.textContent = `${formatted}%`;
-        t2Subtext.textContent = `${x} is ${formatted}% of ${y}`;
-        t2Formula.innerHTML = `Formula: (${x} &divide; ${y}) &times; 100 = <strong>${formatted}%</strong>`;
+        t2Subtext.textContent = `${x.toLocaleString('en-US')} is ${formatted}% of ${y.toLocaleString('en-US')}`;
+        t2Formula.innerHTML = `Formula: (${x.toLocaleString('en-US')} &divide; ${y.toLocaleString('en-US')}) &times; 100 = <strong>${formatted}%</strong>`;
 
         if (shouldRefreshAd && window.refreshAds) {
           window.refreshAds('calculate_proportion');
@@ -724,8 +738,13 @@
       const btnCopyT3 = document.getElementById('btn-copy-t3');
 
       function calcT3(shouldRefreshAd = false) {
-        const x = parseFloat(t3Initial.value);
-        const y = parseFloat(t3Final.value);
+        if (!t3Initial.value || !t3Final.value) {
+          t3Result.textContent = '--';
+          t3Subtext.textContent = 'Please enter valid numbers';
+          return;
+        }
+        const x = CalcCore.parseNumber(t3Initial.value);
+        const y = CalcCore.parseNumber(t3Final.value);
 
         if (isNaN(x) || isNaN(y)) {
           t3Result.textContent = '--';
@@ -742,12 +761,12 @@
         const diff = y - x;
         const pctChange = (diff / Math.abs(x)) * 100;
         const prefix = pctChange > 0 ? '+' : '';
-        const formatted = prefix + pctChange.toFixed(2) + '%';
+        const formatted = prefix + pctChange.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%';
         const changeType = diff >= 0 ? 'Increase' : 'Decrease';
 
         t3Result.textContent = formatted;
-        t3Subtext.textContent = `${changeType} of ${Math.abs(diff)} (${formatted})`;
-        t3Formula.innerHTML = `Formula: ((${y} - ${x}) &divide; |${x}|) &times; 100 = <strong>${formatted}</strong>`;
+        t3Subtext.textContent = `${changeType} of ${Math.abs(diff).toLocaleString('en-US')} (${formatted})`;
+        t3Formula.innerHTML = `Formula: ((${y.toLocaleString('en-US')} - ${x.toLocaleString('en-US')}) &divide; |${x.toLocaleString('en-US')}|) &times; 100 = <strong>${formatted}</strong>`;
 
         if (shouldRefreshAd && window.refreshAds) {
           window.refreshAds('calculate_change');

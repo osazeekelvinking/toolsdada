@@ -303,11 +303,11 @@
             <div class="tb-field">
               <label for="loan-amount" class="tb-label">
                 <span>Loan / Principal Amount</span>
-                <span class="tb-label-hint">Currency ($)</span>
+                <span class="tb-label-hint">Currency (<span class="tb-currency-symbol">$</span>)</span>
               </label>
               <div class="tb-input-group">
-                <span class="tb-input-prefix">$</span>
-                <input type="number" id="loan-amount" class="tb-input" min="100" step="100" value="250000" required>
+                <span class="tb-input-prefix" data-currency>$</span>
+                <input type="text" id="loan-amount" class="tb-input" inputmode="decimal" data-format="number" value="250,000" required>
               </div>
             </div>
 
@@ -342,8 +342,8 @@
                 <span class="tb-label-hint">Optional</span>
               </label>
               <div class="tb-input-group">
-                <span class="tb-input-prefix">$</span>
-                <input type="number" id="extra-payment" class="tb-input" min="0" step="10" value="0">
+                <span class="tb-input-prefix" data-currency>$</span>
+                <input type="text" id="extra-payment" class="tb-input" inputmode="decimal" data-format="number" value="0">
               </div>
             </div>
 
@@ -649,19 +649,19 @@
       let viewMode = 'yearly';
 
       function formatMoney(num) {
-        return '$' + Math.round(num).toLocaleString('en-US');
+        return CalcCore.formatCurrency(Math.round(num), 0);
       }
 
       function formatMoneyCents(num) {
-        return '$' + num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        return CalcCore.formatCurrency(num, 2);
       }
 
       function calculateLoan(triggerAd = false) {
-        const principal = parseFloat(inputAmount.value) || 0;
+        const principal = CalcCore.parseNumber(inputAmount.value);
         const annualRate = parseFloat(inputRate.value) || 0;
         let termValue = parseInt(inputTerm.value, 10) || 1;
         const termUnit = selectTermUnit.value;
-        const extraPayment = parseFloat(inputExtra.value) || 0;
+        const extraPayment = CalcCore.parseNumber(inputExtra.value);
 
         if (principal <= 0 || annualRate <= 0 || termValue <= 0) return;
 
@@ -730,7 +730,7 @@
         if (chartCanvas && currentSchedule.length) {
           const sampleStep = Math.max(1, Math.floor(currentSchedule.length / 12));
           const sampledLabels = ['Start'];
-          const sampledBalances = [P];
+          const sampledBalances = [principal];
           for (let i = sampleStep - 1; i < currentSchedule.length; i += sampleStep) {
             sampledLabels.push(`M${currentSchedule[i].month}`);
             sampledBalances.push(Math.round(currentSchedule[i].balance));
@@ -810,8 +810,14 @@
         el.addEventListener('input', () => calculateLoan(false));
       });
 
+      // Currency Switcher Sync
+      window.addEventListener('tb:currency-change', () => calculateLoan(false));
+      document.getElementById('currency-select')?.addEventListener('change', (e) => {
+        CalcCore.setCurrency(e.target.value);
+      });
+
       btnReset.addEventListener('click', () => {
-        inputAmount.value = '250000';
+        inputAmount.value = '250,000';
         inputRate.value = '6.5';
         inputTerm.value = '30';
         selectTermUnit.value = 'years';
@@ -821,7 +827,7 @@
 
       btnCopy.addEventListener('click', () => {
         const text = `Loan Summary:
-Amount: $${inputAmount.value}
+Amount: ${formatMoney(parseFloat(inputAmount.value) || 0)}
 Rate: ${inputRate.value}%
 Monthly Payment: ${resMonthly.textContent}
 Total Interest: ${resTotalInterest.textContent}

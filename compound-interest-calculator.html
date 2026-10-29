@@ -303,7 +303,7 @@
               </label>
               <div class="tb-input-group">
                 <span class="tb-input-prefix" data-currency>$</span>
-                <input type="number" id="initial-principal" class="tb-input" min="0" step="500" value="10000" required>
+                <input type="text" id="initial-principal" class="tb-input" inputmode="decimal" data-format="number" value="10,000" required>
               </div>
             </div>
 
@@ -314,7 +314,7 @@
               </label>
               <div class="tb-input-group">
                 <span class="tb-input-prefix" data-currency>$</span>
-                <input type="number" id="monthly-contribution" class="tb-input" min="0" step="50" value="500">
+                <input type="text" id="monthly-contribution" class="tb-input" inputmode="decimal" data-format="number" value="500">
               </div>
             </div>
 
@@ -591,8 +591,8 @@
       const chartCanvas = document.getElementById('compound-chart-canvas');
 
       function calculateCompound() {
-        const principal = Math.max(0, parseFloat(inPrincipal.value) || 0);
-        const monthly = Math.max(0, parseFloat(inMonthly.value) || 0);
+        const principal = Math.max(0, CalcCore.parseNumber(inPrincipal.value));
+        const monthly = Math.max(0, CalcCore.parseNumber(inMonthly.value));
         const annualRate = Math.max(0.01, parseFloat(inRate.value) || 0) / 100;
         const years = Math.max(1, parseInt(inYears.value, 10) || 20);
         const freq = parseInt(inFreq.value, 10) || 12;
@@ -687,14 +687,27 @@ Calculated via ToolsBuddy: ${window.location.href}`;
         });
       });
 
+      // Currency Switcher Sync
+      window.addEventListener('tb:currency-change', calculateCompound);
+      document.getElementById('currency-select')?.addEventListener('change', (e) => {
+        CalcCore.setCurrency(e.target.value);
+      });
+
       // Bind reactive updates
       CalcCore.bindReactive(form, calculateCompound);
       document.getElementById('btn-calculate')?.addEventListener('click', calculateCompound);
       document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
       document.getElementById('btn-reset')?.addEventListener('click', () => {
         form.reset();
+        inPrincipal.value = '10,000';
+        inMonthly.value = '500';
+        inRate.value = '8';
+        inYears.value = '20';
         calculateCompound();
       });
+
+      // Initial calculation
+      calculateCompound();
     });
   </script>
 </body>
