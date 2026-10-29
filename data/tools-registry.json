@@ -1,0 +1,3349 @@
+{
+  "percentage-calculator": {
+    "id": "percentage-calculator",
+    "title": "3-in-1 Percentage Calculator",
+    "category": "math",
+    "subcategory": "general-math",
+    "url": "percentage-calculator.html",
+    "description": "Calculate percentages, discounts, proportion ratios, and percentage increase or decrease.",
+    "keywords": [
+      "percentage",
+      "discount",
+      "math",
+      "increase",
+      "decrease",
+      "ratio",
+      "fraction"
+    ],
+    "icon": "percent",
+    "status": "active",
+    "priority": 1
+  },
+  "loan-calculator": {
+    "id": "loan-calculator",
+    "title": "Loan & Mortgage Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "loan-calculator.html",
+    "description": "Calculate monthly payments (EMI), total interest, and amortization schedule with extra payments.",
+    "keywords": [
+      "loan",
+      "mortgage",
+      "emi",
+      "interest",
+      "amortization",
+      "finance",
+      "debt",
+      "payment"
+    ],
+    "icon": "credit-card",
+    "status": "active",
+    "priority": 1
+  },
+  "bmi-calculator": {
+    "id": "bmi-calculator",
+    "title": "BMI & Ideal Weight Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "bmi-calculator.html",
+    "description": "Calculate Body Mass Index (BMI), WHO weight category, and healthy target range in Metric and Imperial.",
+    "keywords": [
+      "bmi",
+      "body mass index",
+      "weight",
+      "health",
+      "fitness",
+      "obesity",
+      "ideal weight"
+    ],
+    "icon": "activity",
+    "status": "active",
+    "priority": 1
+  },
+  "age-calculator": {
+    "id": "age-calculator",
+    "title": "Exact Age & Date Difference Calculator",
+    "category": "other",
+    "subcategory": "time-date",
+    "url": "age-calculator.html",
+    "description": "Compute exact chronological age in years, months, days, total hours, and upcoming birthday countdown.",
+    "keywords": [
+      "age",
+      "birthday",
+      "date",
+      "difference",
+      "chronological",
+      "years",
+      "days",
+      "time"
+    ],
+    "icon": "calendar",
+    "status": "active",
+    "priority": 1
+  },
+  "case-converter": {
+    "id": "case-converter",
+    "title": "All-in-One Case Converter",
+    "category": "other",
+    "subcategory": "text-tools",
+    "url": "case-converter.html",
+    "description": "Convert text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, and kebab-case.",
+    "keywords": [
+      "case converter",
+      "uppercase",
+      "lowercase",
+      "titlecase",
+      "camelcase",
+      "snakecase",
+      "text"
+    ],
+    "icon": "type",
+    "status": "active",
+    "priority": 2
+  },
+  "word-counter": {
+    "id": "word-counter",
+    "title": "Live Word & Character Counter",
+    "category": "other",
+    "subcategory": "text-tools",
+    "url": "word-counter.html",
+    "description": "Count words, characters, sentences, paragraphs, and estimated reading and speaking time in real time.",
+    "keywords": [
+      "word count",
+      "character count",
+      "reading time",
+      "speaking time",
+      "essay",
+      "text"
+    ],
+    "icon": "file-text",
+    "status": "active",
+    "priority": 2
+  },
+  "qr-code-generator": {
+    "id": "qr-code-generator",
+    "title": "Custom QR Code Studio",
+    "category": "other",
+    "subcategory": "utilities",
+    "url": "qr-code-generator.html",
+    "description": "Create customized scannable QR codes for URLs, WiFi networks, WhatsApp, vCards, with color customization.",
+    "keywords": [
+      "qr code",
+      "generator",
+      "wifi",
+      "vcard",
+      "url",
+      "bar code",
+      "png export"
+    ],
+    "icon": "grid",
+    "status": "active",
+    "priority": 2
+  },
+  "json-formatter": {
+    "id": "json-formatter",
+    "title": "Instant JSON Formatter & Validator",
+    "category": "other",
+    "subcategory": "developer",
+    "url": "json-formatter.html",
+    "description": "Format, beautify, minify, and inspect JSON payloads with line-and-column syntax error highlighting.",
+    "keywords": [
+      "json formatter",
+      "beautify",
+      "validator",
+      "minify",
+      "parser",
+      "developer"
+    ],
+    "icon": "code",
+    "status": "active",
+    "priority": 2
+  },
+  "remove-duplicate-lines": {
+    "id": "remove-duplicate-lines",
+    "title": "Remove Duplicate Lines & Text Cleaner",
+    "category": "other",
+    "subcategory": "text-tools",
+    "url": "remove-duplicate-lines.html",
+    "description": "Filter unique lines, deduplicate lists, strip extra whitespace, and sort alphabetically.",
+    "keywords": [
+      "remove duplicates",
+      "deduplicate",
+      "text cleaner",
+      "list sort",
+      "unique lines"
+    ],
+    "icon": "list",
+    "status": "active",
+    "priority": 2
+  },
+  "whatsapp-link-generator": {
+    "id": "whatsapp-link-generator",
+    "title": "WhatsApp Direct Chat & Link Generator",
+    "category": "other",
+    "subcategory": "utilities",
+    "url": "whatsapp-link-generator.html",
+    "description": "Generate click-to-chat WhatsApp direct links and scannable QR codes with prefilled custom messages.",
+    "keywords": [
+      "whatsapp link",
+      "wa me",
+      "chat link",
+      "whatsapp qr",
+      "direct message"
+    ],
+    "icon": "message-circle",
+    "status": "active",
+    "priority": 2
+  },
+  "mortgage-calculator": {
+    "id": "mortgage-calculator",
+    "title": "Comprehensive Mortgage Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "mortgage-calculator.html",
+    "description": "Calculate exact monthly mortgage payments with P&I, property taxes, home insurance, HOA fees, interactive donut cost breakdown, and full amortization schedule.",
+    "keywords": [
+      "mortgage calculator",
+      "home loan",
+      "piti",
+      "amortization",
+      "property tax",
+      "homeowners insurance",
+      "hoa",
+      "down payment"
+    ],
+    "icon": "home",
+    "status": "active",
+    "priority": 1
+  },
+  "calorie-calculator": {
+    "id": "calorie-calculator",
+    "title": "Calorie, Macro & TDEE Calculator",
+    "category": "fitness-health",
+    "subcategory": "diet-energy",
+    "url": "calorie-calculator.html",
+    "description": "Calculate daily calorie needs, BMR, TDEE, and macronutrient targets for weight loss, maintenance, or muscle gain using Mifflin-St Jeor and Harris-Benedict formulas.",
+    "keywords": [
+      "calorie calculator",
+      "tdee calculator",
+      "bmr",
+      "macro calculator",
+      "weight loss",
+      "deficit",
+      "protein intake",
+      "nutrition"
+    ],
+    "icon": "zap",
+    "status": "active",
+    "priority": 1
+  },
+  "compound-interest-calculator": {
+    "id": "compound-interest-calculator",
+    "title": "Compound Interest & Investment Calculator",
+    "category": "financial",
+    "subcategory": "investments-savings",
+    "url": "compound-interest-calculator.html",
+    "description": "Forecast investment growth with compound interest, regular deposits, annual returns, interactive growth area charts, and breakdown tables.",
+    "keywords": [
+      "compound interest",
+      "investment calculator",
+      "savings growth",
+      "apy",
+      "interest compounding",
+      "wealth",
+      "future value"
+    ],
+    "icon": "trending-up",
+    "status": "active",
+    "priority": 1
+  },
+  "auto-loan-calculator": {
+    "id": "auto-loan-calculator",
+    "title": "Auto Loan Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "auto-loan-calculator.html",
+    "description": "Free online Auto Loan Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "auto",
+      "loan",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 2
+  },
+  "interest-calculator": {
+    "id": "interest-calculator",
+    "title": "Interest Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "interest-calculator.html",
+    "description": "Free online Interest Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "interest",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "payment-calculator": {
+    "id": "payment-calculator",
+    "title": "Payment Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "payment-calculator.html",
+    "description": "Free online Payment Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "payment",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "retirement-calculator": {
+    "id": "retirement-calculator",
+    "title": "Retirement Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "retirement-calculator.html",
+    "description": "Free online Retirement Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "retirement",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 2
+  },
+  "amortization-calculator": {
+    "id": "amortization-calculator",
+    "title": "Amortization Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "amortization-calculator.html",
+    "description": "Free online Amortization Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "amortization",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "investment-calculator": {
+    "id": "investment-calculator",
+    "title": "Investment Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "investment-calculator.html",
+    "description": "Free online Investment Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "investment",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "currency-calculator": {
+    "id": "currency-calculator",
+    "title": "Currency Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "currency-calculator.html",
+    "description": "Free online Currency Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "currency",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "inflation-calculator": {
+    "id": "inflation-calculator",
+    "title": "Inflation Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "inflation-calculator.html",
+    "description": "Free online Inflation Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "inflation",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 2
+  },
+  "finance-calculator": {
+    "id": "finance-calculator",
+    "title": "Finance Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "finance-calculator.html",
+    "description": "Free online Finance Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "finance",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "mortgage-payoff-calculator": {
+    "id": "mortgage-payoff-calculator",
+    "title": "Mortgage Payoff Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "mortgage-payoff-calculator.html",
+    "description": "Free online Mortgage Payoff Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "mortgage",
+      "payoff",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "tax-calculator": {
+    "id": "tax-calculator",
+    "title": "Income Tax Calculator",
+    "category": "financial",
+    "subcategory": "tax-salary",
+    "url": "tax-calculator.html",
+    "description": "Free online Income Tax Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "income",
+      "tax",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 2
+  },
+  "salary-calculator": {
+    "id": "salary-calculator",
+    "title": "Salary Calculator",
+    "category": "financial",
+    "subcategory": "tax-salary",
+    "url": "salary-calculator.html",
+    "description": "Free online Salary Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "salary",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 2
+  },
+  "401k-calculator": {
+    "id": "401k-calculator",
+    "title": "401K Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "401k-calculator.html",
+    "description": "Free online 401K Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "401k",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "interest-rate-calculator": {
+    "id": "interest-rate-calculator",
+    "title": "Interest Rate Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "interest-rate-calculator.html",
+    "description": "Free online Interest Rate Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "interest",
+      "rate",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "sales-tax-calculator": {
+    "id": "sales-tax-calculator",
+    "title": "Sales Tax Calculator",
+    "category": "financial",
+    "subcategory": "tax-salary",
+    "url": "sales-tax-calculator.html",
+    "description": "Free online Sales Tax Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "sales",
+      "tax",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "house-affordability-calculator": {
+    "id": "house-affordability-calculator",
+    "title": "House Affordability Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "house-affordability-calculator.html",
+    "description": "Free online House Affordability Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "house",
+      "affordability",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "savings-calculator": {
+    "id": "savings-calculator",
+    "title": "Savings Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "savings-calculator.html",
+    "description": "Free online Savings Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "savings",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "rent-calculator": {
+    "id": "rent-calculator",
+    "title": "Rent Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "rent-calculator.html",
+    "description": "Free online Rent Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "rent",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "marriage-calculator": {
+    "id": "marriage-calculator",
+    "title": "Marriage Tax Calculator",
+    "category": "financial",
+    "subcategory": "tax-salary",
+    "url": "marriage-calculator.html",
+    "description": "Free online Marriage Tax Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "marriage",
+      "tax",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "estate-tax-calculator": {
+    "id": "estate-tax-calculator",
+    "title": "Estate Tax Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "estate-tax-calculator.html",
+    "description": "Free online Estate Tax Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "estate",
+      "tax",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "pension-calculator": {
+    "id": "pension-calculator",
+    "title": "Pension Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "pension-calculator.html",
+    "description": "Free online Pension Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "pension",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "social-security-calculator": {
+    "id": "social-security-calculator",
+    "title": "Social Security Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "social-security-calculator.html",
+    "description": "Free online Social Security Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "social",
+      "security",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "annuity-calculator": {
+    "id": "annuity-calculator",
+    "title": "Annuity Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "annuity-calculator.html",
+    "description": "Free online Annuity Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "annuity",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "annuity-payout-calculator": {
+    "id": "annuity-payout-calculator",
+    "title": "Annuity Payout Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "annuity-payout-calculator.html",
+    "description": "Free online Annuity Payout Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "annuity",
+      "payout",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "credit-card-calculator": {
+    "id": "credit-card-calculator",
+    "title": "Credit Card Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "credit-card-calculator.html",
+    "description": "Free online Credit Card Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "credit",
+      "card",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "credit-card-payoff-calculator": {
+    "id": "credit-card-payoff-calculator",
+    "title": "Credit Cards Payoff Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "credit-card-payoff-calculator.html",
+    "description": "Free online Credit Cards Payoff Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "credit",
+      "cards",
+      "payoff",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "debt-payoff-calculator": {
+    "id": "debt-payoff-calculator",
+    "title": "Debt Payoff Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "debt-payoff-calculator.html",
+    "description": "Free online Debt Payoff Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "debt",
+      "payoff",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "debt-consolidation-calculator": {
+    "id": "debt-consolidation-calculator",
+    "title": "Debt Consolidation Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "debt-consolidation-calculator.html",
+    "description": "Free online Debt Consolidation Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "debt",
+      "consolidation",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "repayment-calculator": {
+    "id": "repayment-calculator",
+    "title": "Repayment Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "repayment-calculator.html",
+    "description": "Free online Repayment Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "repayment",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "student-loan-calculator": {
+    "id": "student-loan-calculator",
+    "title": "Student Loan Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "student-loan-calculator.html",
+    "description": "Free online Student Loan Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "student",
+      "loan",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "college-cost-calculator": {
+    "id": "college-cost-calculator",
+    "title": "College Cost Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "college-cost-calculator.html",
+    "description": "Free online College Cost Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "college",
+      "cost",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "simple-interest-calculator": {
+    "id": "simple-interest-calculator",
+    "title": "Simple Interest Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "simple-interest-calculator.html",
+    "description": "Free online Simple Interest Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "simple",
+      "interest",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "cd-calculator": {
+    "id": "cd-calculator",
+    "title": "CD Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "cd-calculator.html",
+    "description": "Free online CD Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "bond-calculator": {
+    "id": "bond-calculator",
+    "title": "Bond Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "bond-calculator.html",
+    "description": "Free online Bond Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "bond",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "mutual-fund-calculator": {
+    "id": "mutual-fund-calculator",
+    "title": "Mutual Fund Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "mutual-fund-calculator.html",
+    "description": "Free online Mutual Fund Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "mutual",
+      "fund",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "roth-ira-calculator": {
+    "id": "roth-ira-calculator",
+    "title": "Roth IRA Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "roth-ira-calculator.html",
+    "description": "Free online Roth IRA Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "roth",
+      "ira",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "ira-calculator": {
+    "id": "ira-calculator",
+    "title": "IRA Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "ira-calculator.html",
+    "description": "Free online IRA Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "ira",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "rmd-calculator": {
+    "id": "rmd-calculator",
+    "title": "RMD Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "rmd-calculator.html",
+    "description": "Free online RMD Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "rmd",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "vat-calculator": {
+    "id": "vat-calculator",
+    "title": "VAT Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "vat-calculator.html",
+    "description": "Free online VAT Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "vat",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "cash-back-or-low-interest-calculator": {
+    "id": "cash-back-or-low-interest-calculator",
+    "title": "Cash Back or Low Interest Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "cash-back-or-low-interest-calculator.html",
+    "description": "Free online Cash Back or Low Interest Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "cash",
+      "back",
+      "low",
+      "interest",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "auto-lease-calculator": {
+    "id": "auto-lease-calculator",
+    "title": "Auto Lease Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "auto-lease-calculator.html",
+    "description": "Free online Auto Lease Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "auto",
+      "lease",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "depreciation-calculator": {
+    "id": "depreciation-calculator",
+    "title": "Depreciation Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "depreciation-calculator.html",
+    "description": "Free online Depreciation Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "depreciation",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "average-return-calculator": {
+    "id": "average-return-calculator",
+    "title": "Average Return Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "average-return-calculator.html",
+    "description": "Free online Average Return Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "average",
+      "return",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "margin-calculator": {
+    "id": "margin-calculator",
+    "title": "Margin Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "margin-calculator.html",
+    "description": "Free online Margin Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "margin",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "discount-calculator": {
+    "id": "discount-calculator",
+    "title": "Discount Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "discount-calculator.html",
+    "description": "Free online Discount Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "discount",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "business-loan-calculator": {
+    "id": "business-loan-calculator",
+    "title": "Business Loan Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "business-loan-calculator.html",
+    "description": "Free online Business Loan Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "business",
+      "loan",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "debt-ratio-calculator": {
+    "id": "debt-ratio-calculator",
+    "title": "Debt-to-Income Ratio Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "debt-ratio-calculator.html",
+    "description": "Free online Debt-to-Income Ratio Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "debt-to-income",
+      "ratio",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "real-estate-calculator": {
+    "id": "real-estate-calculator",
+    "title": "Real Estate Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "real-estate-calculator.html",
+    "description": "Free online Real Estate Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "real",
+      "estate",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "take-home-pay-calculator": {
+    "id": "take-home-pay-calculator",
+    "title": "Take-Home-Paycheck Calculator",
+    "category": "financial",
+    "subcategory": "tax-salary",
+    "url": "take-home-pay-calculator.html",
+    "description": "Free online Take-Home-Paycheck Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "take-home-paycheck",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "personal-loan-calculator": {
+    "id": "personal-loan-calculator",
+    "title": "Personal Loan Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "personal-loan-calculator.html",
+    "description": "Free online Personal Loan Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "personal",
+      "loan",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "boat-loan-calculator": {
+    "id": "boat-loan-calculator",
+    "title": "Boat Loan Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "boat-loan-calculator.html",
+    "description": "Free online Boat Loan Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "boat",
+      "loan",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "lease-calculator": {
+    "id": "lease-calculator",
+    "title": "Lease Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "lease-calculator.html",
+    "description": "Free online Lease Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "lease",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "refinance-calculator": {
+    "id": "refinance-calculator",
+    "title": "Refinance Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "refinance-calculator.html",
+    "description": "Free online Refinance Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "refinance",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "budget-calculator": {
+    "id": "budget-calculator",
+    "title": "Budget Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "budget-calculator.html",
+    "description": "Free online Budget Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "budget",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "rental-property-calculator": {
+    "id": "rental-property-calculator",
+    "title": "Rental Property Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "rental-property-calculator.html",
+    "description": "Free online Rental Property Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "rental",
+      "property",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "irr-calculator": {
+    "id": "irr-calculator",
+    "title": "IRR Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "irr-calculator.html",
+    "description": "Free online IRR Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "irr",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "roi-calculator": {
+    "id": "roi-calculator",
+    "title": "ROI Calculator",
+    "category": "financial",
+    "subcategory": "investments-retirement",
+    "url": "roi-calculator.html",
+    "description": "Free online ROI Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "roi",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "apr-calculator": {
+    "id": "apr-calculator",
+    "title": "APR Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "apr-calculator.html",
+    "description": "Free online APR Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "apr",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "fha-loan-calculator": {
+    "id": "fha-loan-calculator",
+    "title": "FHA Loan Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "fha-loan-calculator.html",
+    "description": "Free online FHA Loan Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "fha",
+      "loan",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "va-mortgage-calculator": {
+    "id": "va-mortgage-calculator",
+    "title": "VA Mortgage Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "va-mortgage-calculator.html",
+    "description": "Free online VA Mortgage Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "mortgage",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "home-equity-loan-calculator": {
+    "id": "home-equity-loan-calculator",
+    "title": "Home Equity Loan Calculator",
+    "category": "financial",
+    "subcategory": "loans-credit",
+    "url": "home-equity-loan-calculator.html",
+    "description": "Free online Home Equity Loan Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "home",
+      "equity",
+      "loan",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "heloc-calculator": {
+    "id": "heloc-calculator",
+    "title": "HELOC Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "heloc-calculator.html",
+    "description": "Free online HELOC Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "heloc",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "down-payment-calculator": {
+    "id": "down-payment-calculator",
+    "title": "Down Payment Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "down-payment-calculator.html",
+    "description": "Free online Down Payment Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "down",
+      "payment",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "rent-vs-buy-calculator": {
+    "id": "rent-vs-buy-calculator",
+    "title": "Rent vs. Buy Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "rent-vs-buy-calculator.html",
+    "description": "Free online Rent vs. Buy Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "rent",
+      "vs.",
+      "buy",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "payback-period-calculator": {
+    "id": "payback-period-calculator",
+    "title": "Payback Period Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "payback-period-calculator.html",
+    "description": "Free online Payback Period Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "payback",
+      "period",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "present-value-calculator": {
+    "id": "present-value-calculator",
+    "title": "Present Value Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "present-value-calculator.html",
+    "description": "Free online Present Value Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "present",
+      "value",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "future-value-calculator": {
+    "id": "future-value-calculator",
+    "title": "Future Value Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "future-value-calculator.html",
+    "description": "Free online Future Value Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "future",
+      "value",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "commission-calculator": {
+    "id": "commission-calculator",
+    "title": "Commission Calculator",
+    "category": "financial",
+    "subcategory": "general",
+    "url": "commission-calculator.html",
+    "description": "Free online Commission Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "commission",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "mortgage-calculator-uk": {
+    "id": "mortgage-calculator-uk",
+    "title": "Mortgage Calculator UK",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "mortgage-calculator-uk.html",
+    "description": "Free online Mortgage Calculator UK with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "mortgage",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "canadian-mortgage-calculator": {
+    "id": "canadian-mortgage-calculator",
+    "title": "Canadian Mortgage Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "canadian-mortgage-calculator.html",
+    "description": "Free online Canadian Mortgage Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "canadian",
+      "mortgage",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "mortgage-amortization-calculator": {
+    "id": "mortgage-amortization-calculator",
+    "title": "Mortgage Amortization Calculator",
+    "category": "financial",
+    "subcategory": "mortgage-real-estate",
+    "url": "mortgage-amortization-calculator.html",
+    "description": "Free online Mortgage Amortization Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "mortgage",
+      "amortization",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "percent-off-calculator": {
+    "id": "percent-off-calculator",
+    "title": "Percent Off Calculator",
+    "category": "financial",
+    "subcategory": "arithmetic",
+    "url": "percent-off-calculator.html",
+    "description": "Free online Percent Off Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "percent",
+      "off",
+      "financial"
+    ],
+    "icon": "finance",
+    "status": "planned",
+    "priority": 3
+  },
+  "body-fat-calculator": {
+    "id": "body-fat-calculator",
+    "title": "Body Fat Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "body-fat-calculator.html",
+    "description": "Free online Body Fat Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "body",
+      "fat",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 2
+  },
+  "bmr-calculator": {
+    "id": "bmr-calculator",
+    "title": "BMR Calculator",
+    "category": "fitness-health",
+    "subcategory": "diet-nutrition",
+    "url": "bmr-calculator.html",
+    "description": "Free online BMR Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "bmr",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 2
+  },
+  "macro-calculator": {
+    "id": "macro-calculator",
+    "title": "Macro Calculator",
+    "category": "fitness-health",
+    "subcategory": "diet-nutrition",
+    "url": "macro-calculator.html",
+    "description": "Free online Macro Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "macro",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "ideal-weight-calculator": {
+    "id": "ideal-weight-calculator",
+    "title": "Ideal Weight Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "ideal-weight-calculator.html",
+    "description": "Free online Ideal Weight Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "ideal",
+      "weight",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "pregnancy-calculator": {
+    "id": "pregnancy-calculator",
+    "title": "Pregnancy Calculator",
+    "category": "fitness-health",
+    "subcategory": "pregnancy-family",
+    "url": "pregnancy-calculator.html",
+    "description": "Free online Pregnancy Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "pregnancy",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "pregnancy-weight-gain-calculator": {
+    "id": "pregnancy-weight-gain-calculator",
+    "title": "Pregnancy Weight Gain Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "pregnancy-weight-gain-calculator.html",
+    "description": "Free online Pregnancy Weight Gain Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "pregnancy",
+      "weight",
+      "gain",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "pregnancy-conception-calculator": {
+    "id": "pregnancy-conception-calculator",
+    "title": "Pregnancy Conception Calculator",
+    "category": "fitness-health",
+    "subcategory": "pregnancy-family",
+    "url": "pregnancy-conception-calculator.html",
+    "description": "Free online Pregnancy Conception Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "pregnancy",
+      "conception",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "due-date-calculator": {
+    "id": "due-date-calculator",
+    "title": "Due Date Calculator",
+    "category": "fitness-health",
+    "subcategory": "pregnancy-family",
+    "url": "due-date-calculator.html",
+    "description": "Free online Due Date Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "due",
+      "date",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 2
+  },
+  "pace-calculator": {
+    "id": "pace-calculator",
+    "title": "Pace Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "pace-calculator.html",
+    "description": "Free online Pace Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "pace",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "army-body-fat-calculator": {
+    "id": "army-body-fat-calculator",
+    "title": "Army Body Fat Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "army-body-fat-calculator.html",
+    "description": "Free online Army Body Fat Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "army",
+      "body",
+      "fat",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 2
+  },
+  "carbohydrate-calculator": {
+    "id": "carbohydrate-calculator",
+    "title": "Carbohydrate Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "carbohydrate-calculator.html",
+    "description": "Free online Carbohydrate Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "carbohydrate",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "lean-body-mass-calculator": {
+    "id": "lean-body-mass-calculator",
+    "title": "Lean Body Mass Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "lean-body-mass-calculator.html",
+    "description": "Free online Lean Body Mass Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "lean",
+      "body",
+      "mass",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "healthy-weight-calculator": {
+    "id": "healthy-weight-calculator",
+    "title": "Healthy Weight Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "healthy-weight-calculator.html",
+    "description": "Free online Healthy Weight Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "healthy",
+      "weight",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "calories-burned-calculator": {
+    "id": "calories-burned-calculator",
+    "title": "Calories Burned Calculator",
+    "category": "fitness-health",
+    "subcategory": "diet-nutrition",
+    "url": "calories-burned-calculator.html",
+    "description": "Free online Calories Burned Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "calories",
+      "burned",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "one-rep-max-calculator": {
+    "id": "one-rep-max-calculator",
+    "title": "One Rep Max Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "one-rep-max-calculator.html",
+    "description": "Free online One Rep Max Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "one",
+      "rep",
+      "max",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "target-heart-rate-calculator": {
+    "id": "target-heart-rate-calculator",
+    "title": "Target Heart Rate Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "target-heart-rate-calculator.html",
+    "description": "Free online Target Heart Rate Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "target",
+      "heart",
+      "rate",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "protein-calculator": {
+    "id": "protein-calculator",
+    "title": "Protein Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "protein-calculator.html",
+    "description": "Free online Protein Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "protein",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "fat-intake-calculator": {
+    "id": "fat-intake-calculator",
+    "title": "Fat Intake Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "fat-intake-calculator.html",
+    "description": "Free online Fat Intake Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "fat",
+      "intake",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "tdee-calculator": {
+    "id": "tdee-calculator",
+    "title": "TDEE Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "tdee-calculator.html",
+    "description": "Free online TDEE Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "tdee",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "ovulation-calculator": {
+    "id": "ovulation-calculator",
+    "title": "Ovulation Calculator",
+    "category": "fitness-health",
+    "subcategory": "pregnancy-family",
+    "url": "ovulation-calculator.html",
+    "description": "Free online Ovulation Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "ovulation",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "conception-calculator": {
+    "id": "conception-calculator",
+    "title": "Conception Calculator",
+    "category": "fitness-health",
+    "subcategory": "pregnancy-family",
+    "url": "conception-calculator.html",
+    "description": "Free online Conception Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "conception",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "period-calculator": {
+    "id": "period-calculator",
+    "title": "Period Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "period-calculator.html",
+    "description": "Free online Period Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "period",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "gfr-calculator": {
+    "id": "gfr-calculator",
+    "title": "GFR Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "gfr-calculator.html",
+    "description": "Free online GFR Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "gfr",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "body-type-calculator": {
+    "id": "body-type-calculator",
+    "title": "Body Type Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "body-type-calculator.html",
+    "description": "Free online Body Type Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "body",
+      "type",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "body-surface-area-calculator": {
+    "id": "body-surface-area-calculator",
+    "title": "Body Surface Area Calculator",
+    "category": "fitness-health",
+    "subcategory": "geometry",
+    "url": "body-surface-area-calculator.html",
+    "description": "Free online Body Surface Area Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "body",
+      "surface",
+      "area",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "bac-calculator": {
+    "id": "bac-calculator",
+    "title": "BAC Calculator",
+    "category": "fitness-health",
+    "subcategory": "general",
+    "url": "bac-calculator.html",
+    "description": "Free online BAC Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "bac",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "anorexic-bmi-calculator": {
+    "id": "anorexic-bmi-calculator",
+    "title": "Anorexic BMI Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "anorexic-bmi-calculator.html",
+    "description": "Free online Anorexic BMI Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "anorexic",
+      "bmi",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "weight-watchers-points-calculator": {
+    "id": "weight-watchers-points-calculator",
+    "title": "Weight Watcher Points Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "weight-watchers-points-calculator.html",
+    "description": "Free online Weight Watcher Points Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "weight",
+      "watcher",
+      "points",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "overweight-calculator": {
+    "id": "overweight-calculator",
+    "title": "Overweight Calculator",
+    "category": "fitness-health",
+    "subcategory": "body-metrics",
+    "url": "overweight-calculator.html",
+    "description": "Free online Overweight Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "overweight",
+      "fitness-health"
+    ],
+    "icon": "health",
+    "status": "planned",
+    "priority": 3
+  },
+  "scientific-calculator": {
+    "id": "scientific-calculator",
+    "title": "Scientific Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "scientific-calculator.html",
+    "description": "Free online Scientific Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "scientific",
+      "math"
+    ],
+    "icon": "math",
+    "status": "active",
+    "priority": 2
+  },
+  "fraction-calculator": {
+    "id": "fraction-calculator",
+    "title": "Fraction Calculator",
+    "category": "math",
+    "subcategory": "arithmetic",
+    "url": "fraction-calculator.html",
+    "description": "Free online Fraction Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "fraction",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 2
+  },
+  "percent-calculator": {
+    "id": "percent-calculator",
+    "title": "Percentage Calculator",
+    "category": "math",
+    "subcategory": "arithmetic",
+    "url": "percent-calculator.html",
+    "description": "Free online Percentage Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "percentage",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "triangle-calculator": {
+    "id": "triangle-calculator",
+    "title": "Triangle Calculator",
+    "category": "math",
+    "subcategory": "geometry",
+    "url": "triangle-calculator.html",
+    "description": "Free online Triangle Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "triangle",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 2
+  },
+  "volume-calculator": {
+    "id": "volume-calculator",
+    "title": "Volume Calculator",
+    "category": "math",
+    "subcategory": "geometry",
+    "url": "volume-calculator.html",
+    "description": "Free online Volume Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "volume",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "standard-deviation-calculator": {
+    "id": "standard-deviation-calculator",
+    "title": "Standard Deviation Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "standard-deviation-calculator.html",
+    "description": "Free online Standard Deviation Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "standard",
+      "deviation",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "random-number-generator": {
+    "id": "random-number-generator",
+    "title": "Random Number Generator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "random-number-generator.html",
+    "description": "Free online Random Number Generator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "random",
+      "number",
+      "generator",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "number-sequence-calculator": {
+    "id": "number-sequence-calculator",
+    "title": "Number Sequence Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "number-sequence-calculator.html",
+    "description": "Free online Number Sequence Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "number",
+      "sequence",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "percent-error-calculator": {
+    "id": "percent-error-calculator",
+    "title": "Percent Error Calculator",
+    "category": "math",
+    "subcategory": "arithmetic",
+    "url": "percent-error-calculator.html",
+    "description": "Free online Percent Error Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "percent",
+      "error",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "exponent-calculator": {
+    "id": "exponent-calculator",
+    "title": "Exponent Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "exponent-calculator.html",
+    "description": "Free online Exponent Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "exponent",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "binary-calculator": {
+    "id": "binary-calculator",
+    "title": "Binary Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "binary-calculator.html",
+    "description": "Free online Binary Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "binary",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "hex-calculator": {
+    "id": "hex-calculator",
+    "title": "Hex Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "hex-calculator.html",
+    "description": "Free online Hex Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "hex",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "half-life-calculator": {
+    "id": "half-life-calculator",
+    "title": "Half-Life Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "half-life-calculator.html",
+    "description": "Free online Half-Life Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "half-life",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "quadratic-formula-calculator": {
+    "id": "quadratic-formula-calculator",
+    "title": "Quadratic Formula Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "quadratic-formula-calculator.html",
+    "description": "Free online Quadratic Formula Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "quadratic",
+      "formula",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "slope-calculator": {
+    "id": "slope-calculator",
+    "title": "Slope Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "slope-calculator.html",
+    "description": "Free online Slope Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "slope",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "log-calculator": {
+    "id": "log-calculator",
+    "title": "Log Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "log-calculator.html",
+    "description": "Free online Log Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "log",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "area-calculator": {
+    "id": "area-calculator",
+    "title": "Area Calculator",
+    "category": "math",
+    "subcategory": "geometry",
+    "url": "area-calculator.html",
+    "description": "Free online Area Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "area",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "sample-size-calculator": {
+    "id": "sample-size-calculator",
+    "title": "Sample Size Calculator",
+    "category": "math",
+    "subcategory": "conversion",
+    "url": "sample-size-calculator.html",
+    "description": "Free online Sample Size Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "sample",
+      "size",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "probability-calculator": {
+    "id": "probability-calculator",
+    "title": "Probability Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "probability-calculator.html",
+    "description": "Free online Probability Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "probability",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "statistics-calculator": {
+    "id": "statistics-calculator",
+    "title": "Statistics Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "statistics-calculator.html",
+    "description": "Free online Statistics Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "statistics",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "mean-median-mode-range-calculator": {
+    "id": "mean-median-mode-range-calculator",
+    "title": "Mean, Median, Mode, Range Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "mean-median-mode-range-calculator.html",
+    "description": "Free online Mean, Median, Mode, Range Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "mean,",
+      "median,",
+      "mode,",
+      "range",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "permutation-and-combination-calculator": {
+    "id": "permutation-and-combination-calculator",
+    "title": "Permutation and Combination Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "permutation-and-combination-calculator.html",
+    "description": "Free online Permutation and Combination Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "permutation",
+      "and",
+      "combination",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "z-score-calculator": {
+    "id": "z-score-calculator",
+    "title": "Z-score Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "z-score-calculator.html",
+    "description": "Free online Z-score Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "z-score",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "confidence-interval-calculator": {
+    "id": "confidence-interval-calculator",
+    "title": "Confidence Interval Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "confidence-interval-calculator.html",
+    "description": "Free online Confidence Interval Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "confidence",
+      "interval",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "ratio-calculator": {
+    "id": "ratio-calculator",
+    "title": "Ratio Calculator",
+    "category": "math",
+    "subcategory": "arithmetic",
+    "url": "ratio-calculator.html",
+    "description": "Free online Ratio Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "ratio",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "distance-calculator": {
+    "id": "distance-calculator",
+    "title": "Distance Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "distance-calculator.html",
+    "description": "Free online Distance Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "distance",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "circle-calculator": {
+    "id": "circle-calculator",
+    "title": "Circle Calculator",
+    "category": "math",
+    "subcategory": "geometry",
+    "url": "circle-calculator.html",
+    "description": "Free online Circle Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "circle",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "surface-area-calculator": {
+    "id": "surface-area-calculator",
+    "title": "Surface Area Calculator",
+    "category": "math",
+    "subcategory": "geometry",
+    "url": "surface-area-calculator.html",
+    "description": "Free online Surface Area Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "surface",
+      "area",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "pythagorean-theorem-calculator": {
+    "id": "pythagorean-theorem-calculator",
+    "title": "Pythagorean Theorem Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "pythagorean-theorem-calculator.html",
+    "description": "Free online Pythagorean Theorem Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "pythagorean",
+      "theorem",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "right-triangle-calculator": {
+    "id": "right-triangle-calculator",
+    "title": "Right Triangle Calculator",
+    "category": "math",
+    "subcategory": "geometry",
+    "url": "right-triangle-calculator.html",
+    "description": "Free online Right Triangle Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "right",
+      "triangle",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 2
+  },
+  "root-calculator": {
+    "id": "root-calculator",
+    "title": "Root Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "root-calculator.html",
+    "description": "Free online Root Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "root",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "lcm-calculator": {
+    "id": "lcm-calculator",
+    "title": "Least Common Multiple Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "lcm-calculator.html",
+    "description": "Free online Least Common Multiple Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "least",
+      "common",
+      "multiple",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "gcf-calculator": {
+    "id": "gcf-calculator",
+    "title": "Greatest Common Factor Calculator",
+    "category": "math",
+    "subcategory": "arithmetic",
+    "url": "gcf-calculator.html",
+    "description": "Free online Greatest Common Factor Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "greatest",
+      "common",
+      "factor",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "factor-calculator": {
+    "id": "factor-calculator",
+    "title": "Factor Calculator",
+    "category": "math",
+    "subcategory": "arithmetic",
+    "url": "factor-calculator.html",
+    "description": "Free online Factor Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "factor",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "rounding-calculator": {
+    "id": "rounding-calculator",
+    "title": "Rounding Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "rounding-calculator.html",
+    "description": "Free online Rounding Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "rounding",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "matrix-calculator": {
+    "id": "matrix-calculator",
+    "title": "Matrix Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "matrix-calculator.html",
+    "description": "Free online Matrix Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "matrix",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "scientific-notation-calculator": {
+    "id": "scientific-notation-calculator",
+    "title": "Scientific Notation Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "scientific-notation-calculator.html",
+    "description": "Free online Scientific Notation Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "scientific",
+      "notation",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 2
+  },
+  "big-number-calculator": {
+    "id": "big-number-calculator",
+    "title": "Big Number Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "big-number-calculator.html",
+    "description": "Free online Big Number Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "big",
+      "number",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "prime-factorization-calculator": {
+    "id": "prime-factorization-calculator",
+    "title": "Prime Factorization Calculator",
+    "category": "math",
+    "subcategory": "arithmetic",
+    "url": "prime-factorization-calculator.html",
+    "description": "Free online Prime Factorization Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "prime",
+      "factorization",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "common-factor-calculator": {
+    "id": "common-factor-calculator",
+    "title": "Common Factor Calculator",
+    "category": "math",
+    "subcategory": "arithmetic",
+    "url": "common-factor-calculator.html",
+    "description": "Free online Common Factor Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "common",
+      "factor",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "basic-calculator": {
+    "id": "basic-calculator",
+    "title": "Basic Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "basic-calculator.html",
+    "description": "Free online Basic Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "basic",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "long-division-calculator": {
+    "id": "long-division-calculator",
+    "title": "Long Division Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "long-division-calculator.html",
+    "description": "Free online Long Division Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "long",
+      "division",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "average-calculator": {
+    "id": "average-calculator",
+    "title": "Average Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "average-calculator.html",
+    "description": "Free online Average Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "average",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "p-value-calculator": {
+    "id": "p-value-calculator",
+    "title": "P-value Calculator",
+    "category": "math",
+    "subcategory": "general",
+    "url": "p-value-calculator.html",
+    "description": "Free online P-value Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "p-value",
+      "math"
+    ],
+    "icon": "math",
+    "status": "planned",
+    "priority": 3
+  },
+  "date-calculator": {
+    "id": "date-calculator",
+    "title": "Date Calculator",
+    "category": "other",
+    "subcategory": "time-date",
+    "url": "date-calculator.html",
+    "description": "Free online Date Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "date",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 2
+  },
+  "time-calculator": {
+    "id": "time-calculator",
+    "title": "Time Calculator",
+    "category": "other",
+    "subcategory": "time-date",
+    "url": "time-calculator.html",
+    "description": "Free online Time Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "time",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 2
+  },
+  "hours-calculator": {
+    "id": "hours-calculator",
+    "title": "Hours Calculator",
+    "category": "other",
+    "subcategory": "time-date",
+    "url": "hours-calculator.html",
+    "description": "Free online Hours Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "hours",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "gpa-calculator": {
+    "id": "gpa-calculator",
+    "title": "GPA Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "gpa-calculator.html",
+    "description": "Free online GPA Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "gpa",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 2
+  },
+  "grade-calculator": {
+    "id": "grade-calculator",
+    "title": "Grade Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "grade-calculator.html",
+    "description": "Free online Grade Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "grade",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "height-calculator": {
+    "id": "height-calculator",
+    "title": "Height Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "height-calculator.html",
+    "description": "Free online Height Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "height",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "concrete-calculator": {
+    "id": "concrete-calculator",
+    "title": "Concrete Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "concrete-calculator.html",
+    "description": "Free online Concrete Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "concrete",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "ip-subnet-calculator": {
+    "id": "ip-subnet-calculator",
+    "title": "IP Subnet Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "ip-subnet-calculator.html",
+    "description": "Free online IP Subnet Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "subnet",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "bra-size-calculator": {
+    "id": "bra-size-calculator",
+    "title": "Bra Size Calculator",
+    "category": "other",
+    "subcategory": "conversion",
+    "url": "bra-size-calculator.html",
+    "description": "Free online Bra Size Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "bra",
+      "size",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "password-generator": {
+    "id": "password-generator",
+    "title": "Password Generator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "password-generator.html",
+    "description": "Free online Password Generator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "password",
+      "generator",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "dice-roller": {
+    "id": "dice-roller",
+    "title": "Dice Roller",
+    "category": "other",
+    "subcategory": "general",
+    "url": "dice-roller.html",
+    "description": "Free online Dice Roller with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "dice",
+      "roller",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "conversion-calculator": {
+    "id": "conversion-calculator",
+    "title": "Conversion Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "conversion-calculator.html",
+    "description": "Free online Conversion Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "conversion",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "fuel-cost-calculator": {
+    "id": "fuel-cost-calculator",
+    "title": "Fuel Cost Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "fuel-cost-calculator.html",
+    "description": "Free online Fuel Cost Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "fuel",
+      "cost",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "voltage-drop-calculator": {
+    "id": "voltage-drop-calculator",
+    "title": "Voltage Drop Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "voltage-drop-calculator.html",
+    "description": "Free online Voltage Drop Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "voltage",
+      "drop",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "btu-calculator": {
+    "id": "btu-calculator",
+    "title": "BTU Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "btu-calculator.html",
+    "description": "Free online BTU Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "btu",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "square-footage-calculator": {
+    "id": "square-footage-calculator",
+    "title": "Square Footage Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "square-footage-calculator.html",
+    "description": "Free online Square Footage Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "square",
+      "footage",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "time-card-calculator": {
+    "id": "time-card-calculator",
+    "title": "Time Card Calculator",
+    "category": "other",
+    "subcategory": "time-date",
+    "url": "time-card-calculator.html",
+    "description": "Free online Time Card Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "time",
+      "card",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 2
+  },
+  "time-zone-calculator": {
+    "id": "time-zone-calculator",
+    "title": "Time Zone Calculator",
+    "category": "other",
+    "subcategory": "time-date",
+    "url": "time-zone-calculator.html",
+    "description": "Free online Time Zone Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "time",
+      "zone",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 2
+  },
+  "love-calculator": {
+    "id": "love-calculator",
+    "title": "Love Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "love-calculator.html",
+    "description": "Free online Love Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "love",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "gdp-calculator": {
+    "id": "gdp-calculator",
+    "title": "GDP Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "gdp-calculator.html",
+    "description": "Free online GDP Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "gdp",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "gas-mileage-calculator": {
+    "id": "gas-mileage-calculator",
+    "title": "Gas Mileage Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "gas-mileage-calculator.html",
+    "description": "Free online Gas Mileage Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "gas",
+      "mileage",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "horsepower-calculator": {
+    "id": "horsepower-calculator",
+    "title": "Horsepower Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "horsepower-calculator.html",
+    "description": "Free online Horsepower Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "horsepower",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "engine-horsepower-calculator": {
+    "id": "engine-horsepower-calculator",
+    "title": "Engine Horsepower Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "engine-horsepower-calculator.html",
+    "description": "Free online Engine Horsepower Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "engine",
+      "horsepower",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "stair-calculator": {
+    "id": "stair-calculator",
+    "title": "Stair Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "stair-calculator.html",
+    "description": "Free online Stair Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "stair",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "resistor-calculator": {
+    "id": "resistor-calculator",
+    "title": "Resistor Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "resistor-calculator.html",
+    "description": "Free online Resistor Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "resistor",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "ohms-law-calculator": {
+    "id": "ohms-law-calculator",
+    "title": "Ohms Law Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "ohms-law-calculator.html",
+    "description": "Free online Ohms Law Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "ohms",
+      "law",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "electricity-calculator": {
+    "id": "electricity-calculator",
+    "title": "Electricity Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "electricity-calculator.html",
+    "description": "Free online Electricity Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "electricity",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "shoe-size-conversion": {
+    "id": "shoe-size-conversion",
+    "title": "Shoe Size Conversion",
+    "category": "other",
+    "subcategory": "conversion",
+    "url": "shoe-size-conversion.html",
+    "description": "Free online Shoe Size Conversion with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "shoe",
+      "size",
+      "conversion",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "tip-calculator": {
+    "id": "tip-calculator",
+    "title": "Tip Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "tip-calculator.html",
+    "description": "Free online Tip Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "tip",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "mileage-calculator": {
+    "id": "mileage-calculator",
+    "title": "Mileage Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "mileage-calculator.html",
+    "description": "Free online Mileage Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "mileage",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "density-calculator": {
+    "id": "density-calculator",
+    "title": "Density Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "density-calculator.html",
+    "description": "Free online Density Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "density",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "mass-calculator": {
+    "id": "mass-calculator",
+    "title": "Mass Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "mass-calculator.html",
+    "description": "Free online Mass Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "mass",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "weight-calculator": {
+    "id": "weight-calculator",
+    "title": "Weight Calculator",
+    "category": "other",
+    "subcategory": "body-metrics",
+    "url": "weight-calculator.html",
+    "description": "Free online Weight Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "weight",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "speed-calculator": {
+    "id": "speed-calculator",
+    "title": "Speed Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "speed-calculator.html",
+    "description": "Free online Speed Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "speed",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "molarity-calculator": {
+    "id": "molarity-calculator",
+    "title": "Molarity Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "molarity-calculator.html",
+    "description": "Free online Molarity Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "molarity",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "molecular-weight-calculator": {
+    "id": "molecular-weight-calculator",
+    "title": "Molecular Weight Calculator",
+    "category": "other",
+    "subcategory": "body-metrics",
+    "url": "molecular-weight-calculator.html",
+    "description": "Free online Molecular Weight Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "molecular",
+      "weight",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "roman-numeral-converter": {
+    "id": "roman-numeral-converter",
+    "title": "Roman Numeral Converter",
+    "category": "other",
+    "subcategory": "conversion",
+    "url": "roman-numeral-converter.html",
+    "description": "Free online Roman Numeral Converter with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "roman",
+      "numeral",
+      "converter",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "golf-handicap-calculator": {
+    "id": "golf-handicap-calculator",
+    "title": "Golf Handicap Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "golf-handicap-calculator.html",
+    "description": "Free online Golf Handicap Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "golf",
+      "handicap",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "sleep-calculator": {
+    "id": "sleep-calculator",
+    "title": "Sleep Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "sleep-calculator.html",
+    "description": "Free online Sleep Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "sleep",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "tire-size-calculator": {
+    "id": "tire-size-calculator",
+    "title": "Tire Size Calculator",
+    "category": "other",
+    "subcategory": "conversion",
+    "url": "tire-size-calculator.html",
+    "description": "Free online Tire Size Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "tire",
+      "size",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "roofing-calculator": {
+    "id": "roofing-calculator",
+    "title": "Roofing Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "roofing-calculator.html",
+    "description": "Free online Roofing Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "roofing",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "tile-calculator": {
+    "id": "tile-calculator",
+    "title": "Tile Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "tile-calculator.html",
+    "description": "Free online Tile Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "tile",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "mulch-calculator": {
+    "id": "mulch-calculator",
+    "title": "Mulch Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "mulch-calculator.html",
+    "description": "Free online Mulch Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "mulch",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "gravel-calculator": {
+    "id": "gravel-calculator",
+    "title": "Gravel Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "gravel-calculator.html",
+    "description": "Free online Gravel Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "gravel",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "wind-chill-calculator": {
+    "id": "wind-chill-calculator",
+    "title": "Wind Chill Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "wind-chill-calculator.html",
+    "description": "Free online Wind Chill Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "wind",
+      "chill",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "heat-index-calculator": {
+    "id": "heat-index-calculator",
+    "title": "Heat Index Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "heat-index-calculator.html",
+    "description": "Free online Heat Index Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "heat",
+      "index",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "dew-point-calculator": {
+    "id": "dew-point-calculator",
+    "title": "Dew Point Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "dew-point-calculator.html",
+    "description": "Free online Dew Point Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "dew",
+      "point",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "bandwidth-calculator": {
+    "id": "bandwidth-calculator",
+    "title": "Bandwidth Calculator",
+    "category": "other",
+    "subcategory": "general",
+    "url": "bandwidth-calculator.html",
+    "description": "Free online Bandwidth Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "bandwidth",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "base64-encode-decode": {
+    "id": "base64-encode-decode",
+    "title": "Base64 Encode / Decode",
+    "category": "other",
+    "subcategory": "general",
+    "url": "base64-encode-decode.html",
+    "description": "Free online Base64 Encode / Decode with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "base64",
+      "encode",
+      "decode",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "url-encode-decode": {
+    "id": "url-encode-decode",
+    "title": "URL Encode / Decode",
+    "category": "other",
+    "subcategory": "general",
+    "url": "url-encode-decode.html",
+    "description": "Free online URL Encode / Decode with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "url",
+      "encode",
+      "decode",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "time-duration-calculator": {
+    "id": "time-duration-calculator",
+    "title": "Time Duration Calculator",
+    "category": "other",
+    "subcategory": "arithmetic",
+    "url": "time-duration-calculator.html",
+    "description": "Free online Time Duration Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "time",
+      "duration",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 2
+  },
+  "day-counter": {
+    "id": "day-counter",
+    "title": "Day Counter",
+    "category": "other",
+    "subcategory": "time-date",
+    "url": "day-counter.html",
+    "description": "Free online Day Counter with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "day",
+      "counter",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  },
+  "day-of-the-week-calculator": {
+    "id": "day-of-the-week-calculator",
+    "title": "Day of the Week Calculator",
+    "category": "other",
+    "subcategory": "time-date",
+    "url": "day-of-the-week-calculator.html",
+    "description": "Free online Day of the Week Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
+    "keywords": [
+      "day",
+      "the",
+      "week",
+      "other"
+    ],
+    "icon": "utilities",
+    "status": "planned",
+    "priority": 3
+  }
+}

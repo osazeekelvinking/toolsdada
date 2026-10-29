@@ -199,9 +199,107 @@
       });
     });
 
+    // Setup Header Navigation (Desktop Dropdown & Mobile Menu)
+    initNavigation();
+
     // Setup Homepage Search & Filters if present
     initHomepageFilters();
   });
+
+  /* ==========================================================================
+     Header Navigation (Desktop Dropdown + Mobile Menu)
+     ========================================================================== */
+  function initNavigation() {
+    // 1. Desktop Dropdown
+    const calcDropdown = document.getElementById('tb-calc-dropdown');
+    const calcTrigger = document.getElementById('tb-calc-trigger');
+
+    if (calcDropdown && calcTrigger) {
+      calcTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = calcDropdown.classList.contains('is-open');
+        calcDropdown.classList.toggle('is-open', !isOpen);
+        calcTrigger.setAttribute('aria-expanded', String(!isOpen));
+      });
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!calcDropdown.contains(e.target)) {
+          calcDropdown.classList.remove('is-open');
+          calcTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // 2. Mobile Navigation Toggle & Backdrop
+    const mobileToggle = document.getElementById('tb-mobile-toggle');
+    const mobileNav = document.getElementById('tb-mobile-nav');
+    const mobileBackdrop = document.getElementById('tb-mobile-backdrop');
+
+    function toggleMobileNav(open) {
+      if (!mobileNav || !mobileToggle) return;
+      mobileToggle.classList.toggle('is-active', open);
+      mobileToggle.setAttribute('aria-expanded', String(open));
+      mobileNav.classList.toggle('is-open', open);
+      mobileNav.setAttribute('aria-hidden', String(!open));
+
+      if (mobileBackdrop) {
+        mobileBackdrop.classList.toggle('is-open', open);
+        mobileBackdrop.setAttribute('aria-hidden', String(!open));
+      }
+
+      document.body.classList.toggle('tb-menu-open', open);
+    }
+
+    if (mobileToggle && mobileNav) {
+      mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = mobileNav.classList.contains('is-open');
+        toggleMobileNav(!isOpen);
+      });
+
+      if (mobileBackdrop) {
+        mobileBackdrop.addEventListener('click', () => toggleMobileNav(false));
+      }
+
+      // Close menu on link navigation
+      mobileNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => toggleMobileNav(false));
+      });
+
+      // Auto close on desktop resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 860 && mobileNav.classList.contains('is-open')) {
+          toggleMobileNav(false);
+        }
+      });
+    }
+
+    // 3. Mobile Calculators Accordion
+    const mobileCalcToggle = document.getElementById('tb-mobile-calc-toggle');
+    const mobileCalcAccordion = document.getElementById('tb-mobile-calc-accordion');
+
+    if (mobileCalcToggle && mobileCalcAccordion) {
+      mobileCalcToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isExpanded = mobileCalcAccordion.classList.contains('is-expanded');
+        mobileCalcAccordion.classList.toggle('is-expanded', !isExpanded);
+        mobileCalcToggle.setAttribute('aria-expanded', String(!isExpanded));
+      });
+    }
+
+    // 4. Global Esc Key Listener to close all open menus
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (calcDropdown) {
+          calcDropdown.classList.remove('is-open');
+          if (calcTrigger) calcTrigger.setAttribute('aria-expanded', 'false');
+        }
+        toggleMobileNav(false);
+      }
+    });
+  }
 
   /* ==========================================================================
      Homepage Search & Category Filter
@@ -240,7 +338,42 @@
       });
 
       if (emptyState) {
-        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        if (visibleCount === 0) {
+          emptyState.style.display = 'block';
+          if (q.length > 1 && window.TB_TOOLS_INDEX) {
+            const matches = window.TB_TOOLS_INDEX.filter(item =>
+              item.title.toLowerCase().includes(q) ||
+              item.desc.toLowerCase().includes(q) ||
+              (item.keywords && item.keywords.some(k => k.toLowerCase().includes(q)))
+            ).slice(0, 6);
+
+            if (matches.length > 0) {
+              emptyState.innerHTML = `
+                <div class="tb-empty-title" style="margin-bottom: 0.25rem;">Directory Matches (${matches.length})</div>
+                <div class="tb-empty-desc" style="margin-bottom: 1.25rem;">Found in our extended 200+ calculator directory:</div>
+                <div style="display: flex; flex-direction: column; gap: 0.6rem; max-width: 480px; margin: 0 auto; text-align: left;">
+                  ${matches.map(m => `
+                    <a href="${m.url}" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); text-decoration: none; color: inherit; transition: border-color 0.15s ease;" onmouseover="this.style.borderColor='var(--brand-primary)'" onmouseout="this.style.borderColor='var(--border-color)'">
+                      <div>
+                        <div style="font-weight: 700; color: var(--brand-primary); font-size: 0.95rem;">${m.title}</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">${m.category} &bull; ${m.status === 'active' ? 'Live Tool' : 'Directory Entry'}</div>
+                      </div>
+                      <span style="font-size: 0.9rem; font-weight: 700; color: var(--brand-primary);">&rarr;</span>
+                    </a>
+                  `).join('')}
+                </div>
+              `;
+            } else {
+              emptyState.innerHTML = `
+                <svg class="tb-empty-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <div class="tb-empty-title">No matching tools found</div>
+                <div class="tb-empty-desc">Try searching for keywords like "mortgage", "calorie", "compound", "loan", "percentage", or "date".</div>
+              `;
+            }
+          }
+        } else {
+          emptyState.style.display = 'none';
+        }
       }
 
       if (clearBtn) {
@@ -286,5 +419,44 @@
         filterTools();
       });
     });
+  }
+
+  /* ==========================================================================
+     Smart Header (Non-sticky on scroll down, reveals on scroll back up)
+     ========================================================================== */
+  const siteHeader = document.querySelector('.tb-header, .site-header');
+  if (siteHeader && !document.querySelector('.sticky-nav')) {
+    let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    let ticking = false;
+    const threshold = 8;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+          const diff = currentScrollY - lastScrollY;
+
+          if (document.body.classList.contains('tb-menu-open')) {
+            siteHeader.classList.remove('tb-header-hidden');
+            return;
+          }
+
+          if (currentScrollY <= 15) {
+            // Near top of document -> always visible
+            siteHeader.classList.remove('tb-header-hidden');
+          } else if (diff > threshold && currentScrollY > 70) {
+            // Scrolling down -> hide header
+            siteHeader.classList.add('tb-header-hidden');
+          } else if (diff < -threshold) {
+            // Scrolling up -> reveal header
+            siteHeader.classList.remove('tb-header-hidden');
+          }
+
+          lastScrollY = Math.max(0, currentScrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
   }
 })();

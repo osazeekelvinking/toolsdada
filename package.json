@@ -4,6 +4,9 @@
   "description": "ToolsDada — High-Traffic No-Login Web Tools Platform & Static Blog",
   "private": true,
   "scripts": {
+    "sync": "node tools/sync.js",
+    "scaffold": "node tools/scaffold.js",
+    "test": "node test/math-accuracy.test.js",
     "build:blog": "node cms/build.js",
     "deploy": "wrangler deploy",
     "preview": "wrangler dev",

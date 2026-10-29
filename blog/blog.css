@@ -116,6 +116,7 @@ html {
   background-color: var(--bg);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 body {
@@ -125,6 +126,7 @@ body {
   background-color: var(--bg);
   color: var(--ink);
   transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: hidden;
 }
 
 a {
@@ -164,6 +166,12 @@ img, svg {
   background-color: var(--card);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(8px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+
+.site-header.tb-header-hidden {
+  transform: translateY(-100%);
 }
 
 .nav-inner {
@@ -241,6 +249,37 @@ img, svg {
   background-color: var(--soft);
   color: var(--brand);
   border-color: var(--brand);
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    height: 62px;
+  }
+  .nav-inner {
+    padding: 0 1rem;
+  }
+  .blog-wrap {
+    padding: 1.25rem 1rem 3.5rem;
+  }
+  .brand-link {
+    font-size: 1.15rem;
+    gap: 0.5rem;
+  }
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .nav-actions {
+    gap: 0.35rem;
+  }
+  .nav-link {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.825rem;
+  }
+  .tb-theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 /* Breadcrumbs */
@@ -648,18 +687,19 @@ img, svg {
 /* Ad Placement Containers */
 .tb-ad-container {
   width: 100%;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   text-align: center;
-  background: var(--soft);
-  border: 1px dashed var(--line);
+  background: transparent;
+  border: none;
   border-radius: var(--radius-md);
-  padding: 0.5rem;
+  padding: 0;
   min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 }
 
 .tb-ad-label {
@@ -670,10 +710,16 @@ img, svg {
   color: var(--mute);
   margin-bottom: 0.25rem;
   font-weight: 600;
+  user-select: none;
 }
 
-.ad-collapsed {
+.ad-collapsed,
+.tb-ad-container.ad-collapsed {
   display: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Universal Footer */

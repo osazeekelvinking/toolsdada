@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator Online | ToolsBuddy</title>
+  <meta name="description" content="Free online scientific calculator with trigonometric, logarithmic, exponential, and algebraic functions. Supports Rad/Deg angles, keyboard input, and history.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/scientific-calculator.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/scientific-calculator.html">
+  <meta property="og:title" content="Scientific Calculator Online | ToolsBuddy">
+  <meta property="og:description" content="Fast, private scientific calculator with advanced math functions, Deg/Rad switch, and history log.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scientific Calculator Online | ToolsBuddy">
+  <meta name="twitter:description" content="Free browser-based scientific calculator for algebra, calculus, and trigonometry.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <style>
+    /* Scientific Keypad Styles */
+    .tb-sci-calc {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tb-sci-display {
+      background: var(--bg-hover);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      text-align: right;
+    }
+
+    .tb-sci-expr {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--text-muted);
+      min-height: 1.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .tb-sci-result {
+      font-family: var(--font-mono);
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      overflow-x: auto;
+      white-space: nowrap;
+      margin-top: 0.25rem;
+    }
+
+    .tb-sci-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.6rem;
+    }
+
+    .tb-key {
+      padding: 0.85rem 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .tb-key:hover {
+      background: var(--bg-hover);
+      border-color: var(--brand-primary);
+    }
+
+    .tb-key:active {
+      transform: scale(0.96);
+    }
+
+    .tb-key-fn {
+      background: var(--bg-hover);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .tb-key-op {
+      background: var(--brand-light);
+      color: var(--brand-primary);
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .tb-key-eq {
+      background: var(--brand-primary);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.25rem;
+      grid-column: span 2;
+    }
+
+    .tb-key-eq:hover {
+      background: var(--brand-hover);
+    }
+
+    .tb-key-clear {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--accent-danger);
+      font-weight: 700;
+    }
+
+    .tb-sci-history {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .tb-history-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .tb-history-list {
+      max-height: 140px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .tb-history-item {
+      font-family: var(--font-mono);
+      font-size: 0.825rem;
+      color: var(--text-secondary);
+      background: var(--bg-hover);
+      padding: 0.35rem 0.65rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .tb-history-item:hover {
+      background: var(--brand-light);
+      color: var(--brand-primary);
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Scientific Calculator Online",
+        "url": "https://toolsbuddy.pages.dev/scientific-calculator.html",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Comprehensive online scientific calculator supporting trigonometry, logarithms, powers, roots, and calculation history.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does this calculator support radians and degrees?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Use the DEG / RAD toggle button to switch trigonometry modes instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use my physical computer keyboard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, standard numbers (0-9), operators (+, -, *, /), parentheses, Enter (=), and Backspace are supported directly."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header -->
+    <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <div class="tb-mobile-accordion" id="tb-mobile-calc-accordion">
+          <button type="button" class="tb-mobile-link tb-mobile-accordion-toggle" id="tb-mobile-calc-toggle" aria-expanded="false">
+            <span class="tb-mobile-link-content">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+              <span>Calculators</span>
+            </span>
+            <svg class="tb-accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-mobile-accordion-body" id="tb-mobile-calc-body">
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Financial Calculators</div>
+              <a href="mortgage-calculator.html" class="tb-mobile-sublink">Mortgage Calculator</a>
+              <a href="loan-calculator.html" class="tb-mobile-sublink">Loan & EMI Calculator</a>
+              <a href="compound-interest-calculator.html" class="tb-mobile-sublink">Compound Interest</a>
+              <a href="financial-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Financial Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Fitness & Health</div>
+              <a href="bmi-calculator.html" class="tb-mobile-sublink">BMI & Ideal Weight</a>
+              <a href="calorie-calculator.html" class="tb-mobile-sublink">Calorie & Macro Calculator</a>
+              <a href="fitness-health-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Health Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Math Calculators</div>
+              <a href="percentage-calculator.html" class="tb-mobile-sublink">Percentage Calculator</a>
+              <a href="scientific-calculator.html" class="tb-mobile-sublink">Scientific Calculator</a>
+              <a href="math-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Math Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Everyday & Utilities</div>
+              <a href="age-calculator.html" class="tb-mobile-sublink">Exact Age Calculator</a>
+              <a href="other-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Everyday Utilities &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>EbookBuddy AI</span>
+        </a>
+        <a href="blog/index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Blog & Guides</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="math-calculators.html">Math Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Scientific Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+        Math & Science
+      </span>
+      <h1 class="tb-tool-title">Scientific Calculator</h1>
+      <p class="tb-tool-desc">
+        Perform advanced mathematical, algebraic, trigonometric, and scientific calculations with high precision and calculation history.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6130384188487467" data-ad-slot="4369386116" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Area -->
+      <div class="tb-tool-main">
+
+    <!-- Calculator Device Container -->
+    <div class="tb-workspace tb-sci-calc">
+      <!-- Digital Display -->
+      <div class="tb-sci-display">
+        <div class="tb-sci-expr" id="sci-expr">&nbsp;</div>
+        <div class="tb-sci-result" id="sci-result">0</div>
+      </div>
+
+      <!-- Keypad Grid (5 Columns) -->
+      <div class="tb-sci-grid">
+        <!-- Row 1 -->
+        <button type="button" class="tb-key tb-key-fn" id="btn-deg-rad">DEG</button>
+        <button type="button" class="tb-key tb-key-fn" data-fn="sin">sin</button>
+        <button type="button" class="tb-key tb-key-fn" data-fn="cos">cos</button>
+        <button type="button" class="tb-key tb-key-fn" data-fn="tan">tan</button>
+        <button type="button" class="tb-key tb-key-clear" id="btn-clear">AC</button>
+
+        <!-- Row 2 -->
+        <button type="button" class="tb-key tb-key-fn" data-fn="asin">sin⁻¹</button>
+        <button type="button" class="tb-key tb-key-fn" data-fn="acos">cos⁻¹</button>
+        <button type="button" class="tb-key tb-key-fn" data-fn="atan">tan⁻¹</button>
+        <button type="button" class="tb-key tb-key-fn" data-insert="(">(</button>
+        <button type="button" class="tb-key tb-key-fn" data-insert=")">)</button>
+
+        <!-- Row 3 -->
+        <button type="button" class="tb-key tb-key-fn" data-fn="ln">ln</button>
+        <button type="button" class="tb-key tb-key-fn" data-fn="log">log</button>
+        <button type="button" class="tb-key tb-key-fn" data-fn="sqrt">√</button>
+        <button type="button" class="tb-key tb-key-fn" data-insert="^">xʸ</button>
+        <button type="button" class="tb-key tb-key-op" data-insert="/">÷</button>
+
+        <!-- Row 4 -->
+        <button type="button" class="tb-key tb-key-fn" data-insert="Math.PI">π</button>
+        <button type="button" class="tb-key" data-insert="7">7</button>
+        <button type="button" class="tb-key" data-insert="8">8</button>
+        <button type="button" class="tb-key" data-insert="9">9</button>
+        <button type="button" class="tb-key tb-key-op" data-insert="*">&times;</button>
+
+        <!-- Row 5 -->
+        <button type="button" class="tb-key tb-key-fn" data-insert="Math.E">e</button>
+        <button type="button" class="tb-key" data-insert="4">4</button>
+        <button type="button" class="tb-key" data-insert="5">5</button>
+        <button type="button" class="tb-key" data-insert="6">6</button>
+        <button type="button" class="tb-key tb-key-op" data-insert="-">&minus;</button>
+
+        <!-- Row 6 -->
+        <button type="button" class="tb-key tb-key-fn" data-fn="fact">x!</button>
+        <button type="button" class="tb-key" data-insert="1">1</button>
+        <button type="button" class="tb-key" data-insert="2">2</button>
+        <button type="button" class="tb-key" data-insert="3">3</button>
+        <button type="button" class="tb-key tb-key-op" data-insert="+">+</button>
+
+        <!-- Row 7 -->
+        <button type="button" class="tb-key tb-key-fn" id="btn-back">⌫</button>
+        <button type="button" class="tb-key" data-insert="0">0</button>
+        <button type="button" class="tb-key" data-insert=".">.</button>
+        <button type="button" class="tb-key tb-key-eq" id="btn-equals">=</button>
+      </div>
+
+      <!-- History Log -->
+      <div class="tb-sci-history">
+        <div class="tb-history-title">
+          <span>Calculation History</span>
+          <span id="btn-clear-history" style="cursor: pointer; color: var(--accent-danger);">Clear</span>
+        </div>
+        <div class="tb-history-list" id="sci-history-list">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; padding: 0.5rem;">No recent calculations</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & SEO Guide Section -->
+    <article class="tb-article" style="margin-top: 3rem;">
+      <h2>Using the Online Scientific Calculator</h2>
+      <p>
+        A scientific calculator provides essential trigonometric, logarithmic, and exponential operations for STEM students, researchers, and engineers.
+      </p>
+      <h3>Trigonometry and Angle Units</h3>
+      <p>
+        By default, the calculator operates in <strong>Degrees (DEG)</strong>. To switch to <strong>Radians (RAD)</strong> for calculus or wave mechanics, click the DEG/RAD toggle button at the top-left of the keypad.
+      </p>
+    </article>
+
+    <!-- FAQ Accordion -->
+    <section class="tb-faq-section">
+      <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+      <div class="tb-faq-list">
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">Does this calculator support radians and degrees?</summary>
+          <div class="tb-faq-answer">
+            <p>Yes! Use the DEG / RAD toggle button to switch trigonometry modes instantly.</p>
+          </div>
+        </details>
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">Can I use my physical computer keyboard?</summary>
+          <div class="tb-faq-answer">
+            <p>Yes, standard numbers (0-9), operators (+, -, *, /), parentheses, Enter (=), and Backspace are supported directly.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+          <!-- Tools-Sidebar -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-6130384188487467"
+               data-ad-slot="8150977743"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+        <!-- Popular Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Popular Calculators
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="mortgage-calculator.html" class="tb-sidebar-link"><span>Mortgage Calculator</span><span>&rarr;</span></a>
+            <a href="loan-calculator.html" class="tb-sidebar-link"><span>Loan & EMI Calculator</span><span>&rarr;</span></a>
+            <a href="percentage-calculator.html" class="tb-sidebar-link"><span>Percentage Calculator</span><span>&rarr;</span></a>
+            <a href="compound-interest-calculator.html" class="tb-sidebar-link"><span>Compound Interest</span><span>&rarr;</span></a>
+            <a href="bmi-calculator.html" class="tb-sidebar-link"><span>BMI Calculator</span><span>&rarr;</span></a>
+            <a href="calorie-calculator.html" class="tb-sidebar-link"><span>Calorie & Macro Calc</span><span>&rarr;</span></a>
+            <a href="age-calculator.html" class="tb-sidebar-link"><span>Exact Age Calculator</span><span>&rarr;</span></a>
+            <a href="scientific-calculator.html" class="tb-sidebar-link"><span>Scientific Calculator</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All computations execute strictly inside your local web browser. Zero server logging, no sign-ups required.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6130384188487467" data-ad-slot="3385897927" data-ad-format="autorelaxed" data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. 100% Client-Side.</div>
+        <div>Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const exprEl = document.getElementById('sci-expr');
+      const resultEl = document.getElementById('sci-result');
+      const degRadBtn = document.getElementById('btn-deg-rad');
+      const historyListEl = document.getElementById('sci-history-list');
+
+      let currentExpr = '';
+      let isDeg = true;
+      let history = [];
+
+      degRadBtn.addEventListener('click', () => {
+        isDeg = !isDeg;
+        degRadBtn.textContent = isDeg ? 'DEG' : 'RAD';
+      });
+
+      function insertText(txt) {
+        if (txt === 'Math.PI') txt = 'π';
+        if (txt === 'Math.E') txt = 'e';
+        currentExpr += txt;
+        updateDisplay();
+      }
+
+      function updateDisplay() {
+        exprEl.textContent = currentExpr || ' ';
+      }
+
+      function clearAll() {
+        currentExpr = '';
+        resultEl.textContent = '0';
+        updateDisplay();
+      }
+
+      function backspace() {
+        currentExpr = currentExpr.slice(0, -1);
+        updateDisplay();
+      }
+
+      function factorial(n) {
+        if (n < 0 || Math.floor(n) !== n) return NaN;
+        if (n === 0 || n === 1) return 1;
+        let res = 1;
+        for (let i = 2; i <= n; i++) res *= i;
+        return res;
+      }
+
+      function evaluateExpr() {
+        if (!currentExpr) return;
+        try {
+          // Prepare expression for safe evaluation
+          let evalStr = currentExpr
+            .replace(/π/g, 'Math.PI')
+            .replace(/e/g, 'Math.E')
+            .replace(/÷/g, '/')
+            .replace(/×/g, '*')
+            .replace(/\^/g, '**');
+
+          // Replace functions
+          evalStr = evalStr
+            .replace(/sin\(/g, isDeg ? 'Math.sin((Math.PI/180)*' : 'Math.sin(')
+            .replace(/cos\(/g, isDeg ? 'Math.cos((Math.PI/180)*' : 'Math.cos(')
+            .replace(/tan\(/g, isDeg ? 'Math.tan((Math.PI/180)*' : 'Math.tan(')
+            .replace(/asin\(/g, isDeg ? '(180/Math.PI)*Math.asin(' : 'Math.asin(')
+            .replace(/acos\(/g, isDeg ? '(180/Math.PI)*Math.acos(' : 'Math.acos(')
+            .replace(/atan\(/g, isDeg ? '(180/Math.PI)*Math.atan(' : 'Math.atan(')
+            .replace(/ln\(/g, 'Math.log(')
+            .replace(/log\(/g, 'Math.log10(')
+            .replace(/sqrt\(/g, 'Math.sqrt(');
+
+          // Evaluate safely
+          const result = Function('"use strict";return (' + evalStr + ')')();
+          if (isNaN(result) || !isFinite(result)) {
+            resultEl.textContent = 'Error';
+            return;
+          }
+
+          const formattedResult = Number(result.toFixed(8)).toString();
+          resultEl.textContent = formattedResult;
+
+          // Save to history
+          addHistory(currentExpr, formattedResult);
+          currentExpr = formattedResult;
+          updateDisplay();
+
+          if (window.refreshAds) {
+            window.refreshAds('calculate_scientific');
+          }
+        } catch (err) {
+          resultEl.textContent = 'Syntax Error';
+        }
+      }
+
+      function applyFunction(fn) {
+        if (fn === 'fact') {
+          try {
+            const num = parseFloat(resultEl.textContent) || 0;
+            const res = factorial(num);
+            resultEl.textContent = isNaN(res) ? 'Error' : res;
+            currentExpr = `${num}!`;
+            updateDisplay();
+          } catch (e) {
+            resultEl.textContent = 'Error';
+          }
+        } else {
+          currentExpr += `${fn}(`;
+          updateDisplay();
+        }
+      }
+
+      function addHistory(expr, res) {
+        history.unshift({ expr, res });
+        if (history.length > 10) history.pop();
+        renderHistory();
+      }
+
+      function renderHistory() {
+        if (!history.length) {
+          historyListEl.innerHTML = '<div style="font-size: 0.8rem; color: var(--text-muted); text-align: center; padding: 0.5rem;">No recent calculations</div>';
+          return;
+        }
+
+        historyListEl.innerHTML = history.map(item => `
+          <div class="tb-history-item" onclick="document.getElementById('sci-result').textContent = '${item.res}';">
+            <span>${item.expr} =</span>
+            <strong>${item.res}</strong>
+          </div>
+        `).join('');
+      }
+
+      document.getElementById('btn-clear-history').addEventListener('click', () => {
+        history = [];
+        renderHistory();
+      });
+
+      // Keypad bindings
+      document.querySelectorAll('[data-insert]').forEach(btn => {
+        btn.addEventListener('click', () => insertText(btn.getAttribute('data-insert')));
+      });
+
+      document.querySelectorAll('[data-fn]').forEach(btn => {
+        btn.addEventListener('click', () => applyFunction(btn.getAttribute('data-fn')));
+      });
+
+      document.getElementById('btn-clear').addEventListener('click', clearAll);
+      document.getElementById('btn-back').addEventListener('click', backspace);
+      document.getElementById('btn-equals').addEventListener('click', evaluateExpr);
+
+      // Keyboard bindings
+      document.addEventListener('keydown', (e) => {
+        if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        if ((e.key >= '0' && e.key <= '9') || ['+', '-', '*', '/', '.', '(', ')'].includes(e.key)) {
+          insertText(e.key);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          evaluateExpr();
+        } else if (e.key === 'Backspace') {
+          backspace();
+        } else if (e.key === 'Escape') {
+          clearAll();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

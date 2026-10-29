@@ -3,7 +3,8 @@
    ========================================================================== */
 
 .tb-tool-wrapper {
-  padding: 2.75rem 0 4.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 4.5rem;
 }
 
 /* Breadcrumbs */
@@ -45,7 +46,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0.3rem 0.75rem;
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
   margin-bottom: 0.75rem;
   border: 1px solid var(--border-color);
@@ -68,8 +69,6 @@
   line-height: 1.6;
 }
 
-
-
 /* Workspace Layout */
 .tb-workspace {
   background-color: var(--bg-surface);
@@ -81,12 +80,44 @@
 }
 
 .tb-workspace-inner {
-  padding: 2rem;
+  padding: 2.25rem;
+}
+
+@media (max-width: 860px) {
+  .tb-workspace-inner {
+    padding: 1.65rem;
+  }
 }
 
 @media (max-width: 640px) {
+  .tb-tool-wrapper {
+    padding-top: 1.75rem;
+    padding-bottom: 3.5rem;
+  }
+  .tb-workspace {
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.75rem;
+  }
   .tb-workspace-inner {
+    padding: 1.35rem;
+  }
+  .tb-results-card {
     padding: 1.25rem;
+  }
+  .tb-result-highlight {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .tb-workspace-inner {
+    padding: 1.15rem;
+  }
+  .tb-results-card {
+    padding: 1rem;
+  }
+  .tb-stat-box {
+    padding: 0.75rem 0.85rem;
   }
 }
 
@@ -445,12 +476,16 @@
 .tb-table-wrapper {
   max-height: 420px;
   overflow-y: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
+  width: 100%;
 }
 
 .tb-table {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
   text-align: left;
   font-size: 0.875rem;
@@ -460,14 +495,14 @@
   background-color: var(--bg-hover);
   color: var(--text-primary);
   font-weight: 700;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.15rem;
   position: sticky;
   top: 0;
   border-bottom: 2px solid var(--border-color);
 }
 
 .tb-table td {
-  padding: 0.7rem 1rem;
+  padding: 0.75rem 1.15rem;
   border-bottom: 1px solid var(--border-color);
   color: var(--text-secondary);
 }
@@ -481,15 +516,22 @@
   background-color: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: 2.5rem;
+  padding: 2.25rem;
   margin-bottom: 2.5rem;
   color: var(--text-secondary);
   line-height: 1.75;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .tb-seo-article {
-    padding: 1.5rem;
+    padding: 1.65rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tb-seo-article {
+    padding: 1.25rem;
   }
 }
 

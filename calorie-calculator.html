@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie & Macro Calculator (TDEE & BMR) | ToolsBuddy</title>
+  <meta name="description" content="Calculate your daily calorie needs (TDEE), BMR, and macronutrient targets for weight loss, maintenance, or muscle gain using scientific formulas.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/calorie-calculator.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/calorie-calculator.html">
+  <meta property="og:title" content="Calorie & Macro Calculator (TDEE & BMR) | ToolsBuddy">
+  <meta property="og:description" content="Accurate daily calorie and macronutrient planner. Supports Mifflin-St Jeor, Harris-Benedict, metric and imperial units.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calorie & Macro Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Compute daily calorie intake for fat loss, maintenance, and lean muscle building.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calorie, Macro & TDEE Calculator",
+        "url": "https://toolsbuddy.pages.dev/calorie-calculator.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculates Total Daily Energy Expenditure (TDEE), Basal Metabolic Rate (BMR), and custom macronutrient splits for body composition goals.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between BMR and TDEE?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BMR (Basal Metabolic Rate) is the base energy required just to stay alive at complete rest. TDEE (Total Daily Energy Expenditure) multiplies BMR by your physical activity factor to determine your total daily burn."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many calories deficit is safe for fat loss?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A standard, sustainable deficit is 500 calories per day (equivalent to losing ~1 pound of body fat per week). Deficits larger than 1,000 kcal/day should only be undertaken under medical guidance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which equation is most accurate for calories?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Mifflin-St Jeor equation is recognized by the American Dietetic Association as the most reliable standard for predicting resting metabolic rate in healthy individuals."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header -->
+    <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <div class="tb-mobile-accordion" id="tb-mobile-calc-accordion">
+          <button type="button" class="tb-mobile-link tb-mobile-accordion-toggle" id="tb-mobile-calc-toggle" aria-expanded="false">
+            <span class="tb-mobile-link-content">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+              <span>Calculators</span>
+            </span>
+            <svg class="tb-accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-mobile-accordion-body" id="tb-mobile-calc-body">
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Financial Calculators</div>
+              <a href="mortgage-calculator.html" class="tb-mobile-sublink">Mortgage Calculator</a>
+              <a href="loan-calculator.html" class="tb-mobile-sublink">Loan & EMI Calculator</a>
+              <a href="compound-interest-calculator.html" class="tb-mobile-sublink">Compound Interest</a>
+              <a href="financial-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Financial Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Fitness & Health</div>
+              <a href="bmi-calculator.html" class="tb-mobile-sublink">BMI & Ideal Weight</a>
+              <a href="calorie-calculator.html" class="tb-mobile-sublink">Calorie & Macro Calculator</a>
+              <a href="fitness-health-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Health Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Math Calculators</div>
+              <a href="percentage-calculator.html" class="tb-mobile-sublink">Percentage Calculator</a>
+              <a href="scientific-calculator.html" class="tb-mobile-sublink">Scientific Calculator</a>
+              <a href="math-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Math Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Everyday & Utilities</div>
+              <a href="age-calculator.html" class="tb-mobile-sublink">Exact Age Calculator</a>
+              <a href="other-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Everyday Utilities &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>EbookBuddy AI</span>
+        </a>
+        <a href="blog/index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Blog & Guides</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="fitness-health-calculators.html">Fitness & Health</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Calorie & Macro Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        Diet & Energy
+      </span>
+      <h1 class="tb-tool-title">Calorie & Macro Calculator</h1>
+      <p class="tb-tool-desc">
+        Calculate your daily maintenance calories (TDEE), resting metabolic rate (BMR), and custom macronutrient splits for fat loss or muscle building.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6130384188487467" data-ad-slot="4369386116" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Area -->
+      <div class="tb-tool-main">
+
+    <!-- Platform Toolbar -->
+    <div class="tb-platform-toolbar">
+      <div class="tb-toolbar-group">
+        <label>Unit System:</label>
+        <div class="tb-unit-toggle">
+          <button type="button" class="tb-unit-btn active" id="btn-unit-us">US Units (lbs/ft-in)</button>
+          <button type="button" class="tb-unit-btn" id="btn-unit-metric">Metric (kg/cm)</button>
+        </div>
+      </div>
+      <div class="tb-toolbar-group">
+        <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+          Share Plan
+        </button>
+        <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Presets -->
+    <div class="tb-presets-wrapper" id="calorie-presets">
+      <span class="tb-presets-label">Quick Scenarios:</span>
+      <button type="button" class="tb-preset-chip active" data-preset='{"age":28,"gender":"male","weightLbs":175,"heightFeet":5,"heightInches":10,"activity":1.375,"goal":"maintain"}'>28yo Active Male (175 lbs)</button>
+      <button type="button" class="tb-preset-chip" data-preset='{"age":26,"gender":"female","weightLbs":140,"heightFeet":5,"heightInches":5,"activity":1.375,"goal":"lose-1"}'>26yo Active Female (140 lbs)</button>
+      <button type="button" class="tb-preset-chip" data-preset='{"age":35,"gender":"male","weightLbs":190,"heightFeet":6,"heightInches":0,"activity":1.55,"goal":"lose-1"}'>35yo Athletic Male (190 lbs)</button>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+        <div class="tb-grid-2">
+          <!-- Inputs Form -->
+          <form class="tb-grid-form" id="calorie-form" onsubmit="event.preventDefault();">
+            <div class="tb-grid-form cols-2">
+              <div class="tb-field">
+                <label for="user-age" class="tb-label">Age (years)</label>
+                <input type="number" id="user-age" class="tb-input" min="15" max="100" value="28" required>
+              </div>
+              <div class="tb-field">
+                <label class="tb-label">Biological Gender</label>
+                <div class="tb-unit-toggle" style="width: 100%;">
+                  <button type="button" class="tb-unit-btn active" id="btn-gender-male" style="flex: 1;">Male</button>
+                  <button type="button" class="tb-unit-btn" id="btn-gender-female" style="flex: 1;">Female</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- US Height / Weight -->
+            <div id="us-inputs-container">
+              <div class="tb-field">
+                <label class="tb-label">Height</label>
+                <div class="tb-grid-form cols-2">
+                  <div class="tb-input-group">
+                    <input type="number" id="height-ft" class="tb-input" min="3" max="8" value="5">
+                    <span class="tb-input-suffix">ft</span>
+                  </div>
+                  <div class="tb-input-group">
+                    <input type="number" id="height-in" class="tb-input" min="0" max="11" value="10">
+                    <span class="tb-input-suffix">in</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="weight-lbs" class="tb-label">Current Weight</label>
+                <div class="tb-input-group">
+                  <input type="number" id="weight-lbs" class="tb-input" min="50" max="600" step="0.5" value="175">
+                  <span class="tb-input-suffix">lbs</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Metric Height / Weight -->
+            <div id="metric-inputs-container" style="display: none;">
+              <div class="tb-field">
+                <label for="height-cm" class="tb-label">Height</label>
+                <div class="tb-input-group">
+                  <input type="number" id="height-cm" class="tb-input" min="90" max="250" value="178">
+                  <span class="tb-input-suffix">cm</span>
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="weight-kg" class="tb-label">Current Weight</label>
+                <div class="tb-input-group">
+                  <input type="number" id="weight-kg" class="tb-input" min="30" max="300" step="0.5" value="79.5">
+                  <span class="tb-input-suffix">kg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-field">
+              <label for="activity-level" class="tb-label">Physical Activity Level</label>
+              <select id="activity-level" class="tb-select">
+                <option value="1.2">Sedentary (desk job, little to no exercise)</option>
+                <option value="1.375" selected>Lightly Active (light exercise 1-3 days/week)</option>
+                <option value="1.55">Moderately Active (moderate exercise 3-5 days/week)</option>
+                <option value="1.725">Very Active (heavy exercise 6-7 days/week)</option>
+                <option value="1.9">Extremely Active (physical job & heavy training 2x/day)</option>
+              </select>
+            </div>
+
+            <div class="tb-field">
+              <label for="macro-preference" class="tb-label">Macronutrient Distribution</label>
+              <select id="macro-preference" class="tb-select">
+                <option value="balanced" selected>Balanced (45% Carbs, 25% Protein, 30% Fat)</option>
+                <option value="high-protein">High Protein (35% Carbs, 35% Protein, 30% Fat)</option>
+                <option value="low-carb">Low Carb / Athletic (20% Carbs, 40% Protein, 40% Fat)</option>
+                <option value="keto">Ketogenic (5% Carbs, 25% Protein, 70% Fat)</option>
+              </select>
+            </div>
+
+            <div class="tb-btn-group">
+              <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Calculate Calories
+              </button>
+              <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset</button>
+            </div>
+          </form>
+
+          <!-- Results Summary Card -->
+          <div class="tb-results-card">
+            <div class="tb-result-highlight">
+              <div class="tb-result-label">Daily Maintenance Calories (TDEE)</div>
+              <div class="tb-result-value" id="res-tdee">2,425 kcal</div>
+              <div class="tb-result-subtext" id="res-bmr-sub">Base Metabolic Rate (BMR): 1,764 kcal/day</div>
+            </div>
+
+            <!-- Calorie Goal Targets Matrix -->
+            <div style="margin-top: 1.25rem;">
+              <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.75rem;">Target Goals Spectrum</h4>
+              <div class="tb-stats-grid cols-2">
+                <div class="tb-stat-box" style="border-left: 3px solid var(--accent-success);">
+                  <div class="tb-stat-num" id="res-mild-loss">2,175</div>
+                  <div class="tb-stat-lbl">Mild Fat Loss (-0.5 lb/wk)</div>
+                </div>
+                <div class="tb-stat-box" style="border-left: 3px solid var(--brand-primary);">
+                  <div class="tb-stat-num" id="res-weight-loss">1,925</div>
+                  <div class="tb-stat-lbl">Standard Fat Loss (-1 lb/wk)</div>
+                </div>
+                <div class="tb-stat-box" style="border-left: 3px solid var(--accent-warning);">
+                  <div class="tb-stat-num" id="res-fast-loss">1,425</div>
+                  <div class="tb-stat-lbl">Aggressive Loss (-2 lb/wk)</div>
+                </div>
+                <div class="tb-stat-box" style="border-left: 3px solid #8b5cf6;">
+                  <div class="tb-stat-num" id="res-muscle-gain">2,675</div>
+                  <div class="tb-stat-lbl">Lean Muscle Gain (+250 kcal)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Macronutrient Breakdown -->
+            <div class="tb-chart-card" style="margin-top: 1.25rem; padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-weight: 700; font-size: 0.95rem;">Macronutrient Split (for 1 lb/wk Fat Loss)</span>
+                <span id="res-target-macro-cal" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-primary);">1,925 kcal</span>
+              </div>
+
+              <!-- Segmented Bar -->
+              <div class="tb-macro-bar">
+                <div class="tb-macro-seg" id="seg-protein" style="width: 35%; background-color: #ef4444;">Protein</div>
+                <div class="tb-macro-seg" id="seg-carbs" style="width: 35%; background-color: #3b82f6;">Carbs</div>
+                <div class="tb-macro-seg" id="seg-fat" style="width: 30%; background-color: #f59e0b;">Fat</div>
+              </div>
+
+              <div class="tb-stats-grid" style="grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.75rem;">
+                <div class="tb-stat-box" style="padding: 0.5rem;">
+                  <div class="tb-stat-num" id="macro-protein" style="font-size: 1.1rem; color: #ef4444;">168g</div>
+                  <div class="tb-stat-lbl" style="font-size: 0.7rem;">Protein (4 kcal/g)</div>
+                </div>
+                <div class="tb-stat-box" style="padding: 0.5rem;">
+                  <div class="tb-stat-num" id="macro-carbs" style="font-size: 1.1rem; color: #3b82f6;">168g</div>
+                  <div class="tb-stat-lbl" style="font-size: 0.7rem;">Carbs (4 kcal/g)</div>
+                </div>
+                <div class="tb-stat-box" style="padding: 0.5rem;">
+                  <div class="tb-stat-num" id="macro-fat" style="font-size: 1.1rem; color: #f59e0b;">64g</div>
+                  <div class="tb-stat-lbl" style="font-size: 0.7rem;">Fat (9 kcal/g)</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-btn-group" style="margin-top: 1rem;">
+              <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Nutrition Targets
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & SEO Guide Section -->
+    <article class="tb-article">
+      <h2>How Daily Calorie & TDEE Calculations Work</h2>
+      <p>
+        Your body burns calories through three primary mechanisms: your <strong>Basal Metabolic Rate (BMR)</strong>, the <strong>Thermic Effect of Food (TEF)</strong>, and <strong>Physical Activity Expenditure</strong>.
+      </p>
+      <h3>The Mifflin-St Jeor Formula</h3>
+      <p>
+        Our calculator computes your BMR using the Mifflin-St Jeor equation, widely regarded by clinicians and sports scientists as the gold standard:
+      </p>
+      <ul>
+        <li><strong>For Men:</strong> BMR = 10 &times; weight (kg) + 6.25 &times; height (cm) - 5 &times; age (years) + 5</li>
+        <li><strong>For Women:</strong> BMR = 10 &times; weight (kg) + 6.25 &times; height (cm) - 5 &times; age (years) - 161</li>
+      </ul>
+      <p>
+        Your BMR is then multiplied by your activity coefficient (from 1.2 for sedentary up to 1.9 for extreme athletics) to determine your <strong>TDEE</strong>.
+      </p>
+    </article>
+
+    <!-- FAQ Accordion -->
+    <section class="tb-faq-section">
+      <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+      <div class="tb-faq-list">
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">What is the difference between BMR and TDEE?</summary>
+          <div class="tb-faq-answer">
+            <p>BMR (Basal Metabolic Rate) is the base energy required just to stay alive at complete rest. TDEE (Total Daily Energy Expenditure) multiplies BMR by your physical activity factor to determine your total daily burn.</p>
+          </div>
+        </details>
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">How many calories deficit is safe for fat loss?</summary>
+          <div class="tb-faq-answer">
+            <p>A standard, sustainable deficit is 500 calories per day (equivalent to losing ~1 pound of body fat per week). Deficits larger than 1,000 kcal/day should only be undertaken under medical guidance.</p>
+          </div>
+        </details>
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">Which equation is most accurate for calories?</summary>
+          <div class="tb-faq-answer">
+            <p>The Mifflin-St Jeor equation is recognized by the American Dietetic Association as the most reliable standard for predicting resting metabolic rate in healthy individuals.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+          <!-- Tools-Sidebar -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-6130384188487467"
+               data-ad-slot="8150977743"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+        <!-- Popular Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Popular Calculators
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="mortgage-calculator.html" class="tb-sidebar-link"><span>Mortgage Calculator</span><span>&rarr;</span></a>
+            <a href="loan-calculator.html" class="tb-sidebar-link"><span>Loan & EMI Calculator</span><span>&rarr;</span></a>
+            <a href="percentage-calculator.html" class="tb-sidebar-link"><span>Percentage Calculator</span><span>&rarr;</span></a>
+            <a href="compound-interest-calculator.html" class="tb-sidebar-link"><span>Compound Interest</span><span>&rarr;</span></a>
+            <a href="bmi-calculator.html" class="tb-sidebar-link"><span>BMI Calculator</span><span>&rarr;</span></a>
+            <a href="calorie-calculator.html" class="tb-sidebar-link"><span>Calorie & Macro Calc</span><span>&rarr;</span></a>
+            <a href="age-calculator.html" class="tb-sidebar-link"><span>Exact Age Calculator</span><span>&rarr;</span></a>
+            <a href="scientific-calculator.html" class="tb-sidebar-link"><span>Scientific Calculator</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All computations execute strictly inside your local web browser. Zero server logging, no sign-ups required.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6130384188487467" data-ad-slot="3385897927" data-ad-format="autorelaxed" data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('calorie-form');
+      const inAge = document.getElementById('user-age');
+      const btnMale = document.getElementById('btn-gender-male');
+      const btnFemale = document.getElementById('btn-gender-female');
+      let currentGender = 'male';
+
+      const btnUs = document.getElementById('btn-unit-us');
+      const btnMetric = document.getElementById('btn-unit-metric');
+      let currentUnit = 'us';
+
+      const inHeightFt = document.getElementById('height-ft');
+      const inHeightIn = document.getElementById('height-in');
+      const inWeightLbs = document.getElementById('weight-lbs');
+
+      const inHeightCm = document.getElementById('height-cm');
+      const inWeightKg = document.getElementById('weight-kg');
+      const inActivity = document.getElementById('activity-level');
+      const inMacro = document.getElementById('macro-preference');
+
+      // Results elements
+      const resTdee = document.getElementById('res-tdee');
+      const resBmrSub = document.getElementById('res-bmr-sub');
+      const resMildLoss = document.getElementById('res-mild-loss');
+      const resWeightLoss = document.getElementById('res-weight-loss');
+      const resFastLoss = document.getElementById('res-fast-loss');
+      const resMuscleGain = document.getElementById('res-muscle-gain');
+      const resTargetMacroCal = document.getElementById('res-target-macro-cal');
+
+      const macroProtein = document.getElementById('macro-protein');
+      const macroCarbs = document.getElementById('macro-carbs');
+      const macroFat = document.getElementById('macro-fat');
+      const segProtein = document.getElementById('seg-protein');
+      const segCarbs = document.getElementById('seg-carbs');
+      const segFat = document.getElementById('seg-fat');
+
+      // Gender toggle
+      btnMale.addEventListener('click', () => {
+        currentGender = 'male';
+        btnMale.classList.add('active');
+        btnFemale.classList.remove('active');
+        calculateCalories();
+      });
+
+      btnFemale.addEventListener('click', () => {
+        currentGender = 'female';
+        btnFemale.classList.add('active');
+        btnMale.classList.remove('active');
+        calculateCalories();
+      });
+
+      // Unit toggle
+      btnUs.addEventListener('click', () => {
+        currentUnit = 'us';
+        btnUs.classList.add('active');
+        btnMetric.classList.remove('active');
+        document.getElementById('us-inputs-container').style.display = 'block';
+        document.getElementById('metric-inputs-container').style.display = 'none';
+
+        // Convert kg/cm to lbs/ft-in
+        const kg = parseFloat(inWeightKg.value) || 70;
+        const cm = parseFloat(inHeightCm.value) || 175;
+        inWeightLbs.value = (kg * 2.20462).toFixed(1);
+        const totalInches = cm / 2.54;
+        inHeightFt.value = Math.floor(totalInches / 12);
+        inHeightIn.value = Math.round(totalInches % 12);
+        calculateCalories();
+      });
+
+      btnMetric.addEventListener('click', () => {
+        currentUnit = 'metric';
+        btnMetric.classList.add('active');
+        btnUs.classList.remove('active');
+        document.getElementById('us-inputs-container').style.display = 'none';
+        document.getElementById('metric-inputs-container').style.display = 'block';
+
+        // Convert lbs/ft-in to kg/cm
+        const lbs = parseFloat(inWeightLbs.value) || 150;
+        const ft = parseFloat(inHeightFt.value) || 5;
+        const inches = parseFloat(inHeightIn.value) || 9;
+        inWeightKg.value = (lbs / 2.20462).toFixed(1);
+        inHeightCm.value = Math.round((ft * 12 + inches) * 2.54);
+        calculateCalories();
+      });
+
+      function calculateCalories() {
+        const age = parseFloat(inAge.value) || 28;
+        let weightKg = 0;
+        let heightCm = 0;
+
+        if (currentUnit === 'us') {
+          const lbs = parseFloat(inWeightLbs.value) || 150;
+          const ft = parseFloat(inHeightFt.value) || 5;
+          const inches = parseFloat(inHeightIn.value) || 9;
+          weightKg = lbs / 2.20462;
+          heightCm = (ft * 12 + inches) * 2.54;
+        } else {
+          weightKg = parseFloat(inWeightKg.value) || 70;
+          heightCm = parseFloat(inHeightCm.value) || 175;
+        }
+
+        const activity = parseFloat(inActivity.value) || 1.375;
+
+        // Mifflin-St Jeor
+        // Men: 10 * kg + 6.25 * cm - 5 * age + 5
+        // Women: 10 * kg + 6.25 * cm - 5 * age - 161
+        let bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age);
+        bmr = currentGender === 'male' ? bmr + 5 : bmr - 161;
+
+        const tdee = Math.round(bmr * activity);
+        const mildLoss = Math.round(tdee - 250);
+        const standardLoss = Math.round(tdee - 500);
+        const aggressiveLoss = Math.round(tdee - 1000);
+        const muscleGain = Math.round(tdee + 250);
+
+        resTdee.textContent = `${CalcCore.formatNumber(tdee)} kcal`;
+        resBmrSub.textContent = `Base Metabolic Rate (BMR): ${CalcCore.formatNumber(Math.round(bmr))} kcal/day`;
+        resMildLoss.textContent = `${CalcCore.formatNumber(mildLoss)} kcal`;
+        resWeightLoss.textContent = `${CalcCore.formatNumber(standardLoss)} kcal`;
+        resFastLoss.textContent = `${CalcCore.formatNumber(aggressiveLoss)} kcal`;
+        resMuscleGain.textContent = `${CalcCore.formatNumber(muscleGain)} kcal`;
+
+        // Calculate Macros based on Standard Loss Target
+        const targetCal = standardLoss;
+        resTargetMacroCal.textContent = `${CalcCore.formatNumber(targetCal)} kcal`;
+
+        const macroPreset = inMacro.value;
+        let pPct = 0.35, cPct = 0.35, fPct = 0.30;
+        if (macroPreset === 'balanced') {
+          pPct = 0.25; cPct = 0.45; fPct = 0.30;
+        } else if (macroPreset === 'low-carb') {
+          pPct = 0.40; cPct = 0.20; fPct = 0.40;
+        } else if (macroPreset === 'keto') {
+          pPct = 0.25; cPct = 0.05; fPct = 0.70;
+        }
+
+        const proteinGrams = Math.round((targetCal * pPct) / 4);
+        const carbGrams = Math.round((targetCal * cPct) / 4);
+        const fatGrams = Math.round((targetCal * fPct) / 9);
+
+        macroProtein.textContent = `${proteinGrams}g`;
+        macroCarbs.textContent = `${carbGrams}g`;
+        macroFat.textContent = `${fatGrams}g`;
+
+        segProtein.style.width = `${Math.round(pPct * 100)}%`;
+        segCarbs.style.width = `${Math.round(cPct * 100)}%`;
+        segFat.style.width = `${Math.round(fPct * 100)}%`;
+
+        segProtein.textContent = `Protein ${Math.round(pPct * 100)}%`;
+        segCarbs.textContent = `Carbs ${Math.round(cPct * 100)}%`;
+        segFat.textContent = `Fat ${Math.round(fPct * 100)}%`;
+      }
+
+      // Quick Presets
+      CalcCore.bindPresets('#calorie-presets', (preset) => {
+        inAge.value = preset.age;
+        if (preset.gender === 'female') {
+          btnFemale.click();
+        } else {
+          btnMale.click();
+        }
+        if (currentUnit === 'us') {
+          inWeightLbs.value = preset.weightLbs;
+          inHeightFt.value = preset.heightFeet;
+          inHeightIn.value = preset.heightInches;
+        } else {
+          inWeightKg.value = (preset.weightLbs / 2.20462).toFixed(1);
+          inHeightCm.value = Math.round((preset.heightFeet * 12 + preset.heightInches) * 2.54);
+        }
+        inActivity.value = preset.activity;
+        calculateCalories();
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Calorie & Nutrition Plan:
+Maintenance (TDEE): ${resTdee.textContent}
+BMR: ${resBmrSub.textContent}
+Standard Fat Loss Target: ${resWeightLoss.textContent}
+Macros: ${macroProtein.textContent} Protein, ${macroCarbs.textContent} Carbs, ${macroFat.textContent} Fat
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Nutrition plan copied to clipboard!', 'success');
+        });
+      });
+
+      // Bind reactive updates
+      CalcCore.bindReactive(form, calculateCalories);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateCalories);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        calculateCalories();
+      });
+    });
+  </script>
+</body>
+</html>

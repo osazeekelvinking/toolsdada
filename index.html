@@ -28,6 +28,9 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/tool.css">
 
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
@@ -122,23 +125,143 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="tb-header">
+    <header class="tb-header">
     <div class="tb-container tb-header-inner">
       <a href="index.html" class="tb-brand">
         <div class="tb-brand-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         </div>
         <div class="tb-brand-text">Tools<span>Buddy</span></div>
       </a>
       <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
         <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
         <a href="blog/index.html" class="tb-nav-link">Blog</a>
         <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
       </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <div class="tb-mobile-accordion" id="tb-mobile-calc-accordion">
+          <button type="button" class="tb-mobile-link tb-mobile-accordion-toggle" id="tb-mobile-calc-toggle" aria-expanded="false">
+            <span class="tb-mobile-link-content">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+              <span>Calculators</span>
+            </span>
+            <svg class="tb-accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-mobile-accordion-body" id="tb-mobile-calc-body">
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Financial Calculators</div>
+              <a href="mortgage-calculator.html" class="tb-mobile-sublink">Mortgage Calculator</a>
+              <a href="loan-calculator.html" class="tb-mobile-sublink">Loan & EMI Calculator</a>
+              <a href="compound-interest-calculator.html" class="tb-mobile-sublink">Compound Interest</a>
+              <a href="financial-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Financial Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Fitness & Health</div>
+              <a href="bmi-calculator.html" class="tb-mobile-sublink">BMI & Ideal Weight</a>
+              <a href="calorie-calculator.html" class="tb-mobile-sublink">Calorie & Macro Calculator</a>
+              <a href="fitness-health-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Health Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Math Calculators</div>
+              <a href="percentage-calculator.html" class="tb-mobile-sublink">Percentage Calculator</a>
+              <a href="scientific-calculator.html" class="tb-mobile-sublink">Scientific Calculator</a>
+              <a href="math-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Math Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Everyday & Utilities</div>
+              <a href="age-calculator.html" class="tb-mobile-sublink">Exact Age Calculator</a>
+              <a href="other-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Everyday Utilities &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>EbookBuddy AI</span>
+        </a>
+        <a href="blog/index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Blog & Guides</span>
+        </a>
+      </div>
     </div>
   </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
 
   <!-- Hero Section -->
   <section class="tb-hero">
@@ -163,7 +286,7 @@
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <input type="text" id="tb-search-input" class="tb-search-input" placeholder="Search 10+ free tools (e.g. loan, json, qr, percentage)..." autocomplete="off">
+          <input type="text" id="tb-search-input" class="tb-search-input" placeholder="Search 200+ free tools & calculators (e.g. mortgage, calorie, compound, loan, percent)..." autocomplete="off">
           <span id="tb-search-clear" class="tb-search-clear" title="Clear Search">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </span>
@@ -186,18 +309,66 @@
   <!-- Main Tools Grid Section -->
   <main class="tb-container tb-tools-section">
     <!-- Ad Unit: ad-top -->
-    <div class="tb-ad-container ad-top" id="ad-top-slot">
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
       <span class="tb-ad-label">Advertisement</span>
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-6130384188487467"
-           data-ad-slot="1201001001"
+           data-ad-slot="4369386116"
            data-ad-format="horizontal"
            data-full-width-responsive="true"></ins>
     </div>
 
     <!-- Tools Grid -->
     <div class="tb-tools-grid" id="tools-grid">
+      <!-- Flagship 1. Mortgage Calculator -->
+      <a href="mortgage-calculator.html" class="tb-card" data-category="calculators" data-title="Comprehensive Mortgage Calculator" data-desc="Calculate exact monthly mortgage payments with taxes, insurance, HOA, interactive donut breakdown, and amortization schedule." data-keywords="mortgage home loan piti amortization taxes insurance property down payment hoa">
+        <div class="tb-card-top">
+          <div class="tb-card-icon" style="background: rgba(0, 102, 255, 0.1); color: #0066ff;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <span class="tb-card-tag" style="background: #e0f2fe; color: #0284c7;">Finance</span>
+        </div>
+        <h2 class="tb-card-title">Mortgage Calculator</h2>
+        <p class="tb-card-desc">Complete PITI payment breakdown with interactive donut charts, multi-currency support, and amortization schedule.</p>
+        <div class="tb-card-footer">
+          <span>Open Tool</span>
+          <svg class="tb-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </a>
+
+      <!-- Flagship 2. Calorie & Macro Calculator -->
+      <a href="calorie-calculator.html" class="tb-card" data-category="calculators" data-title="Calorie & Macro Calculator (TDEE & BMR)" data-desc="Calculate daily calorie needs, BMR, TDEE, and macronutrient targets for weight loss or muscle gain." data-keywords="calorie tdee bmr macro nutrition weight loss diet calories burned protein">
+        <div class="tb-card-top">
+          <div class="tb-card-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </div>
+          <span class="tb-card-tag" style="background: #dcfce7; color: #15803d;">Health</span>
+        </div>
+        <h2 class="tb-card-title">Calorie & Macro Calculator</h2>
+        <p class="tb-card-desc">TDEE, BMR, and macronutrient target planner with metric/imperial toggle and goal spectrum bar.</p>
+        <div class="tb-card-footer">
+          <span>Open Tool</span>
+          <svg class="tb-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </a>
+
+      <!-- Flagship 3. Compound Interest Calculator -->
+      <a href="compound-interest-calculator.html" class="tb-card" data-category="calculators" data-title="Compound Interest & Investment Calculator" data-desc="Forecast portfolio growth with compound interest, regular deposits, interactive curves, and annual schedules." data-keywords="compound interest investment growth future value savings apy rate wealth compounding">
+        <div class="tb-card-top">
+          <div class="tb-card-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <span class="tb-card-tag" style="background: #fef3c7; color: #b45309;">Investments</span>
+        </div>
+        <h2 class="tb-card-title">Compound Interest Calculator</h2>
+        <p class="tb-card-desc">Forecast wealth accumulation with smooth interactive area growth charts and annual tables.</p>
+        <div class="tb-card-footer">
+          <span>Open Tool</span>
+          <svg class="tb-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </a>
+
       <!-- 1. Percentage Calculator -->
       <a href="percentage-calculator.html" class="tb-card" data-category="calculators" data-title="3-in-1 Percentage Calculator" data-desc="Calculate percentages, discounts, proportion ratios, and percentage increase or decrease." data-keywords="percentage discount math increase decrease ratio fraction">
         <div class="tb-card-top">
@@ -381,7 +552,85 @@
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
         <div class="tb-empty-title">No matching tools found</div>
-        <div class="tb-empty-desc">Try searching for keywords like "loan", "percentage", "qr", "format", or "counter".</div>
+        <div class="tb-empty-desc">Try searching for keywords like "mortgage", "calorie", "compound", "loan", "percentage", or "date".</div>
+      </div>
+    </div>
+
+    <!-- Category Hubs Showcase Section -->
+    <div style="margin-top: 4rem;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+          Explore 200+ Calculators by Category
+        </h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+          Comprehensive directory covering finance, health, science, math, and everyday engineering.
+        </p>
+      </div>
+
+      <div class="tb-hub-grid">
+        <a href="financial-calculators.html" class="tb-hub-card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(0, 102, 255, 0.1); color: #0066ff; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <div>
+              <div class="tb-hub-card-title" style="margin: 0;">Financial Calculators</div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: #0066ff;">75 Calculators</span>
+            </div>
+          </div>
+          <p class="tb-hub-card-desc">Mortgages, auto loans, investments, compound interest, 401(k), salary, and tax estimators.</p>
+          <div class="tb-hub-card-footer">
+            <span>Browse Finance &rarr;</span>
+          </div>
+        </a>
+
+        <a href="fitness-health-calculators.html" class="tb-hub-card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(16, 185, 129, 0.1); color: #10b981; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </div>
+            <div>
+              <div class="tb-hub-card-title" style="margin: 0;">Fitness & Health</div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: #10b981;">31 Calculators</span>
+            </div>
+          </div>
+          <p class="tb-hub-card-desc">BMI, daily calorie needs, BMR, TDEE, macros, body fat percentage, pace, and pregnancy trackers.</p>
+          <div class="tb-hub-card-footer">
+            <span>Browse Health &rarr;</span>
+          </div>
+        </a>
+
+        <a href="math-calculators.html" class="tb-hub-card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(245, 158, 11, 0.1); color: #f59e0b; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+            </div>
+            <div>
+              <div class="tb-hub-card-title" style="margin: 0;">Math & Statistics</div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: #f59e0b;">45 Calculators</span>
+            </div>
+          </div>
+          <p class="tb-hub-card-desc">Scientific calculator, fractions, percentages, triangles, standard deviation, and algebra.</p>
+          <div class="tb-hub-card-footer">
+            <span>Browse Math &rarr;</span>
+          </div>
+        </a>
+
+        <a href="other-calculators.html" class="tb-hub-card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(139, 92, 246, 0.1); color: #8b5cf6; display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            </div>
+            <div>
+              <div class="tb-hub-card-title" style="margin: 0;">Everyday Utilities</div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: #8b5cf6;">60 Calculators</span>
+            </div>
+          </div>
+          <p class="tb-hub-card-desc">Time and date duration, unit conversions, construction calculations, GPA, and developer tools.</p>
+          <div class="tb-hub-card-footer">
+            <span>Browse Utilities &rarr;</span>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -391,7 +640,7 @@
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-6130384188487467"
-           data-ad-slot="1201001003"
+           data-ad-slot="3385897927"
            data-ad-format="autorelaxed"
            data-full-width-responsive="true"></ins>
     </div>
@@ -443,6 +692,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/search-index.js"></script>
   <script src="js/main.js"></script>
   <script src="js/ads.js"></script>
 </body>

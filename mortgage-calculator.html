@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Calculator with Taxes, Insurance & Amortization | ToolsBuddy</title>
+  <meta name="description" content="Calculate your exact monthly mortgage payment (PITI) including principal, interest, property taxes, home insurance, and HOA fees. Includes interactive donut chart and amortization table.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/mortgage-calculator.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/mortgage-calculator.html">
+  <meta property="og:title" content="Mortgage Calculator with PITI & Amortization | ToolsBuddy">
+  <meta property="og:description" content="Instant mortgage calculation with visual donut breakdown, amortization schedule, multi-currency support, and extra payments payoff analyzer.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mortgage Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Calculate monthly mortgage payments with taxes, insurance, and amortization schedules.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Comprehensive Mortgage Calculator",
+        "url": "https://toolsbuddy.pages.dev/mortgage-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculates complete monthly mortgage payment (PITI) with property taxes, homeowners insurance, HOA fees, and interactive amortization schedule.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is included in a PITI mortgage payment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PITI stands for Principal, Interest, Taxes, and Insurance. It represents the total monthly cost of homeownership beyond the base loan repayment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does down payment affect my monthly payment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A larger down payment lowers your principal loan balance, reduces total interest paid, and allows you to avoid Private Mortgage Insurance (PMI) if you put down at least 20%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does extra monthly payment save money on a mortgage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Extra monthly payments go straight to the principal balance, reducing compounding interest for all subsequent months and shortening your loan term by years."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this calculator for non-US currencies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Use the Currency selector at the top to compute in EUR (€), GBP (£), NGN (₦), INR (₹), CAD (C$), AUD (A$), or JPY (¥)."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header -->
+    <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <div class="tb-mobile-accordion" id="tb-mobile-calc-accordion">
+          <button type="button" class="tb-mobile-link tb-mobile-accordion-toggle" id="tb-mobile-calc-toggle" aria-expanded="false">
+            <span class="tb-mobile-link-content">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+              <span>Calculators</span>
+            </span>
+            <svg class="tb-accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-mobile-accordion-body" id="tb-mobile-calc-body">
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Financial Calculators</div>
+              <a href="mortgage-calculator.html" class="tb-mobile-sublink">Mortgage Calculator</a>
+              <a href="loan-calculator.html" class="tb-mobile-sublink">Loan & EMI Calculator</a>
+              <a href="compound-interest-calculator.html" class="tb-mobile-sublink">Compound Interest</a>
+              <a href="financial-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Financial Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Fitness & Health</div>
+              <a href="bmi-calculator.html" class="tb-mobile-sublink">BMI & Ideal Weight</a>
+              <a href="calorie-calculator.html" class="tb-mobile-sublink">Calorie & Macro Calculator</a>
+              <a href="fitness-health-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Health Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Math Calculators</div>
+              <a href="percentage-calculator.html" class="tb-mobile-sublink">Percentage Calculator</a>
+              <a href="scientific-calculator.html" class="tb-mobile-sublink">Scientific Calculator</a>
+              <a href="math-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Math Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Everyday & Utilities</div>
+              <a href="age-calculator.html" class="tb-mobile-sublink">Exact Age Calculator</a>
+              <a href="other-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Everyday Utilities &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>EbookBuddy AI</span>
+        </a>
+        <a href="blog/index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Blog & Guides</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="financial-calculators.html">Financial Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Mortgage Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        Mortgage & Real Estate
+      </span>
+      <h1 class="tb-tool-title">Mortgage Calculator</h1>
+      <p class="tb-tool-desc">
+        Calculate your complete monthly housing cost (Principal, Interest, Taxes, Insurance & HOA). Compare scenarios, extra payments, and inspect the interactive amortization schedule.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6130384188487467" data-ad-slot="4369386116" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Area -->
+      <div class="tb-tool-main">
+
+    <!-- Platform Toolbar -->
+    <div class="tb-platform-toolbar">
+      <div class="tb-toolbar-group">
+        <label for="currency-select">Currency:</label>
+        <select id="currency-select" class="tb-currency-select">
+          <option value="$">USD ($)</option>
+          <option value="€">EUR (€)</option>
+          <option value="£">GBP (£)</option>
+          <option value="₦">NGN (₦)</option>
+          <option value="₹">INR (₹)</option>
+          <option value="C$">CAD (C$)</option>
+          <option value="A$">AUD (A$)</option>
+          <option value="¥">JPY (¥)</option>
+        </select>
+      </div>
+      <div class="tb-toolbar-group">
+        <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+          Share Calculation
+        </button>
+        <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print / PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Presets -->
+    <div class="tb-presets-wrapper" id="mortgage-presets">
+      <span class="tb-presets-label">Popular Presets:</span>
+      <button type="button" class="tb-preset-chip active" data-preset='{"homePrice":400000,"downPayment":80000,"downPct":20,"rate":6.5,"term":30,"propTax":4800,"homeIns":1500,"hoa":150}'>30-Yr Fixed (20% Down)</button>
+      <button type="button" class="tb-preset-chip" data-preset='{"homePrice":400000,"downPayment":80000,"downPct":20,"rate":5.8,"term":15,"propTax":4800,"homeIns":1500,"hoa":150}'>15-Yr Fixed (5.8%)</button>
+      <button type="button" class="tb-preset-chip" data-preset='{"homePrice":350000,"downPayment":12250,"downPct":3.5,"rate":6.75,"term":30,"propTax":4200,"homeIns":1350,"hoa":0}'>FHA 3.5% Down</button>
+      <button type="button" class="tb-preset-chip" data-preset='{"homePrice":750000,"downPayment":150000,"downPct":20,"rate":6.25,"term":30,"propTax":9000,"homeIns":2400,"hoa":250}'>Jumbo Loan (750k)</button>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+        <div class="tb-grid-2">
+          <!-- Inputs Form -->
+          <form class="tb-grid-form" id="mortgage-form" onsubmit="event.preventDefault();">
+            <div class="tb-field">
+              <label for="home-price" class="tb-label">
+                <span>Home Purchase Price</span>
+                <span class="tb-label-hint">Total Value</span>
+              </label>
+              <div class="tb-input-group">
+                <span class="tb-input-prefix" data-currency>$</span>
+                <input type="number" id="home-price" class="tb-input" min="10000" step="5000" value="400000" required>
+              </div>
+            </div>
+
+            <div class="tb-grid-form cols-2">
+              <div class="tb-field">
+                <label for="down-payment" class="tb-label">Down Payment</label>
+                <div class="tb-input-group">
+                  <span class="tb-input-prefix" data-currency>$</span>
+                  <input type="number" id="down-payment" class="tb-input" min="0" step="1000" value="80000">
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="down-pct" class="tb-label">Down Payment %</label>
+                <div class="tb-input-group">
+                  <input type="number" id="down-pct" class="tb-input" min="0" max="100" step="0.5" value="20">
+                  <span class="tb-input-suffix">%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-grid-form cols-2">
+              <div class="tb-field">
+                <label for="interest-rate" class="tb-label">Interest Rate (APR)</label>
+                <div class="tb-input-group">
+                  <input type="number" id="interest-rate" class="tb-input" min="0.1" max="25" step="0.05" value="6.5" required>
+                  <span class="tb-input-suffix">%</span>
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="loan-term" class="tb-label">Loan Term (Years)</label>
+                <select id="loan-term" class="tb-select">
+                  <option value="30" selected>30 Years</option>
+                  <option value="20">20 Years</option>
+                  <option value="15">15 Years</option>
+                  <option value="10">10 Years</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="tb-grid-form cols-2">
+              <div class="tb-field">
+                <label for="prop-tax" class="tb-label">
+                  <span>Property Taxes</span>
+                  <span class="tb-label-hint">/ year</span>
+                </label>
+                <div class="tb-input-group">
+                  <span class="tb-input-prefix" data-currency>$</span>
+                  <input type="number" id="prop-tax" class="tb-input" min="0" step="100" value="4800">
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="home-ins" class="tb-label">
+                  <span>Home Insurance</span>
+                  <span class="tb-label-hint">/ year</span>
+                </label>
+                <div class="tb-input-group">
+                  <span class="tb-input-prefix" data-currency>$</span>
+                  <input type="number" id="home-ins" class="tb-input" min="0" step="50" value="1500">
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-grid-form cols-2">
+              <div class="tb-field">
+                <label for="hoa-fee" class="tb-label">
+                  <span>HOA Dues</span>
+                  <span class="tb-label-hint">/ month</span>
+                </label>
+                <div class="tb-input-group">
+                  <span class="tb-input-prefix" data-currency>$</span>
+                  <input type="number" id="hoa-fee" class="tb-input" min="0" step="25" value="150">
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="extra-pay" class="tb-label">
+                  <span>Extra Monthly Pay</span>
+                  <span class="tb-label-hint">Optional</span>
+                </label>
+                <div class="tb-input-group">
+                  <span class="tb-input-prefix" data-currency>$</span>
+                  <input type="number" id="extra-pay" class="tb-input" min="0" step="50" value="0">
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-btn-group">
+              <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Calculate Mortgage
+              </button>
+              <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset Defaults</button>
+            </div>
+          </form>
+
+          <!-- Results Summary Card & Donut Chart -->
+          <div class="tb-results-card">
+            <div class="tb-result-highlight">
+              <div class="tb-result-label">Total Monthly Payment (PITI)</div>
+              <div class="tb-result-value" id="res-total-monthly">$2,572.64</div>
+              <div class="tb-result-subtext" id="res-piti-breakdown">Includes Principal, Interest, Taxes, Insurance & HOA</div>
+            </div>
+
+            <!-- Donut Chart Container -->
+            <div class="tb-chart-card" style="margin-top: 1rem; padding: 1rem;">
+              <div class="tb-chart-canvas-wrap">
+                <canvas id="mortgage-donut-canvas" width="300" height="220"></canvas>
+              </div>
+              <div class="tb-chart-legend" id="mortgage-legend">
+                <div class="tb-legend-item">
+                  <span class="tb-legend-color" style="background-color: #0066ff;"></span>
+                  <span>P&I: <span class="tb-legend-val" id="leg-pi">$2,022.64</span></span>
+                </div>
+                <div class="tb-legend-item">
+                  <span class="tb-legend-color" style="background-color: #10b981;"></span>
+                  <span>Taxes: <span class="tb-legend-val" id="leg-tax">$400.00</span></span>
+                </div>
+                <div class="tb-legend-item">
+                  <span class="tb-legend-color" style="background-color: #f59e0b;"></span>
+                  <span>Insurance: <span class="tb-legend-val" id="leg-ins">$125.00</span></span>
+                </div>
+                <div class="tb-legend-item">
+                  <span class="tb-legend-color" style="background-color: #8b5cf6;"></span>
+                  <span>HOA: <span class="tb-legend-val" id="leg-hoa">$150.00</span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-stats-grid cols-2" style="margin-top: 1.25rem;">
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-loan-amount">$320,000</div>
+                <div class="tb-stat-lbl">Loan Amount</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-total-interest">$408,150</div>
+                <div class="tb-stat-lbl">Total Interest Paid</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-payoff-date">Nov 2056</div>
+                <div class="tb-stat-lbl">Payoff Date</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-interest-saved">$0</div>
+                <div class="tb-stat-lbl">Interest Saved</div>
+              </div>
+            </div>
+
+            <div class="tb-btn-group" style="margin-top: 1rem;">
+              <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Mortgage Summary
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amortization Schedule Table -->
+        <div style="margin-top: 3rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+            <div>
+              <h3 style="font-size: 1.3rem; font-weight: 700;">Amortization Schedule</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Annual balance trajectory and principal vs interest reduction.</p>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-export-csv">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Export CSV
+              </button>
+              <div class="tb-unit-toggle">
+                <button type="button" class="tb-unit-btn active" id="btn-view-yearly">Annual</button>
+                <button type="button" class="tb-unit-btn" id="btn-view-monthly">Monthly</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tb-table-wrapper">
+            <table class="tb-table" id="mortgage-table">
+              <thead>
+                <tr>
+                  <th>Period</th>
+                  <th>Payment</th>
+                  <th>Principal</th>
+                  <th>Interest</th>
+                  <th>Total Interest</th>
+                  <th>Remaining Balance</th>
+                </tr>
+              </thead>
+              <tbody id="mortgage-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & SEO Guide Section -->
+    <article class="tb-article">
+      <h2>How the Mortgage Calculator Works</h2>
+      <p>
+        A comprehensive mortgage payment consists of more than just repaying the borrowed principal. Most lenders require an escrow account covering recurring municipal taxes and homeowner hazards. The standard formula used to compute your fixed monthly Principal & Interest (P&I) is:
+      </p>
+      <div style="background-color: var(--bg-hover); padding: 1.25rem; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.95rem; margin: 1rem 0; border: 1px solid var(--border-color);">
+        M = P &times; [ r(1 + r)<sup>n</sup> ] &divide; [ (1 + r)<sup>n</sup> - 1 ]
+      </div>
+      <p>
+        Where <strong>M</strong> is your monthly P&I payment, <strong>P</strong> is your loan principal amount, <strong>r</strong> is your monthly interest rate (annual APR &divide; 12), and <strong>n</strong> is the total number of monthly payments (years &times; 12).
+      </p>
+      <h3>Understanding the PITI Components</h3>
+      <ul>
+        <li><strong>Principal:</strong> The portion of each payment that directly decreases the outstanding loan balance.</li>
+        <li><strong>Interest:</strong> The fee charged by the lender for borrowing capital, front-loaded during the early years of the mortgage.</li>
+        <li><strong>Property Taxes:</strong> Annual taxes levied by your local municipal county or school district, divided into 12 monthly escrow installments.</li>
+        <li><strong>Homeowners Insurance:</strong> Hazard insurance policy protecting the physical property against storm, fire, or catastrophic damage.</li>
+        <li><strong>HOA Dues:</strong> Homeowners Association assessment for common amenities, maintenance, and community upkeep.</li>
+      </ul>
+    </article>
+
+    <!-- FAQ Accordion -->
+    <section class="tb-faq-section">
+      <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+      <div class="tb-faq-list">
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">What is included in a PITI mortgage payment?</summary>
+          <div class="tb-faq-answer">
+            <p>PITI stands for Principal, Interest, Taxes, and Insurance. It represents the total monthly cost of homeownership beyond the base loan repayment.</p>
+          </div>
+        </details>
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">How does down payment affect my monthly payment?</summary>
+          <div class="tb-faq-answer">
+            <p>A larger down payment lowers your principal loan balance, reduces total interest paid, and allows you to avoid Private Mortgage Insurance (PMI) if you put down at least 20%.</p>
+          </div>
+        </details>
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">How does extra monthly payment save money on a mortgage?</summary>
+          <div class="tb-faq-answer">
+            <p>Extra monthly payments go straight to the principal balance, reducing compounding interest for all subsequent months and shortening your loan term by years.</p>
+          </div>
+        </details>
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">Can I use this calculator for non-US currencies?</summary>
+          <div class="tb-faq-answer">
+            <p>Yes! Use the Currency selector at the top to compute in EUR (€), GBP (£), NGN (₦), INR (₹), CAD (C$), AUD (A$), or JPY (¥).</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+          <!-- Tools-Sidebar -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-6130384188487467"
+               data-ad-slot="8150977743"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+        <!-- Popular Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Popular Calculators
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="mortgage-calculator.html" class="tb-sidebar-link"><span>Mortgage Calculator</span><span>&rarr;</span></a>
+            <a href="loan-calculator.html" class="tb-sidebar-link"><span>Loan & EMI Calculator</span><span>&rarr;</span></a>
+            <a href="percentage-calculator.html" class="tb-sidebar-link"><span>Percentage Calculator</span><span>&rarr;</span></a>
+            <a href="compound-interest-calculator.html" class="tb-sidebar-link"><span>Compound Interest</span><span>&rarr;</span></a>
+            <a href="bmi-calculator.html" class="tb-sidebar-link"><span>BMI Calculator</span><span>&rarr;</span></a>
+            <a href="calorie-calculator.html" class="tb-sidebar-link"><span>Calorie & Macro Calc</span><span>&rarr;</span></a>
+            <a href="age-calculator.html" class="tb-sidebar-link"><span>Exact Age Calculator</span><span>&rarr;</span></a>
+            <a href="scientific-calculator.html" class="tb-sidebar-link"><span>Scientific Calculator</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All computations execute strictly inside your local web browser. Zero server logging, no sign-ups required.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6130384188487467" data-ad-slot="3385897927" data-ad-format="autorelaxed" data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('mortgage-form');
+      const inHomePrice = document.getElementById('home-price');
+      const inDownPayment = document.getElementById('down-payment');
+      const inDownPct = document.getElementById('down-pct');
+      const inRate = document.getElementById('interest-rate');
+      const inTerm = document.getElementById('loan-term');
+      const inPropTax = document.getElementById('prop-tax');
+      const inHomeIns = document.getElementById('home-ins');
+      const inHoa = document.getElementById('hoa-fee');
+      const inExtraPay = document.getElementById('extra-pay');
+
+      // Result elements
+      const resTotalMonthly = document.getElementById('res-total-monthly');
+      const resLoanAmount = document.getElementById('res-loan-amount');
+      const resTotalInterest = document.getElementById('res-total-interest');
+      const resPayoffDate = document.getElementById('res-payoff-date');
+      const resInterestSaved = document.getElementById('res-interest-saved');
+      const tableBody = document.getElementById('mortgage-table-body');
+      const donutCanvas = document.getElementById('mortgage-donut-canvas');
+
+      let currentSchedule = [];
+      let viewMode = 'yearly';
+
+      // Keep down payment amount and percentage synchronized
+      inHomePrice.addEventListener('input', () => {
+        const price = parseFloat(inHomePrice.value) || 0;
+        const pct = parseFloat(inDownPct.value) || 0;
+        inDownPayment.value = Math.round((price * pct) / 100);
+      });
+
+      inDownPayment.addEventListener('input', () => {
+        const price = parseFloat(inHomePrice.value) || 0;
+        const down = parseFloat(inDownPayment.value) || 0;
+        if (price > 0) inDownPct.value = ((down / price) * 100).toFixed(1);
+      });
+
+      inDownPct.addEventListener('input', () => {
+        const price = parseFloat(inHomePrice.value) || 0;
+        const pct = parseFloat(inDownPct.value) || 0;
+        inDownPayment.value = Math.round((price * pct) / 100);
+      });
+
+      function calculateMortgage() {
+        const homePrice = Math.max(0, parseFloat(inHomePrice.value) || 0);
+        const downPayment = Math.max(0, parseFloat(inDownPayment.value) || 0);
+        const principal = Math.max(0, homePrice - downPayment);
+        const annualRate = Math.max(0.01, parseFloat(inRate.value) || 0);
+        const monthlyRate = annualRate / 100 / 12;
+        const years = parseInt(inTerm.value, 10) || 30;
+        const totalMonths = years * 12;
+
+        const propTaxAnnual = Math.max(0, parseFloat(inPropTax.value) || 0);
+        const homeInsAnnual = Math.max(0, parseFloat(inHomeIns.value) || 0);
+        const hoaMonthly = Math.max(0, parseFloat(inHoa.value) || 0);
+        const extraMonthly = Math.max(0, parseFloat(inExtraPay.value) || 0);
+
+        const monthlyTax = propTaxAnnual / 12;
+        const monthlyIns = homeInsAnnual / 12;
+
+        // Base EMI Formula: M = P * [r(1+r)^n] / [(1+r)^n - 1]
+        let baseMonthlyPI = 0;
+        if (principal > 0 && monthlyRate > 0) {
+          const factor = Math.pow(1 + monthlyRate, totalMonths);
+          baseMonthlyPI = principal * (monthlyRate * factor) / (factor - 1);
+        }
+
+        const totalMonthlyPayment = baseMonthlyPI + monthlyTax + monthlyIns + hoaMonthly + extraMonthly;
+
+        // Baseline (no extra payment) total interest
+        const baselineTotalInterest = (baseMonthlyPI * totalMonths) - principal;
+
+        // Generate Amortization Schedule with Extra Payment
+        let balance = principal;
+        let totalInterestPaid = 0;
+        let totalPrincipalPaid = 0;
+        currentSchedule = [];
+
+        let currentYear = new Date().getFullYear();
+        let currentMonth = new Date().getMonth();
+
+        let yrPrincipal = 0;
+        let yrInterest = 0;
+        let yrPayment = 0;
+        let actualMonths = 0;
+
+        for (let m = 1; m <= totalMonths && balance > 0; m++) {
+          actualMonths++;
+          const interestPortion = balance * monthlyRate;
+          let paymentForMonth = baseMonthlyPI + extraMonthly;
+          let principalPortion = paymentForMonth - interestPortion;
+
+          if (principalPortion > balance) {
+            principalPortion = balance;
+            paymentForMonth = principalPortion + interestPortion;
+          }
+
+          balance -= principalPortion;
+          totalInterestPaid += interestPortion;
+          totalPrincipalPaid += principalPortion;
+
+          yrPrincipal += principalPortion;
+          yrInterest += interestPortion;
+          yrPayment += paymentForMonth;
+
+          // Record monthly entry
+          const date = new Date(currentYear, currentMonth + m);
+          const dateStr = date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+          currentSchedule.push({
+            type: 'monthly',
+            period: dateStr,
+            payment: paymentForMonth,
+            principal: principalPortion,
+            interest: interestPortion,
+            totalInterest: totalInterestPaid,
+            balance: Math.max(0, balance)
+          });
+
+          // End of year or payoff
+          if (m % 12 === 0 || balance <= 0) {
+            const yrIndex = Math.ceil(m / 12);
+            currentSchedule.push({
+              type: 'yearly',
+              period: `Year ${yrIndex}`,
+              payment: yrPayment,
+              principal: yrPrincipal,
+              interest: yrInterest,
+              totalInterest: totalInterestPaid,
+              balance: Math.max(0, balance)
+            });
+            yrPrincipal = 0;
+            yrInterest = 0;
+            yrPayment = 0;
+          }
+        }
+
+        const interestSaved = Math.max(0, baselineTotalInterest - totalInterestPaid);
+        const finalPayoffDate = new Date(currentYear, currentMonth + actualMonths);
+
+        // Update Highlights
+        resTotalMonthly.textContent = CalcCore.formatCurrency(totalMonthlyPayment);
+        resLoanAmount.textContent = CalcCore.formatCurrency(principal, 0);
+        resTotalInterest.textContent = CalcCore.formatCurrency(totalInterestPaid, 0);
+        resInterestSaved.textContent = CalcCore.formatCurrency(interestSaved, 0);
+        resPayoffDate.textContent = finalPayoffDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+        // Update Legend
+        document.getElementById('leg-pi').textContent = CalcCore.formatCurrency(baseMonthlyPI);
+        document.getElementById('leg-tax').textContent = CalcCore.formatCurrency(monthlyTax);
+        document.getElementById('leg-ins').textContent = CalcCore.formatCurrency(monthlyIns);
+        document.getElementById('leg-hoa').textContent = CalcCore.formatCurrency(hoaMonthly);
+
+        // Render Donut Breakdown Chart
+        const slices = [
+          { label: 'P&I', value: baseMonthlyPI, color: '#0066ff' },
+          { label: 'Taxes', value: monthlyTax, color: '#10b981' },
+          { label: 'Insurance', value: monthlyIns, color: '#f59e0b' },
+          { label: 'HOA', value: hoaMonthly, color: '#8b5cf6' }
+        ];
+
+        CalcCharts.drawDonut(donutCanvas, slices, {
+          centerLabel: 'MONTHLY PITI',
+          centerValue: CalcCore.formatCurrency(totalMonthlyPayment)
+        });
+
+        renderScheduleTable();
+      }
+
+      function renderScheduleTable() {
+        const filtered = currentSchedule.filter(item => item.type === viewMode);
+        let html = '';
+        filtered.forEach(row => {
+          html += `
+            <tr>
+              <td><strong>${row.period}</strong></td>
+              <td>${CalcCore.formatCurrency(row.payment)}</td>
+              <td style="color: var(--accent-success); font-weight: 600;">${CalcCore.formatCurrency(row.principal)}</td>
+              <td style="color: var(--accent-warning);">${CalcCore.formatCurrency(row.interest)}</td>
+              <td>${CalcCore.formatCurrency(row.totalInterest)}</td>
+              <td style="font-weight: 700;">${CalcCore.formatCurrency(row.balance)}</td>
+            </tr>
+          `;
+        });
+        tableBody.innerHTML = html;
+      }
+
+      // Unit view toggles
+      document.getElementById('btn-view-yearly').addEventListener('click', function () {
+        viewMode = 'yearly';
+        this.classList.add('active');
+        document.getElementById('btn-view-monthly').classList.remove('active');
+        renderScheduleTable();
+      });
+
+      document.getElementById('btn-view-monthly').addEventListener('click', function () {
+        viewMode = 'monthly';
+        this.classList.add('active');
+        document.getElementById('btn-view-yearly').classList.remove('active');
+        renderScheduleTable();
+      });
+
+      // Export CSV
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        CalcCore.exportTableToCSV('#mortgage-table', 'mortgage-amortization-schedule.csv');
+      });
+
+      // Presets
+      CalcCore.bindPresets('#mortgage-presets', (preset) => {
+        inHomePrice.value = preset.homePrice;
+        inDownPayment.value = preset.downPayment;
+        inDownPct.value = preset.downPct;
+        inRate.value = preset.rate;
+        inTerm.value = preset.term;
+        inPropTax.value = preset.propTax;
+        inHomeIns.value = preset.homeIns;
+        inHoa.value = preset.hoa;
+        calculateMortgage();
+      });
+
+      // Copy Summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Mortgage Summary:
+Total Monthly Payment: ${resTotalMonthly.textContent}
+Loan Amount: ${resLoanAmount.textContent}
+Total Interest Paid: ${resTotalInterest.textContent}
+Payoff Date: ${resPayoffDate.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Mortgage summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Bind Reactive Engine & Share
+      CalcCore.bindReactive(form, calculateMortgage);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateMortgage);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        inHomePrice.value = '400000';
+        inDownPayment.value = '80000';
+        inDownPct.value = '20';
+        inRate.value = '6.5';
+        inTerm.value = '30';
+        inPropTax.value = '4800';
+        inHomeIns.value = '1500';
+        inHoa.value = '150';
+        calculateMortgage();
+      });
+    });
+  </script>
+</body>
+</html>

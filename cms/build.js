@@ -214,6 +214,9 @@ posts.forEach(post => {
   <!-- CSS -->
   <link rel="stylesheet" href="${blogRel}blog.css">
 
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}" crossorigin="anonymous"></script>
+
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
@@ -248,12 +251,12 @@ posts.forEach(post => {
     </nav>
 
     <!-- Ad Unit: ad-top -->
-    <div class="tb-ad-container ad-top" id="ad-top-slot">
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
       <span class="tb-ad-label">Advertisement</span>
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="${ADSENSE_CLIENT_ID}"
-           data-ad-slot="1301001001"
+           data-ad-slot="4369386116"
            data-ad-format="horizontal"
            data-full-width-responsive="true"></ins>
     </div>
@@ -283,12 +286,12 @@ posts.forEach(post => {
       </div>
 
       <!-- Ad Unit: ad-result -->
-      <div class="tb-ad-container ad-result" id="ad-result-slot">
+      <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
         <span class="tb-ad-label">Advertisement</span>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="${ADSENSE_CLIENT_ID}"
-             data-ad-slot="1301001002"
+             data-ad-slot="3056304442"
              data-ad-format="rectangle,horizontal"
              data-full-width-responsive="true"></ins>
       </div>
@@ -311,7 +314,7 @@ posts.forEach(post => {
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="${ADSENSE_CLIENT_ID}"
-             data-ad-slot="1301001003"
+             data-ad-slot="3385897927"
              data-ad-format="autorelaxed"
              data-full-width-responsive="true"></ins>
       </div>
@@ -360,6 +363,9 @@ const blogIndexHtml = `<!DOCTYPE html>
   <!-- CSS -->
   <link rel="stylesheet" href="blog.css">
 
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}" crossorigin="anonymous"></script>
+
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
@@ -393,12 +399,12 @@ const blogIndexHtml = `<!DOCTYPE html>
     </div>
 
     <!-- Ad Unit: ad-top -->
-    <div class="tb-ad-container ad-top" id="ad-top-slot">
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
       <span class="tb-ad-label">Advertisement</span>
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="${ADSENSE_CLIENT_ID}"
-           data-ad-slot="1301001001"
+           data-ad-slot="4369386116"
            data-ad-format="horizontal"
            data-full-width-responsive="true"></ins>
     </div>
@@ -439,7 +445,7 @@ const blogIndexHtml = `<!DOCTYPE html>
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="${ADSENSE_CLIENT_ID}"
-           data-ad-slot="1301001003"
+           data-ad-slot="3385897927"
            data-ad-format="autorelaxed"
            data-full-width-responsive="true"></ins>
     </div>
@@ -501,6 +507,8 @@ authors.forEach(author => {
   <link rel="apple-touch-icon" href="${authorRel}apple-touch-icon.png">
   <link rel="manifest" href="${authorRel}site.webmanifest">
   <link rel="stylesheet" href="${authorRel}blog/blog.css">
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}" crossorigin="anonymous"></script>
 </head>
 <body>
   ${buildHeader(authorRel, 'blog')}

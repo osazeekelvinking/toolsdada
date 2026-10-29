@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest & Investment Calculator | ToolsBuddy</title>
+  <meta name="description" content="Calculate compound interest and forecast investment growth over time with monthly contributions, interactive growth charts, and annual breakdown tables.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/compound-interest-calculator.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/compound-interest-calculator.html">
+  <meta property="og:title" content="Compound Interest & Investment Calculator | ToolsBuddy">
+  <meta property="og:description" content="Watch your investments compound over time with visual growth curves, regular deposits, multi-currency support, and CSV table exports.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Compound Interest Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Forecast future portfolio value with compound interest, regular deposits, and interactive charts.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Compound Interest & Investment Calculator",
+        "url": "https://toolsbuddy.pages.dev/compound-interest-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculates future investment growth from compound interest with initial deposits, periodic additions, and interactive growth curves.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is compound interest?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods, creating exponential growth over time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the compound interest formula with monthly additions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The future value is calculated as: A = P(1 + r/n)^(nt) + PMT * [((1 + r/n)^(nt) - 1) / (r/n)], where P is initial principal, PMT is monthly deposit, r is annual rate, n is compounding periods per year, and t is years."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does compounding frequency impact returns?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The more frequently interest compounds (e.g. daily or monthly vs annually), the faster your balance compounds, resulting in higher total returns over long time horizons."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header -->
+    <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <div class="tb-mobile-accordion" id="tb-mobile-calc-accordion">
+          <button type="button" class="tb-mobile-link tb-mobile-accordion-toggle" id="tb-mobile-calc-toggle" aria-expanded="false">
+            <span class="tb-mobile-link-content">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+              <span>Calculators</span>
+            </span>
+            <svg class="tb-accordion-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-mobile-accordion-body" id="tb-mobile-calc-body">
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Financial Calculators</div>
+              <a href="mortgage-calculator.html" class="tb-mobile-sublink">Mortgage Calculator</a>
+              <a href="loan-calculator.html" class="tb-mobile-sublink">Loan & EMI Calculator</a>
+              <a href="compound-interest-calculator.html" class="tb-mobile-sublink">Compound Interest</a>
+              <a href="financial-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Financial Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Fitness & Health</div>
+              <a href="bmi-calculator.html" class="tb-mobile-sublink">BMI & Ideal Weight</a>
+              <a href="calorie-calculator.html" class="tb-mobile-sublink">Calorie & Macro Calculator</a>
+              <a href="fitness-health-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Health Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Math Calculators</div>
+              <a href="percentage-calculator.html" class="tb-mobile-sublink">Percentage Calculator</a>
+              <a href="scientific-calculator.html" class="tb-mobile-sublink">Scientific Calculator</a>
+              <a href="math-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Math Tools &rarr;</a>
+            </div>
+            <div class="tb-mobile-subgroup">
+              <div class="tb-mobile-subheading">Everyday & Utilities</div>
+              <a href="age-calculator.html" class="tb-mobile-sublink">Exact Age Calculator</a>
+              <a href="other-calculators.html" class="tb-mobile-sublink tb-sublink-more">All Everyday Utilities &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>EbookBuddy AI</span>
+        </a>
+        <a href="blog/index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Blog & Guides</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="financial-calculators.html">Financial Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Compound Interest Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        Investments & Wealth
+      </span>
+      <h1 class="tb-tool-title">Compound Interest Calculator</h1>
+      <p class="tb-tool-desc">
+        Forecast portfolio growth, compare monthly contribution strategies, and visualize exponential compounding with interactive area charts and annual schedules.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6130384188487467" data-ad-slot="4369386116" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Area -->
+      <div class="tb-tool-main">
+
+    <!-- Platform Toolbar -->
+    <div class="tb-platform-toolbar">
+      <div class="tb-toolbar-group">
+        <label for="currency-select">Currency:</label>
+        <select id="currency-select" class="tb-currency-select">
+          <option value="$">USD ($)</option>
+          <option value="€">EUR (€)</option>
+          <option value="£">GBP (£)</option>
+          <option value="₦">NGN (₦)</option>
+          <option value="₹">INR (₹)</option>
+          <option value="C$">CAD (C$)</option>
+          <option value="A$">AUD (A$)</option>
+          <option value="¥">JPY (¥)</option>
+        </select>
+      </div>
+      <div class="tb-toolbar-group">
+        <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+          Share Plan
+        </button>
+        <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Presets -->
+    <div class="tb-presets-wrapper" id="compound-presets">
+      <span class="tb-presets-label">Investment Presets:</span>
+      <button type="button" class="tb-preset-chip active" data-preset='{"principal":10000,"monthly":500,"rate":8,"years":20,"compFreq":12}'>Retirement Fund ($10k + $500/mo @ 8%)</button>
+      <button type="button" class="tb-preset-chip" data-preset='{"principal":5000,"monthly":1000,"rate":10,"years":15,"compFreq":12}'>Index Fund Growth ($5k + $1k/mo @ 10%)</button>
+      <button type="button" class="tb-preset-chip" data-preset='{"principal":25000,"monthly":0,"rate":5.0,"years":5,"compFreq":12}'>High-Yield Savings ($25k @ 5%)</button>
+    </div>
+
+    <!-- Workspace -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+        <div class="tb-grid-2">
+          <!-- Inputs Form -->
+          <form class="tb-grid-form" id="compound-form" onsubmit="event.preventDefault();">
+            <div class="tb-field">
+              <label for="initial-principal" class="tb-label">
+                <span>Initial Investment (Principal)</span>
+                <span class="tb-label-hint">Starting balance</span>
+              </label>
+              <div class="tb-input-group">
+                <span class="tb-input-prefix" data-currency>$</span>
+                <input type="number" id="initial-principal" class="tb-input" min="0" step="500" value="10000" required>
+              </div>
+            </div>
+
+            <div class="tb-field">
+              <label for="monthly-contribution" class="tb-label">
+                <span>Regular Monthly Contribution</span>
+                <span class="tb-label-hint">Added each month</span>
+              </label>
+              <div class="tb-input-group">
+                <span class="tb-input-prefix" data-currency>$</span>
+                <input type="number" id="monthly-contribution" class="tb-input" min="0" step="50" value="500">
+              </div>
+            </div>
+
+            <div class="tb-grid-form cols-2">
+              <div class="tb-field">
+                <label for="interest-rate" class="tb-label">Estimated Annual Return</label>
+                <div class="tb-input-group">
+                  <input type="number" id="interest-rate" class="tb-input" min="0.1" max="50" step="0.1" value="8" required>
+                  <span class="tb-input-suffix">%</span>
+                </div>
+              </div>
+              <div class="tb-field">
+                <label for="investment-years" class="tb-label">Investment Horizon</label>
+                <div class="tb-input-group">
+                  <input type="number" id="investment-years" class="tb-input" min="1" max="60" value="20" required>
+                  <span class="tb-input-suffix">Years</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-field">
+              <label for="compound-frequency" class="tb-label">Compounding Frequency</label>
+              <select id="compound-frequency" class="tb-select">
+                <option value="12" selected>Monthly (12x/year)</option>
+                <option value="365">Daily (365x/year)</option>
+                <option value="4">Quarterly (4x/year)</option>
+                <option value="2">Semi-Annually (2x/year)</option>
+                <option value="1">Annually (1x/year)</option>
+              </select>
+            </div>
+
+            <div class="tb-btn-group">
+              <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Calculate Growth
+              </button>
+              <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset Defaults</button>
+            </div>
+          </form>
+
+          <!-- Results Summary Card & Growth Area Chart -->
+          <div class="tb-results-card">
+            <div class="tb-result-highlight">
+              <div class="tb-result-label">Projected Future Portfolio Value</div>
+              <div class="tb-result-value" id="res-future-val">$335,897</div>
+              <div class="tb-result-subtext" id="res-multiplier-sub">2.57x total return on invested capital</div>
+            </div>
+
+            <!-- Interactive Area Growth Chart -->
+            <div class="tb-chart-card" style="margin-top: 1rem; padding: 1rem;">
+              <div class="tb-chart-header">
+                <span class="tb-chart-title">Portfolio Trajectory Curve</span>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Principal vs Total Value</span>
+              </div>
+              <div class="tb-chart-canvas-wrap">
+                <canvas id="compound-chart-canvas" width="480" height="220"></canvas>
+              </div>
+              <div class="tb-chart-legend">
+                <div class="tb-legend-item">
+                  <span class="tb-legend-color" style="background-color: #0066ff;"></span>
+                  <span>Total Balance</span>
+                </div>
+                <div class="tb-legend-item">
+                  <span class="tb-legend-color" style="background-color: #10b981;"></span>
+                  <span>Total Contributed</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tb-stats-grid cols-2" style="margin-top: 1.25rem;">
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-total-contributions">$130,000</div>
+                <div class="tb-stat-lbl">Total Cash Invested</div>
+              </div>
+              <div class="tb-stat-box">
+                <div class="tb-stat-num" id="res-total-interest" style="color: var(--accent-success);">$205,897</div>
+                <div class="tb-stat-lbl">Total Interest Earned</div>
+              </div>
+            </div>
+
+            <div class="tb-btn-group" style="margin-top: 1rem;">
+              <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy Growth Summary
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Annual Schedule Table -->
+        <div style="margin-top: 3rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+            <div>
+              <h3 style="font-size: 1.3rem; font-weight: 700;">Year-by-Year Growth Table</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Annual deposits, interest generated, and ending year balances.</p>
+            </div>
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-export-csv">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Export CSV
+            </button>
+          </div>
+
+          <div class="tb-table-wrapper">
+            <table class="tb-table" id="compound-table">
+              <thead>
+                <tr>
+                  <th>Year</th>
+                  <th>Annual Deposits</th>
+                  <th>Total Contributed</th>
+                  <th>Interest Earned (Year)</th>
+                  <th>Total Interest</th>
+                  <th>Ending Balance</th>
+                </tr>
+              </thead>
+              <tbody id="compound-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & SEO Guide Section -->
+    <article class="tb-article">
+      <h2>The Mathematics of Compounding Growth</h2>
+      <p>
+        Compound interest is often referred to as the "eighth wonder of the world" because earnings generate their own earnings. Unlike simple interest, which only accrues on the initial capital, compound interest continuously adds accrued interest back into the principal pool.
+      </p>
+      <h3>Standard Mathematical Formula</h3>
+      <div style="background-color: var(--bg-hover); padding: 1.25rem; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.95rem; margin: 1rem 0; border: 1px solid var(--border-color);">
+        A = P(1 + r/n)<sup>nt</sup> + PMT &times; [ ((1 + r/n)<sup>nt</sup> - 1) &divide; (r/n) ]
+      </div>
+      <p>
+        Where <strong>A</strong> is the final future value, <strong>P</strong> is the initial principal, <strong>PMT</strong> is regular monthly contributions, <strong>r</strong> is the nominal annual rate, <strong>n</strong> is compounding frequency per year, and <strong>t</strong> is total investment time in years.
+      </p>
+    </article>
+
+    <!-- FAQ Accordion -->
+    <section class="tb-faq-section">
+      <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+      <div class="tb-faq-list">
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">What is compound interest?</summary>
+          <div class="tb-faq-answer">
+            <p>Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods, creating exponential growth over time.</p>
+          </div>
+        </details>
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">What is the compound interest formula with monthly additions?</summary>
+          <div class="tb-faq-answer">
+            <p>The future value is calculated as: A = P(1 + r/n)^(nt) + PMT * [((1 + r/n)^(nt) - 1) / (r/n)], where P is initial principal, PMT is monthly deposit, r is annual rate, n is compounding periods per year, and t is years.</p>
+          </div>
+        </details>
+        <details class="tb-faq-item">
+          <summary class="tb-faq-question">How does compounding frequency impact returns?</summary>
+          <div class="tb-faq-answer">
+            <p>The more frequently interest compounds (e.g. daily or monthly vs annually), the faster your balance compounds, resulting in higher total returns over long time horizons.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-sidebar" id="ad-sidebar-slot">
+          <span class="tb-ad-label">Advertisement</span>
+          <!-- Tools-Sidebar -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-6130384188487467"
+               data-ad-slot="8150977743"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+        <!-- Popular Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Popular Calculators
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="mortgage-calculator.html" class="tb-sidebar-link"><span>Mortgage Calculator</span><span>&rarr;</span></a>
+            <a href="loan-calculator.html" class="tb-sidebar-link"><span>Loan & EMI Calculator</span><span>&rarr;</span></a>
+            <a href="percentage-calculator.html" class="tb-sidebar-link"><span>Percentage Calculator</span><span>&rarr;</span></a>
+            <a href="compound-interest-calculator.html" class="tb-sidebar-link"><span>Compound Interest</span><span>&rarr;</span></a>
+            <a href="bmi-calculator.html" class="tb-sidebar-link"><span>BMI Calculator</span><span>&rarr;</span></a>
+            <a href="calorie-calculator.html" class="tb-sidebar-link"><span>Calorie & Macro Calc</span><span>&rarr;</span></a>
+            <a href="age-calculator.html" class="tb-sidebar-link"><span>Exact Age Calculator</span><span>&rarr;</span></a>
+            <a href="scientific-calculator.html" class="tb-sidebar-link"><span>Scientific Calculator</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All computations execute strictly inside your local web browser. Zero server logging, no sign-ups required.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6130384188487467" data-ad-slot="3385897927" data-ad-format="autorelaxed" data-full-width-responsive="true"></ins>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Popular Tools</h4>
+          <ul>
+            <li><a href="ebook-buddy.html">EbookBuddy</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="loan-calculator.html">Loan & Mortgage Calculator</a></li>
+            <li><a href="case-converter.html">Case Converter</a></li>
+            <li><a href="qr-code-generator.html">QR Code Studio</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="blog/index.html">ToolsBuddy Blog</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('compound-form');
+      const inPrincipal = document.getElementById('initial-principal');
+      const inMonthly = document.getElementById('monthly-contribution');
+      const inRate = document.getElementById('interest-rate');
+      const inYears = document.getElementById('investment-years');
+      const inFreq = document.getElementById('compound-frequency');
+
+      // Results elements
+      const resFutureVal = document.getElementById('res-future-val');
+      const resMultiplierSub = document.getElementById('res-multiplier-sub');
+      const resTotalContributions = document.getElementById('res-total-contributions');
+      const resTotalInterest = document.getElementById('res-total-interest');
+      const tableBody = document.getElementById('compound-table-body');
+      const chartCanvas = document.getElementById('compound-chart-canvas');
+
+      function calculateCompound() {
+        const principal = Math.max(0, parseFloat(inPrincipal.value) || 0);
+        const monthly = Math.max(0, parseFloat(inMonthly.value) || 0);
+        const annualRate = Math.max(0.01, parseFloat(inRate.value) || 0) / 100;
+        const years = Math.max(1, parseInt(inYears.value, 10) || 20);
+        const freq = parseInt(inFreq.value, 10) || 12;
+
+        let balance = principal;
+        let totalInvested = principal;
+        let totalInterestAccum = 0;
+
+        const xLabels = ['Yr 0'];
+        const balanceSeries = [principal];
+        const investedSeries = [principal];
+
+        let tableRowsHtml = '';
+
+        // Month-by-month simulation
+        const monthsTotal = years * 12;
+        const monthlyRate = annualRate / 12;
+
+        for (let y = 1; y <= years; y++) {
+          const startYearBalance = balance;
+          let yearDeposits = 0;
+
+          for (let m = 1; m <= 12; m++) {
+            balance += monthly;
+            totalInvested += monthly;
+            yearDeposits += monthly;
+
+            // Compounding calculation per month
+            const monthInterest = balance * monthlyRate;
+            balance += monthInterest;
+            totalInterestAccum += monthInterest;
+          }
+
+          const yearInterestEarned = balance - startYearBalance - yearDeposits;
+
+          xLabels.push(`Yr ${y}`);
+          balanceSeries.push(Math.round(balance));
+          investedSeries.push(Math.round(totalInvested));
+
+          tableRowsHtml += `
+            <tr>
+              <td><strong>Year ${y}</strong></td>
+              <td>${CalcCore.formatCurrency(yearDeposits, 0)}</td>
+              <td>${CalcCore.formatCurrency(totalInvested, 0)}</td>
+              <td style="color: var(--accent-success);">${CalcCore.formatCurrency(yearInterestEarned, 0)}</td>
+              <td style="color: var(--accent-success); font-weight: 600;">${CalcCore.formatCurrency(totalInterestAccum, 0)}</td>
+              <td style="font-weight: 700;">${CalcCore.formatCurrency(balance, 0)}</td>
+            </tr>
+          `;
+        }
+
+        const multiplier = totalInvested > 0 ? (balance / totalInvested).toFixed(2) : '1.0';
+
+        resFutureVal.textContent = CalcCore.formatCurrency(balance, 0);
+        resMultiplierSub.textContent = `${multiplier}x total return on invested cash`;
+        resTotalContributions.textContent = CalcCore.formatCurrency(totalInvested, 0);
+        resTotalInterest.textContent = CalcCore.formatCurrency(totalInterestAccum, 0);
+        tableBody.innerHTML = tableRowsHtml;
+
+        // Render Area Growth Curve
+        CalcCharts.drawAreaChart(chartCanvas, xLabels, [
+          { label: 'Total Balance', data: balanceSeries, color: '#0066ff' },
+          { label: 'Total Invested', data: investedSeries, color: '#10b981' }
+        ]);
+      }
+
+      // Presets
+      CalcCore.bindPresets('#compound-presets', (preset) => {
+        inPrincipal.value = preset.principal;
+        inMonthly.value = preset.monthly;
+        inRate.value = preset.rate;
+        inYears.value = preset.years;
+        inFreq.value = preset.compFreq;
+        calculateCompound();
+      });
+
+      // Export CSV
+      document.getElementById('btn-export-csv').addEventListener('click', () => {
+        CalcCore.exportTableToCSV('#compound-table', 'compound-interest-schedule.csv');
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Investment Projection Summary:
+Future Value: ${resFutureVal.textContent}
+Total Contributed: ${resTotalContributions.textContent}
+Total Interest Earned: ${resTotalInterest.textContent}
+Growth Multiplier: ${resMultiplierSub.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Growth summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Bind reactive updates
+      CalcCore.bindReactive(form, calculateCompound);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateCompound);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        calculateCompound();
+      });
+    });
+  </script>
+</body>
+</html>

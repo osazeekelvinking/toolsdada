@@ -1,0 +1,425 @@
+/* ==========================================================================
+   ToolsBuddy - Platform Engine Styles (calc-platform.css)
+   Supports interactive charts, sliders, presets, multi-currency, and exports
+   ========================================================================== */
+
+/* Currency & Unit Switcher Bar */
+.tb-platform-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background-color: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.15rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.5rem;
+}
+
+.tb-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.tb-currency-select {
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.tb-currency-select:focus {
+  border-color: var(--brand-primary);
+}
+
+/* Preset Chips (1-Click Scenario Selectors) */
+.tb-presets-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.tb-presets-label {
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.tb-preset-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tb-preset-chip:hover {
+  background-color: var(--brand-light);
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.tb-preset-chip.active {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
+  box-shadow: 0 2px 6px var(--brand-glow);
+}
+
+/* Dual-Bound Slider & Number Input */
+.tb-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.tb-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tb-range-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--border-color);
+  outline: none;
+  cursor: pointer;
+}
+
+.tb-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  cursor: pointer;
+  border: 2px solid var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.1s ease;
+}
+
+.tb-range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.tb-range-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  cursor: pointer;
+  border: 2px solid var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Visual Chart Card */
+.tb-chart-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.tb-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tb-chart-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tb-chart-canvas-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tb-chart-canvas-wrap canvas {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+}
+
+/* Chart Color Legend */
+.tb-chart-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.tb-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.tb-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.tb-legend-val {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Range Track Bar (Gauge for BMI, Risk, etc.) */
+.tb-range-track {
+  position: relative;
+  display: flex;
+  height: 16px;
+  border-radius: var(--radius-full);
+  overflow: visible;
+  margin: 2.25rem 0 0.75rem;
+  background-color: var(--bg-hover);
+}
+
+.tb-range-seg {
+  height: 100%;
+  transition: opacity var(--transition-fast);
+}
+
+.tb-range-seg:first-child {
+  border-top-left-radius: var(--radius-full);
+  border-bottom-left-radius: var(--radius-full);
+}
+
+.tb-range-seg:last-child {
+  border-top-right-radius: var(--radius-full);
+  border-bottom-right-radius: var(--radius-full);
+}
+
+.tb-range-pin {
+  position: absolute;
+  top: -12px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  transition: left 0.3s ease;
+}
+
+.tb-range-pin-bubble {
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+}
+
+.tb-range-pin-line {
+  width: 3px;
+  height: 28px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+.tb-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Macro Split Nutrition Bar */
+.tb-macro-bar {
+  display: flex;
+  height: 20px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: 1rem 0;
+  background-color: var(--bg-hover);
+}
+
+.tb-macro-seg {
+  height: 100%;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Export / Share Toolbar */
+.tb-export-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Category Hub Layout */
+.tb-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0 3rem;
+}
+
+@media (max-width: 640px) {
+  .tb-platform-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .tb-toolbar-group {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .tb-toolbar-group .tb-btn {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.65rem;
+    justify-content: center;
+  }
+
+  .tb-chart-card {
+    padding: 1.25rem;
+  }
+
+  .tb-chart-canvas-wrap {
+    min-height: 180px;
+  }
+
+  .tb-hub-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .tb-hub-card {
+    padding: 1.15rem;
+  }
+}
+
+.tb-hub-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-fast);
+}
+
+.tb-hub-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.tb-hub-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.tb-hub-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.tb-hub-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+}
+
+/* Print Optimization */
+@media print {
+  .tb-header,
+  .tb-footer,
+  .tb-ad-container,
+  .tb-platform-toolbar,
+  .tb-presets-wrapper,
+  .tb-export-toolbar,
+  .tb-btn-group,
+  .tb-theme-toggle {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .tb-workspace,
+  .tb-results-card,
+  .tb-chart-card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .tb-table {
+    width: 100% !important;
+    font-size: 10pt !important;
+  }
+}
