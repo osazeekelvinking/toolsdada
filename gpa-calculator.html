@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPA Calculator — Weighted & Unweighted College/High School GPA | ToolsBuddy</title>
+  <meta name="description" content="Free online GPA Calculator for high school and college. Calculate weighted and unweighted GPA, cumulative GPA, honors points, and academic standing with instant grade breakdown.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/gpa-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/gpa-calculator.html">
+  <meta property="og:title" content="GPA Calculator — Weighted & Unweighted | ToolsBuddy">
+  <meta property="og:description" content="Calculate semester GPA, cumulative GPA, and honors/AP weightings with an interactive course table.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "GPA Calculator",
+    "url": "https://toolsbuddy.pages.dev/gpa-calculator.html",
+    "description": "Calculate weighted and unweighted semester and cumulative GPA for college and high school students.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page calc-theme-neutral">
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="fraction-calculator.html" class="tb-dropdown-item" role="menuitem">Fraction Calculator</a>
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="triangle-calculator.html" class="tb-dropdown-item" role="menuitem">Triangle Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  
+
+  <main class="tool-container">
+    <div class="tool-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="other-calculators.html">Everyday Tools</a>
+        <span class="breadcrumb-separator">/</span>
+        <span aria-current="page">GPA Calculator</span>
+      </nav>
+      <h1 class="tool-title">GPA Calculator</h1>
+      <p class="tool-subtitle">Calculate semester and cumulative Grade Point Average on a 4.0 scale with honors and AP weighting.</p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- Calculator Grid -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+      <div class="calc-layout-grid">
+      <!-- Input Panel -->
+      <div class="calc-card input-panel">
+        <h2 class="panel-heading mb-3">Courses & Grades</h2>
+
+        <form id="gpa-form" onsubmit="return false;">
+          <div class="courses-table-container mb-3">
+            <div id="course-rows-container">
+              <!-- Dynamically populated or default rows -->
+            </div>
+          </div>
+      </div>
+    </div>
+
+          <div class="mb-4">
+            <button type="button" id="btn-add-course" class="calc-btn secondary-btn" style="width: auto; padding: 0.5rem 1rem;">
+              + Add Another Course
+            </button>
+          </div>
+
+          <!-- Cumulative GPA Optional Prior Section -->
+          <div class="collapsible-section mb-4">
+            <h3 class="input-label" style="font-size: 1rem; margin-bottom: 0.75rem;">Prior Cumulative GPA (Optional)</h3>
+            <div class="input-row-grid">
+              <div class="input-group">
+                <label for="prior-gpa" class="sub-label">Current Prior GPA</label>
+                <input type="number" id="prior-gpa" class="calc-input" step="0.01" min="0" max="5.0" placeholder="e.g. 3.45">
+              </div>
+              <div class="input-group">
+                <label for="prior-credits" class="sub-label">Prior Credits Completed</label>
+                <input type="number" id="prior-credits" class="calc-input" step="1" min="0" placeholder="e.g. 45">
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons-group">
+            <button type="button" id="btn-calculate" class="calc-btn primary-btn">Calculate GPA</button>
+            <button type="button" id="btn-reset" class="calc-btn secondary-btn">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="calc-card result-panel">
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <div class="result-header">
+          <h2 class="result-title">GPA Summary</h2>
+          <span class="result-badge" id="gpa-standing-badge">Good Standing</span>
+        </div>
+
+        <div class="hero-result-box mb-4">
+          <span class="hero-label">Semester Unweighted GPA</span>
+          <div class="hero-value" id="hero-gpa-val">3.67</div>
+          <p class="hero-subtext" id="hero-weighted-gpa">Weighted GPA: 3.83</p>
+        </div>
+
+        <!-- Metric Grid -->
+        <div class="result-metrics-grid mb-4">
+          <div class="metric-card">
+            <span class="metric-label">Cumulative GPA</span>
+            <span class="metric-value" id="metric-cum-gpa">3.67</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Semester Credits</span>
+            <span class="metric-value" id="metric-sem-credits">15.0</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Total Quality Points</span>
+            <span class="metric-value" id="metric-quality-points">55.0</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Academic Standing</span>
+            <span class="metric-value" id="metric-standing">Dean's List</span>
+          </div>
+        </div>
+
+        <!-- Visual Distribution Chart -->
+        <div class="chart-container-box mb-4">
+          <h3 class="chart-title">Credit Weight by Grade</h3>
+          <canvas id="gpa-chart" width="280" height="180"></canvas>
+        </div>
+
+        <!-- Share & Export -->
+        <div class="share-actions">
+          <button type="button" id="btn-share-calc" class="action-btn text-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Share This Calculation
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & Explanatory Guide -->
+    <article class="tool-guide mt-5">
+      <h2>How Grade Point Average (GPA) is Calculated</h2>
+      <p>Grade Point Average represents the mathematical average of all course grades weighted by their respective academic credit hours. Each letter grade corresponds to a standard numerical quality point on a 4.0 scale:</p>
+
+      <h3>1. Standard 4.0 Scale Quality Points</h3>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Letter Grade</th>
+              <th>Percentage</th>
+              <th>Standard Points</th>
+              <th>Honors (+0.5)</th>
+              <th>AP / IB (+1.0)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>A / A+</td><td>93–100%</td><td>4.00</td><td>4.50</td><td>5.00</td></tr>
+            <tr><td>A-</td><td>90–92%</td><td>3.70</td><td>4.20</td><td>4.70</td></tr>
+            <tr><td>B+</td><td>87–89%</td><td>3.30</td><td>3.80</td><td>4.30</td></tr>
+            <tr><td>B</td><td>83–86%</td><td>3.00</td><td>3.50</td><td>4.00</td></tr>
+            <tr><td>B-</td><td>80–82%</td><td>2.70</td><td>3.20</td><td>3.70</td></tr>
+            <tr><td>C+</td><td>77–79%</td><td>2.30</td><td>2.80</td><td>3.30</td></tr>
+            <tr><td>C</td><td>73–76%</td><td>2.00</td><td>2.50</td><td>3.00</td></tr>
+            <tr><td>C-</td><td>70–72%</td><td>1.70</td><td>2.20</td><td>2.70</td></tr>
+            <tr><td>D</td><td>65–69%</td><td>1.00</td><td>1.50</td><td>2.00</td></tr>
+            <tr><td>F</td><td>&lt;65%</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2. The GPA Formula</h3>
+      <p>\[ \text{GPA} = \frac{\sum (\text{Course Grade Points} \times \text{Credit Hours})}{\sum \text{Credit Hours}} \]</p>
+      <p>For example, if you earn an <strong>A (4.0)</strong> in a 4-credit biology class (16 points) and a <strong>B (3.0)</strong> in a 3-credit history class (9 points), your GPA is \(\frac{16 + 9}{4 + 3} = \frac{25}{7} = 3.57\).</p>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const GRADE_POINTS = {
+        'A': 4.0, 'A-': 3.7, 'B+': 3.3, 'B': 3.0, 'B-': 2.7,
+        'C+': 2.3, 'C': 2.0, 'C-': 1.7, 'D+': 1.3, 'D': 1.0, 'F': 0.0
+      };
+
+      const container = document.getElementById('course-rows-container');
+
+      const initialCourses = [
+        { name: 'Calculus I', grade: 'A', credits: 4, type: 'regular' },
+        { name: 'Physics I', grade: 'A-', credits: 4, type: 'ap' },
+        { name: 'English Comp', grade: 'B+', credits: 3, type: 'regular' },
+        { name: 'Computer Science', grade: 'A', credits: 4, type: 'honors' }
+      ];
+
+      function createCourseRow(c = { name: '', grade: 'A', credits: 3, type: 'regular' }, index) {
+        const row = document.createElement('div');
+        row.className = 'course-item-row mb-3 p-3';
+        row.style.border = '1px solid var(--border-color, #e2e8f0)';
+        row.style.borderRadius = '8px';
+        row.style.background = 'var(--card-sub-bg, #f8fafc)';
+        row.innerHTML = `
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <input type="text" class="calc-input course-name" placeholder="Course Name" value="${c.name}" style="flex: 2; min-width: 140px;">
+            <select class="calc-select course-grade" style="flex: 1; min-width: 80px;">
+              ${Object.keys(GRADE_POINTS).map(g => `<option value="${g}" ${g === c.grade ? 'selected' : ''}>${g} (${GRADE_POINTS[g].toFixed(1)})</option>`).join('')}
+            </select>
+            <input type="number" class="calc-input course-credits" min="0.5" max="12" step="0.5" value="${c.credits}" style="width: 70px;" title="Credits">
+            <select class="calc-select course-type" style="flex: 1; min-width: 95px;">
+              <option value="regular" ${c.type === 'regular' ? 'selected' : ''}>Regular</option>
+              <option value="honors" ${c.type === 'honors' ? 'selected' : ''}>Honors (+0.5)</option>
+              <option value="ap" ${c.type === 'ap' ? 'selected' : ''}>AP/IB (+1.0)</option>
+            </select>
+            <button type="button" class="btn-remove-course" style="background: none; border: none; color: #ef4444; font-size: 1.25rem; cursor: pointer; padding: 0 0.5rem;" title="Remove Course">&times;</button>
+          </div>
+        `;
+
+        row.querySelector('.btn-remove-course').addEventListener('click', () => {
+          if (container.children.length > 1) {
+            row.remove();
+            calculateGPA();
+          }
+        });
+
+        return row;
+      }
+
+      initialCourses.forEach((c, idx) => {
+        container.appendChild(createCourseRow(c, idx));
+      });
+
+      document.getElementById('btn-add-course')?.addEventListener('click', () => {
+        container.appendChild(createCourseRow({ name: '', grade: 'A', credits: 3, type: 'regular' }));
+        calculateGPA();
+      });
+
+      function calculateGPA() {
+        const rows = container.querySelectorAll('.course-item-row');
+        let semCredits = 0;
+        let totalUnweightedPoints = 0;
+        let totalWeightedPoints = 0;
+        const gradeDistribution = {};
+
+        rows.forEach(row => {
+          const grade = row.querySelector('.course-grade').value;
+          const credits = parseFloat(row.querySelector('.course-credits').value) || 0;
+          const type = row.querySelector('.course-type').value;
+
+          const basePoint = GRADE_POINTS[grade] !== undefined ? GRADE_POINTS[grade] : 0;
+          let weightAdd = 0;
+          if (type === 'honors') weightAdd = 0.5;
+          else if (type === 'ap') weightAdd = 1.0;
+
+          const weightedPoint = grade !== 'F' ? (basePoint + weightAdd) : 0;
+
+          semCredits += credits;
+          totalUnweightedPoints += (basePoint * credits);
+          totalWeightedPoints += (weightedPoint * credits);
+
+          gradeDistribution[grade] = (gradeDistribution[grade] || 0) + credits;
+        });
+
+        const unweightedGPA = semCredits > 0 ? (totalUnweightedPoints / semCredits) : 0;
+        const weightedGPA = semCredits > 0 ? (totalWeightedPoints / semCredits) : 0;
+
+        // Cumulative GPA
+        const priorGPAInput = document.getElementById('prior-gpa').value;
+        const priorCreditsInput = document.getElementById('prior-credits').value;
+        const priorGPA = priorGPAInput !== '' ? parseFloat(priorGPAInput) : null;
+        const priorCredits = priorCreditsInput !== '' ? parseFloat(priorCreditsInput) : 0;
+
+        let cumGPA = unweightedGPA;
+        if (priorGPA !== null && priorCredits > 0) {
+          const priorPoints = priorGPA * priorCredits;
+          cumGPA = (priorPoints + totalUnweightedPoints) / (priorCredits + semCredits);
+        }
+
+        // Academic standing
+        let standing = 'Good Standing';
+        let badgeColor = 'var(--primary-color, #2563eb)';
+        if (unweightedGPA >= 3.9) standing = 'Summa Cum Laude';
+        else if (unweightedGPA >= 3.7) standing = 'Magna Cum Laude';
+        else if (unweightedGPA >= 3.5) standing = 'Cum Laude';
+        else if (unweightedGPA >= 3.2) standing = "Dean's List";
+        else if (unweightedGPA < 2.0) standing = 'Academic Warning';
+
+        document.getElementById('hero-gpa-val').textContent = unweightedGPA.toFixed(2);
+        document.getElementById('hero-weighted-gpa').textContent = `Weighted GPA: ${weightedGPA.toFixed(2)}`;
+        document.getElementById('metric-cum-gpa').textContent = cumGPA.toFixed(2);
+        document.getElementById('metric-sem-credits').textContent = semCredits.toFixed(1);
+        document.getElementById('metric-quality-points').textContent = totalUnweightedPoints.toFixed(1);
+        document.getElementById('metric-standing').textContent = standing;
+        document.getElementById('gpa-standing-badge').textContent = standing;
+
+        // Draw Donut Chart of credits by grade
+        const canvas = document.getElementById('gpa-chart');
+        if (canvas && typeof CalcCharts !== 'undefined') {
+          const colors = {
+            'A': '#10b981', 'A-': '#34d399', 'B+': '#3b82f6', 'B': '#60a5fa',
+            'B-': '#93c5fd', 'C+': '#f59e0b', 'C': '#fbbf24', 'C-': '#fde68a',
+            'D+': '#f87171', 'D': '#ef4444', 'F': '#dc2626'
+          };
+          const slices = Object.keys(gradeDistribution).map(g => ({
+            label: `Grade ${g}`,
+            value: gradeDistribution[g],
+            color: colors[g] || '#64748b'
+          }));
+          if (slices.length === 0) slices.push({ label: 'No Data', value: 1, color: '#94a3b8' });
+
+          CalcCharts.drawDonut(canvas, slices, { title: 'Credits per Grade' });
+        }
+
+        if (typeof window.refreshAds === 'function') {
+          window.refreshAds('calculate');
+        }
+      }
+
+      const form = document.getElementById('gpa-form');
+      form.addEventListener('input', calculateGPA);
+      form.addEventListener('change', calculateGPA);
+
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateGPA);
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        container.innerHTML = '';
+        initialCourses.forEach((c, idx) => container.appendChild(createCourseRow(c, idx)));
+        document.getElementById('prior-gpa').value = '';
+        document.getElementById('prior-credits').value = '';
+        calculateGPA();
+      });
+
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => {
+        CalcCore.copyShareUrl(form);
+      });
+
+      calculateGPA();
+    });
+  </script>
+</body>
+</html>

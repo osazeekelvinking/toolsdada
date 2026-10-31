@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Right Triangle Calculator - Pythagorean Theorem & Trig | ToolsBuddy</title>
+  <meta name="description" content="Calculate missing sides, hypotenuse, angles, area, and trigonometric functions of a right triangle with our free right triangle solver and Pythagorean calculator.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/right-triangle-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/right-triangle-calculator.html">
+  <meta property="og:title" content="Right Triangle Calculator | ToolsBuddy">
+  <meta property="og:description" content="Solve right-angled triangles using the Pythagorean theorem, trigonometric ratios, and interactive geometry diagrams.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Right Triangle Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Solve for hypotenuse, legs, angles, area, and trig functions of right triangles.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Right Triangle Calculator",
+        "url": "https://toolsbuddy.pages.dev/right-triangle-calculator.html",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Calculate missing sides, hypotenuse, angles, area, perimeter, and exact trigonometric ratios of right-angled triangles.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the Pythagorean theorem?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Pythagorean theorem states that in any right-angled triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the two other legs: a^2 + b^2 = c^2."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you find the hypotenuse of a right triangle?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To find the hypotenuse (c), take the square root of the sum of the squares of both legs: c = sqrt(a^2 + b^2)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the 3-4-5 right triangle rule?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The 3-4-5 rule is the simplest Pythagorean triple where legs of length 3 and 4 produce a hypotenuse of exactly 5 (3^2 + 4^2 = 9 + 16 = 25 = 5^2). Builders and carpenters use this rule extensively to square framing and foundations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the six basic trigonometric ratios?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The six standard trigonometric functions for acute angle alpha are: sine (opposite/hypotenuse), cosine (adjacent/hypotenuse), tangent (opposite/adjacent), cosecant (hypotenuse/opposite), secant (hypotenuse/adjacent), and cotangent (adjacent/opposite)."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="right-triangle-calculator.html" class="tb-dropdown-item" role="menuitem">Right Triangle Calc</a>
+                  <a href="triangle-calculator.html" class="tb-dropdown-item" role="menuitem">Triangle Calculator</a>
+                  <a href="fraction-calculator.html" class="tb-dropdown-item" role="menuitem">Fraction Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="math-calculators.html">Math Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Right Triangle Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+        Geometry &amp; Trigonometry
+      </span>
+      <h1 class="tb-tool-title">Right Triangle Calculator</h1>
+      <p class="tb-tool-desc">
+        Calculate missing legs, hypotenuse, angles, area, perimeter, and trigonometric functions for any right triangle (angle &gamma; = 90&deg;) using the Pythagorean theorem.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Column -->
+      <div class="tb-tool-main">
+        <!-- Platform Toolbar -->
+        <div class="tb-platform-toolbar">
+          <div class="tb-toolbar-group">
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Right Angle:</span>
+            <span class="tb-tool-badge" style="margin: 0; background: rgba(0, 102, 255, 0.1); color: #0066ff;">&gamma; = 90&deg; Fixed</span>
+          </div>
+          <div class="tb-toolbar-group">
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              Share Calculation
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="tb-workspace">
+          <div class="tb-workspace-inner">
+            <div class="tb-grid-2">
+              <!-- Left Form Column -->
+              <form class="tb-grid-form" id="right-tri-form" onsubmit="event.preventDefault();">
+                <div class="tb-presets-wrapper" style="margin-bottom: 1.25rem;">
+                  <span class="tb-presets-label">Common Triples:</span>
+                  <div class="tb-presets-chips" id="rt-presets">
+                    <button type="button" class="tb-preset-chip" data-a="3" data-b="4" data-c="" data-alpha="">3-4-5 Classic</button>
+                    <button type="button" class="tb-preset-chip" data-a="5" data-b="12" data-c="" data-alpha="">5-12-13 Carpenter</button>
+                    <button type="button" class="tb-preset-chip" data-a="5" data-b="" data-c="" data-alpha="30">30&deg;-60&deg;-90&deg; Special</button>
+                    <button type="button" class="tb-preset-chip" data-a="7" data-b="" data-c="" data-alpha="45">45&deg;-45&deg;-90&deg; Isosceles</button>
+                  </div>
+                </div>
+
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                  Enter any <strong>2 values</strong> (at least one side required):
+                </div>
+
+                <div class="tb-form-row cols-3">
+                  <div class="tb-field">
+                    <label for="inp-rt-a" class="tb-label">Leg a (Opposite &alpha;)</label>
+                    <input type="number" id="inp-rt-a" class="tb-input" value="3" min="0" step="any" placeholder="Leg a">
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-rt-b" class="tb-label">Leg b (Opposite &beta;)</label>
+                    <input type="number" id="inp-rt-b" class="tb-input" value="4" min="0" step="any" placeholder="Leg b">
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-rt-c" class="tb-label">Hypotenuse c</label>
+                    <input type="number" id="inp-rt-c" class="tb-input" min="0" step="any" placeholder="Hypotenuse c">
+                  </div>
+                </div>
+
+                <div class="tb-form-row cols-2">
+                  <div class="tb-field">
+                    <label for="inp-rt-alpha" class="tb-label">Acute Angle &alpha; (&deg;)</label>
+                    <input type="number" id="inp-rt-alpha" class="tb-input" min="0" max="90" step="any" placeholder="Angle &alpha;">
+                  </div>
+                  <div class="tb-field">
+                    <label for="inp-rt-beta" class="tb-label">Acute Angle &beta; (&deg;)</label>
+                    <input type="number" id="inp-rt-beta" class="tb-input" min="0" max="90" step="any" placeholder="Angle &beta;">
+                  </div>
+                </div>
+
+                <div class="tb-btn-group">
+                  <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Calculate Right Triangle
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset</button>
+                </div>
+              </form>
+
+              <!-- Right Results Column -->
+              <div class="tb-results-card">
+                <div class="tb-result-highlight">
+                  <div class="tb-result-label">Hypotenuse Length (c)</div>
+                  <div class="tb-result-value" id="res-hypotenuse">5.00</div>
+                  <div class="tb-result-subtext" id="res-rt-sub">c = &radic;(3&sup2; + 4&sup2;) = &radic;25 = 5.00</div>
+                </div>
+
+                <div class="tb-stats-grid cols-2">
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-rt-area">6.00</div>
+                    <div class="tb-stat-lbl">Area (&frac12; &times; a &times; b)</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-rt-perimeter">12.00</div>
+                    <div class="tb-stat-lbl">Perimeter (a + b + c)</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-rt-altitude">2.40</div>
+                    <div class="tb-stat-lbl">Altitude to Hypotenuse</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-rt-inradius">1.00</div>
+                    <div class="tb-stat-lbl">Incircle Radius (r)</div>
+                  </div>
+                </div>
+
+                <!-- Interactive SVG Shape Preview -->
+                <div style="margin-top: 1.5rem; text-align: center; background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                  <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">Right Triangle Geometry Preview</h4>
+                  <svg id="right-tri-svg" viewBox="0 0 300 180" style="width: 100%; max-height: 180px; display: block; margin: 0 auto;"></svg>
+                </div>
+
+                <div class="tb-btn-group" style="margin-top: 1.5rem;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                    Copy Right Triangle Summary
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Complete Trigonometric Functions Table -->
+            <div class="tb-table-section" style="margin-top: 2.5rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                Exact Trigonometric Functions for Acute Angles
+              </h3>
+              <div class="tb-table-wrapper" style="overflow-x: auto;">
+                <table class="tb-table" id="trig-table">
+                  <thead>
+                    <tr>
+                      <th>Trig Function</th>
+                      <th>Ratio Formula</th>
+                      <th>Angle &alpha; (<span id="th-alpha-deg">36.87&deg;</span>)</th>
+                      <th>Angle &beta; (<span id="th-beta-deg">53.13&deg;</span>)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Sine (sin)</strong></td>
+                      <td>Opposite / Hypotenuse</td>
+                      <td id="td-sin-alpha">0.6000</td>
+                      <td id="td-sin-beta">0.8000</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Cosine (cos)</strong></td>
+                      <td>Adjacent / Hypotenuse</td>
+                      <td id="td-cos-alpha">0.8000</td>
+                      <td id="td-cos-beta">0.6000</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Tangent (tan)</strong></td>
+                      <td>Opposite / Adjacent</td>
+                      <td id="td-tan-alpha">0.7500</td>
+                      <td id="td-tan-beta">1.3333</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Cosecant (csc)</strong></td>
+                      <td>Hypotenuse / Opposite</td>
+                      <td id="td-csc-alpha">1.6667</td>
+                      <td id="td-csc-beta">1.2500</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Secant (sec)</strong></td>
+                      <td>Hypotenuse / Adjacent</td>
+                      <td id="td-sec-alpha">1.2500</td>
+                      <td id="td-sec-beta">1.6667</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Cotangent (cot)</strong></td>
+                      <td>Adjacent / Opposite</td>
+                      <td id="td-cot-alpha">1.3333</td>
+                      <td id="td-cot-beta">0.7500</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Article -->
+        <article class="tb-article">
+          <h2>The Fundamentals of Right-Angled Triangles</h2>
+          <p>
+            A right triangle (or right-angled triangle) is a three-sided polygon where one interior angle measures exactly <strong>90 degrees (&pi;/2 radians)</strong>. The side opposite the 90-degree angle is always the longest side, termed the <strong>hypotenuse</strong>. The two shorter perpendicular sides are known as the <strong>legs</strong> or catheti.
+          </p>
+
+          <h2>The Pythagorean Theorem</h2>
+          <p>
+            Named after the ancient Greek philosopher Pythagoras, the theorem establishes that the area of the square built upon the hypotenuse equals the sum of the areas of the squares on the remaining two legs:
+          </p>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: monospace; margin: 1rem 0; font-size: 0.95rem;">
+            a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup><br>
+            c = &radic;(a<sup>2</sup> + b<sup>2</sup>)<br>
+            a = &radic;(c<sup>2</sup> &minus; b<sup>2</sup>)
+          </div>
+
+          <h2>Trigonometric Ratios (SOH CAH TOA)</h2>
+          <p>
+            The fundamental trigonometric relationships for angle &alpha; are expressed as ratios of side lengths:
+          </p>
+          <ul>
+            <li><strong>Sine (sin &alpha;):</strong> Opposite / Hypotenuse = a / c</li>
+            <li><strong>Cosine (cos &alpha;):</strong> Adjacent / Hypotenuse = b / c</li>
+            <li><strong>Tangent (tan &alpha;):</strong> Opposite / Adjacent = a / b</li>
+            <li><strong>Altitude to Hypotenuse (h<sub>c</sub>):</strong> (a &times; b) / c</li>
+          </ul>
+
+          <h2>Special Right Triangles</h2>
+          <p>
+            Certain right triangles appear with high frequency in engineering and architecture:
+          </p>
+          <ol>
+            <li><strong>30&deg;-60&deg;-90&deg; Triangle:</strong> Side lengths are in the ratio 1 : &radic;3 : 2 (approximately 1 : 1.732 : 2).</li>
+            <li><strong>45&deg;-45&deg;-90&deg; Triangle:</strong> An isosceles right triangle with side length ratio 1 : 1 : &radic;2 (approximately 1 : 1 : 1.414).</li>
+          </ol>
+        </article>
+
+        <!-- FAQ Accordion -->
+        <section class="tb-faq-section">
+          <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+          <div class="tb-faq-list">
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the Pythagorean theorem?</summary>
+              <div class="tb-faq-answer">
+                <p>The Pythagorean theorem states that in any right-angled triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the two other legs: a^2 + b^2 = c^2.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How do you find the hypotenuse of a right triangle?</summary>
+              <div class="tb-faq-answer">
+                <p>To find the hypotenuse (c), take the square root of the sum of the squares of both legs: c = sqrt(a^2 + b^2).</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the 3-4-5 right triangle rule?</summary>
+              <div class="tb-faq-answer">
+                <p>The 3-4-5 rule is the simplest Pythagorean triple where legs of length 3 and 4 produce a hypotenuse of exactly 5 (3^2 + 4^2 = 9 + 16 = 25 = 5^2). Builders and carpenters use this rule extensively to square framing and foundations.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What are the six basic trigonometric ratios?</summary>
+              <div class="tb-faq-answer">
+                <p>The six standard trigonometric functions for acute angle alpha are: sine (opposite/hypotenuse), cosine (adjacent/hypotenuse), tangent (opposite/adjacent), cosecant (hypotenuse/opposite), secant (hypotenuse/adjacent), and cotangent (adjacent/opposite).</p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <!-- Popular Math Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Geometry &amp; Math Tools
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="right-triangle-calculator.html" class="tb-sidebar-link"><span>Right Triangle Calc</span><span>&rarr;</span></a>
+            <a href="triangle-calculator.html" class="tb-sidebar-link"><span>Triangle Calculator</span><span>&rarr;</span></a>
+            <a href="fraction-calculator.html" class="tb-sidebar-link"><span>Fraction Calculator</span><span>&rarr;</span></a>
+            <a href="scientific-calculator.html" class="tb-sidebar-link"><span>Scientific Calculator</span><span>&rarr;</span></a>
+            <a href="percentage-calculator.html" class="tb-sidebar-link"><span>Percentage Calculator</span><span>&rarr;</span></a>
+            <a href="math-calculators.html" class="tb-sidebar-link"><span>All Math Tools</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All geometric solutions run locally in your web browser. Zero calculations or input coordinates are sent over the network.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('right-tri-form');
+      const inA = document.getElementById('inp-rt-a');
+      const inB = document.getElementById('inp-rt-b');
+      const inC = document.getElementById('inp-rt-c');
+      const inAlpha = document.getElementById('inp-rt-alpha');
+      const inBeta = document.getElementById('inp-rt-beta');
+
+      const resHypotenuse = document.getElementById('res-hypotenuse');
+      const resRtSub = document.getElementById('res-rt-sub');
+      const resRtArea = document.getElementById('res-rt-area');
+      const resRtPerimeter = document.getElementById('res-rt-perimeter');
+      const resRtAltitude = document.getElementById('res-rt-altitude');
+      const resRtInradius = document.getElementById('res-rt-inradius');
+      const svgEl = document.getElementById('right-tri-svg');
+
+      const thAlphaDeg = document.getElementById('th-alpha-deg');
+      const thBetaDeg = document.getElementById('th-beta-deg');
+      const tdSinA = document.getElementById('td-sin-alpha');
+      const tdSinB = document.getElementById('td-sin-beta');
+      const tdCosA = document.getElementById('td-cos-alpha');
+      const tdCosB = document.getElementById('td-cos-beta');
+      const tdTanA = document.getElementById('td-tan-alpha');
+      const tdTanB = document.getElementById('td-tan-beta');
+      const tdCscA = document.getElementById('td-csc-alpha');
+      const tdCscB = document.getElementById('td-csc-beta');
+      const tdSecA = document.getElementById('td-sec-alpha');
+      const tdSecB = document.getElementById('td-sec-beta');
+      const tdCotA = document.getElementById('td-cot-alpha');
+      const tdCotB = document.getElementById('td-cot-beta');
+
+      const rad2deg = 180 / Math.PI;
+      const deg2rad = Math.PI / 180;
+
+      function solveRightTriangle() {
+        let a = parseFloat(inA.value) || 0;
+        let b = parseFloat(inB.value) || 0;
+        let c = parseFloat(inC.value) || 0;
+        let alpha = parseFloat(inAlpha.value) || 0;
+        let beta = parseFloat(inBeta.value) || 0;
+
+        // Angle complement
+        if (alpha > 0 && beta === 0) beta = 90 - alpha;
+        if (beta > 0 && alpha === 0) alpha = 90 - beta;
+
+        // Sides resolution
+        if (a > 0 && b > 0) {
+          c = Math.sqrt(a * a + b * b);
+          alpha = Math.atan2(a, b) * rad2deg;
+          beta = 90 - alpha;
+        } else if (a > 0 && c > 0) {
+          if (c <= a) {
+            resRtSub.textContent = 'Hypotenuse (c) must be strictly greater than Leg (a).';
+            resRtSub.style.color = '#ef4444';
+            return;
+          }
+          b = Math.sqrt(c * c - a * a);
+          alpha = Math.asin(a / c) * rad2deg;
+          beta = 90 - alpha;
+        } else if (b > 0 && c > 0) {
+          if (c <= b) {
+            resRtSub.textContent = 'Hypotenuse (c) must be strictly greater than Leg (b).';
+            resRtSub.style.color = '#ef4444';
+            return;
+          }
+          a = Math.sqrt(c * c - b * b);
+          beta = Math.asin(b / c) * rad2deg;
+          alpha = 90 - beta;
+        } else if (a > 0 && alpha > 0) {
+          c = a / Math.sin(alpha * deg2rad);
+          b = Math.sqrt(c * c - a * a);
+          beta = 90 - alpha;
+        } else if (b > 0 && alpha > 0) {
+          c = b / Math.cos(alpha * deg2rad);
+          a = Math.sqrt(c * c - b * b);
+          beta = 90 - alpha;
+        } else if (c > 0 && alpha > 0) {
+          a = c * Math.sin(alpha * deg2rad);
+          b = c * Math.cos(alpha * deg2rad);
+          beta = 90 - alpha;
+        } else {
+          resRtSub.textContent = 'Please enter at least 2 parameters (with at least 1 side).';
+          resRtSub.style.color = '#ef4444';
+          return;
+        }
+
+        const area = 0.5 * a * b;
+        const perimeter = a + b + c;
+        const altitude = (a * b) / c;
+        const inradius = (a + b - c) / 2;
+
+        resHypotenuse.textContent = c.toFixed(2);
+        resRtSub.textContent = `c = √(${a.toFixed(1)}² + ${b.toFixed(1)}²) = ${c.toFixed(2)}`;
+        resRtSub.style.color = 'var(--text-muted)';
+        resRtArea.textContent = area.toFixed(2);
+        resRtPerimeter.textContent = perimeter.toFixed(2);
+        resRtAltitude.textContent = altitude.toFixed(2);
+        resRtInradius.textContent = inradius.toFixed(2);
+
+        // Trig Table
+        thAlphaDeg.textContent = `${alpha.toFixed(2)}°`;
+        thBetaDeg.textContent = `${beta.toFixed(2)}°`;
+
+        const sinA = a / c;
+        const cosA = b / c;
+        const tanA = a / b;
+        const cscA = c / a;
+        const secA = c / b;
+        const cotA = b / a;
+
+        const sinB = b / c;
+        const cosB = a / c;
+        const tanB = b / a;
+        const cscB = c / b;
+        const secB = c / a;
+        const cotB = a / b;
+
+        tdSinA.textContent = sinA.toFixed(4);
+        tdCosA.textContent = cosA.toFixed(4);
+        tdTanA.textContent = tanA.toFixed(4);
+        tdCscA.textContent = cscA.toFixed(4);
+        tdSecA.textContent = secA.toFixed(4);
+        tdCotA.textContent = cotA.toFixed(4);
+
+        tdSinB.textContent = sinB.toFixed(4);
+        tdCosB.textContent = cosB.toFixed(4);
+        tdTanB.textContent = tanB.toFixed(4);
+        tdCscB.textContent = cscB.toFixed(4);
+        tdSecB.textContent = secB.toFixed(4);
+        tdCotB.textContent = cotB.toFixed(4);
+
+        // Draw Right Triangle SVG
+        // Corner C is at right angle (bottom-left)
+        // Leg b is horizontal along bottom (length b)
+        // Leg a is vertical (height a)
+        // Hypotenuse connects top of a to end of b
+        const scale = Math.min(220 / (b || 1), 120 / (a || 1));
+        const scaledB = b * scale;
+        const scaledA = a * scale;
+
+        const x0 = (300 - scaledB) / 2;
+        const y0 = 150;
+        const xA = x0;
+        const yA = y0 - scaledA;
+        const xB = x0 + scaledB;
+        const yB = y0;
+
+        const sqSize = Math.min(14, Math.min(scaledA, scaledB) / 3);
+
+        svgEl.innerHTML = `
+          <polygon points="${x0},${y0} ${xA},${yA} ${xB},${yB}" fill="rgba(0, 102, 255, 0.12)" stroke="#0066ff" stroke-width="2.5" stroke-linejoin="round" />
+          <!-- Right angle square marker -->
+          <polyline points="${x0},${y0 - sqSize} ${x0 + sqSize},${y0 - sqSize} ${x0 + sqSize},${y0}" fill="none" stroke="#0066ff" stroke-width="1.5" />
+          <circle cx="${x0}" cy="${y0}" r="3.5" fill="#0066ff" />
+          <circle cx="${xA}" cy="${yA}" r="3.5" fill="#0066ff" />
+          <circle cx="${xB}" cy="${yB}" r="3.5" fill="#0066ff" />
+          <text x="${x0 - 10}" y="${y0 + 14}" font-size="12" font-weight="700" fill="var(--text-primary)">C (90&deg;)</text>
+          <text x="${xA - 8}" y="${yA - 8}" font-size="12" font-weight="700" fill="var(--text-primary)">A (&alpha;=${alpha.toFixed(1)}&deg;)</text>
+          <text x="${xB + 8}" y="${yB + 14}" font-size="12" font-weight="700" fill="var(--text-primary)">B (&beta;=${beta.toFixed(1)}&deg;)</text>
+          <text x="${x0 - 12}" y="${y0 - scaledA/2}" text-anchor="end" font-size="11" fill="var(--text-secondary)">a = ${a.toFixed(1)}</text>
+          <text x="${x0 + scaledB/2}" y="${y0 + 16}" text-anchor="middle" font-size="11" fill="var(--text-secondary)">b = ${b.toFixed(1)}</text>
+          <text x="${x0 + scaledB/2 + 10}" y="${y0 - scaledA/2 - 4}" text-anchor="start" font-size="11" font-weight="600" fill="#0066ff">c = ${c.toFixed(1)}</text>
+        `;
+      }
+
+      // Presets
+      CalcCore.bindPresets('#rt-presets', (preset) => {
+        inA.value = preset.a;
+        inB.value = preset.b;
+        inC.value = preset.c;
+        inAlpha.value = preset.alpha;
+        inBeta.value = '';
+        solveRightTriangle();
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Right Triangle Calculation Summary:
+Leg a: ${parseFloat(inA.value || 0).toFixed(2)}
+Leg b: ${parseFloat(inB.value || 0).toFixed(2)}
+Hypotenuse c: ${resHypotenuse.textContent}
+Angles: α = ${thAlphaDeg.textContent}, β = ${thBetaDeg.textContent}, γ = 90°
+Area: ${resRtArea.textContent}
+Perimeter: ${resRtPerimeter.textContent}
+Altitude: ${resRtAltitude.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Right triangle summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Reactive & buttons
+      CalcCore.bindReactive(form, solveRightTriangle);
+      document.getElementById('btn-calculate')?.addEventListener('click', solveRightTriangle);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        inA.value = '3';
+        inB.value = '4';
+        inC.value = '';
+        inAlpha.value = '';
+        inBeta.value = '';
+        solveRightTriangle();
+      });
+
+      // Initial solve
+      solveRightTriangle();
+    });
+  </script>
+</body>
+</html>

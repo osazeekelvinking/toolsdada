@@ -1864,7 +1864,7 @@
       "math"
     ],
     "icon": "math",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "percent-calculator": {
@@ -1894,7 +1894,7 @@
       "math"
     ],
     "icon": "math",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "volume-calculator": {
@@ -2300,7 +2300,7 @@
       "math"
     ],
     "icon": "math",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "root-calculator": {
@@ -2410,7 +2410,7 @@
       "math"
     ],
     "icon": "math",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "big-number-calculator": {
@@ -2534,7 +2534,7 @@
       "other"
     ],
     "icon": "utilities",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "time-calculator": {
@@ -2549,7 +2549,7 @@
       "other"
     ],
     "icon": "utilities",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "hours-calculator": {
@@ -2579,7 +2579,7 @@
       "other"
     ],
     "icon": "utilities",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "grade-calculator": {
@@ -2781,7 +2781,7 @@
       "other"
     ],
     "icon": "utilities",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "time-zone-calculator": {
@@ -2797,7 +2797,7 @@
       "other"
     ],
     "icon": "utilities",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "love-calculator": {
@@ -3310,7 +3310,7 @@
       "other"
     ],
     "icon": "utilities",
-    "status": "planned",
+    "status": "active",
     "priority": 2
   },
   "day-counter": {

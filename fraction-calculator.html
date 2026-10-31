@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fraction Calculator with Step-by-Step Solutions | ToolsBuddy</title>
+  <meta name="description" content="Free online fraction calculator for adding, subtracting, multiplying, and dividing fractions and mixed numbers. Includes step-by-step simplification and decimal conversions.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/fraction-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/fraction-calculator.html">
+  <meta property="og:title" content="Fraction Calculator with Steps | ToolsBuddy">
+  <meta property="og:description" content="Calculate and simplify fractions, mixed numbers, and improper fractions with detailed step-by-step solutions.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fraction Calculator | ToolsBuddy">
+  <meta name="twitter:description" content="Add, subtract, multiply, and divide fractions with instant steps, LCD calculations, and mixed numbers.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Fraction Calculator",
+        "url": "https://toolsbuddy.pages.dev/fraction-calculator.html",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Perform addition, subtraction, multiplication, and division on fractions and mixed numbers with step-by-step work, least common denominator (LCD), and decimal conversions.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do you add or subtract fractions with different denominators?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To add or subtract fractions with unlike denominators, first find the Least Common Denominator (LCD). Convert both fractions to equivalent fractions using this LCD, add or subtract the numerators while keeping the denominator unchanged, and simplify the final fraction to lowest terms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you multiply fractions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To multiply fractions, multiply the numerators together to form the new numerator, and multiply the denominators together to form the new denominator: (a/b) * (c/d) = (a*c)/(b*d). Then reduce by the greatest common divisor (GCD)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you divide fractions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To divide by a fraction, invert the divisor fraction (find its reciprocal) and multiply: (a/b) / (c/d) = (a/b) * (d/c) = (a*d)/(b*c)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between an improper fraction and a mixed number?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An improper fraction has a numerator greater than or equal to its denominator (e.g. 7/4). A mixed number combines a non-zero whole integer with a proper fraction (e.g. 1 3/4). Both represent the exact same mathematical value."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="fraction-calculator.html" class="tb-dropdown-item" role="menuitem">Fraction Calculator</a>
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="triangle-calculator.html" class="tb-dropdown-item" role="menuitem">Triangle Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="tb-container tb-tool-wrapper">
+    <!-- Breadcrumb -->
+    <nav class="tb-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <a href="math-calculators.html">Math Calculators</a>
+      <span class="tb-breadcrumb-separator">/</span>
+      <span aria-current="page">Fraction Calculator</span>
+    </nav>
+
+    <!-- Tool Header -->
+    <div class="tb-tool-header">
+      <span class="tb-tool-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+        Fractions &amp; Arithmetic
+      </span>
+      <h1 class="tb-tool-title">Fraction Calculator</h1>
+      <p class="tb-tool-desc">
+        Add, subtract, multiply, and divide fractions and mixed numbers with step-by-step solutions, LCD reduction, and decimal conversions.
+      </p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- 2-Column Responsive Layout Grid -->
+    <div class="tb-tool-layout">
+      <!-- Main Content Column -->
+      <div class="tb-tool-main">
+        <!-- Platform Toolbar -->
+        <div class="tb-platform-toolbar">
+          <div class="tb-toolbar-group">
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Calculator Mode:</span>
+            <span class="tb-tool-badge" style="margin: 0; background: rgba(0, 102, 255, 0.1); color: #0066ff;">Mixed &amp; Simple Fractions</span>
+          </div>
+          <div class="tb-toolbar-group">
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-share-calc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              Share Calculation
+            </button>
+            <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" onclick="window.print()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="tb-workspace">
+          <div class="tb-workspace-inner">
+            <div class="tb-grid-2">
+              <!-- Left Form Column -->
+              <form class="tb-grid-form" id="fraction-form" onsubmit="event.preventDefault();">
+                <div class="tb-presets-wrapper" style="margin-bottom: 1.25rem;">
+                  <span class="tb-presets-label">Common Examples:</span>
+                  <div class="tb-presets-chips" id="fraction-presets">
+                    <button type="button" class="tb-preset-chip" data-w1="0" data-n1="1" data-d1="2" data-op="+" data-w2="0" data-n2="3" data-d2="4">1/2 + 3/4</button>
+                    <button type="button" class="tb-preset-chip" data-w1="2" data-n1="1" data-d1="3" data-op="*" data-w2="1" data-n2="1" data-d2="2">2 1/3 &times; 1 1/2</button>
+                    <button type="button" class="tb-preset-chip" data-w1="0" data-n1="5" data-d1="8" data-op="/" data-w2="0" data-n2="3" data-d2="16">5/8 &divide; 3/16</button>
+                    <button type="button" class="tb-preset-chip" data-w1="0" data-n1="7" data-d1="12" data-op="-" data-w2="0" data-n2="1" data-d2="4">7/12 &minus; 1/4</button>
+                  </div>
+                </div>
+
+                <!-- Fraction 1 Inputs -->
+                <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1rem;">
+                  <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-primary);">First Fraction / Mixed Number</div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="flex: 1;">
+                      <label for="inp-w1" class="tb-label" style="font-size: 0.75rem;">Whole (Opt)</label>
+                      <input type="number" id="inp-w1" class="tb-input" value="0" placeholder="0">
+                    </div>
+                    <div style="flex: 1.5; display: flex; flex-direction: column; gap: 0.25rem;">
+                      <label for="inp-n1" class="tb-label" style="font-size: 0.75rem;">Numerator</label>
+                      <input type="number" id="inp-n1" class="tb-input" value="1" required>
+                      <div style="height: 2px; background: var(--text-primary); border-radius: 1px;"></div>
+                      <input type="number" id="inp-d1" class="tb-input" value="2" min="1" required>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Operator Selection -->
+                <div class="tb-field" style="margin-bottom: 1rem;">
+                  <label class="tb-label">Operation</label>
+                  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;">
+                    <button type="button" class="tb-btn tb-btn-primary btn-op" data-op="+">+</button>
+                    <button type="button" class="tb-btn tb-btn-outline btn-op" data-op="-">&minus;</button>
+                    <button type="button" class="tb-btn tb-btn-outline btn-op" data-op="*">&times;</button>
+                    <button type="button" class="tb-btn tb-btn-outline btn-op" data-op="/">&divide;</button>
+                  </div>
+                  <input type="hidden" id="inp-op" value="+">
+                </div>
+
+                <!-- Fraction 2 Inputs -->
+                <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.25rem;">
+                  <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-primary);">Second Fraction / Mixed Number</div>
+                  <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="flex: 1;">
+                      <label for="inp-w2" class="tb-label" style="font-size: 0.75rem;">Whole (Opt)</label>
+                      <input type="number" id="inp-w2" class="tb-input" value="0" placeholder="0">
+                    </div>
+                    <div style="flex: 1.5; display: flex; flex-direction: column; gap: 0.25rem;">
+                      <label for="inp-n2" class="tb-label" style="font-size: 0.75rem;">Numerator</label>
+                      <input type="number" id="inp-n2" class="tb-input" value="3" required>
+                      <div style="height: 2px; background: var(--text-primary); border-radius: 1px;"></div>
+                      <input type="number" id="inp-d2" class="tb-input" value="4" min="1" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tb-btn-group">
+                  <button type="button" class="tb-btn tb-btn-primary" id="btn-calculate">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Calculate Result
+                  </button>
+                  <button type="button" class="tb-btn tb-btn-secondary" id="btn-reset">Reset</button>
+                </div>
+              </form>
+
+              <!-- Right Results Column -->
+              <div class="tb-results-card">
+                <div class="tb-result-highlight">
+                  <div class="tb-result-label">Simplified Fraction Result</div>
+                  <div class="tb-result-value" id="res-fraction" style="font-size: 2.25rem; color: #0066ff;">5 / 4</div>
+                  <div class="tb-result-subtext" id="res-mixed-sub">Equal to 1 1/4 (Mixed Number)</div>
+                </div>
+
+                <div class="tb-stats-grid cols-2">
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-decimal">1.25</div>
+                    <div class="tb-stat-lbl">Decimal Value</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-percent">125%</div>
+                    <div class="tb-stat-lbl">Percentage Equivalent</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-lcd">4</div>
+                    <div class="tb-stat-lbl">Common Denominator (LCD)</div>
+                  </div>
+                  <div class="tb-stat-box">
+                    <div class="tb-stat-num" id="res-gcd">1</div>
+                    <div class="tb-stat-lbl">Greatest Common Divisor (GCD)</div>
+                  </div>
+                </div>
+
+                <!-- Visual Proportion Donut / Pie Representation -->
+                <div class="tb-chart-container" style="margin-top: 1.5rem; text-align: center;">
+                  <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Proportion of a Whole</h4>
+                  <canvas id="fraction-chart" width="260" height="200" style="max-width: 100%; height: auto; margin: 0 auto; display: block;"></canvas>
+                </div>
+
+                <div class="tb-btn-group" style="margin-top: 1.5rem;">
+                  <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
+                    Copy Fraction Summary
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step-by-Step Solution Breakdown -->
+            <div class="tb-table-section" style="margin-top: 2.5rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+                Detailed Step-by-Step Solution
+              </h3>
+              <div id="solution-steps" style="background: var(--bg-card); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: inherit; line-height: 1.7;">
+                <!-- Populated dynamically by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Article -->
+        <article class="tb-article">
+          <h2>How to Perform Fraction Operations</h2>
+          <p>
+            A fraction represents a part of a whole or any number of equal parts. It consists of a top integer (the <strong>numerator</strong>) and a non-zero bottom integer (the <strong>denominator</strong>).
+          </p>
+
+          <h2>1. Adding and Subtracting Fractions</h2>
+          <p>
+            To add or subtract fractions, they must share a common denominator. If denominators differ, find their <strong>Least Common Multiple (LCM)</strong>, which serves as the Least Common Denominator (LCD):
+          </p>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: monospace; margin: 1rem 0; font-size: 0.95rem;">
+            a/b &plusmn; c/d = (a &times; d &plusmn; c &times; b) / (b &times; d)
+          </div>
+
+          <h2>2. Multiplying Fractions</h2>
+          <p>
+            Multiplication is straightforward: multiply numerators together and multiply denominators together:
+          </p>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: monospace; margin: 1rem 0; font-size: 0.95rem;">
+            (a / b) &times; (c / d) = (a &times; c) / (b &times; d)
+          </div>
+
+          <h2>3. Dividing Fractions (Keep, Change, Flip)</h2>
+          <p>
+            To divide one fraction by another, multiply the dividend by the reciprocal (inverse) of the divisor:
+          </p>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: monospace; margin: 1rem 0; font-size: 0.95rem;">
+            (a / b) &divide; (c / d) = (a / b) &times; (d / c) = (a &times; d) / (b &times; c)
+          </div>
+
+          <h2>Simplifying to Lowest Terms</h2>
+          <p>
+            A fraction is in its simplest form when the numerator and denominator are co-prime (their <strong>Greatest Common Divisor, or GCD, is 1</strong>). To simplify any fraction, compute the GCD using the Euclidean algorithm and divide both numerator and denominator by it.
+          </p>
+        </article>
+
+        <!-- FAQ Accordion -->
+        <section class="tb-faq-section">
+          <h2 class="tb-faq-heading">Frequently Asked Questions</h2>
+          <div class="tb-faq-list">
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How do you add or subtract fractions with different denominators?</summary>
+              <div class="tb-faq-answer">
+                <p>To add or subtract fractions with unlike denominators, first find the Least Common Denominator (LCD). Convert both fractions to equivalent fractions using this LCD, add or subtract the numerators while keeping the denominator unchanged, and simplify the final fraction to lowest terms.</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How do you multiply fractions?</summary>
+              <div class="tb-faq-answer">
+                <p>To multiply fractions, multiply the numerators together to form the new numerator, and multiply the denominators together to form the new denominator: (a/b) * (c/d) = (a*c)/(b*d). Then reduce by the greatest common divisor (GCD).</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">How do you divide fractions?</summary>
+              <div class="tb-faq-answer">
+                <p>To divide by a fraction, invert the divisor fraction (find its reciprocal) and multiply: (a/b) / (c/d) = (a/b) * (d/c) = (a*d)/(b*c).</p>
+              </div>
+            </details>
+            <details class="tb-faq-item">
+              <summary class="tb-faq-question">What is the difference between an improper fraction and a mixed number?</summary>
+              <div class="tb-faq-answer">
+                <p>An improper fraction has a numerator greater than or equal to its denominator (e.g. 7/4). A mixed number combines a non-zero whole integer with a proper fraction (e.g. 1 3/4). Both represent the exact same mathematical value.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sticky Sidebar -->
+      <aside class="tb-sidebar tb-sidebar-sticky" aria-label="Sidebar">
+        <!-- Tools-Sidebar Ad Unit -->
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <!-- Popular Math Calculators Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Math &amp; Geometry Tools
+          </div>
+          <div class="tb-sidebar-links">
+            <a href="fraction-calculator.html" class="tb-sidebar-link"><span>Fraction Calculator</span><span>&rarr;</span></a>
+            <a href="percentage-calculator.html" class="tb-sidebar-link"><span>Percentage Calculator</span><span>&rarr;</span></a>
+            <a href="scientific-calculator.html" class="tb-sidebar-link"><span>Scientific Calculator</span><span>&rarr;</span></a>
+            <a href="triangle-calculator.html" class="tb-sidebar-link"><span>Triangle Calculator</span><span>&rarr;</span></a>
+            <a href="right-triangle-calculator.html" class="tb-sidebar-link"><span>Right Triangle Calculator</span><span>&rarr;</span></a>
+            <a href="math-calculators.html" class="tb-sidebar-link"><span>All Math Tools</span><span>&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- Trust & Privacy Widget -->
+        <div class="tb-sidebar-widget">
+          <div class="tb-sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            100% Client-Side Privacy
+          </div>
+          <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            All fraction calculations execute in real-time in your browser. Zero arithmetic or math data is ever transmitted or saved.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="js/ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('fraction-form');
+      const inW1 = document.getElementById('inp-w1');
+      const inN1 = document.getElementById('inp-n1');
+      const inD1 = document.getElementById('inp-d1');
+      const inOp = document.getElementById('inp-op');
+      const inW2 = document.getElementById('inp-w2');
+      const inN2 = document.getElementById('inp-n2');
+      const inD2 = document.getElementById('inp-d2');
+
+      const resFraction = document.getElementById('res-fraction');
+      const resMixedSub = document.getElementById('res-mixed-sub');
+      const resDecimal = document.getElementById('res-decimal');
+      const resPercent = document.getElementById('res-percent');
+      const resLcd = document.getElementById('res-lcd');
+      const resGcd = document.getElementById('res-gcd');
+      const chartCanvas = document.getElementById('fraction-chart');
+      const solutionSteps = document.getElementById('solution-steps');
+
+      // Operator selection buttons
+      document.querySelectorAll('.btn-op').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.btn-op').forEach(b => {
+            b.classList.remove('tb-btn-primary');
+            b.classList.add('tb-btn-outline');
+          });
+          btn.classList.remove('tb-btn-outline');
+          btn.classList.add('tb-btn-primary');
+          inOp.value = btn.getAttribute('data-op');
+          calculateFraction();
+        });
+      });
+
+      // Math helpers
+      function gcd(a, b) {
+        a = Math.abs(a);
+        b = Math.abs(b);
+        while (b) {
+          const t = b;
+          b = a % b;
+          a = t;
+        }
+        return a || 1;
+      }
+
+      function lcm(a, b) {
+        return Math.abs(a * b) / gcd(a, b);
+      }
+
+      function calculateFraction() {
+        const w1 = parseInt(inW1.value, 10) || 0;
+        const n1 = parseInt(inN1.value, 10) || 0;
+        let d1 = parseInt(inD1.value, 10) || 1;
+        if (d1 === 0) d1 = 1;
+
+        const w2 = parseInt(inW2.value, 10) || 0;
+        const n2 = parseInt(inN2.value, 10) || 0;
+        let d2 = parseInt(inD2.value, 10) || 1;
+        if (d2 === 0) d2 = 1;
+
+        const op = inOp.value || '+';
+
+        // Convert mixed to improper
+        // Sign of whole number applies to whole numerator
+        const sign1 = w1 < 0 ? -1 : 1;
+        const impN1 = sign1 * (Math.abs(w1) * d1 + n1);
+
+        const sign2 = w2 < 0 ? -1 : 1;
+        const impN2 = sign2 * (Math.abs(w2) * d2 + n2);
+
+        let resN = 0;
+        let resD = 1;
+        let commonDenom = d1;
+        let stepsHtml = '';
+
+        stepsHtml += `<p><strong>Step 1: Convert to improper fractions:</strong></p>`;
+        if (w1 !== 0) {
+          stepsHtml += `<p>&bull; First fraction: ${w1} <sup>${n1}</sup>/<sub>${d1}</sub> = <sup>(${Math.abs(w1)} &times; ${d1} + ${n1})</sup>/<sub>${d1}</sub> = <sup>${impN1}</sup>/<sub>${d1}</sub></p>`;
+        } else {
+          stepsHtml += `<p>&bull; First fraction: <sup>${impN1}</sup>/<sub>${d1}</sub></p>`;
+        }
+        if (w2 !== 0) {
+          stepsHtml += `<p>&bull; Second fraction: ${w2} <sup>${n2}</sup>/<sub>${d2}</sub> = <sup>(${Math.abs(w2)} &times; ${d2} + ${n2})</sup>/<sub>${d2}</sub> = <sup>${impN2}</sup>/<sub>${d2}</sub></p>`;
+        } else {
+          stepsHtml += `<p>&bull; Second fraction: <sup>${impN2}</sup>/<sub>${d2}</sub></p>`;
+        }
+
+        if (op === '+' || op === '-') {
+          commonDenom = lcm(d1, d2);
+          const mult1 = commonDenom / d1;
+          const mult2 = commonDenom / d2;
+          const adjN1 = impN1 * mult1;
+          const adjN2 = impN2 * mult2;
+
+          stepsHtml += `<p style="margin-top: 0.75rem;"><strong>Step 2: Find Least Common Denominator (LCD):</strong></p>`;
+          stepsHtml += `<p>&bull; LCD(${d1}, ${d2}) = <strong>${commonDenom}</strong></p>`;
+          stepsHtml += `<p>&bull; Convert: <sup>${impN1}</sup>/<sub>${d1}</sub> = <sup>(${impN1} &times; ${mult1})</sup>/<sub>${commonDenom}</sub> = <sup>${adjN1}</sup>/<sub>${commonDenom}</sub></p>`;
+          stepsHtml += `<p>&bull; Convert: <sup>${impN2}</sup>/<sub>${d2}</sub> = <sup>(${impN2} &times; ${mult2})</sup>/<sub>${commonDenom}</sub> = <sup>${adjN2}</sup>/<sub>${commonDenom}</sub></p>`;
+
+          if (op === '+') {
+            resN = adjN1 + adjN2;
+            stepsHtml += `<p style="margin-top: 0.75rem;"><strong>Step 3: Add numerators:</strong></p>`;
+            stepsHtml += `<p>&bull; <sup>${adjN1}</sup>/<sub>${commonDenom}</sub> + <sup>${adjN2}</sup>/<sub>${commonDenom}</sub> = <sup>(${adjN1} + ${adjN2})</sup>/<sub>${commonDenom}</sub> = <sup>${resN}</sup>/<sub>${commonDenom}</sub></p>`;
+          } else {
+            resN = adjN1 - adjN2;
+            stepsHtml += `<p style="margin-top: 0.75rem;"><strong>Step 3: Subtract numerators:</strong></p>`;
+            stepsHtml += `<p>&bull; <sup>${adjN1}</sup>/<sub>${commonDenom}</sub> &minus; <sup>${adjN2}</sup>/<sub>${commonDenom}</sub> = <sup>(${adjN1} &minus; ${adjN2})</sup>/<sub>${commonDenom}</sub> = <sup>${resN}</sup>/<sub>${commonDenom}</sub></p>`;
+          }
+          resD = commonDenom;
+        } else if (op === '*') {
+          stepsHtml += `<p style="margin-top: 0.75rem;"><strong>Step 2: Multiply numerators and denominators:</strong></p>`;
+          resN = impN1 * impN2;
+          resD = d1 * d2;
+          commonDenom = resD;
+          stepsHtml += `<p>&bull; <sup>(${impN1} &times; ${impN2})</sup>/<sub>(${d1} &times; ${d2})</sub> = <sup>${resN}</sup>/<sub>${resD}</sub></p>`;
+        } else if (op === '/') {
+          stepsHtml += `<p style="margin-top: 0.75rem;"><strong>Step 2: Invert second fraction and multiply (reciprocal):</strong></p>`;
+          stepsHtml += `<p>&bull; <sup>${impN1}</sup>/<sub>${d1}</sub> &divide; <sup>${impN2}</sup>/<sub>${d2}</sub> = <sup>${impN1}</sup>/<sub>${d1}</sub> &times; <sup>${d2}</sup>/<sub>${impN2}</sub></p>`;
+          resN = impN1 * d2;
+          resD = d1 * impN2;
+          if (resD < 0) {
+            resN = -resN;
+            resD = -resD;
+          }
+          commonDenom = resD;
+          stepsHtml += `<p>&bull; <sup>(${impN1} &times; ${d2})</sup>/<sub>(${d1} &times; ${impN2})</sub> = <sup>${resN}</sup>/<sub>${resD}</sub></p>`;
+        }
+
+        // Simplify by GCD
+        const divisor = gcd(resN, resD);
+        const simpN = resN / divisor;
+        const simpD = resD / divisor;
+
+        stepsHtml += `<p style="margin-top: 0.75rem;"><strong>Step 4: Reduce to lowest terms (divide by GCD = ${divisor}):</strong></p>`;
+        stepsHtml += `<p>&bull; <sup>${resN}</sup>/<sub>${resD}</sub> = <strong><sup>${simpN}</sup>/<sub>${simpD}</sub></strong></p>`;
+
+        // Mixed number representation
+        let mixedText = '';
+        if (Math.abs(simpN) >= simpD && simpD !== 1) {
+          const whole = Math.trunc(simpN / simpD);
+          const rem = Math.abs(simpN % simpD);
+          if (rem !== 0) {
+            mixedText = `Equal to ${whole} ${rem}/${simpD} (Mixed Number)`;
+            stepsHtml += `<p>&bull; Mixed number: ${whole} <sup>${rem}</sup>/<sub>${simpD}</sub></p>`;
+          } else {
+            mixedText = `Equal to ${whole} (Whole Integer)`;
+          }
+        } else if (simpD === 1) {
+          mixedText = `Equal to ${simpN} (Whole Integer)`;
+        } else {
+          mixedText = `Proper fraction (< 1)`;
+        }
+
+        // Decimal & percent
+        const decimalVal = simpN / simpD;
+        const percentVal = decimalVal * 100;
+
+        resFraction.textContent = simpD === 1 ? `${simpN}` : `${simpN} / ${simpD}`;
+        resMixedSub.textContent = mixedText;
+        resDecimal.textContent = Number.isInteger(decimalVal) ? decimalVal : decimalVal.toFixed(4).replace(/\.?0+$/, '');
+        resPercent.textContent = `${Number.isInteger(percentVal) ? percentVal : percentVal.toFixed(2).replace(/\.?0+$/, '')}%`;
+        resLcd.textContent = commonDenom;
+        resGcd.textContent = divisor;
+        solutionSteps.innerHTML = stepsHtml;
+
+        // Visual Proportion Donut
+        const propPart = Math.max(0, Math.min(1, decimalVal % 1 || (decimalVal > 0 ? 1 : 0)));
+        const remPart = Math.max(0, 1 - propPart);
+
+        CalcCharts.drawDonutChart(chartCanvas, [
+          { label: 'Fraction Portion', value: Math.round(propPart * 100), color: '#0066ff' },
+          { label: 'Remainder of Whole', value: Math.round(remPart * 100), color: '#e2e8f0' }
+        ], { cutout: 0.65 });
+      }
+
+      // Presets
+      CalcCore.bindPresets('#fraction-presets', (preset) => {
+        inW1.value = preset.w1;
+        inN1.value = preset.n1;
+        inD1.value = preset.d1;
+        inW2.value = preset.w2;
+        inN2.value = preset.n2;
+        inD2.value = preset.d2;
+        inOp.value = preset.op;
+
+        document.querySelectorAll('.btn-op').forEach(b => {
+          if (b.getAttribute('data-op') === preset.op) {
+            b.classList.remove('tb-btn-outline');
+            b.classList.add('tb-btn-primary');
+          } else {
+            b.classList.remove('tb-btn-primary');
+            b.classList.add('tb-btn-outline');
+          }
+        });
+
+        calculateFraction();
+      });
+
+      // Copy summary
+      document.getElementById('btn-copy-summary').addEventListener('click', () => {
+        const text = `Fraction Calculation Summary:
+Result: ${resFraction.textContent} (${resMixedSub.textContent})
+Decimal: ${resDecimal.textContent}
+Percentage: ${resPercent.textContent}
+Least Common Denominator (LCD): ${resLcd.textContent}
+Greatest Common Divisor (GCD): ${resGcd.textContent}
+Calculated via ToolsBuddy: ${window.location.href}`;
+        navigator.clipboard.writeText(text).then(() => {
+          window.showToast('Fraction summary copied to clipboard!', 'success');
+        });
+      });
+
+      // Reactive & buttons
+      CalcCore.bindReactive(form, calculateFraction);
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateFraction);
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        inOp.value = '+';
+        document.querySelectorAll('.btn-op').forEach((b, i) => {
+          if (i === 0) { b.classList.add('tb-btn-primary'); b.classList.remove('tb-btn-outline'); }
+          else { b.classList.remove('tb-btn-primary'); b.classList.add('tb-btn-outline'); }
+        });
+        calculateFraction();
+      });
+
+      // Initial run
+      calculateFraction();
+    });
+  </script>
+</body>
+</html>

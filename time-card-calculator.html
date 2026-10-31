@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Card Calculator with Overtime & Breaks | ToolsBuddy</title>
+  <meta name="description" content="Free weekly Time Card Calculator. Calculate gross pay, total weekly work hours, lunch breaks, and overtime (1.5x) with a simple daily timesheet.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/time-card-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/time-card-calculator.html">
+  <meta property="og:title" content="Time Card Calculator with Overtime & Breaks | ToolsBuddy">
+  <meta property="og:description" content="Track weekly hours, lunch breaks, hourly wages, and overtime pay with instant breakdown.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Time Card Calculator",
+    "url": "https://toolsbuddy.pages.dev/time-card-calculator.html",
+    "description": "Calculate daily work hours, weekly overtime, and gross payroll earnings with meal break deductions.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page calc-theme-neutral">
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="fraction-calculator.html" class="tb-dropdown-item" role="menuitem">Fraction Calculator</a>
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="triangle-calculator.html" class="tb-dropdown-item" role="menuitem">Triangle Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  
+
+  <main class="tool-container">
+    <div class="tool-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="other-calculators.html">Everyday Tools</a>
+        <span class="breadcrumb-separator">/</span>
+        <span aria-current="page">Time Card Calculator</span>
+      </nav>
+      <h1 class="tool-title">Time Card Calculator</h1>
+      <p class="tool-subtitle">Track weekly timesheet hours, unpaid lunch breaks, hourly pay, and automatic overtime wages.</p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- Calculator Grid -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+      <div class="calc-layout-grid">
+      <!-- Input Panel -->
+      <div class="calc-card input-panel">
+        <h2 class="panel-heading mb-3">Weekly Timesheet</h2>
+
+        <form id="time-card-form" onsubmit="return false;">
+          <!-- Hourly Pay & Overtime Config -->
+          <div class="input-row-grid mb-4">
+            <div class="input-group">
+              <label for="hourly-wage" class="input-label">Hourly Wage ($/hr)</label>
+              <input type="text" id="hourly-wage" class="calc-input" value="25.00" data-format="number" required>
+            </div>
+            <div class="input-group">
+              <label for="ot-rate" class="input-label">Overtime Rate</label>
+              <select id="ot-rate" class="calc-select">
+                <option value="1.5" selected>1.5x (Time & a Half)</option>
+                <option value="2.0">2.0x (Double Time)</option>
+                <option value="1.0">1.0x (Straight Pay)</option>
+              </select>
+            </div>
+          </div>
+      </div>
+    </div>
+
+          <div class="input-group mb-4">
+            <label for="ot-rule" class="input-label">Overtime Threshold Rule</label>
+            <select id="ot-rule" class="calc-select">
+              <option value="weekly40" selected>Over 40 Hours per Week (Standard FLSA)</option>
+              <option value="daily8">Over 8 Hours per Day (California Rule)</option>
+            </select>
+          </div>
+
+          <!-- Timesheet Table Days -->
+          <div class="timesheet-days-list mb-4">
+            <div style="font-weight: 600; font-size: 0.85rem; color: var(--text-muted, #64748b); display: grid; grid-template-columns: 80px 1fr 1fr 70px; gap: 0.5rem; margin-bottom: 0.5rem; padding: 0 0.5rem;">
+              <span>Day</span>
+              <span>Clock In</span>
+              <span>Clock Out</span>
+              <span>Break</span>
+            </div>
+
+            <!-- Monday to Sunday Rows -->
+            <div id="timesheet-rows">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="action-buttons-group">
+            <button type="button" id="btn-calculate" class="calc-btn primary-btn">Calculate Pay & Hours</button>
+            <button type="button" id="btn-reset" class="calc-btn secondary-btn">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="calc-card result-panel">
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <div class="result-header">
+          <h2 class="result-title">Payroll Summary</h2>
+          <span class="result-badge" id="ot-badge">Standard Hours</span>
+        </div>
+
+        <div class="hero-result-box mb-4">
+          <span class="hero-label">Total Gross Pay</span>
+          <div class="hero-value" id="hero-gross-pay">$1,000.00</div>
+          <p class="hero-subtext" id="hero-hours-subtext">40.00 Total Hours Worked</p>
+        </div>
+
+        <!-- Metric Grid -->
+        <div class="result-metrics-grid mb-4">
+          <div class="metric-card">
+            <span class="metric-label">Regular Hours</span>
+            <span class="metric-value" id="metric-reg-hours">40.00 hrs</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Overtime Hours</span>
+            <span class="metric-value" id="metric-ot-hours">0.00 hrs</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Regular Pay</span>
+            <span class="metric-value" id="metric-reg-pay">$1,000.00</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Overtime Pay</span>
+            <span class="metric-value" id="metric-ot-pay">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Visual Bar Chart -->
+        <div class="chart-container-box mb-4">
+          <h3 class="chart-title">Hours Worked by Day</h3>
+          <canvas id="hours-bar-chart" width="280" height="180"></canvas>
+        </div>
+
+        <!-- Share & Export -->
+        <div class="share-actions">
+          <button type="button" id="btn-share-calc" class="action-btn text-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Share This Timesheet
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & Explanatory Guide -->
+    <article class="tool-guide mt-5">
+      <h2>How Time Cards and Overtime Pay Work</h2>
+      <p>A time card calculator tracks hourly wages by summing daily work durations, deducting non-compensable meal breaks, and applying appropriate statutory overtime multipliers.</p>
+
+      <h3>1. Calculating Shift Hours</h3>
+      <p>For each day, the net paid hours are determined by:</p>
+      <p>\[ \text{Daily Hours} = \frac{(\text{Clock Out Time} - \text{Clock In Time}) - \text{Break Minutes}}{60} \]</p>
+      <p>Under the US Department of Labor Fair Labor Standards Act (FLSA), bona fide meal periods (typically 30 minutes or more where the employee is completely relieved from duty) are not work time and are unpaid.</p>
+
+      <h3>2. Overtime Calculation Rules</h3>
+      <ul>
+        <li><strong>Standard FLSA (Weekly 40)</strong>: Covered non-exempt employees receive overtime pay for hours worked over 40 in a workweek at a rate not less than 1.5 times their regular rate of pay.</li>
+        <li><strong>Daily Overtime (8 Hours/Day)</strong>: Applied in jurisdictions like California, Alaska, and Nevada, where any work beyond 8 hours in a single 24-hour workday qualifies as daily overtime regardless of weekly total.</li>
+      </ul>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const days = [
+        { id: 'mon', label: 'Mon', in: '09:00', out: '17:30', brk: 30 },
+        { id: 'tue', label: 'Tue', in: '09:00', out: '17:30', brk: 30 },
+        { id: 'wed', label: 'Wed', in: '09:00', out: '17:30', brk: 30 },
+        { id: 'thu', label: 'Thu', in: '09:00', out: '17:30', brk: 30 },
+        { id: 'fri', label: 'Fri', in: '09:00', out: '17:30', brk: 30 },
+        { id: 'sat', label: 'Sat', in: '', out: '', brk: 0 },
+        { id: 'sun', label: 'Sun', in: '', out: '', brk: 0 }
+      ];
+
+      const rowsContainer = document.getElementById('timesheet-rows');
+      days.forEach(d => {
+        const row = document.createElement('div');
+        row.className = 'timesheet-day-row mb-2';
+        row.style.display = 'grid';
+        row.style.gridTemplateColumns = '80px 1fr 1fr 70px';
+        row.style.gap = '0.5rem';
+        row.style.alignItems = 'center';
+        row.innerHTML = `
+          <span style="font-weight: 500;">${d.label}</span>
+          <input type="time" class="calc-input day-in" id="in-${d.id}" value="${d.in}">
+          <input type="time" class="calc-input day-out" id="out-${d.id}" value="${d.out}">
+          <input type="number" class="calc-input day-break" id="brk-${d.id}" min="0" max="240" step="5" value="${d.brk}" title="Break (minutes)" placeholder="Mins">
+        `;
+        rowsContainer.appendChild(row);
+      });
+
+      function parseTimeToMinutes(t) {
+        if (!t) return null;
+        const parts = t.split(':');
+        return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+      }
+
+      function calculateTimeCard() {
+        const wage = CalcCore.parseNumber(document.getElementById('hourly-wage').value) || 0;
+        const otMult = parseFloat(document.getElementById('ot-rate').value) || 1.5;
+        const otRule = document.getElementById('ot-rule').value;
+
+        const dayHoursList = [];
+        let totalHours = 0;
+        let regHours = 0;
+        let otHours = 0;
+
+        days.forEach(d => {
+          const inVal = document.getElementById(`in-${d.id}`).value;
+          const outVal = document.getElementById(`out-${d.id}`).value;
+          const brkVal = parseInt(document.getElementById(`brk-${d.id}`).value, 10) || 0;
+
+          const inMin = parseTimeToMinutes(inVal);
+          const outMin = parseTimeToMinutes(outVal);
+
+          let dailyHours = 0;
+          if (inMin !== null && outMin !== null && outMin > inMin) {
+            let netMin = (outMin - inMin) - brkVal;
+            if (netMin < 0) netMin = 0;
+            dailyHours = netMin / 60;
+          }
+          dayHoursList.push(dailyHours);
+          totalHours += dailyHours;
+
+          if (otRule === 'daily8') {
+            if (dailyHours > 8) {
+              regHours += 8;
+              otHours += (dailyHours - 8);
+            } else {
+              regHours += dailyHours;
+            }
+          }
+        });
+
+        if (otRule === 'weekly40') {
+          if (totalHours > 40) {
+            regHours = 40;
+            otHours = totalHours - 40;
+          } else {
+            regHours = totalHours;
+            otHours = 0;
+          }
+        }
+
+        const regPay = regHours * wage;
+        const otPay = otHours * (wage * otMult);
+        const grossPay = regPay + otPay;
+
+        document.getElementById('hero-gross-pay').textContent = CalcCore.formatCurrency(grossPay);
+        document.getElementById('hero-hours-subtext').textContent = `${totalHours.toFixed(2)} Total Hours Worked`;
+        document.getElementById('metric-reg-hours').textContent = `${regHours.toFixed(2)} hrs`;
+        document.getElementById('metric-ot-hours').textContent = `${otHours.toFixed(2)} hrs`;
+        document.getElementById('metric-reg-pay').textContent = CalcCore.formatCurrency(regPay);
+        document.getElementById('metric-ot-pay').textContent = CalcCore.formatCurrency(otPay);
+
+        const badge = document.getElementById('ot-badge');
+        if (otHours > 0) {
+          badge.textContent = `${otHours.toFixed(1)} hrs Overtime`;
+          badge.style.background = '#fef3c7';
+          badge.style.color = '#92400e';
+        } else {
+          badge.textContent = 'Standard Hours';
+          badge.style.background = '';
+          badge.style.color = '';
+        }
+
+        // Draw Bar Chart of Daily Hours
+        const canvas = document.getElementById('hours-bar-chart');
+        if (canvas && typeof CalcCharts !== 'undefined') {
+          const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+          CalcCharts.drawBarChart(canvas, labels, [
+            { label: 'Hours', data: dayHoursList, color: '#3b82f6' }
+          ], { maxVal: 12 });
+        }
+
+        if (typeof window.refreshAds === 'function') {
+          window.refreshAds('calculate');
+        }
+      }
+
+      const form = document.getElementById('time-card-form');
+      form.addEventListener('input', calculateTimeCard);
+      form.addEventListener('change', calculateTimeCard);
+
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateTimeCard);
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        days.forEach(d => {
+          document.getElementById(`in-${d.id}`).value = d.in;
+          document.getElementById(`out-${d.id}`).value = d.out;
+          document.getElementById(`brk-${d.id}`).value = d.brk;
+        });
+        calculateTimeCard();
+      });
+
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => {
+        CalcCore.copyShareUrl(form);
+      });
+
+      calculateTimeCard();
+    });
+  </script>
+</body>
+</html>

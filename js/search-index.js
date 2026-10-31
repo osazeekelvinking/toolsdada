@@ -1515,13 +1515,13 @@ window.TB_TOOLS_INDEX = [
     "id": "fraction-calculator",
     "title": "Fraction Calculator",
     "category": "math",
-    "url": "math-calculators.html#fraction-calculator",
+    "url": "fraction-calculator.html",
     "desc": "Free online Fraction Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "fraction",
       "math"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "percent-calculator",
@@ -1539,13 +1539,13 @@ window.TB_TOOLS_INDEX = [
     "id": "triangle-calculator",
     "title": "Triangle Calculator",
     "category": "math",
-    "url": "math-calculators.html#triangle-calculator",
+    "url": "triangle-calculator.html",
     "desc": "Free online Triangle Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "triangle",
       "math"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "volume-calculator",
@@ -1866,14 +1866,14 @@ window.TB_TOOLS_INDEX = [
     "id": "right-triangle-calculator",
     "title": "Right Triangle Calculator",
     "category": "math",
-    "url": "math-calculators.html#right-triangle-calculator",
+    "url": "right-triangle-calculator.html",
     "desc": "Free online Right Triangle Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "right",
       "triangle",
       "math"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "root-calculator",
@@ -1955,14 +1955,14 @@ window.TB_TOOLS_INDEX = [
     "id": "scientific-notation-calculator",
     "title": "Scientific Notation Calculator",
     "category": "math",
-    "url": "math-calculators.html#scientific-notation-calculator",
+    "url": "scientific-notation-calculator.html",
     "desc": "Free online Scientific Notation Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "scientific",
       "notation",
       "math"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "big-number-calculator",
@@ -2056,25 +2056,25 @@ window.TB_TOOLS_INDEX = [
     "id": "date-calculator",
     "title": "Date Calculator",
     "category": "other",
-    "url": "other-calculators.html#date-calculator",
+    "url": "date-calculator.html",
     "desc": "Free online Date Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "date",
       "other"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "time-calculator",
     "title": "Time Calculator",
     "category": "other",
-    "url": "other-calculators.html#time-calculator",
+    "url": "time-calculator.html",
     "desc": "Free online Time Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "time",
       "other"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "hours-calculator",
@@ -2092,13 +2092,13 @@ window.TB_TOOLS_INDEX = [
     "id": "gpa-calculator",
     "title": "GPA Calculator",
     "category": "other",
-    "url": "other-calculators.html#gpa-calculator",
+    "url": "gpa-calculator.html",
     "desc": "Free online GPA Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "gpa",
       "other"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "grade-calculator",
@@ -2254,27 +2254,27 @@ window.TB_TOOLS_INDEX = [
     "id": "time-card-calculator",
     "title": "Time Card Calculator",
     "category": "other",
-    "url": "other-calculators.html#time-card-calculator",
+    "url": "time-card-calculator.html",
     "desc": "Free online Time Card Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "time",
       "card",
       "other"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "time-zone-calculator",
     "title": "Time Zone Calculator",
     "category": "other",
-    "url": "other-calculators.html#time-zone-calculator",
+    "url": "time-zone-calculator.html",
     "desc": "Free online Time Zone Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "time",
       "zone",
       "other"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "love-calculator",
@@ -2681,14 +2681,14 @@ window.TB_TOOLS_INDEX = [
     "id": "time-duration-calculator",
     "title": "Time Duration Calculator",
     "category": "other",
-    "url": "other-calculators.html#time-duration-calculator",
+    "url": "time-duration-calculator.html",
     "desc": "Free online Time Duration Calculator with instant calculations, formula explanations, and interactive visual breakdown.",
     "keywords": [
       "time",
       "duration",
       "other"
     ],
-    "status": "planned"
+    "status": "active"
   },
   {
     "id": "day-counter",

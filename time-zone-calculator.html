@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Zone Calculator — Global Time Converter & Meeting Planner | ToolsBuddy</title>
+  <meta name="description" content="Free online Time Zone Calculator. Convert time across global time zones (EST, PST, UTC, GMT, JST, CET) with daylight saving time and a visual international meeting planner.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/time-zone-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/time-zone-calculator.html">
+  <meta property="og:title" content="Time Zone Calculator — Global Converter | ToolsBuddy">
+  <meta property="og:description" content="Convert dates and times across all world time zones with international meeting planner indicators.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Time Zone Calculator",
+    "url": "https://toolsbuddy.pages.dev/time-zone-calculator.html",
+    "description": "Convert times and dates across major world time zones with daylight saving adjustments and business hours indicators.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page calc-theme-neutral">
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="fraction-calculator.html" class="tb-dropdown-item" role="menuitem">Fraction Calculator</a>
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="triangle-calculator.html" class="tb-dropdown-item" role="menuitem">Triangle Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  
+
+  <main class="tool-container">
+    <div class="tool-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="other-calculators.html">Everyday Tools</a>
+        <span class="breadcrumb-separator">/</span>
+        <span aria-current="page">Time Zone Calculator</span>
+      </nav>
+      <h1 class="tool-title">Time Zone Calculator</h1>
+      <p class="tool-subtitle">Convert dates and hours across world time zones with live business hour meeting planning.</p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- Calculator Grid -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+      <div class="calc-layout-grid">
+      <!-- Input Panel -->
+      <div class="calc-card input-panel">
+        <h2 class="panel-heading mb-3">Convert Time Zone</h2>
+
+        <form id="tz-form" onsubmit="return false;">
+          <div class="input-row-grid mb-3">
+            <div class="input-group">
+              <label for="base-date" class="input-label">Date</label>
+              <input type="date" id="base-date" class="calc-input" value="2026-10-15" required>
+            </div>
+            <div class="input-group">
+              <label for="base-time" class="input-label">Time</label>
+              <input type="time" id="base-time" class="calc-input" value="14:00" required>
+            </div>
+          </div>
+      </div>
+    </div>
+
+          <div class="input-group mb-3">
+            <label for="source-tz" class="input-label">From Time Zone</label>
+            <select id="source-tz" class="calc-select">
+              <option value="America/New_York" selected>New York (EST/EDT, UTC-5/-4)</option>
+              <option value="America/Los_Angeles">Los Angeles / San Francisco (PST/PDT, UTC-8/-7)</option>
+              <option value="America/Chicago">Chicago / Central (CST/CDT, UTC-6/-5)</option>
+              <option value="UTC">UTC / GMT (Coordinated Universal Time)</option>
+              <option value="Europe/London">London (GMT/BST, UTC+0/+1)</option>
+              <option value="Europe/Paris">Paris / Berlin / Rome (CET/CEST, UTC+1/+2)</option>
+              <option value="Asia/Dubai">Dubai / Gulf Standard Time (GST, UTC+4)</option>
+              <option value="Asia/Kolkata">India Standard Time (IST, UTC+5:30)</option>
+              <option value="Asia/Singapore">Singapore / Hong Kong (SGT/HKT, UTC+8)</option>
+              <option value="Asia/Tokyo">Tokyo / Seoul (JST/KST, UTC+9)</option>
+              <option value="Australia/Sydney">Sydney / Melbourne (AEST/AEDT, UTC+10/+11)</option>
+            </select>
+          </div>
+
+          <div class="input-group mb-4">
+            <label for="target-tz" class="input-label">To Time Zone</label>
+            <select id="target-tz" class="calc-select">
+              <option value="Europe/London" selected>London (GMT/BST, UTC+0/+1)</option>
+              <option value="Europe/Paris">Paris / Berlin / Rome (CET/CEST, UTC+1/+2)</option>
+              <option value="America/New_York">New York (EST/EDT, UTC-5/-4)</option>
+              <option value="America/Los_Angeles">Los Angeles / San Francisco (PST/PDT, UTC-8/-7)</option>
+              <option value="America/Chicago">Chicago / Central (CST/CDT, UTC-6/-5)</option>
+              <option value="UTC">UTC / GMT (Coordinated Universal Time)</option>
+              <option value="Asia/Dubai">Dubai / Gulf Standard Time (GST, UTC+4)</option>
+              <option value="Asia/Kolkata">India Standard Time (IST, UTC+5:30)</option>
+              <option value="Asia/Singapore">Singapore / Hong Kong (SGT/HKT, UTC+8)</option>
+              <option value="Asia/Tokyo">Tokyo / Seoul (JST/KST, UTC+9)</option>
+              <option value="Australia/Sydney">Sydney / Melbourne (AEST/AEDT, UTC+10/+11)</option>
+            </select>
+          </div>
+
+          <div class="action-buttons-group">
+            <button type="button" id="btn-calculate" class="calc-btn primary-btn">Convert Time</button>
+            <button type="button" id="btn-reset" class="calc-btn secondary-btn">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="calc-card result-panel">
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <div class="result-header">
+          <h2 class="result-title">Converted Time</h2>
+          <span class="result-badge" id="tz-diff-badge">+5 Hours</span>
+        </div>
+
+        <div class="hero-result-box mb-4">
+          <span class="hero-label" id="target-tz-name">London Time</span>
+          <div class="hero-value" id="hero-target-time">19:00 (7:00 PM)</div>
+          <p class="hero-subtext" id="hero-target-date">Thursday, October 15, 2026</p>
+        </div>
+
+        <!-- Global Multi-City Meeting Planner Table -->
+        <h3 class="input-label mb-2" style="font-size: 0.95rem;">Major World Cities at this Moment</h3>
+        <div class="multi-city-table mb-4" id="city-table-container">
+          <!-- Dynamically populated rows -->
+        </div>
+
+        <!-- Share & Export -->
+        <div class="share-actions">
+          <button type="button" id="btn-share-calc" class="action-btn text-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Share This Conversion
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & Explanatory Guide -->
+    <article class="tool-guide mt-5">
+      <h2>Understanding Global Time Zones & UTC</h2>
+      <p>The Earth rotates 360 degrees in approximately 24 hours, meaning it advances by 15 degrees of longitude every hour. Standard time zones are established relative to <strong>Coordinated Universal Time (UTC)</strong>, which is maintained by atomic clocks at the Prime Meridian in Greenwich, London.</p>
+
+      <h3>1. Daylight Saving Time (DST)</h3>
+      <p>Many regions in North America and Europe advance clocks forward by 1 hour during spring (Daylight Saving Time) and back 1 hour in autumn (Standard Time). Consequently, the offset difference between two cities can shift by an hour depending on whether either or both locations observe DST at that specific time of the year.</p>
+
+      <h3>2. Meeting Planner Status Legend</h3>
+      <ul>
+        <li><strong>🟢 Business Hours (9:00 AM – 5:00 PM)</strong>: Ideal for live business calls and client collaboration.</li>
+        <li><strong>🟡 Extended Waking Hours (7:00 AM – 9:00 AM, 5:00 PM – 11:00 PM)</strong>: Acceptable for urgent calls or personal communication.</li>
+        <li><strong>🔴 Sleeping Hours (11:00 PM – 7:00 AM)</strong>: Unsuitable for real-time contact.</li>
+      </ul>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const CITIES = [
+        { name: 'San Francisco', tz: 'America/Los_Angeles' },
+        { name: 'New York', tz: 'America/New_York' },
+        { name: 'London', tz: 'Europe/London' },
+        { name: 'Paris / Berlin', tz: 'Europe/Paris' },
+        { name: 'Dubai', tz: 'Asia/Dubai' },
+        { name: 'Mumbai / Delhi', tz: 'Asia/Kolkata' },
+        { name: 'Singapore', tz: 'Asia/Singapore' },
+        { name: 'Tokyo', tz: 'Asia/Tokyo' },
+        { name: 'Sydney', tz: 'Australia/Sydney' }
+      ];
+
+      function convertTZ() {
+        const dateVal = document.getElementById('base-date').value;
+        const timeVal = document.getElementById('base-time').value;
+        const sourceTZ = document.getElementById('source-tz').value;
+        const targetTZ = document.getElementById('target-tz').value;
+
+        if (!dateVal || !timeVal) return;
+
+        // Parse input as an ISO date string in the context of the source time zone
+        const localISO = `${dateVal}T${timeVal}:00`;
+        
+        // Use Intl.DateTimeFormat to reliably determine offsets
+        const targetFormatter = new Intl.DateTimeFormat('en-US', {
+          timeZone: targetTZ,
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true
+        });
+
+        const target24Formatter = new Intl.DateTimeFormat('en-US', {
+          timeZone: targetTZ,
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        });
+
+        // Create a base UTC date object that matches source time zone
+        // Simple and robust cross-browser strategy:
+        // We find the UTC time that yields dateVal and timeVal in sourceTZ.
+        const approximateDate = new Date(`${dateVal}T${timeVal}:00Z`);
+        
+        // Find difference between approximateDate formatted in sourceTZ and the target time
+        const srcFmt = new Intl.DateTimeFormat('en-US', {
+          timeZone: sourceTZ,
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: false
+        });
+        
+        // Refine timestamp to match exact sourceTZ
+        let actualInstant = approximateDate;
+        for (let iter = 0; iter < 3; iter++) {
+          const parts = srcFmt.formatToParts(actualInstant);
+          const p = {};
+          parts.forEach(part => { p[part.type] = part.value; });
+          const renderedInSrc = new Date(Date.UTC(p.year, p.month - 1, p.day, p.hour === '24' ? 0 : p.hour, p.minute, p.second));
+          const diff = approximateDate.getTime() - renderedInSrc.getTime();
+          if (Math.abs(diff) < 1000) break;
+          actualInstant = new Date(actualInstant.getTime() + diff);
+        }
+
+        // Now actualInstant is the exact UTC epoch timestamp!
+        const targetParts = targetFormatter.formatToParts(actualInstant);
+        const t24 = target24Formatter.format(actualInstant);
+        const formattedTarget = targetFormatter.format(actualInstant);
+
+        document.getElementById('target-tz-name').textContent = `${targetTZ.split('/')[1]?.replace('_', ' ') || targetTZ} Time`;
+        document.getElementById('hero-target-time').textContent = `${t24} (${formattedTarget.split(', ').pop()})`;
+        
+        const datePartOnly = formattedTarget.split(', ').slice(0, 2).join(', ');
+        document.getElementById('hero-target-date').textContent = datePartOnly;
+
+        // Calculate hours difference between source and target
+        const srcHourParts = srcFmt.formatToParts(actualInstant);
+        const srcHour = parseInt(srcHourParts.find(p => p.type === 'hour')?.value || '0', 10);
+        const trgHour = parseInt(t24.split(':')[0], 10);
+        let hrDiff = trgHour - srcHour;
+        if (hrDiff > 12) hrDiff -= 24;
+        if (hrDiff < -12) hrDiff += 24;
+
+        const badge = document.getElementById('tz-diff-badge');
+        badge.textContent = hrDiff >= 0 ? `+${hrDiff} hrs` : `${hrDiff} hrs`;
+
+        // Populate Multi-City Table
+        const tableContainer = document.getElementById('city-table-container');
+        tableContainer.innerHTML = '';
+
+        CITIES.forEach(c => {
+          const cityFmt = new Intl.DateTimeFormat('en-US', {
+            timeZone: c.tz,
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+            weekday: 'short'
+          });
+
+          const city24Fmt = new Intl.DateTimeFormat('en-US', {
+            timeZone: c.tz,
+            hour: 'numeric',
+            hour12: false
+          });
+
+          const cityTimeStr = cityFmt.format(actualInstant);
+          const cityHour = parseInt(city24Fmt.format(actualInstant), 10);
+
+          let statusTag = '';
+          let statusText = '';
+          if (cityHour >= 9 && cityHour < 17) {
+            statusTag = '<span style="color:#10b981; font-weight:600;">● Business</span>';
+            statusText = 'Business Hours';
+          } else if (cityHour >= 7 && cityHour < 23) {
+            statusTag = '<span style="color:#f59e0b; font-weight:600;">● Waking</span>';
+            statusText = 'Waking Hours';
+          } else {
+            statusTag = '<span style="color:#ef4444; font-weight:600;">● Sleeping</span>';
+            statusText = 'Sleeping Hours';
+          }
+
+          const row = document.createElement('div');
+          row.style.display = 'flex';
+          row.style.justifyContent = 'space-between';
+          row.style.alignItems = 'center';
+          row.style.padding = '0.5rem 0.75rem';
+          row.style.borderBottom = '1px solid var(--border-color, #e2e8f0)';
+          row.style.fontSize = '0.9rem';
+
+          row.innerHTML = `
+            <div>
+              <span style="font-weight: 600;">${c.name}</span>
+              <span style="color: var(--text-muted, #64748b); font-size: 0.8rem; margin-left: 0.5rem;">${c.tz.split('/')[1].replace('_', ' ')}</span>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-weight: 500; margin-right: 0.75rem;">${cityTimeStr}</span>
+              ${statusTag}
+            </div>
+          `;
+          tableContainer.appendChild(row);
+        });
+
+        if (typeof window.refreshAds === 'function') {
+          window.refreshAds('calculate');
+        }
+      }
+
+      const form = document.getElementById('tz-form');
+      form.addEventListener('input', convertTZ);
+      form.addEventListener('change', convertTZ);
+
+      document.getElementById('btn-calculate')?.addEventListener('click', convertTZ);
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        document.getElementById('base-date').value = '2026-10-15';
+        document.getElementById('base-time').value = '14:00';
+        convertTZ();
+      });
+
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => {
+        CalcCore.copyShareUrl(form);
+      });
+
+      convertTZ();
+    });
+  </script>
+</body>
+</html>

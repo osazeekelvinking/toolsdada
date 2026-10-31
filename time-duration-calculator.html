@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Duration Calculator — Hours & Minutes Between Times | ToolsBuddy</title>
+  <meta name="description" content="Free online Time Duration Calculator to calculate the exact hours, minutes, and seconds between two times or dates. Converts duration to decimal hours and total minutes.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/time-duration-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/time-duration-calculator.html">
+  <meta property="og:title" content="Time Duration Calculator — Hours Between Times | ToolsBuddy">
+  <meta property="og:description" content="Find the exact elapsed time between start and end times with instant decimal conversions.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Time Duration Calculator",
+    "url": "https://toolsbuddy.pages.dev/time-duration-calculator.html",
+    "description": "Calculate exact duration in days, hours, minutes, and seconds between two timestamps with decimal conversions.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page calc-theme-neutral">
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="fraction-calculator.html" class="tb-dropdown-item" role="menuitem">Fraction Calculator</a>
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="triangle-calculator.html" class="tb-dropdown-item" role="menuitem">Triangle Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  
+
+  <main class="tool-container">
+    <div class="tool-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="other-calculators.html">Everyday Tools</a>
+        <span class="breadcrumb-separator">/</span>
+        <span aria-current="page">Time Duration Calculator</span>
+      </nav>
+      <h1 class="tool-title">Time Duration Calculator</h1>
+      <p class="tool-subtitle">Calculate the exact elapsed time between two times or date-time timestamps with decimal conversions.</p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- Calculator Grid -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+      <div class="calc-layout-grid">
+      <!-- Input Panel -->
+      <div class="calc-card input-panel">
+        <div class="tab-controls mb-4">
+          <button type="button" class="tab-btn active" id="tab-timeonly" data-mode="timeonly">Two Times (Clock)</button>
+          <button type="button" class="tab-btn" id="tab-datetime" data-mode="datetime">Full Date & Time</button>
+        </div>
+
+        <form id="duration-form" onsubmit="return false;">
+          <!-- Time Only Mode -->
+          <div id="section-timeonly">
+            <div class="input-group mb-3">
+              <label for="start-time" class="input-label">Start Time</label>
+              <input type="time" id="start-time" class="calc-input" value="08:30" required>
+            </div>
+
+            <div class="input-group mb-3">
+              <label for="end-time" class="input-label">End Time</label>
+              <input type="time" id="end-time" class="calc-input" value="17:00" required>
+            </div>
+
+            <div class="checkbox-group mb-4">
+              <label class="checkbox-label">
+                <input type="checkbox" id="next-day-toggle">
+                <span>End Time is on the next day (+24 hours)</span>
+              </label>
+            </div>
+          </div>
+      </div>
+    </div>
+
+          <!-- Full Date Time Mode -->
+          <div id="section-datetime" style="display: none;">
+            <div class="input-row-grid mb-3">
+              <div class="input-group">
+                <label for="start-dt-date" class="input-label">Start Date</label>
+                <input type="date" id="start-dt-date" class="calc-input" value="2026-10-01">
+              </div>
+              <div class="input-group">
+                <label for="start-dt-time" class="input-label">Start Time</label>
+                <input type="time" id="start-dt-time" class="calc-input" value="09:00">
+              </div>
+            </div>
+
+            <div class="input-row-grid mb-4">
+              <div class="input-group">
+                <label for="end-dt-date" class="input-label">End Date</label>
+                <input type="date" id="end-dt-date" class="calc-input" value="2026-10-05">
+              </div>
+              <div class="input-group">
+                <label for="end-dt-time" class="input-label">End Time</label>
+                <input type="time" id="end-dt-time" class="calc-input" value="15:30">
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons-group">
+            <button type="button" id="btn-calculate" class="calc-btn primary-btn">Calculate Duration</button>
+            <button type="button" id="btn-reset" class="calc-btn secondary-btn">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="calc-card result-panel">
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <div class="result-header">
+          <h2 class="result-title">Elapsed Duration</h2>
+          <span class="result-badge" id="duration-badge">8h 30m</span>
+        </div>
+
+        <div class="hero-result-box mb-4">
+          <span class="hero-label">Total Elapsed Time</span>
+          <div class="hero-value" id="hero-duration-str">8h 30m 00s</div>
+          <p class="hero-subtext" id="hero-duration-subtext">8 Hours, 30 Minutes</p>
+        </div>
+
+        <!-- Metric Grid -->
+        <div class="result-metrics-grid mb-4">
+          <div class="metric-card">
+            <span class="metric-label">Decimal Hours</span>
+            <span class="metric-value" id="metric-dec-hours">8.500 hrs</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Total Minutes</span>
+            <span class="metric-value" id="metric-tot-mins">510 mins</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Total Seconds</span>
+            <span class="metric-value" id="metric-tot-secs">30,600 secs</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Percent of 24h Day</span>
+            <span class="metric-value" id="metric-pct-day">35.42%</span>
+          </div>
+        </div>
+
+        <!-- Visual Donut Chart -->
+        <div class="chart-container-box mb-4">
+          <h3 class="chart-title">Day Proportion</h3>
+          <canvas id="duration-donut-chart" width="280" height="180"></canvas>
+        </div>
+
+        <!-- Share & Export -->
+        <div class="share-actions">
+          <button type="button" id="btn-share-calc" class="action-btn text-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Share This Calculation
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & Explanatory Guide -->
+    <article class="tool-guide mt-5">
+      <h2>How Duration Between Times is Calculated</h2>
+      <p>A duration calculator determines the precise physical time elapsed between a starting moment \(T_1\) and an ending moment \(T_2\). When times cross midnight, 24 hours (1,440 minutes or 86,400 seconds) are added to account for the diurnal cycle rollover.</p>
+
+      <h3>1. Decimal Hours Conversion</h3>
+      <p>In payroll, aviation, and scientific scheduling, minutes and seconds are often converted to decimal fractional hours:</p>
+      <p>\[ \text{Decimal Hours} = \text{Hours} + \frac{\text{Minutes}}{60} + \frac{\text{Seconds}}{3600} \]</p>
+      <p>For example, 7 hours and 45 minutes equals \(7 + \frac{45}{60} = 7.75\) decimal hours.</p>
+
+      <h3>2. Midnight Rollover Logic</h3>
+      <p>If the end time is numerically earlier than the start time (e.g. 10:00 PM to 6:00 AM) and overnight mode is active, the calculation evaluates:</p>
+      <p>\[ \Delta T = (T_{\text{end}} + 24\text{ hours}) - T_{\text{start}} \]</p>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentMode = 'timeonly';
+
+      const tabTimeOnly = document.getElementById('tab-timeonly');
+      const tabDateTime = document.getElementById('tab-datetime');
+      const secTimeOnly = document.getElementById('section-timeonly');
+      const secDateTime = document.getElementById('section-datetime');
+
+      tabTimeOnly?.addEventListener('click', () => {
+        currentMode = 'timeonly';
+        tabTimeOnly.classList.add('active');
+        tabDateTime.classList.remove('active');
+        secTimeOnly.style.display = 'block';
+        secDateTime.style.display = 'none';
+        calculateDuration();
+      });
+
+      tabDateTime?.addEventListener('click', () => {
+        currentMode = 'datetime';
+        tabDateTime.classList.add('active');
+        tabTimeOnly.classList.remove('active');
+        secTimeOnly.style.display = 'none';
+        secDateTime.style.display = 'block';
+        calculateDuration();
+      });
+
+      function parseTimeToSec(t) {
+        if (!t) return 0;
+        const p = t.split(':');
+        return (parseInt(p[0], 10) * 3600) + (parseInt(p[1], 10) * 60) + (p[2] ? parseInt(p[2], 10) : 0);
+      }
+
+      function calculateDuration() {
+        let totalSeconds = 0;
+
+        if (currentMode === 'timeonly') {
+          const sVal = document.getElementById('start-time').value;
+          const eVal = document.getElementById('end-time').value;
+          const nextDay = document.getElementById('next-day-toggle').checked;
+
+          const sSec = parseTimeToSec(sVal);
+          let eSec = parseTimeToSec(eVal);
+
+          if (eSec < sSec || nextDay) {
+            eSec += 86400; // Add 24h
+          }
+          totalSeconds = eSec - sSec;
+        } else {
+          const sDate = document.getElementById('start-dt-date').value;
+          const sTime = document.getElementById('start-dt-time').value;
+          const eDate = document.getElementById('end-dt-date').value;
+          const eTime = document.getElementById('end-dt-time').value;
+
+          const d1 = new Date(`${sDate}T${sTime}:00`);
+          const d2 = new Date(`${eDate}T${eTime}:00`);
+          totalSeconds = Math.max(0, Math.round((d2.getTime() - d1.getTime()) / 1000));
+        }
+
+        const days = Math.floor(totalSeconds / 86400);
+        const remDays = totalSeconds % 86400;
+        const hours = Math.floor(remDays / 3600);
+        const remHours = remDays % 3600;
+        const minutes = Math.floor(remHours / 60);
+        const seconds = remHours % 60;
+
+        const pad = (n) => String(n).padStart(2, '0');
+        const dayPrefix = days > 0 ? `${days}d ` : '';
+        const heroStr = `${dayPrefix}${hours}h ${minutes}m ${pad(seconds)}s`;
+
+        document.getElementById('hero-duration-str').textContent = heroStr;
+        document.getElementById('hero-duration-subtext').textContent = `${days > 0 ? days + ' Days, ' : ''}${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
+        document.getElementById('duration-badge').textContent = `${hours}h ${minutes}m`;
+
+        const decHours = totalSeconds / 3600;
+        const totMins = totalSeconds / 60;
+        const pctDay = (Math.min(totalSeconds, 86400) / 86400) * 100;
+
+        document.getElementById('metric-dec-hours').textContent = `${decHours.toFixed(3)} hrs`;
+        document.getElementById('metric-tot-mins').textContent = `${totMins.toFixed(1)} mins`;
+        document.getElementById('metric-tot-secs').textContent = `${CalcCore.formatNumber(totalSeconds)} secs`;
+        document.getElementById('metric-pct-day').textContent = `${pctDay.toFixed(2)}%`;
+
+        // Draw Donut Chart
+        const canvas = document.getElementById('duration-donut-chart');
+        if (canvas && typeof CalcCharts !== 'undefined') {
+          const elapsedPortion = Math.min(totalSeconds, 86400);
+          const remPortion = Math.max(0, 86400 - elapsedPortion);
+
+          CalcCharts.drawDonut(canvas, [
+            { label: 'Elapsed Duration', value: elapsedPortion || 1, color: '#3b82f6' },
+            { label: 'Remaining Day', value: remPortion, color: '#e2e8f0' }
+          ], { title: 'Day %' });
+        }
+
+        if (typeof window.refreshAds === 'function') {
+          window.refreshAds('calculate');
+        }
+      }
+
+      const form = document.getElementById('duration-form');
+      form.addEventListener('input', calculateDuration);
+      form.addEventListener('change', calculateDuration);
+
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateDuration);
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        document.getElementById('start-time').value = '08:30';
+        document.getElementById('end-time').value = '17:00';
+        calculateDuration();
+      });
+
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => {
+        CalcCore.copyShareUrl(form);
+      });
+
+      calculateDuration();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Calculator — Days Between Dates & Add/Subtract Days | ToolsBuddy</title>
+  <meta name="description" content="Free online Date Calculator to find the exact number of days between two dates, or add/subtract days, weeks, months, and years. Includes business days and leap year support.">
+  <link rel="canonical" href="https://toolsbuddy.pages.dev/date-calculator.html">
+  <!-- Universal Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="alternate icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolsbuddy.pages.dev/date-calculator.html">
+  <meta property="og:title" content="Date Calculator — Days Between Dates & Add/Subtract | ToolsBuddy">
+  <meta property="og:description" content="Calculate exact days, months, and years between dates, or project future and past dates with business day exclusions.">
+  <meta property="og:site_name" content="ToolsBuddy">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/tool.css">
+  <link rel="stylesheet" href="css/calc-platform.css">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Date Calculator",
+    "url": "https://toolsbuddy.pages.dev/date-calculator.html",
+    "description": "Calculate days between dates, add or subtract time from a date, and calculate business days.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page calc-theme-neutral">
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-container tb-header-inner">
+      <a href="index.html" class="tb-brand">
+        <div class="tb-brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <div class="tb-brand-text">Tools<span>Buddy</span></div>
+      </a>
+      <div class="tb-header-actions">
+        <a href="index.html" class="tb-nav-link">All Tools</a>
+        <div class="tb-nav-dropdown" id="tb-calc-dropdown">
+          <button type="button" class="tb-nav-link tb-dropdown-trigger" id="tb-calc-trigger" aria-expanded="false" aria-haspopup="true">
+            <span>Calculators</span>
+            <svg class="tb-dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="tb-dropdown-menu" id="tb-calc-menu" role="menu" aria-labelledby="tb-calc-trigger">
+            <div class="tb-dropdown-grid">
+              <div class="tb-dropdown-col">
+                <a href="financial-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Financial</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="mortgage-calculator.html" class="tb-dropdown-item" role="menuitem">Mortgage Calculator</a>
+                  <a href="loan-calculator.html" class="tb-dropdown-item" role="menuitem">Loan & EMI Calculator</a>
+                  <a href="compound-interest-calculator.html" class="tb-dropdown-item" role="menuitem">Compound Interest</a>
+                  <a href="auto-loan-calculator.html" class="tb-dropdown-item" role="menuitem">Auto Loan Calculator</a>
+                  <a href="financial-calculators.html" class="tb-dropdown-more">All 40+ Finance Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="fitness-health-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  <span>Fitness & Health</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="bmi-calculator.html" class="tb-dropdown-item" role="menuitem">BMI & Ideal Weight</a>
+                  <a href="calorie-calculator.html" class="tb-dropdown-item" role="menuitem">Calorie & Macro Calculator</a>
+                  <a href="body-fat-calculator.html" class="tb-dropdown-item" role="menuitem">Body Fat Calculator</a>
+                  <a href="bmr-calculator.html" class="tb-dropdown-item" role="menuitem">BMR Calculator</a>
+                  <a href="fitness-health-calculators.html" class="tb-dropdown-more">All 30+ Health Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="math-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                  <span>Math</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="fraction-calculator.html" class="tb-dropdown-item" role="menuitem">Fraction Calculator</a>
+                  <a href="percentage-calculator.html" class="tb-dropdown-item" role="menuitem">Percentage Calculator</a>
+                  <a href="scientific-calculator.html" class="tb-dropdown-item" role="menuitem">Scientific Calculator</a>
+                  <a href="triangle-calculator.html" class="tb-dropdown-item" role="menuitem">Triangle Calculator</a>
+                  <a href="math-calculators.html" class="tb-dropdown-more">All 45+ Math Tools &rarr;</a>
+                </div>
+              </div>
+              <div class="tb-dropdown-col">
+                <a href="other-calculators.html" class="tb-dropdown-cat-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  <span>Everyday</span>
+                </a>
+                <div class="tb-dropdown-links">
+                  <a href="age-calculator.html" class="tb-dropdown-item" role="menuitem">Exact Age Calculator</a>
+                  <a href="other-calculators.html" class="tb-dropdown-item" role="menuitem">Date & Time Calculators</a>
+                  <a href="other-calculators.html" class="tb-dropdown-more">All Everyday Tools &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="tb-dropdown-footer">
+              <span class="tb-dropdown-footer-text">Looking for all 200+ calculators?</span>
+              <a href="index.html#all-tools" class="tb-dropdown-footer-link">Browse Full Directory &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <a href="ebook-buddy.html" class="tb-nav-link">EbookBuddy</a>
+        <a href="blog/index.html" class="tb-nav-link">Blog</a>
+        <button type="button" class="tb-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+      </div>
+      <div class="tb-mobile-controls">
+        <button type="button" class="tb-theme-toggle tb-mobile-theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <button type="button" class="tb-mobile-toggle" id="tb-mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="tb-mobile-nav">
+          <span class="tb-hamburger-icon">
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+            <span class="tb-hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="tb-mobile-nav" id="tb-mobile-nav" aria-hidden="true">
+      <div class="tb-container tb-mobile-nav-inner">
+        <a href="index.html" class="tb-mobile-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span>All Tools</span>
+        </a>
+        <a href="financial-calculators.html" class="tb-mobile-link">Financial Calculators</a>
+        <a href="fitness-health-calculators.html" class="tb-mobile-link">Fitness & Health</a>
+        <a href="math-calculators.html" class="tb-mobile-link">Math Calculators</a>
+        <a href="other-calculators.html" class="tb-mobile-link">Everyday Utilities</a>
+        <a href="ebook-buddy.html" class="tb-mobile-link">EbookBuddy AI</a>
+        <a href="blog/index.html" class="tb-mobile-link">Blog & Guides</a>
+      </div>
+    </div>
+  </header>
+  <div class="tb-mobile-backdrop" id="tb-mobile-backdrop" aria-hidden="true"></div>
+
+  
+
+  <main class="tool-container">
+    <div class="tool-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="other-calculators.html">Everyday Tools</a>
+        <span class="breadcrumb-separator">/</span>
+        <span aria-current="page">Date Calculator</span>
+      </nav>
+      <h1 class="tool-title">Date Calculator</h1>
+      <p class="tool-subtitle">Calculate exact calendar duration between two dates or add/subtract days, weeks, months, and years.</p>
+    </div>
+
+    <!-- Ad Unit: ad-top -->
+    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
+    <!-- Calculator Grid -->
+    <div class="tb-workspace">
+      <div class="tb-workspace-inner">
+      <div class="calc-layout-grid">
+      <!-- Input Panel -->
+      <div class="calc-card input-panel">
+        <div class="tab-controls mb-4">
+          <button type="button" class="tab-btn active" id="tab-diff" data-mode="diff">Days Between Dates</button>
+          <button type="button" class="tab-btn" id="tab-addsub" data-mode="addsub">Add / Subtract Time</button>
+        </div>
+
+        <form id="date-form" onsubmit="return false;">
+          <!-- Diff Mode Section -->
+          <div id="section-diff">
+            <div class="input-group">
+              <label for="start-date" class="input-label">Start Date</label>
+              <input type="date" id="start-date" class="calc-input" value="2026-01-01" required>
+            </div>
+
+            <div class="input-group">
+              <label for="end-date" class="input-label">End Date</label>
+              <input type="date" id="end-date" class="calc-input" value="2026-12-31" required>
+            </div>
+
+            <div class="checkbox-group mb-3">
+              <label class="checkbox-label">
+                <input type="checkbox" id="include-end-date">
+                <span>Include End Day (+1 day)</span>
+              </label>
+            </div>
+
+            <div class="checkbox-group mb-4">
+              <label class="checkbox-label">
+                <input type="checkbox" id="business-days-only">
+                <span>Business Days Only (Mon–Fri)</span>
+              </label>
+            </div>
+          </div>
+      </div>
+    </div>
+
+          <!-- Add/Sub Mode Section -->
+          <div id="section-addsub" style="display: none;">
+            <div class="input-group">
+              <label for="base-date" class="input-label">Start Date</label>
+              <input type="date" id="base-date" class="calc-input" value="2026-01-01">
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Operation</label>
+              <div class="radio-toggle-group">
+                <label class="radio-label">
+                  <input type="radio" name="addsub-op" value="add" checked>
+                  <span>Add (+)</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="addsub-op" value="sub">
+                  <span>Subtract (−)</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="input-row-grid">
+              <div class="input-group">
+                <label for="input-years" class="input-label">Years</label>
+                <input type="number" id="input-years" class="calc-input" min="0" value="0">
+              </div>
+              <div class="input-group">
+                <label for="input-months" class="input-label">Months</label>
+                <input type="number" id="input-months" class="calc-input" min="0" value="0">
+              </div>
+            </div>
+
+            <div class="input-row-grid">
+              <div class="input-group">
+                <label for="input-weeks" class="input-label">Weeks</label>
+                <input type="number" id="input-weeks" class="calc-input" min="0" value="0">
+              </div>
+              <div class="input-group">
+                <label for="input-days" class="input-label">Days</label>
+                <input type="number" id="input-days" class="calc-input" min="0" value="30">
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons-group">
+            <button type="button" id="btn-calculate" class="calc-btn primary-btn">Calculate Date</button>
+            <button type="button" id="btn-reset" class="calc-btn secondary-btn">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="calc-card result-panel">
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
+        <div class="result-header">
+          <h2 class="result-title">Date Calculation Result</h2>
+          <span class="result-badge" id="result-badge">Calendar Duration</span>
+        </div>
+
+        <div class="hero-result-box mb-4">
+          <span class="hero-label" id="hero-label">Total Days Between Dates</span>
+          <div class="hero-value" id="hero-total-days">364 Days</div>
+          <p class="hero-subtext" id="hero-breakdown">0 years, 11 months, 30 days</p>
+        </div>
+
+        <!-- Metric Cards Grid -->
+        <div class="result-metrics-grid mb-4">
+          <div class="metric-card">
+            <span class="metric-label">Weeks & Days</span>
+            <span class="metric-value" id="metric-weeks">52 weeks, 0 days</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Business Days</span>
+            <span class="metric-value" id="metric-biz-days">260 days</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Weekend Days</span>
+            <span class="metric-value" id="metric-weekend-days">104 days</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Total Hours</span>
+            <span class="metric-value" id="metric-hours">8,736 hrs</span>
+          </div>
+        </div>
+
+        <!-- Visual Breakdown -->
+        <div class="chart-container-box mb-4" id="chart-box">
+          <h3 class="chart-title">Days Distribution (Business vs Weekend)</h3>
+          <canvas id="date-distribution-chart" width="280" height="180"></canvas>
+        </div>
+
+        <!-- Share & Export -->
+        <div class="share-actions">
+          <button type="button" id="btn-share-calc" class="action-btn text-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Share This Calculation
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & Explanatory Guide -->
+    <article class="tool-guide mt-5">
+      <h2>How the Date Calculator Works</h2>
+      <p>The Date Calculator determines the precise calendar interval between two points in time or projects target calendar dates when adding or subtracting years, months, weeks, and days. It fully respects Gregorian calendar leap year variations, irregular month lengths (28, 29, 30, or 31 days), and working business day intervals.</p>
+
+      <h3>1. Calculating Duration Between Two Dates</h3>
+      <p>Calendar time is calculated using epoch timestamps and localized year-month-day calendar offsets:</p>
+      <ul>
+        <li><strong>Total Days</strong>: The absolute mathematical difference in milliseconds divided by 86,400,000 ms (24 × 60 × 60 × 1,000).</li>
+        <li><strong>Business Days</strong>: Days excluding Saturdays and Sundays. In a standard full year (365 days), there are typically 260 or 261 working business days and 104 weekend days.</li>
+        <li><strong>Years, Months, and Days</strong>: Borrowing arithmetic where the remainder of days borrows the exact number of days from the preceding month.</li>
+      </ul>
+
+      <h3>2. Gregorian Leap Year Rules</h3>
+      <p>A leap year adds an extra intercalary day on February 29th to keep the calendar synchronized with Earth's orbital period around the Sun (approximately 365.2422 solar days). Under the Gregorian calendar reform of 1582:</p>
+      <ul>
+        <li>Every year evenly divisible by 4 is a leap year (e.g., 2024, 2028).</li>
+        <li>Except end-of-century years (e.g., 1900, 2100), which are NOT leap years unless:</li>
+        <li>The year is also evenly divisible by 400 (e.g., 1600, 2000, 2400).</li>
+      </ul>
+    </article>
+
+    <!-- Ad Unit: ad-footer -->
+    <div class="tb-ad-container ad-footer" id="ad-footer-slot">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tb-footer">
+    <div class="tb-container">
+      <div class="tb-footer-grid">
+        <div class="tb-footer-col">
+          <div class="tb-brand" style="margin-bottom: 0.75rem;">
+            <div class="tb-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div class="tb-brand-text">Tools<span>Buddy</span></div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.6; max-width: 320px;">
+            Fast, secure, client-side utility platform. Zero login, zero installation, 100% free forever.
+          </p>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Category Hubs</h4>
+          <ul>
+            <li><a href="financial-calculators.html">Financial Calculators</a></li>
+            <li><a href="fitness-health-calculators.html">Fitness & Health</a></li>
+            <li><a href="math-calculators.html">Math & Statistics</a></li>
+            <li><a href="other-calculators.html">Everyday Utilities</a></li>
+          </ul>
+        </div>
+        <div class="tb-footer-col">
+          <h4>Company & Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors Ecosystem</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tb-footer-bottom">
+        <div>&copy; 2026 ToolsBuddy. All rights reserved. Run 100% in your browser.</div>
+        <div class="tb-footer-ecosystem">
+          Part of the <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> educational network.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
+  <script src="js/calc-charts.js"></script>
+  <script src="ads.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentMode = 'diff';
+
+      const tabDiff = document.getElementById('tab-diff');
+      const tabAddSub = document.getElementById('tab-addsub');
+      const secDiff = document.getElementById('section-diff');
+      const secAddSub = document.getElementById('section-addsub');
+
+      tabDiff?.addEventListener('click', () => {
+        currentMode = 'diff';
+        tabDiff.classList.add('active');
+        tabAddSub.classList.remove('active');
+        secDiff.style.display = 'block';
+        secAddSub.style.display = 'none';
+        calculateDate();
+      });
+
+      tabAddSub?.addEventListener('click', () => {
+        currentMode = 'addsub';
+        tabAddSub.classList.add('active');
+        tabDiff.classList.remove('active');
+        secDiff.style.display = 'none';
+        secAddSub.style.display = 'block';
+        calculateDate();
+      });
+
+      function parseYMD(str) {
+        if (!str) return new Date();
+        const parts = str.split('-');
+        return new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+      }
+
+      function formatYMD(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+      }
+
+      function calculateDate() {
+        const heroTotal = document.getElementById('hero-total-days');
+        const heroBreakdown = document.getElementById('hero-breakdown');
+        const heroLabel = document.getElementById('hero-label');
+        const resultBadge = document.getElementById('result-badge');
+        const metricWeeks = document.getElementById('metric-weeks');
+        const metricBiz = document.getElementById('metric-biz-days');
+        const metricWknd = document.getElementById('metric-weekend-days');
+        const metricHours = document.getElementById('metric-hours');
+        const chartBox = document.getElementById('chart-box');
+
+        if (currentMode === 'diff') {
+          if (chartBox) chartBox.style.display = 'block';
+          if (heroLabel) heroLabel.textContent = 'Total Days Between Dates';
+          if (resultBadge) resultBadge.textContent = 'Days Difference';
+
+          const sVal = document.getElementById('start-date').value;
+          const eVal = document.getElementById('end-date').value;
+          const includeEnd = document.getElementById('include-end-date').checked;
+          const bizOnly = document.getElementById('business-days-only').checked;
+
+          let d1 = parseYMD(sVal);
+          let d2 = parseYMD(eVal);
+
+          let isReversed = false;
+          if (d1 > d2) {
+            const tmp = d1;
+            d1 = d2;
+            d2 = tmp;
+            isReversed = true;
+          }
+
+          let msDiff = d2.getTime() - d1.getTime();
+          let totalDays = Math.round(msDiff / 86400000);
+          if (includeEnd) totalDays += 1;
+
+          // Count business days and weekend days
+          let cur = new Date(d1.getFullYear(), d1.getMonth(), d1.getDate());
+          const limit = new Date(d2.getFullYear(), d2.getMonth(), d2.getDate());
+          if (includeEnd) limit.setDate(limit.getDate() + 1);
+
+          let bizCount = 0;
+          let wkndCount = 0;
+          while (cur < limit) {
+            const dayOfWeek = cur.getDay();
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+              wkndCount++;
+            } else {
+              bizCount++;
+            }
+            cur.setDate(cur.getDate() + 1);
+          }
+
+          // Full Y M D breakdown
+          let y1 = d1.getFullYear(), m1 = d1.getMonth(), day1 = d1.getDate();
+          let y2 = d2.getFullYear(), m2 = d2.getMonth(), day2 = d2.getDate();
+          if (includeEnd) day2 += 1;
+
+          let diffYears = y2 - y1;
+          let diffMonths = m2 - m1;
+          let diffDays = day2 - day1;
+
+          if (diffDays < 0) {
+            diffMonths -= 1;
+            const prevMonthLastDay = new Date(y2, m2, 0).getDate();
+            diffDays += prevMonthLastDay;
+          }
+          if (diffMonths < 0) {
+            diffYears -= 1;
+            diffMonths += 12;
+          }
+
+          const displayedDays = bizOnly ? bizCount : totalDays;
+          if (heroTotal) heroTotal.textContent = `${CalcCore.formatNumber(displayedDays)} Days`;
+          if (heroBreakdown) {
+            heroBreakdown.textContent = `${diffYears} years, ${diffMonths} months, ${diffDays} days${isReversed ? ' (earlier)' : ''}`;
+          }
+
+          const weeks = Math.floor(displayedDays / 7);
+          const remDays = displayedDays % 7;
+          if (metricWeeks) metricWeeks.textContent = `${weeks} weeks, ${remDays} days`;
+          if (metricBiz) metricBiz.textContent = `${CalcCore.formatNumber(bizCount)} days`;
+          if (metricWknd) metricWknd.textContent = `${CalcCore.formatNumber(wkndCount)} days`;
+          if (metricHours) metricHours.textContent = `${CalcCore.formatNumber(displayedDays * 24)} hrs`;
+
+          // Draw Donut Breakdown
+          const canvas = document.getElementById('date-distribution-chart');
+          if (canvas && typeof CalcCharts !== 'undefined') {
+            CalcCharts.drawDonut(canvas, [
+              { label: 'Business Days', value: bizCount || 1, color: '#3b82f6' },
+              { label: 'Weekend Days', value: wkndCount, color: '#f59e0b' }
+            ], { title: 'Day Split' });
+          }
+
+        } else {
+          // Add / Subtract mode
+          if (chartBox) chartBox.style.display = 'none';
+          if (heroLabel) heroLabel.textContent = 'Calculated Target Date';
+          if (resultBadge) resultBadge.textContent = 'Projected Date';
+
+          const baseVal = document.getElementById('base-date').value;
+          const op = document.querySelector('input[name="addsub-op"]:checked')?.value || 'add';
+          const y = parseInt(document.getElementById('input-years').value, 10) || 0;
+          const m = parseInt(document.getElementById('input-months').value, 10) || 0;
+          const w = parseInt(document.getElementById('input-weeks').value, 10) || 0;
+          const d = parseInt(document.getElementById('input-days').value, 10) || 0;
+
+          const base = parseYMD(baseVal);
+          const sign = op === 'add' ? 1 : -1;
+
+          const target = new Date(base.getFullYear(), base.getMonth(), base.getDate());
+          target.setFullYear(target.getFullYear() + sign * y);
+          target.setMonth(target.getMonth() + sign * m);
+          target.setDate(target.getDate() + sign * (w * 7 + d));
+
+          const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+          const monthsList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+          const dayName = daysOfWeek[target.getDay()];
+          const monthName = monthsList[target.getMonth()];
+          const dateStr = `${dayName}, ${monthName} ${target.getDate()}, ${target.getFullYear()}`;
+
+          if (heroTotal) heroTotal.textContent = formatYMD(target);
+          if (heroBreakdown) heroBreakdown.textContent = dateStr;
+
+          // Day of Year
+          const startOfYear = new Date(target.getFullYear(), 0, 1);
+          const dayOfYear = Math.floor((target.getTime() - startOfYear.getTime()) / 86400000) + 1;
+          const isLeap = (target.getFullYear() % 4 === 0 && target.getFullYear() % 100 !== 0) || (target.getFullYear() % 400 === 0);
+          const totalYearDays = isLeap ? 366 : 365;
+
+          if (metricWeeks) metricWeeks.textContent = `Day ${dayOfYear} of ${totalYearDays}`;
+          if (metricBiz) metricBiz.textContent = `Week #${Math.ceil(dayOfYear / 7)}`;
+          if (metricWknd) metricWknd.textContent = `${totalYearDays - dayOfYear} days left in yr`;
+          if (metricHours) metricHours.textContent = isLeap ? 'Leap Year' : 'Common Year';
+        }
+
+        if (typeof window.refreshAds === 'function') {
+          window.refreshAds('calculate');
+        }
+      }
+
+      // Live updates
+      const form = document.getElementById('date-form');
+      form.addEventListener('input', calculateDate);
+      form.addEventListener('change', calculateDate);
+
+      document.getElementById('btn-calculate')?.addEventListener('click', calculateDate);
+      document.getElementById('btn-reset')?.addEventListener('click', () => {
+        form.reset();
+        document.getElementById('start-date').value = '2026-01-01';
+        document.getElementById('end-date').value = '2026-12-31';
+        calculateDate();
+      });
+
+      document.getElementById('btn-share-calc')?.addEventListener('click', () => {
+        CalcCore.copyShareUrl(form);
+      });
+
+      // Initial calculation
+      calculateDate();
+    });
+  </script>
+</body>
+</html>
