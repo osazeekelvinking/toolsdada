@@ -284,6 +284,11 @@
       <button type="button" class="tb-preset-chip" data-preset='{"age":35,"gender":"male","weightLbs":190,"heightFeet":6,"heightInches":0,"activity":1.55,"goal":"lose-1"}'>35yo Athletic Male (190 lbs)</button>
     </div>
 
+    <!-- Ad Unit: ad-result (On its own row above results) -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
     <!-- Workspace -->
     <div class="tb-workspace">
       <div class="tb-workspace-inner">
@@ -775,11 +780,18 @@ Calculated via ToolsBuddy: ${window.location.href}`;
         });
       });
 
-      // Bind reactive updates
-      CalcCore.bindReactive(form, calculateCalories);
-      document.getElementById('btn-calculate')?.addEventListener('click', calculateCalories);
+      // Initialize with demo results on cold load, persistence, and reload-to-ad on calculate
+      CalcCore.bindCalculator({
+        formSelector: form,
+        calculateBtnSelector: '#btn-calculate',
+        calculateFn: calculateCalories,
+        adSlotId: 'ad-result-slot'
+      });
+
       document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
       document.getElementById('btn-reset')?.addEventListener('click', () => {
+        CalcCore.clearFormState();
+        window.history.replaceState({}, '', window.location.pathname);
         form.reset();
         calculateCalories();
       });

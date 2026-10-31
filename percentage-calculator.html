@@ -257,15 +257,15 @@
       </p>
     </div>
 
-    <!-- Ad Unit: ad-top -->
-    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
-      <span class="tb-ad-label">Advertisement</span>
-    </div>
-
     <!-- 2-Column Responsive Layout Grid -->
     <div class="tb-tool-layout">
       <!-- Main Content Area -->
       <div class="tb-tool-main">
+
+        <!-- Ad Unit: ad-result (Single top ad slot for clean user experience) -->
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
 
     <!-- Tool Workspace -->
     <div class="tb-workspace">
@@ -408,11 +408,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Ad Unit: ad-result -->
-    <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
-      <span class="tb-ad-label">Advertisement</span>
     </div>
 
     <!-- SEO Comprehensive Guide & FAQ -->
@@ -594,6 +589,7 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
   <script src="js/ads.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -659,8 +655,12 @@
 
       t1Percent.addEventListener('input', () => calcT1(false));
       t1Value.addEventListener('input', () => calcT1(false));
-      btnCalcT1.addEventListener('click', () => calcT1(true));
+      btnCalcT1.addEventListener('click', (e) => {
+        e.preventDefault();
+        CalcCore.submitWithReload(document.querySelector('.tb-workspace'), 'ad-result-slot');
+      });
       btnResetT1.addEventListener('click', () => {
+        CalcCore.clearFormState();
         t1Percent.value = '';
         t1Value.value = '';
         t1Result.textContent = '--';
@@ -716,8 +716,12 @@
 
       t2Part.addEventListener('input', () => calcT2(false));
       t2Whole.addEventListener('input', () => calcT2(false));
-      btnCalcT2.addEventListener('click', () => calcT2(true));
+      btnCalcT2.addEventListener('click', (e) => {
+        e.preventDefault();
+        CalcCore.submitWithReload(document.querySelector('.tb-workspace'), 'ad-result-slot');
+      });
       btnResetT2.addEventListener('click', () => {
+        CalcCore.clearFormState();
         t2Part.value = '';
         t2Whole.value = '';
         t2Result.textContent = '--';
@@ -775,8 +779,12 @@
 
       t3Initial.addEventListener('input', () => calcT3(false));
       t3Final.addEventListener('input', () => calcT3(false));
-      btnCalcT3.addEventListener('click', () => calcT3(true));
+      btnCalcT3.addEventListener('click', (e) => {
+        e.preventDefault();
+        CalcCore.submitWithReload(document.querySelector('.tb-workspace'), 'ad-result-slot');
+      });
       btnResetT3.addEventListener('click', () => {
+        CalcCore.clearFormState();
         t3Initial.value = '';
         t3Final.value = '';
         t3Result.textContent = '--';
@@ -786,10 +794,18 @@
         window.copyToClipboard(t3Result.textContent, 'Percentage change copied!');
       });
 
-      // Initial runs
+      // Restore user state from URL/localStorage
+      CalcCore.restoreFormState(document.querySelector('.tb-workspace'));
+
+      // Initial runs (shows demo results on initial load or restored results)
       calcT1(false);
       calcT2(false);
       calcT3(false);
+
+      // Auto-scroll to beginning of ad result slot if triggered by calculate
+      if (CalcCore.isCalculateTriggered()) {
+        CalcCore.scrollToAdSlot('ad-result-slot');
+      }
     });
   </script>
 </body>

@@ -37,10 +37,20 @@ assert.strictEqual(rogueFiles.length, 0, `Found rogue inline push scripts in: ${
 console.log(`[PASS] Verified 0 rogue inline push scripts across all ${htmlFiles.length} HTML files.`);
 
 // 4. Verify all tool files have unified ad container markup
-const sampleTools = ['age-calculator.html', 'mortgage-calculator.html', 'loan-calculator.html', 'index.html'];
+const sampleTools = ['mortgage-calculator.html', 'loan-calculator.html', 'index.html', 'case-converter.html'];
 sampleTools.forEach(file => {
   const content = fs.readFileSync(path.join(ROOT_DIR, file), 'utf8');
   assert.ok(content.includes('id="ad-top-slot"'), `${file} must contain #ad-top-slot`);
+  assert.ok(content.includes('id="ad-footer-slot"'), `${file} must contain #ad-footer-slot`);
+  assert.ok(!content.includes('data-ad-format="rectangle,horizontal"'), `${file} must not contain invalid format`);
+});
+
+// Verify tools where redundant top-slot is omitted to leave only result ad slot
+const singleAdTopTools = ['age-calculator.html', 'percentage-calculator.html', 'bmi-calculator.html'];
+singleAdTopTools.forEach(file => {
+  const content = fs.readFileSync(path.join(ROOT_DIR, file), 'utf8');
+  assert.ok(!content.includes('id="ad-top-slot"'), `${file} must not contain redundant #ad-top-slot`);
+  assert.ok(content.includes('id="ad-result-slot"'), `${file} must contain #ad-result-slot`);
   assert.ok(content.includes('id="ad-footer-slot"'), `${file} must contain #ad-footer-slot`);
   assert.ok(!content.includes('data-ad-format="rectangle,horizontal"'), `${file} must not contain invalid format`);
 });

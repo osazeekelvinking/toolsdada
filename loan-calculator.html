@@ -294,6 +294,11 @@
       </div>
     </div>
 
+    <!-- Ad Unit: ad-result (On its own row above results) -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
     <!-- Workspace -->
     <div class="tb-workspace">
       <div class="tb-workspace-inner">
@@ -317,7 +322,7 @@
                 <span class="tb-label-hint">Fixed APR</span>
               </label>
               <div class="tb-input-group">
-                <input type="number" id="interest-rate" class="tb-input" min="0.01" max="50" step="0.05" value="6.5" required>
+                <input type="number" id="interest-rate" class="tb-input" min="0.01" max="50" step="any" value="6.5" required>
                 <span class="tb-input-suffix">%</span>
               </div>
             </div>
@@ -438,11 +443,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Ad Unit: ad-result -->
-    <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
-      <span class="tb-ad-label">Advertisement</span>
     </div>
 
     <!-- SEO Comprehensive Guide & FAQ -->
@@ -805,18 +805,17 @@
         renderScheduleTable();
       });
 
-      btnCalculate.addEventListener('click', () => calculateLoan(true));
-      [inputAmount, inputRate, inputTerm, selectTermUnit, inputExtra].forEach(el => {
-        el.addEventListener('input', () => calculateLoan(false));
-      });
-
-      // Currency Switcher Sync
-      window.addEventListener('tb:currency-change', () => calculateLoan(false));
-      document.getElementById('currency-select')?.addEventListener('change', (e) => {
-        CalcCore.setCurrency(e.target.value);
+      // Initialize with demo results on cold load, persistence, and reload-to-ad on calculate
+      CalcCore.bindCalculator({
+        formSelector: '#loan-form',
+        calculateBtnSelector: '#btn-calculate-loan',
+        calculateFn: () => calculateLoan(false),
+        adSlotId: 'ad-result-slot'
       });
 
       btnReset.addEventListener('click', () => {
+        CalcCore.clearFormState();
+        window.history.replaceState({}, '', window.location.pathname);
         inputAmount.value = '250,000';
         inputRate.value = '6.5';
         inputTerm.value = '30';
@@ -827,7 +826,7 @@
 
       btnCopy.addEventListener('click', () => {
         const text = `Loan Summary:
-Amount: ${formatMoney(parseFloat(inputAmount.value) || 0)}
+Amount: ${formatMoney(CalcCore.parseNumber(inputAmount.value) || 0)}
 Rate: ${inputRate.value}%
 Monthly Payment: ${resMonthly.textContent}
 Total Interest: ${resTotalInterest.textContent}
@@ -844,9 +843,6 @@ Calculated on ToolsBuddy (https://toolsbuddy.pages.dev/loan-calculator.html)`;
       document.getElementById('btn-share-calc')?.addEventListener('click', () => {
         CalcCore.copyShareUrl(document.getElementById('loan-form'));
       });
-
-      // Initial calculation
-      calculateLoan(false);
     });
   </script>
 </body>

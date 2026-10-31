@@ -258,15 +258,15 @@
       </p>
     </div>
 
-    <!-- Ad Unit: ad-top -->
-    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
-      <span class="tb-ad-label">Advertisement</span>
-    </div>
-
     <!-- 2-Column Responsive Layout Grid -->
     <div class="tb-tool-layout">
       <!-- Main Content Area -->
       <div class="tb-tool-main">
+
+        <!-- Ad Unit: ad-result (Single top ad slot for clean user experience) -->
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
 
     <!-- Workspace -->
     <div class="tb-workspace">
@@ -279,7 +279,7 @@
                 <span>Date of Birth</span>
                 <span class="tb-label-hint">Required</span>
               </label>
-              <input type="date" id="birth-date" class="tb-input" value="1998-05-15" required>
+              <input type="date" id="birth-date" class="tb-input" value="1998-05-15" min="1900-01-01" max="2100-12-31" autocomplete="bday" required>
             </div>
 
             <div class="tb-field">
@@ -287,7 +287,7 @@
                 <span>Calculate Age As Of</span>
                 <span class="tb-label-hint">Defaults to Today</span>
               </label>
-              <input type="date" id="as-of-date" class="tb-input" required>
+              <input type="date" id="as-of-date" class="tb-input" min="1900-01-01" max="2100-12-31" required>
             </div>
 
             <div class="tb-btn-group" style="margin-top: 0.5rem;">
@@ -340,11 +340,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Ad Unit: ad-result -->
-    <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
-      <span class="tb-ad-label">Advertisement</span>
     </div>
 
     <!-- SEO Comprehensive Guide & FAQ -->
@@ -512,6 +507,7 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
   <script src="js/ads.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -605,12 +601,18 @@
         }
       }
 
-      btnCalc.addEventListener('click', () => calculateExactAge(true));
-      [birthInput, asOfInput].forEach(el => {
-        el.addEventListener('change', () => calculateExactAge(false));
+      // Initialize with demo results on cold load, persistence, and reload-to-ad on calculate
+      CalcCore.bindCalculator({
+        formSelector: '#age-form',
+        calculateBtnSelector: '#btn-calc-age',
+        calculateFn: () => calculateExactAge(false),
+        adSlotId: 'ad-result-slot'
       });
 
       btnResetToday.addEventListener('click', () => {
+        CalcCore.clearFormState();
+        window.history.replaceState({}, '', window.location.pathname);
+        birthInput.value = '1998-05-15';
         asOfInput.value = formatYMD(new Date());
         calculateExactAge(false);
       });
@@ -626,8 +628,6 @@ Total Hours: ${statHours.textContent}
 Calculated on ToolsBuddy (https://toolsbuddy.pages.dev/age-calculator.html)`;
         window.copyToClipboard(text, 'Age report copied!');
       });
-
-      calculateExactAge(false);
     });
   </script>
 </body>

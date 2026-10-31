@@ -65,7 +65,7 @@
       const centerX = width / 2;
       const centerY = height / 2;
       const outerRadius = Math.min(centerX, centerY) - 10;
-      const innerRadius = outerRadius * 0.65;
+      const innerRadius = outerRadius * (options.cutout !== undefined ? options.cutout : 0.65);
 
       let startAngle = -Math.PI / 2;
 
@@ -104,6 +104,112 @@
         ctx.fillStyle = theme.textColor;
         ctx.fillText(options.centerValue, centerX, centerY + (options.centerLabel ? 10 : 0));
       }
+    },
+
+    /**
+     * Alias for drawDonut to support both drawDonut and drawDonutChart call signatures
+     */
+    drawDonutChart(canvasEl, slices, options = {}) {
+      return this.drawDonut(canvasEl, slices, options);
+    },
+
+    /**
+     * Renders a responsive, clean Bar Chart
+     * @param {HTMLCanvasElement|string} canvasEl
+     * @param {Array<string>} xLabels
+     * @param {Array<{label: string, data: number[], color: string}>} series
+     * @param {Object} options
+     */
+    drawBarChart(canvasEl, xLabels, series, options = {}) {
+      const canvas = typeof canvasEl === 'string' ? document.querySelector(canvasEl) : canvasEl;
+      if (!canvas) return;
+
+      const { ctx, width, height } = this.setupCanvas(canvas);
+      const theme = this.getTheme();
+
+      const padding = { top: 25, right: 15, bottom: 40, left: 55 };
+      const chartWidth = width - padding.left - padding.right;
+      const chartHeight = height - padding.top - padding.bottom;
+
+      if (chartWidth <= 0 || chartHeight <= 0) return;
+
+      const numBars = xLabels.length;
+      if (numBars === 0) return;
+
+      const data = series[0]?.data || [];
+      const barColor = series[0]?.color || '#0066ff';
+
+      let maxVal = 0;
+      data.forEach(v => {
+        if (v > maxVal) maxVal = v;
+      });
+      maxVal = maxVal * 1.15 || 100; // 15% headroom
+
+      // Grid lines & Y-axis labels
+      const gridLines = 4;
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'middle';
+      ctx.font = '11px sans-serif';
+
+      for (let i = 0; i <= gridLines; i++) {
+        const yVal = (maxVal / gridLines) * i;
+        const yPos = padding.top + chartHeight - (i / gridLines) * chartHeight;
+
+        ctx.beginPath();
+        ctx.strokeStyle = theme.gridColor;
+        ctx.lineWidth = 1;
+        ctx.moveTo(padding.left, yPos);
+        ctx.lineTo(padding.left + chartWidth, yPos);
+        ctx.stroke();
+
+        ctx.fillStyle = theme.mutedColor;
+        let formattedVal = yVal >= 1000 ? (yVal / 1000).toFixed(1) + 'k' : Math.round(yVal);
+        ctx.fillText(String(formattedVal), padding.left - 8, yPos);
+      }
+
+      // Draw Bars
+      const slotWidth = chartWidth / numBars;
+      const barWidth = Math.min(48, slotWidth * 0.58);
+
+      data.forEach((val, i) => {
+        const barHeight = Math.max(2, (val / maxVal) * chartHeight);
+        const x = padding.left + i * slotWidth + (slotWidth - barWidth) / 2;
+        const y = padding.top + chartHeight - barHeight;
+
+        // Rounded top bar
+        const radius = Math.min(4, barWidth / 2);
+        ctx.beginPath();
+        ctx.moveTo(x, padding.top + chartHeight);
+        ctx.lineTo(x, y + radius);
+        ctx.quadraticCurveTo(x, y, x + radius, y);
+        ctx.lineTo(x + barWidth - radius, y);
+        ctx.quadraticCurveTo(x + barWidth, y, x + barWidth, y + radius);
+        ctx.lineTo(x + barWidth, padding.top + chartHeight);
+        ctx.closePath();
+
+        // Gradient
+        const grad = ctx.createLinearGradient(0, y, 0, padding.top + chartHeight);
+        grad.addColorStop(0, barColor);
+        grad.addColorStop(1, barColor + 'bb');
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        // Value on top of bar
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.fillStyle = theme.textColor;
+        ctx.font = '600 11px sans-serif';
+        const displayVal = val >= 1000 ? (val >= 10000 ? Math.round(val / 1000) + 'k' : val.toLocaleString('en-US')) : val;
+        ctx.fillText(String(displayVal), x + barWidth / 2, y - 4);
+
+        // X label below bar
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        ctx.fillStyle = theme.mutedColor;
+        ctx.font = '11px sans-serif';
+        const label = xLabels[i] || '';
+        ctx.fillText(label, x + barWidth / 2, padding.top + chartHeight + 8);
+      });
     },
 
     /**

@@ -299,6 +299,11 @@
       <button type="button" class="tb-preset-chip" data-preset='{"homePrice":750000,"downPayment":150000,"downPct":20,"rate":6.25,"term":30,"propTax":9000,"homeIns":2400,"hoa":250}'>Jumbo Loan (750k)</button>
     </div>
 
+    <!-- Ad Unit: ad-result (On its own row above results) -->
+    <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+      <span class="tb-ad-label">Advertisement</span>
+    </div>
+
     <!-- Workspace -->
     <div class="tb-workspace">
       <div class="tb-workspace-inner">
@@ -893,11 +898,18 @@ Calculated via ToolsBuddy: ${window.location.href}`;
         CalcCore.setCurrency(e.target.value);
       });
 
-      // Bind Reactive Engine & Share
-      CalcCore.bindReactive(form, calculateMortgage);
-      document.getElementById('btn-calculate')?.addEventListener('click', calculateMortgage);
+      // Initialize with demo results on cold load, persistence, and reload-to-ad on calculate
+      CalcCore.bindCalculator({
+        formSelector: form,
+        calculateBtnSelector: '#btn-calculate',
+        calculateFn: calculateMortgage,
+        adSlotId: 'ad-result-slot'
+      });
+
       document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
       document.getElementById('btn-reset')?.addEventListener('click', () => {
+        CalcCore.clearFormState();
+        window.history.replaceState({}, '', window.location.pathname);
         form.reset();
         inHomePrice.value = '400,000';
         inDownPayment.value = '80,000';
@@ -910,9 +922,6 @@ Calculated via ToolsBuddy: ${window.location.href}`;
         inExtraPay.value = '0';
         calculateMortgage();
       });
-
-      // Initial calculation
-      calculateMortgage();
     });
   </script>
 </body>

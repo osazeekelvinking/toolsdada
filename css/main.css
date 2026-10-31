@@ -4,6 +4,7 @@
    ========================================================================== */
 
 :root {
+  color-scheme: light;
   /* Color Palette - Light Mode */
   --bg-primary: #f8fafc;
   --bg-surface: #ffffff;
@@ -56,7 +57,14 @@
 }
 
 /* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+  }
+}
+
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg-primary: #0b0f19;
   --bg-surface: #111827;
   --bg-surface-elevated: #1e293b;
@@ -1039,10 +1047,12 @@ img, svg {
   margin: 1rem auto 2.25rem;
 }
 
-.tb-ad-container.ad-result {
+.tb-ad-container.ad-result,
+#ad-result-slot {
   max-width: 728px;
   min-height: 90px;
   margin: 2.25rem auto;
+  scroll-margin-top: 85px;
 }
 
 .tb-ad-container.ad-footer {

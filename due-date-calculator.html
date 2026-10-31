@@ -282,6 +282,11 @@
           </div>
         </div>
 
+        <!-- Ad Unit: ad-result (On its own row above results) -->
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
         <!-- Workspace -->
         <div class="tb-workspace">
           <div class="tb-workspace-inner">
@@ -300,7 +305,7 @@
 
                 <div class="tb-field">
                   <label for="inp-date" class="tb-label" id="lbl-date">First Day of Last Period</label>
-                  <input type="date" id="inp-date" class="tb-input" required>
+                  <input type="date" id="inp-date" class="tb-input" min="1900-01-01" max="2100-12-31" required>
                   <span class="tb-hint" id="hint-date">Select the date your last menstrual cycle began.</span>
                 </div>
 
@@ -721,13 +726,14 @@ Calculated via ToolsBuddy: ${window.location.href}`;
         });
       });
 
-      // Reactive & buttons
-      CalcCore.bindReactive(form, calculateDueDate);
-      document.getElementById('btn-calculate')?.addEventListener('click', calculateDueDate);
+      // Initialize with demo results on cold load, persistence, and reload-to-ad on calculate
+      CalcCore.bindCalculator({
+        formSelector: '#duedate-form',
+        calculateBtnSelector: '#btn-calculate',
+        calculateFn: () => calculateDueDate(false),
+        adSlotId: 'ad-result-slot'
+      });
       document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
-
-      // Initial run
-      calculateDueDate();
     });
   </script>
 </body>

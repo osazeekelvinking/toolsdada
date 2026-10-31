@@ -291,6 +291,11 @@
           </div>
         </div>
 
+        <!-- Ad Unit: ad-result (On its own row above results) -->
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
+
         <!-- Workspace -->
         <div class="tb-workspace">
           <div class="tb-workspace-inner">
@@ -765,17 +770,21 @@ Calculated via ToolsBuddy: ${window.location.href}`;
         CalcCore.setCurrency(e.target.value);
       });
 
-      // Reactive & buttons
-      CalcCore.bindReactive(form, calculateAutoLoan);
-      document.getElementById('btn-calculate')?.addEventListener('click', calculateAutoLoan);
+      // Initialize with demo results on cold load, persistence, and reload-to-ad on calculate
+      CalcCore.bindCalculator({
+        formSelector: form,
+        calculateBtnSelector: '#btn-calculate',
+        calculateFn: calculateAutoLoan,
+        adSlotId: 'ad-result-slot'
+      });
+
       document.getElementById('btn-share-calc')?.addEventListener('click', () => CalcCore.copyShareUrl(form));
       document.getElementById('btn-reset')?.addEventListener('click', () => {
+        CalcCore.clearFormState();
+        window.history.replaceState({}, '', window.location.pathname);
         form.reset();
         calculateAutoLoan();
       });
-
-      // Initial run
-      calculateAutoLoan();
     });
   </script>
 </body>

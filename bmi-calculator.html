@@ -255,15 +255,15 @@
       </p>
     </div>
 
-    <!-- Ad Unit: ad-top -->
-    <div class="tb-ad-container ad-top" id="ad-top-slot" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432">
-      <span class="tb-ad-label">Advertisement</span>
-    </div>
-
     <!-- 2-Column Responsive Layout Grid -->
     <div class="tb-tool-layout">
       <!-- Main Content Area -->
       <div class="tb-tool-main">
+
+        <!-- Ad Unit: ad-result (Single top ad slot for clean user experience) -->
+        <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
+          <span class="tb-ad-label">Advertisement</span>
+        </div>
 
     <!-- Workspace -->
     <div class="tb-workspace">
@@ -394,11 +394,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Ad Unit: ad-result -->
-    <div class="tb-ad-container ad-result" id="ad-result-slot" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699">
-      <span class="tb-ad-label">Advertisement</span>
     </div>
 
     <!-- SEO Comprehensive Guide & FAQ -->
@@ -561,6 +556,7 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script src="js/calc-core.js"></script>
   <script src="js/ads.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -702,12 +698,17 @@
         }
       }
 
-      btnCalculate.addEventListener('click', () => calcBMI(true));
-      [metricHeight, metricWeight, imperialFeet, imperialInches, imperialWeight].forEach(el => {
-        el.addEventListener('input', () => calcBMI(false));
+      // Initialize with demo results on cold load, persistence, and reload-to-ad on calculate
+      CalcCore.bindCalculator({
+        formSelector: document.querySelector('.tb-workspace'),
+        calculateBtnSelector: '#btn-calc-bmi',
+        calculateFn: () => calcBMI(false),
+        adSlotId: 'ad-result-slot'
       });
 
       btnReset.addEventListener('click', () => {
+        CalcCore.clearFormState();
+        window.history.replaceState({}, '', window.location.pathname);
         if (unit === 'metric') {
           metricHeight.value = '175';
           metricWeight.value = '70';
@@ -728,8 +729,6 @@ BMI Prime: ${resBmiPrime.textContent}
 Calculated on ToolsBuddy (https://toolsbuddy.pages.dev/bmi-calculator.html)`;
         window.copyToClipboard(text, 'BMI report copied!');
       });
-
-      calcBMI(false);
     });
   </script>
 </body>

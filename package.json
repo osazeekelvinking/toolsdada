@@ -6,7 +6,8 @@
   "scripts": {
     "sync": "node tools/sync.js",
     "scaffold": "node tools/scaffold.js",
-    "test": "node test/ad-integrity.test.js && node test/math-accuracy.test.js",
+    "test": "node test/ad-integrity.test.js && node test/math-accuracy.test.js && node test/catalog-check.js && node test/validate-all-tools.js",
+    "test:tools": "node test/validate-all-tools.js",
     "build:blog": "node cms/build.js",
     "deploy": "wrangler deploy",
     "preview": "wrangler dev",

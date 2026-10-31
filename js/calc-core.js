@@ -31,6 +31,7 @@
     init() {
       this.initCurrency();
       this.initNumberInputs();
+      this.initDateControls();
       this.initUrlState();
       this.initSliders();
     },
@@ -242,6 +243,281 @@
     },
 
     /**
+     * Initializes native date picker enhancements
+     * Sets century boundaries and progressive picker activation
+     */
+    initDateControls() {
+      document.querySelectorAll('input[type="date"]').forEach(inp => {
+        if (inp._tbDateInit) return;
+        inp._tbDateInit = true;
+
+        if (!inp.getAttribute('min')) inp.setAttribute('min', '1900-01-01');
+        if (!inp.getAttribute('max')) inp.setAttribute('max', '2100-12-31');
+
+        inp.addEventListener('click', () => {
+          if (typeof inp.showPicker === 'function') {
+            try { inp.showPicker(); } catch (e) {}
+          }
+        });
+      });
+    },
+
+    /**
+     * Get unique storage key for current tool
+     */
+    getToolKey() {
+      const pathPart = window.location.pathname.split('/').pop().replace(/\.html$/, '') || 'default';
+      return `tb_calc_${pathPart}`;
+    },
+
+    /**
+     * Save all inputs in a form to localStorage
+     */
+    saveFormState(formSelector) {
+      const form = typeof formSelector === 'string' ? document.querySelector(formSelector) : formSelector;
+      if (!form) return;
+      const data = {};
+      form.querySelectorAll('input, select, textarea').forEach(el => {
+        const key = el.id || el.name;
+        if (!key) return;
+        if (el.type === 'checkbox') data[key] = el.checked;
+        else if (el.type === 'radio') {
+          if (el.checked) data[key] = el.value;
+        } else {
+          data[key] = el.value;
+        }
+      });
+      try {
+        localStorage.setItem(this.getToolKey(), JSON.stringify(data));
+      } catch (e) {}
+    },
+
+    /**
+     * Restore form inputs from URL search params (highest priority) or localStorage
+     * Returns true if user inputs were restored (custom state), false if using initial defaults.
+     */
+    restoreFormState(formSelector) {
+      const form = typeof formSelector === 'string' ? document.querySelector(formSelector) : formSelector;
+      if (!form) return false;
+
+      let restored = false;
+      const params = new URLSearchParams(window.location.search);
+      let saved = null;
+      try {
+        const raw = localStorage.getItem(this.getToolKey());
+        if (raw) saved = JSON.parse(raw);
+      } catch (e) {}
+
+      form.querySelectorAll('input, select, textarea').forEach(el => {
+        const key = el.id || el.name;
+        if (!key) return;
+
+        // 1. Check URL params
+        if (params.has(key)) {
+          const val = params.get(key);
+          if (el.type === 'checkbox') el.checked = (val === '1' || val === 'true');
+          else if (el.type === 'radio') el.checked = (el.value === val);
+          else el.value = val;
+          restored = true;
+          return;
+        }
+
+        // 2. Check localStorage
+        if (saved && saved[key] !== undefined) {
+          if (el.type === 'checkbox') el.checked = Boolean(saved[key]);
+          else if (el.type === 'radio') el.checked = (el.value === saved[key]);
+          else el.value = saved[key];
+          restored = true;
+        }
+      });
+
+      // Ensure formatted inputs show commas properly
+      form.querySelectorAll('input').forEach(inp => {
+        if (inp._tbFormatted && inp.value) {
+          inp.value = this.formatNumberString(inp.value);
+        }
+      });
+
+      return restored;
+    },
+
+    /**
+     * Clear persisted form state from localStorage and URL
+     */
+    clearFormState() {
+      try {
+        localStorage.removeItem(this.getToolKey());
+      } catch (e) {}
+    },
+
+    /**
+     * Submit with page reload:
+     * - Validates form
+     * - Saves inputs to localStorage
+     * - Serializes inputs to URL query params
+     * - Forces unique timestamp so EVERY click loads afresh, boosting ad impressions
+     * - Reloads targeting the beginning of #ad-result-slot
+     */
+    submitWithReload(formSelector, targetAnchor = 'ad-result-slot') {
+      const form = typeof formSelector === 'string' ? document.querySelector(formSelector) : formSelector;
+      if (!form) return;
+
+      if (form.reportValidity && !form.reportValidity()) {
+        return;
+      }
+
+      this.saveFormState(form);
+
+      const url = new URL(window.location.href);
+      const params = new URLSearchParams();
+      const elements = form.querySelectorAll('input, select, textarea');
+
+      elements.forEach(el => {
+        const key = el.id || el.name;
+        if (!key) return;
+        if (el.type === 'checkbox') {
+          if (el.checked) params.set(key, '1');
+        } else if (el.type === 'radio') {
+          if (el.checked) params.set(key, el.value);
+        } else if (el.value !== '') {
+          params.set(key, el.value);
+        }
+      });
+
+      params.set('calc', '1');
+      // Adding a unique timestamp guarantees the URL changes on EVERY click,
+      // forcing the browser to perform a full page reload afresh and boost ad impressions
+      // even when the user has clicked Calculate before or left values unchanged.
+      params.set('_t', Date.now().toString());
+      url.search = params.toString();
+      url.hash = targetAnchor;
+
+      try {
+        sessionStorage.setItem('tb_scroll_to_ad', '1');
+      } catch (e) {}
+
+      // Smooth scroll immediately for responsive tactile feedback
+      this.scrollToAdSlot(targetAnchor);
+
+      // Perform reload navigation
+      if (window.location.href === url.toString()) {
+        window.location.reload();
+      } else {
+        window.location.href = url.toString();
+      }
+    },
+
+    /**
+     * Scroll smoothly to the beginning of the ad result slot (accounting for sticky navigation)
+     */
+    scrollToAdSlot(targetId = 'ad-result-slot') {
+      const target = document.getElementById(targetId) || document.getElementById('ad-result') || document.querySelector('.tb-results-card');
+      if (!target) return;
+
+      // Prevent browser from restoring scroll to the bottom/form on reload
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      const performScroll = (behavior = 'smooth') => {
+        const headerOffset = 85; // height of fixed navigation header with comfortable margin
+        const rect = target.getBoundingClientRect();
+        const offsetPosition = rect.top + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: Math.max(0, Math.round(offsetPosition)),
+          behavior: behavior
+        });
+      };
+
+      // Immediate snap
+      performScroll('auto');
+
+      // Subsequent passes to handle async font loads, chart rendering, or table population
+      setTimeout(() => performScroll('smooth'), 120);
+      setTimeout(() => performScroll('smooth'), 350);
+      setTimeout(() => performScroll('smooth'), 700);
+    },
+
+    /**
+     * Check if current page load was triggered by a calculate action
+     */
+    isCalculateTriggered() {
+      const params = new URLSearchParams(window.location.search);
+      const hasParam = params.has('calc') && (params.get('calc') === '1' || params.get('calc') === 'true');
+      const hasHash = window.location.hash.includes('ad-result-slot') || window.location.hash.includes('results');
+      let hasSession = false;
+      try {
+        hasSession = sessionStorage.getItem('tb_scroll_to_ad') === '1';
+        if (hasSession) {
+          sessionStorage.removeItem('tb_scroll_to_ad');
+        }
+      } catch (e) {}
+      return hasParam || hasHash || hasSession;
+    },
+
+    /**
+     * Standard Calculator Initialization:
+     * - Restores saved inputs from URL / localStorage
+     * - Runs calculateFn() (showing demo results on initial cold visit, or restored user results)
+     * - If page reloaded from Calculate click, scrolls directly to beginning of ad-result-slot
+     * - Binds Calculate button(s) and Form Submit to submitWithReload
+     */
+    bindCalculator(options) {
+      const {
+        formSelector,
+        calculateBtnSelector,
+        calculateFn,
+        adSlotId = 'ad-result-slot'
+      } = options;
+
+      const form = typeof formSelector === 'string' ? document.querySelector(formSelector) : formSelector;
+
+      // 1. Restore previous inputs if any exist (URL or localStorage)
+      this.restoreFormState(form);
+
+      // 2. Run initial calculation (produces demo results on cold visit, or restored user results)
+      try {
+        calculateFn();
+      } catch (err) {
+        console.error('Calculation error:', err);
+      }
+
+      // 3. Auto-scroll to ad-result-slot if triggered by calculate reload
+      if (this.isCalculateTriggered()) {
+        this.scrollToAdSlot(adSlotId);
+      }
+
+      // 4. Wire Calculate button(s) to submitWithReload
+      if (calculateBtnSelector) {
+        const btns = typeof calculateBtnSelector === 'string'
+          ? document.querySelectorAll(calculateBtnSelector)
+          : [calculateBtnSelector];
+
+        btns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.submitWithReload(form, adSlotId);
+          });
+        });
+      }
+
+      // 5. Wire Form Submit event
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          this.submitWithReload(form, adSlotId);
+        });
+      }
+
+      // 6. Listen for currency changes
+      window.addEventListener('tb:currency-change', () => {
+        try {
+          calculateFn();
+        } catch (e) {}
+      });
+    },
+
+    /**
      * Debounced Reactive Calculation Listener
      * Automatically triggers calculate callback on input changes
      */
@@ -327,14 +603,39 @@
      */
     copyShareUrl(formSelector) {
       const url = this.getShareUrl(formSelector);
+      const onCopied = () => {
+        if (window.showToast) {
+          window.showToast('Calculation link copied to clipboard! Anyone opening this link will see your exact inputs.', 'success');
+        } else {
+          alert('Link copied to clipboard!');
+        }
+      };
+
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(() => {
-          if (window.showToast) {
-            window.showToast('Calculation link copied to clipboard! Anyone opening this link will see your exact inputs.', 'success');
-          } else {
-            alert('Link copied to clipboard!');
-          }
+        navigator.clipboard.writeText(url).then(onCopied).catch(() => {
+          this.fallbackCopy(url, onCopied);
         });
+      } else {
+        this.fallbackCopy(url, onCopied);
+      }
+    },
+
+    fallbackCopy(text, callback) {
+      try {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.focus();
+        temp.select();
+        const successful = document.execCommand('copy');
+        document.body.removeChild(temp);
+        if (successful && callback) {
+          callback();
+        }
+      } catch (e) {
+        // Silent catch for headless or restricted environments
       }
     },
 
