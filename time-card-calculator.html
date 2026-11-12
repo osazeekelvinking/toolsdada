@@ -209,7 +209,7 @@
 
           <!-- Timesheet Table Days -->
           <div class="timesheet-days-list mb-4">
-            <div style="font-weight: 600; font-size: 0.85rem; color: var(--text-muted, #64748b); display: grid; grid-template-columns: 80px 1fr 1fr 70px; gap: 0.5rem; margin-bottom: 0.5rem; padding: 0 0.5rem;">
+            <div class="timesheet-header-row">
               <span>Day</span>
               <span>Clock In</span>
               <span>Clock Out</span>
@@ -280,6 +280,8 @@
           </button>
         </div>
       </div>
+    </div>
+    </div>
     </div>
 
     <!-- Educational & Explanatory Guide -->
@@ -369,16 +371,12 @@
       const rowsContainer = document.getElementById('timesheet-rows');
       days.forEach(d => {
         const row = document.createElement('div');
-        row.className = 'timesheet-day-row mb-2';
-        row.style.display = 'grid';
-        row.style.gridTemplateColumns = '80px 1fr 1fr 70px';
-        row.style.gap = '0.5rem';
-        row.style.alignItems = 'center';
+        row.className = 'timesheet-day-row';
         row.innerHTML = `
-          <span style="font-weight: 500;">${d.label}</span>
-          <input type="time" class="calc-input day-in" id="in-${d.id}" value="${d.in}">
-          <input type="time" class="calc-input day-out" id="out-${d.id}" value="${d.out}">
-          <input type="number" class="calc-input day-break" id="brk-${d.id}" min="0" max="240" step="5" value="${d.brk}" title="Break (minutes)" placeholder="Mins">
+          <span style="font-weight: 600; font-size: 0.85rem;">${d.label}</span>
+          <input type="time" class="calc-input day-in" id="in-${d.id}" value="${d.in}" title="${d.label} Clock In">
+          <input type="time" class="calc-input day-out" id="out-${d.id}" value="${d.out}" title="${d.label} Clock Out">
+          <input type="number" class="calc-input day-break" id="brk-${d.id}" min="0" max="240" step="5" value="${d.brk}" title="${d.label} Break (minutes)" placeholder="Mins">
         `;
         rowsContainer.appendChild(row);
       });

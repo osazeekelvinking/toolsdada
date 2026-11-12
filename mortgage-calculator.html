@@ -24,9 +24,9 @@
   <meta name="twitter:description" content="Calculate monthly mortgage payments with taxes, insurance, and amortization schedules.">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/tool.css">
-  <link rel="stylesheet" href="css/calc-platform.css">
+  <link rel="stylesheet" href="css/main.css?v=2">
+  <link rel="stylesheet" href="css/tool.css?v=2">
+  <link rel="stylesheet" href="css/calc-platform.css?v=2">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -421,9 +421,9 @@
             </div>
 
             <!-- Donut Chart Container -->
-            <div class="tb-chart-card" style="margin-top: 1rem; padding: 1rem;">
+            <div class="tb-chart-card" style="margin-top: 0.75rem; padding: 0.75rem 1rem;">
               <div class="tb-chart-canvas-wrap">
-                <canvas id="mortgage-donut-canvas" width="300" height="220"></canvas>
+                <canvas id="mortgage-donut-canvas" width="300" height="190"></canvas>
               </div>
               <div class="tb-chart-legend" id="mortgage-legend">
                 <div class="tb-legend-item">
@@ -445,26 +445,27 @@
               </div>
             </div>
 
-            <div class="tb-stats-grid cols-2" style="margin-top: 1.25rem;">
-              <div class="tb-stat-box">
-                <div class="tb-stat-num" id="res-loan-amount">$320,000</div>
-                <div class="tb-stat-lbl">Loan Amount</div>
+            <!-- Vertically Stacked Summary Figures (Figure on top, label directly under) -->
+            <div class="tb-summary-stack" style="margin-top: 0.75rem;">
+              <div class="tb-summary-row">
+                <span class="tb-stat-num" id="res-loan-amount">$320,000</span>
+                <span class="tb-stat-lbl">Loan Amount</span>
               </div>
-              <div class="tb-stat-box">
-                <div class="tb-stat-num" id="res-total-interest">$408,150</div>
-                <div class="tb-stat-lbl">Total Interest Paid</div>
+              <div class="tb-summary-row">
+                <span class="tb-stat-num" id="res-total-interest">$408,150</span>
+                <span class="tb-stat-lbl">Total Interest Paid</span>
               </div>
-              <div class="tb-stat-box">
-                <div class="tb-stat-num" id="res-payoff-date">Nov 2056</div>
-                <div class="tb-stat-lbl">Payoff Date</div>
+              <div class="tb-summary-row">
+                <span class="tb-stat-num" id="res-payoff-date">Nov 2056</span>
+                <span class="tb-stat-lbl">Payoff Date</span>
               </div>
-              <div class="tb-stat-box">
-                <div class="tb-stat-num" id="res-interest-saved">$0</div>
-                <div class="tb-stat-lbl">Interest Saved</div>
+              <div class="tb-summary-row">
+                <span class="tb-stat-num" id="res-interest-saved">$0</span>
+                <span class="tb-stat-lbl">Interest Saved</span>
               </div>
             </div>
 
-            <div class="tb-btn-group" style="margin-top: 1rem;">
+            <div class="tb-btn-group" style="margin-top: 0.75rem;">
               <button type="button" class="tb-btn tb-btn-outline tb-btn-sm" id="btn-copy-summary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                 Copy Mortgage Summary

@@ -27,13 +27,21 @@
      * Prepares Canvas for crisp high-DPI (Retina) display
      */
     setupCanvas(canvas) {
+      canvas.style.maxWidth = '100%';
+      canvas.style.height = 'auto';
+
+      const parentWidth = canvas.parentElement ? canvas.parentElement.clientWidth : 0;
       const rect = canvas.getBoundingClientRect();
       const dpr = window.devicePixelRatio || 1;
-      const width = rect.width || canvas.width || 300;
+      let width = rect.width || canvas.width || 300;
+      if (parentWidth > 0 && width > parentWidth) {
+        width = parentWidth;
+      }
       const height = rect.height || canvas.height || 220;
 
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      canvas.style.width = width + 'px';
 
       const ctx = canvas.getContext('2d');
       ctx.scale(dpr, dpr);
